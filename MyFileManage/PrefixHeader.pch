@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  MyFileManage
+//
+//  Created by 掌上先机 on 2017/5/24.
+//  Copyright © 2017年 wangchao. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#define kScreenWidth  [[UIScreen mainScreen] bounds].size.width        //屏幕宽
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height       //屏幕高
+
+
+#endif /* PrefixHeader_pch */

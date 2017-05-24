@@ -47,6 +47,11 @@
 		377E96E91ED53BB80080E86D /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 377E96E71ED53BB80080E86D /* upload.html */; };
 		377E96ED1ED53BC30080E86D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 377E96EB1ED53BC30080E86D /* index.html */; };
 		377E96EE1ED53BC30080E86D /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 377E96EC1ED53BC30080E86D /* upload.html */; };
+		377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E96F21ED55FA70080E86D /* BaseNavgaitionController.m */; };
+		377E96F61ED55FA70080E86D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E96F41ED55FA70080E86D /* MainViewController.m */; };
+		377E96FA1ED560530080E86D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E96F91ED560530080E86D /* SettingViewController.m */; };
+		377E96FF1ED565F10080E86D /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E96FE1ED565F10080E86D /* setting@2x.png */; };
+		377E97011ED567050080E86D /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97001ED567050080E86D /* home@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +148,15 @@
 		377E96E71ED53BB80080E86D /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
 		377E96EB1ED53BC30080E86D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		377E96EC1ED53BC30080E86D /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
+		377E96EF1ED55D990080E86D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		377E96F11ED55FA70080E86D /* BaseNavgaitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavgaitionController.h; sourceTree = "<group>"; };
+		377E96F21ED55FA70080E86D /* BaseNavgaitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavgaitionController.m; sourceTree = "<group>"; };
+		377E96F31ED55FA70080E86D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		377E96F41ED55FA70080E86D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		377E96F81ED560530080E86D /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		377E96F91ED560530080E86D /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		377E96FE1ED565F10080E86D /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting@2x.png"; sourceTree = "<group>"; };
+		377E97001ED567050080E86D /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +209,10 @@
 			children = (
 				377E95E71ED533CD0080E86D /* AppDelegate */,
 				377E95E61ED5339F0080E86D /* Home */,
+				377E96F71ED560260080E86D /* Setting */,
 				377E95EE1ED5367B0080E86D /* Tool */,
+				377E96F01ED55F460080E86D /* BaseToolAndCategory */,
+				377E96FB1ED565B00080E86D /* Resource */,
 				377E95C11ED532CD0080E86D /* LaunchScreen.storyboard */,
 				377E95C41ED532CD0080E86D /* Info.plist */,
 				377E95BF1ED532CD0080E86D /* Assets.xcassets */,
@@ -208,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				377E95B41ED532CD0080E86D /* main.m */,
+				377E96EF1ED55D990080E86D /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -388,6 +406,35 @@
 			path = web;
 			sourceTree = "<group>";
 		};
+		377E96F01ED55F460080E86D /* BaseToolAndCategory */ = {
+			isa = PBXGroup;
+			children = (
+				377E96F11ED55FA70080E86D /* BaseNavgaitionController.h */,
+				377E96F21ED55FA70080E86D /* BaseNavgaitionController.m */,
+				377E96F31ED55FA70080E86D /* MainViewController.h */,
+				377E96F41ED55FA70080E86D /* MainViewController.m */,
+			);
+			path = BaseToolAndCategory;
+			sourceTree = "<group>";
+		};
+		377E96F71ED560260080E86D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				377E96F81ED560530080E86D /* SettingViewController.h */,
+				377E96F91ED560530080E86D /* SettingViewController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		377E96FB1ED565B00080E86D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				377E96FE1ED565F10080E86D /* setting@2x.png */,
+				377E97001ED567050080E86D /* home@2x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,6 +551,8 @@
 				377E96ED1ED53BC30080E86D /* index.html in Resources */,
 				377E95C01ED532CD0080E86D /* Assets.xcassets in Resources */,
 				377E96A81ED53A180080E86D /* README.txt in Resources */,
+				377E96FF1ED565F10080E86D /* setting@2x.png in Resources */,
+				377E97011ED567050080E86D /* home@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +594,7 @@
 				377E96A61ED53A180080E86D /* ContextFilterLogFormatter.m in Sources */,
 				377E96A51ED53A180080E86D /* DDTTYLogger.m in Sources */,
 				377E96A31ED53A180080E86D /* DDFileLogger.m in Sources */,
+				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
 				377E96A41ED53A180080E86D /* DDLog.m in Sources */,
 				377E95B51ED532CD0080E86D /* main.m in Sources */,
 				377E96A71ED53A180080E86D /* DispatchQueueLogFormatter.m in Sources */,
@@ -552,6 +602,8 @@
 				377E96DE1ED53A6F0080E86D /* HTTPErrorResponse.m in Sources */,
 				377E96D31ED53A6F0080E86D /* DDRange.m in Sources */,
 				377E96D81ED53A6F0080E86D /* MultipartFormDataParser.m in Sources */,
+				377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */,
+				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
 				377E96D51ED53A6F0080E86D /* HTTPConnection.m in Sources */,
 				377E96D91ED53A6F0080E86D /* MultipartMessageHeader.m in Sources */,
 				377E96DB1ED53A6F0080E86D /* HTTPAsyncFileResponse.m in Sources */,
@@ -702,6 +754,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				GCC_PREFIX_HEADER = MyFileManage/PrefixHeader.pch;
 				INFOPLIST_FILE = MyFileManage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -715,6 +768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				GCC_PREFIX_HEADER = MyFileManage/PrefixHeader.pch;
 				INFOPLIST_FILE = MyFileManage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -792,6 +846,7 @@
 				377E95DF1ED532CD0080E86D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		377E95E01ED532CD0080E86D /* Build configuration list for PBXNativeTarget "MyFileManageTests" */ = {
 			isa = XCConfigurationList;
@@ -800,6 +855,7 @@
 				377E95E21ED532CD0080E86D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		377E95E31ED532CD0080E86D /* Build configuration list for PBXNativeTarget "MyFileManageUITests" */ = {
 			isa = XCConfigurationList;
@@ -808,6 +864,7 @@
 				377E95E51ED532CD0080E86D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

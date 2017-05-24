@@ -14,7 +14,7 @@
 #import "MyHTTPConnection.h"
 
 
-#import "homeViewController.h"
+#import "MainViewController.h"
 
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -33,7 +33,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window.rootViewController = [homeViewController new];
+    self.window.rootViewController = [MainViewController new];
     
     
     [self.window makeKeyAndVisible];
