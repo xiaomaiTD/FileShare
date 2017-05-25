@@ -29,8 +29,7 @@
                 
                 _fileType = temp;
                 
-                NSLog(@"temp-------%@",temp);
-                
+                 
                 _fileName = [fileString substringWithRange:NSMakeRange(0, fileString.length -i - 1)];
                 
                 NSString *path = FileUploadSavePath;
