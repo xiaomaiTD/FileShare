@@ -52,6 +52,12 @@
 		377E96FA1ED560530080E86D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E96F91ED560530080E86D /* SettingViewController.m */; };
 		377E96FF1ED565F10080E86D /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E96FE1ED565F10080E86D /* setting@2x.png */; };
 		377E97011ED567050080E86D /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97001ED567050080E86D /* home@2x.png */; };
+		377E97041ED57F210080E86D /* navLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97021ED57F210080E86D /* navLeft@2x.png */; };
+		377E97051ED57F210080E86D /* navLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97031ED57F210080E86D /* navLeft@3x.png */; };
+		377E97071ED5C4050080E86D /* 点击.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97061ED5C4050080E86D /* 点击.png */; };
+		377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */; };
+		377E970C1ED5C6AC0080E86D /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E970B1ED5C6AC0080E86D /* back@2x.png */; };
+		377E97111ED678990080E86D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97101ED678990080E86D /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +163,14 @@
 		377E96F91ED560530080E86D /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		377E96FE1ED565F10080E86D /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting@2x.png"; sourceTree = "<group>"; };
 		377E97001ED567050080E86D /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
+		377E97021ED57F210080E86D /* navLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navLeft@2x.png"; sourceTree = "<group>"; };
+		377E97031ED57F210080E86D /* navLeft@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navLeft@3x.png"; sourceTree = "<group>"; };
+		377E97061ED5C4050080E86D /* 点击.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点击.png"; sourceTree = "<group>"; };
+		377E97081ED5C5C40080E86D /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
+		377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
+		377E970B1ED5C6AC0080E86D /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		377E970F1ED678990080E86D /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		377E97101ED678990080E86D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +268,8 @@
 			children = (
 				377E95EB1ED533FC0080E86D /* homeViewController.h */,
 				377E95EC1ED533FC0080E86D /* homeViewController.m */,
+				377E97081ED5C5C40080E86D /* ConnectWifiWebViewController.h */,
+				377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -413,6 +429,8 @@
 				377E96F21ED55FA70080E86D /* BaseNavgaitionController.m */,
 				377E96F31ED55FA70080E86D /* MainViewController.h */,
 				377E96F41ED55FA70080E86D /* MainViewController.m */,
+				377E970F1ED678990080E86D /* UIView+Extension.h */,
+				377E97101ED678990080E86D /* UIView+Extension.m */,
 			);
 			path = BaseToolAndCategory;
 			sourceTree = "<group>";
@@ -429,6 +447,10 @@
 		377E96FB1ED565B00080E86D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				377E970B1ED5C6AC0080E86D /* back@2x.png */,
+				377E97061ED5C4050080E86D /* 点击.png */,
+				377E97021ED57F210080E86D /* navLeft@2x.png */,
+				377E97031ED57F210080E86D /* navLeft@3x.png */,
 				377E96FE1ED565F10080E86D /* setting@2x.png */,
 				377E97001ED567050080E86D /* home@2x.png */,
 			);
@@ -545,10 +567,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				377E969E1ED53A180080E86D /* About.txt in Resources */,
+				377E97041ED57F210080E86D /* navLeft@2x.png in Resources */,
+				377E97051ED57F210080E86D /* navLeft@3x.png in Resources */,
 				377E96EE1ED53BC30080E86D /* upload.html in Resources */,
 				377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */,
+				377E97071ED5C4050080E86D /* 点击.png in Resources */,
 				377E96A01ED53A180080E86D /* About.txt in Resources */,
 				377E96ED1ED53BC30080E86D /* index.html in Resources */,
+				377E970C1ED5C6AC0080E86D /* back@2x.png in Resources */,
 				377E95C01ED532CD0080E86D /* Assets.xcassets in Resources */,
 				377E96A81ED53A180080E86D /* README.txt in Resources */,
 				377E96FF1ED565F10080E86D /* setting@2x.png in Resources */,
@@ -601,11 +627,13 @@
 				377E96E11ED53A6F0080E86D /* WebSocket.m in Sources */,
 				377E96DE1ED53A6F0080E86D /* HTTPErrorResponse.m in Sources */,
 				377E96D31ED53A6F0080E86D /* DDRange.m in Sources */,
+				377E97111ED678990080E86D /* UIView+Extension.m in Sources */,
 				377E96D81ED53A6F0080E86D /* MultipartFormDataParser.m in Sources */,
 				377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */,
 				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
 				377E96D51ED53A6F0080E86D /* HTTPConnection.m in Sources */,
 				377E96D91ED53A6F0080E86D /* MultipartMessageHeader.m in Sources */,
+				377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */,
 				377E96DB1ED53A6F0080E86D /* HTTPAsyncFileResponse.m in Sources */,
 				377E96D21ED53A6F0080E86D /* DDNumber.m in Sources */,
 				377E96D11ED53A6F0080E86D /* DDData.m in Sources */,

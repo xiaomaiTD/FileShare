@@ -35,7 +35,7 @@
     
     //backBtn.backgroundColor = [UIColor redColor];
     
-    [backBtn setImage:[UIImage imageNamed:@"navLeft"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"back@2x"] forState:UIControlStateNormal];
     
     [backBtn addTarget:self action:@selector(backClick:) forControlEvents:UIControlEventTouchUpInside];
     

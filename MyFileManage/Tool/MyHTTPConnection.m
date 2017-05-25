@@ -153,16 +153,22 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
     
     NSString *uploadDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     
+    uploadDirPath = [NSString stringWithFormat:@"%@/MyFileManageUpload",uploadDirPath];
+    
+    NSLog(@"%@",uploadDirPath);
+    
 	BOOL isDir = YES;
 	if (![[NSFileManager defaultManager]fileExistsAtPath:uploadDirPath isDirectory:&isDir ]) {
 		[[NSFileManager defaultManager]createDirectoryAtPath:uploadDirPath withIntermediateDirectories:YES attributes:nil error:nil];
 	}
 	
     NSString* filePath = [uploadDirPath stringByAppendingPathComponent: filename];
+    
     if( [[NSFileManager defaultManager] fileExistsAtPath:filePath] ) {
         storeFile = nil;
     }
     else {
+        
 		HTTPLogVerbose(@"Saving file to %@", filePath);
 		if(![[NSFileManager defaultManager] createDirectoryAtPath:uploadDirPath withIntermediateDirectories:true attributes:nil error:nil]) {
 			HTTPLogError(@"Could not create directory at path: %@", filePath);
@@ -189,6 +195,8 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	// as the file part is over, we close the file.
 	[storeFile closeFile];
 	storeFile = nil;
+    
+    POSTNotificationName(FileFinish, nil);
     
    // NSLog(@"uploadedFiles------%@",uploadedFiles);
 }

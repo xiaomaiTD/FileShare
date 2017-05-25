@@ -36,7 +36,7 @@
     
     
     [self addOneChlildVc:[homeViewController new] title:@"首页" imageName:@"home@2x"];
-    [self addOneChlildVc:[homeViewController new] title:@"设置" imageName:@"setting@2x"];
+    [self addOneChlildVc:[SettingViewController new] title:@"设置" imageName:@"setting@2x"];
     
 
 }
