@@ -59,6 +59,7 @@
 		377E970C1ED5C6AC0080E86D /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E970B1ED5C6AC0080E86D /* back@2x.png */; };
 		377E97111ED678990080E86D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97101ED678990080E86D /* UIView+Extension.m */; };
 		377E97141ED67EDE0080E86D /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97131ED67EDE0080E86D /* DataBaseTool.m */; };
+		377E97161ED68D530080E86D /* tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97151ED68D520080E86D /* tips.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,7 @@
 		377E97101ED678990080E86D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		377E97121ED67EDE0080E86D /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
 		377E97131ED67EDE0080E86D /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
+		377E97151ED68D520080E86D /* tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tips.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -452,6 +454,7 @@
 		377E96FB1ED565B00080E86D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				377E97151ED68D520080E86D /* tips.png */,
 				377E970B1ED5C6AC0080E86D /* back@2x.png */,
 				377E97061ED5C4050080E86D /* 点击.png */,
 				377E97021ED57F210080E86D /* navLeft@2x.png */,
@@ -580,6 +583,7 @@
 				377E96A01ED53A180080E86D /* About.txt in Resources */,
 				377E96ED1ED53BC30080E86D /* index.html in Resources */,
 				377E970C1ED5C6AC0080E86D /* back@2x.png in Resources */,
+				377E97161ED68D530080E86D /* tips.png in Resources */,
 				377E95C01ED532CD0080E86D /* Assets.xcassets in Resources */,
 				377E96A81ED53A180080E86D /* README.txt in Resources */,
 				377E96FF1ED565F10080E86D /* setting@2x.png in Resources */,
