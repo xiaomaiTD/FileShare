@@ -60,6 +60,8 @@
 		377E97111ED678990080E86D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97101ED678990080E86D /* UIView+Extension.m */; };
 		377E97141ED67EDE0080E86D /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97131ED67EDE0080E86D /* DataBaseTool.m */; };
 		377E97161ED68D530080E86D /* tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97151ED68D520080E86D /* tips.png */; };
+		377E971A1ED69BFE0080E86D /* fileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97191ED69BFE0080E86D /* fileModel.m */; };
+		377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E971C1ED6BD1F0080E86D /* openImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +178,10 @@
 		377E97121ED67EDE0080E86D /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
 		377E97131ED67EDE0080E86D /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		377E97151ED68D520080E86D /* tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tips.png; sourceTree = "<group>"; };
+		377E97181ED69BFE0080E86D /* fileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileModel.h; sourceTree = "<group>"; };
+		377E97191ED69BFE0080E86D /* fileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fileModel.m; sourceTree = "<group>"; };
+		377E971B1ED6BD1F0080E86D /* openImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openImageViewController.h; sourceTree = "<group>"; };
+		377E971C1ED6BD1F0080E86D /* openImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,8 +277,11 @@
 		377E95E61ED5339F0080E86D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				377E97171ED69B980080E86D /* Model */,
 				377E95EB1ED533FC0080E86D /* homeViewController.h */,
 				377E95EC1ED533FC0080E86D /* homeViewController.m */,
+				377E971B1ED6BD1F0080E86D /* openImageViewController.h */,
+				377E971C1ED6BD1F0080E86D /* openImageViewController.m */,
 				377E97081ED5C5C40080E86D /* ConnectWifiWebViewController.h */,
 				377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */,
 			);
@@ -465,6 +474,15 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		377E97171ED69B980080E86D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				377E97181ED69BFE0080E86D /* fileModel.h */,
+				377E97191ED69BFE0080E86D /* fileModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -637,10 +655,12 @@
 				377E96DE1ED53A6F0080E86D /* HTTPErrorResponse.m in Sources */,
 				377E96D31ED53A6F0080E86D /* DDRange.m in Sources */,
 				377E97111ED678990080E86D /* UIView+Extension.m in Sources */,
+				377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */,
 				377E96D81ED53A6F0080E86D /* MultipartFormDataParser.m in Sources */,
 				377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */,
 				377E97141ED67EDE0080E86D /* DataBaseTool.m in Sources */,
 				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
+				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
 				377E96D51ED53A6F0080E86D /* HTTPConnection.m in Sources */,
 				377E96D91ED53A6F0080E86D /* MultipartMessageHeader.m in Sources */,
 				377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */,

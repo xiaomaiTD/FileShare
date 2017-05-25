@@ -24,17 +24,12 @@
     
    
     [self.navigationItem setHidesBackButton:YES];
-    
-   // self.interactivePopGestureRecognizer.delegate = nil;
+    self.interactivePopGestureRecognizer.delegate = nil;
     
    
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-   
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    
-    //backBtn.backgroundColor = [UIColor redColor];
-    
     [backBtn setImage:[UIImage imageNamed:@"back@2x"] forState:UIControlStateNormal];
     
     [backBtn addTarget:self action:@selector(backClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -53,9 +48,6 @@
 
 -(void)backClick:(UIButton *)sender{
 
-
-  //  [self categoryBtnAppear];
-
     [self popViewControllerAnimated:YES];
     
 }
@@ -65,17 +57,9 @@
 
     if (self.childViewControllers.count > 0) {
         
-     //   [self categoryBtnHideen];
-        
-
-
             viewController.hidesBottomBarWhenPushed = YES;
             
             viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_backItem];
-            
-            
-        
-
     }
     
     [super pushViewController:viewController animated:animated];

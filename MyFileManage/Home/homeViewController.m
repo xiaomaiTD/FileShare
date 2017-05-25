@@ -8,6 +8,12 @@
 
 #import "homeViewController.h"
 #import "ConnectWifiWebViewController.h"
+#import "openImageViewController.h"
+
+
+
+#import "fileModel.h"
+
 
 
 @interface homeViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -46,34 +52,49 @@
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     
+    _tableView.tableFooterView = [[UIView alloc] init];
+    
     _tableView.delegate = self;
     
     _tableView.dataSource = self;
     
     [self.view addSubview:_tableView];
     
+    [self configueNavItem];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
-    
-    
-    
-    UIButton *rightItem = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    [rightItem addTarget:self action:@selector(rightItemClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [rightItem setImage:[UIImage imageNamed:@"点击"] forState:UIControlStateNormal];
-    
-    
-    rightItem.frame = CGRectMake(0, 0, 25, 25);
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItem];
-    
+
     
     
 }
 
+-(void)configueNavItem{
 
--(void)rightItemClick:(UIButton *)sender{
+    
+    UIButton *leftItem = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [leftItem addTarget:self action:@selector(leftItemClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [leftItem setImage:[UIImage imageNamed:@"点击"] forState:UIControlStateNormal];
+    
+    
+    leftItem.frame = CGRectMake(0, 0, 25, 25);
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftItem];
+    
+    
+    UIButton *addfile = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    
+    [addfile setTintColor:[UIColor orangeColor]];
+    
+    addfile.frame = CGRectMake(0, 0, 25, 25);
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addfile];
+    
+}
+
+
+-(void)leftItemClick:(UIButton *)sender{
 
 
     ConnectWifiWebViewController *vc = [[ConnectWifiWebViewController alloc] init];
@@ -98,7 +119,10 @@
     
     if (_dataSourceArray.count > 0) {
         
-        cell.textLabel.text = _dataSourceArray[indexPath.row];
+        
+        fileModel *model = _dataSourceArray[indexPath.row];
+        
+        cell.textLabel.text = model.fileName;
     }
     
     
@@ -106,6 +130,29 @@
     
     
     
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    if (_dataSourceArray.count > 0) {
+        
+        fileModel *model = _dataSourceArray[indexPath.row];
+        
+        if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
+            
+            openImageViewController *vc = [[openImageViewController alloc] init];
+            
+            vc.model = model;
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+    }
+
+
+
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -141,7 +188,18 @@
  
     NSArray *files = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:uploadDirPath error:nil];
     
-    return files;
+   __block NSMutableArray *fileModelArray = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        fileModel *model = [[fileModel alloc] initWithFileString:[NSString stringWithFormat:@"%@",obj]];
+        
+        [fileModelArray addObject:model];
+        
+    }];
+    
+    
+    return fileModelArray;
     
 }
 
