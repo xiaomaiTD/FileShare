@@ -58,6 +58,7 @@
 		377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */; };
 		377E970C1ED5C6AC0080E86D /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E970B1ED5C6AC0080E86D /* back@2x.png */; };
 		377E97111ED678990080E86D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97101ED678990080E86D /* UIView+Extension.m */; };
+		377E97141ED67EDE0080E86D /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97131ED67EDE0080E86D /* DataBaseTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,8 @@
 		377E970B1ED5C6AC0080E86D /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		377E970F1ED678990080E86D /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		377E97101ED678990080E86D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		377E97121ED67EDE0080E86D /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
+		377E97131ED67EDE0080E86D /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +434,8 @@
 				377E96F41ED55FA70080E86D /* MainViewController.m */,
 				377E970F1ED678990080E86D /* UIView+Extension.h */,
 				377E97101ED678990080E86D /* UIView+Extension.m */,
+				377E97121ED67EDE0080E86D /* DataBaseTool.h */,
+				377E97131ED67EDE0080E86D /* DataBaseTool.m */,
 			);
 			path = BaseToolAndCategory;
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 				377E97111ED678990080E86D /* UIView+Extension.m in Sources */,
 				377E96D81ED53A6F0080E86D /* MultipartFormDataParser.m in Sources */,
 				377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */,
+				377E97141ED67EDE0080E86D /* DataBaseTool.m in Sources */,
 				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
 				377E96D51ED53A6F0080E86D /* HTTPConnection.m in Sources */,
 				377E96D91ED53A6F0080E86D /* MultipartMessageHeader.m in Sources */,

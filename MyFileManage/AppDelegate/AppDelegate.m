@@ -13,7 +13,6 @@
 #import "DDTTYLogger.h"
 #import "MyHTTPConnection.h"
 
-
 #import "MainViewController.h"
 
 
@@ -69,6 +68,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }else{
     
         NSLog(@"listen port ----- %d",[httpServer listeningPort]);
+        
+        [[DataBaseTool shareInstance] setIPAddree:[NSString stringWithFormat:@"%d",[httpServer listeningPort]]];
+        
         
     }
 

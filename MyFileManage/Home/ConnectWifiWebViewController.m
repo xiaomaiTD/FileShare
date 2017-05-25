@@ -39,7 +39,7 @@
     
     _ipLable.layer.masksToBounds = true;
     
-    _ipLable.text = [self getIPAddress];
+    _ipLable.text = [NSString stringWithFormat:@"%@:%@",[self getIPAddress],[[DataBaseTool shareInstance] getIpAddress]];
     
     _ipLable.textAlignment = NSTextAlignmentCenter;
     
@@ -50,6 +50,11 @@
     
 
 
+}
+
+-(void)copy:(id)sender{
+
+    
 }
 
 - (NSString *)getIPAddress {

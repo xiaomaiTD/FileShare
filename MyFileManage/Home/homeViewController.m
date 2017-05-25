@@ -111,20 +111,20 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return _dataSourceArray.count;
+    return self.dataSourceArray.count;
     
 }
 
 
 -(void)fileFinishAndReloadTable{
     
-    [_dataSourceArray removeAllObjects];
+    [self.dataSourceArray removeAllObjects];
     
     NSArray *allFiles = [self getAllUploadAllFileNames];
     
-    [_dataSourceArray addObjectsFromArray:allFiles];
+    [self.dataSourceArray addObjectsFromArray:allFiles];
     
-    [_tableView reloadData];
+    [self.tableView reloadData];
     
   //  NSLog(@"allFiles-----%@",allFiles);
     
