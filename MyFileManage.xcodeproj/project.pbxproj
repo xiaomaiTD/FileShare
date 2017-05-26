@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
+		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
+		374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B51ED7D088004CFD0B /* ZoomImageView.m */; };
+		374AB5C01ED7D0C7004CFD0B /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5BC1ED7D0C7004CFD0B /* MBProgressHUD+NJ.m */; };
+		374AB5C11ED7D0C7004CFD0B /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 374AB5BD1ED7D0C7004CFD0B /* MBProgressHUD.bundle */; };
+		374AB5C21ED7D0C7004CFD0B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5BF1ED7D0C7004CFD0B /* MBProgressHUD.m */; };
 		377E95B51ED532CD0080E86D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E95B41ED532CD0080E86D /* main.m */; };
 		377E95C01ED532CD0080E86D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377E95BF1ED532CD0080E86D /* Assets.xcassets */; };
 		377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 377E95C11ED532CD0080E86D /* LaunchScreen.storyboard */; };
@@ -57,11 +63,10 @@
 		377E97071ED5C4050080E86D /* 点击.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97061ED5C4050080E86D /* 点击.png */; };
 		377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */; };
 		377E970C1ED5C6AC0080E86D /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E970B1ED5C6AC0080E86D /* back@2x.png */; };
-		377E97111ED678990080E86D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97101ED678990080E86D /* UIView+Extension.m */; };
-		377E97141ED67EDE0080E86D /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97131ED67EDE0080E86D /* DataBaseTool.m */; };
 		377E97161ED68D530080E86D /* tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97151ED68D520080E86D /* tips.png */; };
 		377E971A1ED69BFE0080E86D /* fileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97191ED69BFE0080E86D /* fileModel.m */; };
 		377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E971C1ED6BD1F0080E86D /* openImageViewController.m */; };
+		37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DA25EC1ED6EFED000C607B /* playVideoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +87,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		374AB5B11ED7D088004CFD0B /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
+		374AB5B21ED7D088004CFD0B /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
+		374AB5B31ED7D088004CFD0B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		374AB5B41ED7D088004CFD0B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		374AB5B51ED7D088004CFD0B /* ZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageView.m; sourceTree = "<group>"; };
+		374AB5B61ED7D088004CFD0B /* ZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageView.h; sourceTree = "<group>"; };
+		374AB5BB1ED7D0C7004CFD0B /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
+		374AB5BC1ED7D0C7004CFD0B /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
+		374AB5BD1ED7D0C7004CFD0B /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		374AB5BE1ED7D0C7004CFD0B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		374AB5BF1ED7D0C7004CFD0B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		377E95B01ED532CD0080E86D /* MyFileManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFileManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		377E95B41ED532CD0080E86D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		377E95BF1ED532CD0080E86D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,15 +189,13 @@
 		377E97081ED5C5C40080E86D /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
 		377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
 		377E970B1ED5C6AC0080E86D /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
-		377E970F1ED678990080E86D /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		377E97101ED678990080E86D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		377E97121ED67EDE0080E86D /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
-		377E97131ED67EDE0080E86D /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		377E97151ED68D520080E86D /* tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tips.png; sourceTree = "<group>"; };
 		377E97181ED69BFE0080E86D /* fileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileModel.h; sourceTree = "<group>"; };
 		377E97191ED69BFE0080E86D /* fileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fileModel.m; sourceTree = "<group>"; };
 		377E971B1ED6BD1F0080E86D /* openImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openImageViewController.h; sourceTree = "<group>"; };
 		377E971C1ED6BD1F0080E86D /* openImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openImageViewController.m; sourceTree = "<group>"; };
+		37DA25EB1ED6EFED000C607B /* playVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playVideoViewController.h; sourceTree = "<group>"; };
+		37DA25EC1ED6EFED000C607B /* playVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playVideoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +223,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374AB5BA1ED7D0C7004CFD0B /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				374AB5BB1ED7D0C7004CFD0B /* MBProgressHUD+NJ.h */,
+				374AB5BC1ED7D0C7004CFD0B /* MBProgressHUD+NJ.m */,
+				374AB5BD1ED7D0C7004CFD0B /* MBProgressHUD.bundle */,
+				374AB5BE1ED7D0C7004CFD0B /* MBProgressHUD.h */,
+				374AB5BF1ED7D0C7004CFD0B /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		377E95A71ED532CD0080E86D = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +308,8 @@
 				377E95EC1ED533FC0080E86D /* homeViewController.m */,
 				377E971B1ED6BD1F0080E86D /* openImageViewController.h */,
 				377E971C1ED6BD1F0080E86D /* openImageViewController.m */,
+				37DA25EB1ED6EFED000C607B /* playVideoViewController.h */,
+				37DA25EC1ED6EFED000C607B /* playVideoViewController.m */,
 				377E97081ED5C5C40080E86D /* ConnectWifiWebViewController.h */,
 				377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */,
 			);
@@ -300,6 +328,13 @@
 		377E95EE1ED5367B0080E86D /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				374AB5B11ED7D088004CFD0B /* DataBaseTool.h */,
+				374AB5B21ED7D088004CFD0B /* DataBaseTool.m */,
+				374AB5B31ED7D088004CFD0B /* UIView+Extension.h */,
+				374AB5B41ED7D088004CFD0B /* UIView+Extension.m */,
+				374AB5B51ED7D088004CFD0B /* ZoomImageView.m */,
+				374AB5B61ED7D088004CFD0B /* ZoomImageView.h */,
+				374AB5BA1ED7D0C7004CFD0B /* MBProgressHUD */,
 				377E96E21ED53A990080E86D /* MyHTTPConnection.h */,
 				377E96E31ED53A990080E86D /* MyHTTPConnection.m */,
 				377E96EA1ED53BC30080E86D /* web */,
@@ -443,10 +478,6 @@
 				377E96F21ED55FA70080E86D /* BaseNavgaitionController.m */,
 				377E96F31ED55FA70080E86D /* MainViewController.h */,
 				377E96F41ED55FA70080E86D /* MainViewController.m */,
-				377E970F1ED678990080E86D /* UIView+Extension.h */,
-				377E97101ED678990080E86D /* UIView+Extension.m */,
-				377E97121ED67EDE0080E86D /* DataBaseTool.h */,
-				377E97131ED67EDE0080E86D /* DataBaseTool.m */,
 			);
 			path = BaseToolAndCategory;
 			sourceTree = "<group>";
@@ -594,6 +625,7 @@
 			files = (
 				377E969E1ED53A180080E86D /* About.txt in Resources */,
 				377E97041ED57F210080E86D /* navLeft@2x.png in Resources */,
+				374AB5C11ED7D0C7004CFD0B /* MBProgressHUD.bundle in Resources */,
 				377E97051ED57F210080E86D /* navLeft@3x.png in Resources */,
 				377E96EE1ED53BC30080E86D /* upload.html in Resources */,
 				377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */,
@@ -638,6 +670,7 @@
 				377E96D41ED53A6F0080E86D /* HTTPAuthenticationRequest.m in Sources */,
 				377E969F1ED53A180080E86D /* GCDAsyncSocket.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
+				374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */,
 				377E96DF1ED53A6F0080E86D /* HTTPFileResponse.m in Sources */,
 				377E96D61ED53A6F0080E86D /* HTTPMessage.m in Sources */,
 				377E96E01ED53A6F0080E86D /* HTTPRedirectResponse.m in Sources */,
@@ -648,23 +681,26 @@
 				377E96A51ED53A180080E86D /* DDTTYLogger.m in Sources */,
 				377E96A31ED53A180080E86D /* DDFileLogger.m in Sources */,
 				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
+				37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */,
 				377E96A41ED53A180080E86D /* DDLog.m in Sources */,
 				377E95B51ED532CD0080E86D /* main.m in Sources */,
 				377E96A71ED53A180080E86D /* DispatchQueueLogFormatter.m in Sources */,
+				374AB5C01ED7D0C7004CFD0B /* MBProgressHUD+NJ.m in Sources */,
 				377E96E11ED53A6F0080E86D /* WebSocket.m in Sources */,
+				374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */,
 				377E96DE1ED53A6F0080E86D /* HTTPErrorResponse.m in Sources */,
 				377E96D31ED53A6F0080E86D /* DDRange.m in Sources */,
-				377E97111ED678990080E86D /* UIView+Extension.m in Sources */,
 				377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */,
+				374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */,
 				377E96D81ED53A6F0080E86D /* MultipartFormDataParser.m in Sources */,
 				377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */,
-				377E97141ED67EDE0080E86D /* DataBaseTool.m in Sources */,
 				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
 				377E96D51ED53A6F0080E86D /* HTTPConnection.m in Sources */,
 				377E96D91ED53A6F0080E86D /* MultipartMessageHeader.m in Sources */,
 				377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */,
 				377E96DB1ED53A6F0080E86D /* HTTPAsyncFileResponse.m in Sources */,
+				374AB5C21ED7D0C7004CFD0B /* MBProgressHUD.m in Sources */,
 				377E96D21ED53A6F0080E86D /* DDNumber.m in Sources */,
 				377E96D11ED53A6F0080E86D /* DDData.m in Sources */,
 				377E95ED1ED533FC0080E86D /* homeViewController.m in Sources */,

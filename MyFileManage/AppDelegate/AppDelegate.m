@@ -37,6 +37,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     [self.window makeKeyAndVisible];
     
+  //  NSLog(@"======%f", kScreenWidth);
+    
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
     // Initalize our http server
