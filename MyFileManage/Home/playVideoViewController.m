@@ -8,48 +8,112 @@
 
 #import "playVideoViewController.h"
 
+#import "playView.h"
+#import "progressView.h"
+#import "Masonry.h"
+
 
 
 
 @interface playVideoViewController ()
 
 
-@property(nonatomic,strong)UIView *playView;
+@property (strong, nonatomic)playView *myPlayView;
+
+@property(assign,nonatomic)BOOL isHalfScreen;
+
+
 
 
 @end
 
 @implementation playVideoViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _playView = [[UIView alloc] initWithFrame:self.view.bounds];
-    
-    [self.view addSubview:_playView];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
     
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
-   
-   // NSURL *url = [[NSURL alloc] initFileURLWithPath:_model.fullPath];
-    
+    _myPlayView = [[playView alloc] initWithFrameAndUrl:CGRectMake(0, 0, kScreenWidth, kScreenHeight-300) url:_model.fullPath];
+
+    [self.view addSubview:_myPlayView];
     
     
-    // Do any additional setup after loading the view.
+    
+    progressView * view = _myPlayView.playProgress;
+    
+    [view.screenFullButton addTarget:self action:@selector(fullScreenBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-
+-(void)fullScreenBtnClick:(UIButton *)sender{
+    
+    
+    if ([sender.currentTitle isEqualToString:@"全屏"]) {
+        
+        __weak typeof(self) weakSelf = self;
+        
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            
+            weakSelf.myPlayView.frame = CGRectMake(0, 0, kScreenHeight, kScreenWidth);
+            
+            weakSelf.myPlayView.center = self.view.center;
+            CGAffineTransform form = CGAffineTransformIdentity;
+            
+            weakSelf.myPlayView.transform = CGAffineTransformRotate(form, M_PI_2);
+//
+//            
+            
+        } completion:^(BOOL finished) {
+            
+            
+            [sender setTitle:@"小屏" forState:UIControlStateNormal];
+            
+        }];
+        
+        
+    }
+    else{
+        //
+        
+        __weak typeof(self) weakSelf = self;
+        
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            
+            CGAffineTransform form = CGAffineTransformIdentity;
+            
+            weakSelf.myPlayView.transform = CGAffineTransformRotate(form, 0);
+            
+            weakSelf.myPlayView.frame = CGRectMake(0, 0, kScreenWidth , kScreenHeight - 300);
+            
+            
+            
+        } completion:^(BOOL finished) {
+            
+            
+            [sender setTitle:@"全屏" forState:UIControlStateNormal];
+            
+        }];
+        
+        
+        
+    }
+    
     
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 

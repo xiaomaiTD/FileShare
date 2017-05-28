@@ -10,9 +10,6 @@
 		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
 		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
 		374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B51ED7D088004CFD0B /* ZoomImageView.m */; };
-		374AB5C01ED7D0C7004CFD0B /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5BC1ED7D0C7004CFD0B /* MBProgressHUD+NJ.m */; };
-		374AB5C11ED7D0C7004CFD0B /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 374AB5BD1ED7D0C7004CFD0B /* MBProgressHUD.bundle */; };
-		374AB5C21ED7D0C7004CFD0B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5BF1ED7D0C7004CFD0B /* MBProgressHUD.m */; };
 		376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A5F1ED91BB4001BF4F1 /* AVFoundation.framework */; };
 		376F4DC81EDAF8B300CE9B26 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 376F4D861EDAF8B300CE9B26 /* About.txt */; };
 		376F4DC91EDAF8B300CE9B26 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 376F4D881EDAF8B300CE9B26 /* GCDAsyncSocket.m */; };
@@ -69,6 +66,16 @@
 		377E971A1ED69BFE0080E86D /* fileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97191ED69BFE0080E86D /* fileModel.m */; };
 		377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E971C1ED6BD1F0080E86D /* openImageViewController.m */; };
 		37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DA25EC1ED6EFED000C607B /* playVideoViewController.m */; };
+		37E41ADD1EDAFAF60096C7BF /* cacheVideoConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AC91EDAFAF60096C7BF /* cacheVideoConnect.m */; };
+		37E41ADE1EDAFAF60096C7BF /* cacheVideoSaveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ACB1EDAFAF60096C7BF /* cacheVideoSaveCache.m */; };
+		37E41ADF1EDAFAF60096C7BF /* playView+playControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ACF1EDAFAF60096C7BF /* playView+playControl.m */; };
+		37E41AE01EDAFAF60096C7BF /* playView+playInfoShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AD11EDAFAF60096C7BF /* playView+playInfoShow.m */; };
+		37E41AE11EDAFAF60096C7BF /* playView+showHMSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AD31EDAFAF60096C7BF /* playView+showHMSecond.m */; };
+		37E41AE21EDAFAF60096C7BF /* playView+slidePlayControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AD51EDAFAF60096C7BF /* playView+slidePlayControl.m */; };
+		37E41AE31EDAFAF60096C7BF /* playView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AD81EDAFAF60096C7BF /* playView.m */; };
+		37E41AE41EDAFAF60096C7BF /* progressSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ADA1EDAFAF60096C7BF /* progressSlideView.m */; };
+		37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ADC1EDAFAF60096C7BF /* progressView.m */; };
+		55AA0489424634C778B59087 /* libPods-MyFileManage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D709BCD7482118F9BA6191D /* libPods-MyFileManage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,11 +102,6 @@
 		374AB5B41ED7D088004CFD0B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		374AB5B51ED7D088004CFD0B /* ZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageView.m; sourceTree = "<group>"; };
 		374AB5B61ED7D088004CFD0B /* ZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageView.h; sourceTree = "<group>"; };
-		374AB5BB1ED7D0C7004CFD0B /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
-		374AB5BC1ED7D0C7004CFD0B /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
-		374AB5BD1ED7D0C7004CFD0B /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
-		374AB5BE1ED7D0C7004CFD0B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		374AB5BF1ED7D0C7004CFD0B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		376F4D821EDAEEE100CE9B26 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		376F4D861EDAF8B300CE9B26 /* About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = About.txt; sourceTree = "<group>"; };
 		376F4D871EDAF8B300CE9B26 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -214,6 +216,27 @@
 		377E971C1ED6BD1F0080E86D /* openImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openImageViewController.m; sourceTree = "<group>"; };
 		37DA25EB1ED6EFED000C607B /* playVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playVideoViewController.h; sourceTree = "<group>"; };
 		37DA25EC1ED6EFED000C607B /* playVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playVideoViewController.m; sourceTree = "<group>"; };
+		37E41AC81EDAFAF60096C7BF /* cacheVideoConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cacheVideoConnect.h; sourceTree = "<group>"; };
+		37E41AC91EDAFAF60096C7BF /* cacheVideoConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cacheVideoConnect.m; sourceTree = "<group>"; };
+		37E41ACA1EDAFAF60096C7BF /* cacheVideoSaveCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cacheVideoSaveCache.h; sourceTree = "<group>"; };
+		37E41ACB1EDAFAF60096C7BF /* cacheVideoSaveCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cacheVideoSaveCache.m; sourceTree = "<group>"; };
+		37E41ACE1EDAFAF60096C7BF /* playView+playControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "playView+playControl.h"; sourceTree = "<group>"; };
+		37E41ACF1EDAFAF60096C7BF /* playView+playControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "playView+playControl.m"; sourceTree = "<group>"; };
+		37E41AD01EDAFAF60096C7BF /* playView+playInfoShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "playView+playInfoShow.h"; sourceTree = "<group>"; };
+		37E41AD11EDAFAF60096C7BF /* playView+playInfoShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "playView+playInfoShow.m"; sourceTree = "<group>"; };
+		37E41AD21EDAFAF60096C7BF /* playView+showHMSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "playView+showHMSecond.h"; sourceTree = "<group>"; };
+		37E41AD31EDAFAF60096C7BF /* playView+showHMSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "playView+showHMSecond.m"; sourceTree = "<group>"; };
+		37E41AD41EDAFAF60096C7BF /* playView+slidePlayControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "playView+slidePlayControl.h"; sourceTree = "<group>"; };
+		37E41AD51EDAFAF60096C7BF /* playView+slidePlayControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "playView+slidePlayControl.m"; sourceTree = "<group>"; };
+		37E41AD71EDAFAF60096C7BF /* playView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playView.h; sourceTree = "<group>"; };
+		37E41AD81EDAFAF60096C7BF /* playView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playView.m; sourceTree = "<group>"; };
+		37E41AD91EDAFAF60096C7BF /* progressSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = progressSlideView.h; sourceTree = "<group>"; };
+		37E41ADA1EDAFAF60096C7BF /* progressSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = progressSlideView.m; sourceTree = "<group>"; };
+		37E41ADB1EDAFAF60096C7BF /* progressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = progressView.h; sourceTree = "<group>"; };
+		37E41ADC1EDAFAF60096C7BF /* progressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = progressView.m; sourceTree = "<group>"; };
+		5D709BCD7482118F9BA6191D /* libPods-MyFileManage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFileManage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BBEE5BC6080511F749649BD /* Pods-MyFileManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.release.xcconfig"; sourceTree = "<group>"; };
+		95E5D5FA0AB0EBE658CF0DDD /* Pods-MyFileManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +246,7 @@
 			files = (
 				376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */,
 				37739A721ED91C0F001BF4F1 /* UIKit.framework in Frameworks */,
+				55AA0489424634C778B59087 /* libPods-MyFileManage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,18 +267,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		374AB5BA1ED7D0C7004CFD0B /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				374AB5BB1ED7D0C7004CFD0B /* MBProgressHUD+NJ.h */,
-				374AB5BC1ED7D0C7004CFD0B /* MBProgressHUD+NJ.m */,
-				374AB5BD1ED7D0C7004CFD0B /* MBProgressHUD.bundle */,
-				374AB5BE1ED7D0C7004CFD0B /* MBProgressHUD.h */,
-				374AB5BF1ED7D0C7004CFD0B /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		376F4D841EDAF8B300CE9B26 /* cocoaHttpServer */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +415,7 @@
 				37739A5F1ED91BB4001BF4F1 /* AVFoundation.framework */,
 				37739A5D1ED91BA8001BF4F1 /* CoreGraphics.framework */,
 				37739A5B1ED91B9F001BF4F1 /* AudioToolbox.framework */,
+				5D709BCD7482118F9BA6191D /* libPods-MyFileManage.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -425,6 +438,7 @@
 				377E95D71ED532CD0080E86D /* MyFileManageUITests */,
 				377E95B11ED532CD0080E86D /* Products */,
 				37739A5A1ED91B9F001BF4F1 /* Frameworks */,
+				3AFF6A8AC1E347EB99F7106C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -517,8 +531,8 @@
 				374AB5B41ED7D088004CFD0B /* UIView+Extension.m */,
 				374AB5B51ED7D088004CFD0B /* ZoomImageView.m */,
 				374AB5B61ED7D088004CFD0B /* ZoomImageView.h */,
+				37E41AC61EDAFAF60096C7BF /* Player */,
 				376F4D841EDAF8B300CE9B26 /* cocoaHttpServer */,
-				374AB5BA1ED7D0C7004CFD0B /* MBProgressHUD */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -575,6 +589,72 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		37E41AC61EDAFAF60096C7BF /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				37E41AC71EDAFAF60096C7BF /* CacheVideo */,
+				37E41ACC1EDAFAF60096C7BF /* customAVPlaying */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		37E41AC71EDAFAF60096C7BF /* CacheVideo */ = {
+			isa = PBXGroup;
+			children = (
+				37E41AC81EDAFAF60096C7BF /* cacheVideoConnect.h */,
+				37E41AC91EDAFAF60096C7BF /* cacheVideoConnect.m */,
+				37E41ACA1EDAFAF60096C7BF /* cacheVideoSaveCache.h */,
+				37E41ACB1EDAFAF60096C7BF /* cacheVideoSaveCache.m */,
+			);
+			path = CacheVideo;
+			sourceTree = "<group>";
+		};
+		37E41ACC1EDAFAF60096C7BF /* customAVPlaying */ = {
+			isa = PBXGroup;
+			children = (
+				37E41ACD1EDAFAF60096C7BF /* categorys */,
+				37E41AD61EDAFAF60096C7BF /* playView */,
+			);
+			path = customAVPlaying;
+			sourceTree = "<group>";
+		};
+		37E41ACD1EDAFAF60096C7BF /* categorys */ = {
+			isa = PBXGroup;
+			children = (
+				37E41ACE1EDAFAF60096C7BF /* playView+playControl.h */,
+				37E41ACF1EDAFAF60096C7BF /* playView+playControl.m */,
+				37E41AD01EDAFAF60096C7BF /* playView+playInfoShow.h */,
+				37E41AD11EDAFAF60096C7BF /* playView+playInfoShow.m */,
+				37E41AD21EDAFAF60096C7BF /* playView+showHMSecond.h */,
+				37E41AD31EDAFAF60096C7BF /* playView+showHMSecond.m */,
+				37E41AD41EDAFAF60096C7BF /* playView+slidePlayControl.h */,
+				37E41AD51EDAFAF60096C7BF /* playView+slidePlayControl.m */,
+			);
+			path = categorys;
+			sourceTree = "<group>";
+		};
+		37E41AD61EDAFAF60096C7BF /* playView */ = {
+			isa = PBXGroup;
+			children = (
+				37E41AD71EDAFAF60096C7BF /* playView.h */,
+				37E41AD81EDAFAF60096C7BF /* playView.m */,
+				37E41AD91EDAFAF60096C7BF /* progressSlideView.h */,
+				37E41ADA1EDAFAF60096C7BF /* progressSlideView.m */,
+				37E41ADB1EDAFAF60096C7BF /* progressView.h */,
+				37E41ADC1EDAFAF60096C7BF /* progressView.m */,
+			);
+			path = playView;
+			sourceTree = "<group>";
+		};
+		3AFF6A8AC1E347EB99F7106C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95E5D5FA0AB0EBE658CF0DDD /* Pods-MyFileManage.debug.xcconfig */,
+				7BBEE5BC6080511F749649BD /* Pods-MyFileManage.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -582,9 +662,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 377E95DD1ED532CD0080E86D /* Build configuration list for PBXNativeTarget "MyFileManage" */;
 			buildPhases = (
+				60F481FE68534333300682BA /* [CP] Check Pods Manifest.lock */,
 				377E95AC1ED532CD0080E86D /* Sources */,
 				377E95AD1ED532CD0080E86D /* Frameworks */,
 				377E95AE1ED532CD0080E86D /* Resources */,
+				043A5B9B7FF91A2800E4B2BC /* [CP] Embed Pods Frameworks */,
+				C370054685EECF516BA01EC2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -685,7 +768,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				377E97041ED57F210080E86D /* navLeft@2x.png in Resources */,
-				374AB5C11ED7D0C7004CFD0B /* MBProgressHUD.bundle in Resources */,
 				377E97051ED57F210080E86D /* navLeft@3x.png in Resources */,
 				376F4DD21EDAF8B300CE9B26 /* README.txt in Resources */,
 				377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */,
@@ -720,12 +802,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		043A5B9B7FF91A2800E4B2BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60F481FE68534333300682BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C370054685EECF516BA01EC2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		377E95AC1ED532CD0080E86D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				376F4DE01EDAF8B300CE9B26 /* HTTPErrorResponse.m in Sources */,
+				37E41ADD1EDAFAF60096C7BF /* cacheVideoConnect.m in Sources */,
 				376F4DCE1EDAF8B300CE9B26 /* DDLog.m in Sources */,
 				376F4DC91EDAF8B300CE9B26 /* GCDAsyncSocket.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
@@ -735,16 +866,20 @@
 				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
 				376F4DCD1EDAF8B300CE9B26 /* DDFileLogger.m in Sources */,
 				376F4DDF1EDAF8B300CE9B26 /* HTTPDynamicFileResponse.m in Sources */,
+				37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */,
 				376F4DD71EDAF8B300CE9B26 /* HTTPConnection.m in Sources */,
 				37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */,
 				377E95B51ED532CD0080E86D /* main.m in Sources */,
-				374AB5C01ED7D0C7004CFD0B /* MBProgressHUD+NJ.m in Sources */,
+				37E41AE11EDAFAF60096C7BF /* playView+showHMSecond.m in Sources */,
+				37E41ADE1EDAFAF60096C7BF /* cacheVideoSaveCache.m in Sources */,
 				376F4DE21EDAF8B300CE9B26 /* HTTPRedirectResponse.m in Sources */,
 				374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */,
 				377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */,
 				376F4DD11EDAF8B300CE9B26 /* DispatchQueueLogFormatter.m in Sources */,
 				374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */,
+				37E41AE31EDAFAF60096C7BF /* playView.m in Sources */,
 				376F4DDC1EDAF8B300CE9B26 /* MultipartMessageHeaderField.m in Sources */,
+				37E41AE41EDAFAF60096C7BF /* progressSlideView.m in Sources */,
 				376F4DD41EDAF8B300CE9B26 /* DDNumber.m in Sources */,
 				376F4DE31EDAF8B300CE9B26 /* WebSocket.m in Sources */,
 				376F4DCF1EDAF8B300CE9B26 /* DDTTYLogger.m in Sources */,
@@ -755,14 +890,16 @@
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
 				377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */,
 				376F4DD01EDAF8B300CE9B26 /* ContextFilterLogFormatter.m in Sources */,
+				37E41AE21EDAFAF60096C7BF /* playView+slidePlayControl.m in Sources */,
 				376F4DD81EDAF8B300CE9B26 /* HTTPMessage.m in Sources */,
 				376F4DD61EDAF8B300CE9B26 /* HTTPAuthenticationRequest.m in Sources */,
 				376F4DD91EDAF8B300CE9B26 /* HTTPServer.m in Sources */,
 				376F4DCC1EDAF8B300CE9B26 /* DDASLLogger.m in Sources */,
-				374AB5C21ED7D0C7004CFD0B /* MBProgressHUD.m in Sources */,
+				37E41ADF1EDAFAF60096C7BF /* playView+playControl.m in Sources */,
 				376F4DDA1EDAF8B300CE9B26 /* MultipartFormDataParser.m in Sources */,
 				376F4DD31EDAF8B300CE9B26 /* DDData.m in Sources */,
 				376F4DCB1EDAF8B300CE9B26 /* DDAbstractDatabaseLogger.m in Sources */,
+				37E41AE01EDAFAF60096C7BF /* playView+playInfoShow.m in Sources */,
 				376F4DDE1EDAF8B300CE9B26 /* HTTPDataResponse.m in Sources */,
 				376F4DE11EDAF8B300CE9B26 /* HTTPFileResponse.m in Sources */,
 				377E95ED1ED533FC0080E86D /* homeViewController.m in Sources */,
@@ -906,6 +1043,7 @@
 		};
 		377E95DE1ED532CD0080E86D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95E5D5FA0AB0EBE658CF0DDD /* Pods-MyFileManage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
@@ -920,6 +1058,7 @@
 		};
 		377E95DF1ED532CD0080E86D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BBEE5BC6080511F749649BD /* Pods-MyFileManage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
