@@ -35,6 +35,7 @@
 #define FileUploadSavePath  [NSString stringWithFormat:@"%@/MyFileManageUpload",[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]]
 
 #define SupportPictureArray @[@"PNG",@"JPG"]
+#define SupportVideoArray @[@"RMVB",@"MP4"]
 
 
 #endif /* PrefixHeader_pch */

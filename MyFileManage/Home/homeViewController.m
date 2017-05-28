@@ -9,6 +9,7 @@
 #import "homeViewController.h"
 #import "ConnectWifiWebViewController.h"
 #import "openImageViewController.h"
+#import "playVideoViewController.h"
 
 
 
@@ -147,6 +148,17 @@
             
             [self.navigationController pushViewController:vc animated:YES];
         }
+        if ([SupportVideoArray containsObject:[model.fileType uppercaseString]]) {
+            
+            playVideoViewController *vc = [[playVideoViewController alloc] init];
+            
+            vc.model = model;
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            
+            
+        }
+        
         
     }
 

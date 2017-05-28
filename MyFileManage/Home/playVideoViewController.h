@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "fileModel.h"
 
 @interface playVideoViewController : UIViewController
+
+@property(nonatomic,strong)fileModel *model;
+
 
 @end

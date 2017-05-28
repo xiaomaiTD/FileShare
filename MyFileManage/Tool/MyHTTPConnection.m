@@ -196,7 +196,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	[storeFile closeFile];
 	storeFile = nil;
     
-    POSTNotificationName(FileFinish, nil);
+   POSTNotificationName(FileFinish, nil);
     
    // NSLog(@"uploadedFiles------%@",uploadedFiles);
 }

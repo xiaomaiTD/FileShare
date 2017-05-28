@@ -41,22 +41,17 @@
 
     NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
     
-    
     UIImage *fileImage = [UIImage imageWithData:imageData scale:2];
     
     if (iPhone67sp) {
+        
         fileImage = [UIImage imageWithData:imageData scale:3];
     }
-    
-    
     UIImageView *imgV = [[UIImageView alloc] initWithImage:fileImage];
-    
     imgV.contentMode = UIViewContentModeScaleAspectFit;
-    
     _localImgV = imgV;
     
     UITapGestureRecognizer* DoubleTap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(DoubleTapClick:)];//给imageview添加tap手势
-   
     DoubleTap.numberOfTapsRequired = 2;//双击图片执行tapGesAction
     imgV.userInteractionEnabled=YES;
     [imgV addGestureRecognizer:DoubleTap];
@@ -66,11 +61,9 @@
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapClick:)];
     singleTap.numberOfTapsRequired = 1;
-    
     [imgV addGestureRecognizer:singleTap];
-    
-    
     [singleTap requireGestureRecognizerToFail:DoubleTap];
+    
     
     
     
