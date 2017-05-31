@@ -209,10 +209,18 @@
    __block NSMutableArray *fileModelArray = [[NSMutableArray alloc] initWithCapacity:0];
     
     [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        fileModel *model = [[fileModel alloc] initWithFileString:[NSString stringWithFormat:@"%@",obj]];
-        
-        [fileModelArray addObject:model];
+    
+        NSString *fileString = [NSString stringWithFormat:@"%@",obj];
+        //.DS_Store
+        if (![fileString isEqualToString:@".DS_Store"]) {
+            
+            fileModel *model = [[fileModel alloc] initWithFileString:[NSString stringWithFormat:@"%@",obj]];
+            
+            [fileModelArray addObject:model];
+            
+
+            
+        }
         
     }];
     

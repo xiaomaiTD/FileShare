@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */; };
 		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
 		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
 		374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B51ED7D088004CFD0B /* ZoomImageView.m */; };
@@ -96,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderPDFViewController.h; sourceTree = "<group>"; };
+		372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderPDFViewController.m; sourceTree = "<group>"; };
 		374AB5B11ED7D088004CFD0B /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
 		374AB5B21ED7D088004CFD0B /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		374AB5B31ED7D088004CFD0B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -267,6 +270,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		372B6A831EDE5FE300C4E979 /* PDFReader */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PDFReader;
+			sourceTree = "<group>";
+		};
 		376F4D841EDAF8B300CE9B26 /* cocoaHttpServer */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +517,8 @@
 				377E971C1ED6BD1F0080E86D /* openImageViewController.m */,
 				37DA25EB1ED6EFED000C607B /* playVideoViewController.h */,
 				37DA25EC1ED6EFED000C607B /* playVideoViewController.m */,
+				372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */,
+				372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */,
 				377E97081ED5C5C40080E86D /* ConnectWifiWebViewController.h */,
 				377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */,
 			);
@@ -531,6 +543,7 @@
 				374AB5B41ED7D088004CFD0B /* UIView+Extension.m */,
 				374AB5B51ED7D088004CFD0B /* ZoomImageView.m */,
 				374AB5B61ED7D088004CFD0B /* ZoomImageView.h */,
+				372B6A831EDE5FE300C4E979 /* PDFReader */,
 				37E41AC61EDAFAF60096C7BF /* Player */,
 				376F4D841EDAF8B300CE9B26 /* cocoaHttpServer */,
 			);
@@ -867,6 +880,7 @@
 				376F4DCD1EDAF8B300CE9B26 /* DDFileLogger.m in Sources */,
 				376F4DDF1EDAF8B300CE9B26 /* HTTPDynamicFileResponse.m in Sources */,
 				37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */,
+				372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */,
 				376F4DD71EDAF8B300CE9B26 /* HTTPConnection.m in Sources */,
 				37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */,
 				377E95B51ED532CD0080E86D /* main.m in Sources */,

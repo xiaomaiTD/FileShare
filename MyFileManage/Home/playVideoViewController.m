@@ -114,6 +114,13 @@
     
 }
 
+-(void)dealloc{
+
+
+    NSLog(@"dealloc");
+    
+}
+
 
 
 

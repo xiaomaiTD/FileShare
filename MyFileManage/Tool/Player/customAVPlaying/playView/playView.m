@@ -102,6 +102,7 @@
         NSURL *playUrl = [self getSchemeVideoURL:url];
         _videoURLAsset = [AVURLAsset assetWithURL:playUrl];
         //设置resourceLoader的代理
+        
         [_videoURLAsset.resourceLoader setDelegate:_cacheConnnect queue:dispatch_get_main_queue()];
         
         _playItem = [AVPlayerItem playerItemWithAsset:self.videoURLAsset];
@@ -118,6 +119,8 @@
     }
     
 
+    _hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    _hud.label.text = @"正在加载..";
     
     _playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.myPlayer];
     _playerLayer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
@@ -187,18 +190,6 @@
        
        weakself.currentPlayTime = current;
     
-//       if (weakself.currentCacheTime - current <= 1 && weakself.currentCacheTime != 0.000000) {
-//        
-//           
-//           weakself.hud = [MBProgressHUD showHUDAddedTo:weakself animated:true];
-//           
-//           weakself.hud.removeFromSuperViewOnHide = TRUE;
-//           
-//           [weakself pause];
-//           
-//         //  return ;
-//           
-//       }
        
        NSString * currentHMSString = [weakself showHMAndSecondString:current];
        
@@ -224,8 +215,7 @@
     
     __weak playView * weakSelf = self;
     
-  //  NSLog(@"error------%@",itme.errorLog);
-    
+
   
     if ([keyPath isEqualToString:@"status"]) {
         
@@ -241,6 +231,9 @@
             weakSelf.playProgress.playButton.enabled = true;
             
         }else{
+            
+            NSLog(@"error------%@",itme.error);
+            
         
             [_hud hideAnimated:true];
             //  NSLog(@"网络有问题");
