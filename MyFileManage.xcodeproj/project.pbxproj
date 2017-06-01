@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371597A11EDF9A2400B482AB /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597A01EDF9A2400B482AB /* PDFDocument.m */; };
+		371597A51EDF9AE700B482AB /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597A41EDF9AE700B482AB /* File.m */; };
+		371597AC1EDFB1A500B482AB /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597AB1EDFB1A500B482AB /* Device.m */; };
+		371597F11EDFC26E00B482AB /* PDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F01EDFC26E00B482AB /* PDFPage.m */; };
 		372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */; };
 		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
 		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
@@ -97,6 +101,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3715979F1EDF9A2400B482AB /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDocument.h; sourceTree = "<group>"; };
+		371597A01EDF9A2400B482AB /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDocument.m; sourceTree = "<group>"; };
+		371597A31EDF9AE700B482AB /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		371597A41EDF9AE700B482AB /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
+		371597AA1EDFB1A500B482AB /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		371597AB1EDFB1A500B482AB /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
+		371597EF1EDFC26E00B482AB /* PDFPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPage.h; sourceTree = "<group>"; };
+		371597F01EDFC26E00B482AB /* PDFPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPage.m; sourceTree = "<group>"; };
 		372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderPDFViewController.h; sourceTree = "<group>"; };
 		372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderPDFViewController.m; sourceTree = "<group>"; };
 		374AB5B11ED7D088004CFD0B /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
@@ -270,9 +282,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		371597A21EDF9AB500B482AB /* Folder */ = {
+			isa = PBXGroup;
+			children = (
+				371597A31EDF9AE700B482AB /* File.h */,
+				371597A41EDF9AE700B482AB /* File.m */,
+			);
+			path = Folder;
+			sourceTree = "<group>";
+		};
+		371597A91EDFB1A500B482AB /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				371597AA1EDFB1A500B482AB /* Device.h */,
+				371597AB1EDFB1A500B482AB /* Device.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		372B6A831EDE5FE300C4E979 /* PDFReader */ = {
 			isa = PBXGroup;
 			children = (
+				371597A21EDF9AB500B482AB /* Folder */,
+				3715979F1EDF9A2400B482AB /* PDFDocument.h */,
+				371597A01EDF9A2400B482AB /* PDFDocument.m */,
+				371597EF1EDFC26E00B482AB /* PDFPage.h */,
+				371597F01EDFC26E00B482AB /* PDFPage.m */,
 			);
 			path = PDFReader;
 			sourceTree = "<group>";
@@ -474,6 +509,7 @@
 				377E95C11ED532CD0080E86D /* LaunchScreen.storyboard */,
 				377E95C41ED532CD0080E86D /* Info.plist */,
 				377E95BF1ED532CD0080E86D /* Assets.xcassets */,
+				371597A91EDFB1A500B482AB /* Utility */,
 				377E95B31ED532CD0080E86D /* Supporting Files */,
 			);
 			path = MyFileManage;
@@ -876,6 +912,7 @@
 				376F4DDB1EDAF8B300CE9B26 /* MultipartMessageHeader.m in Sources */,
 				376F4DD51EDAF8B300CE9B26 /* DDRange.m in Sources */,
 				374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */,
+				371597A51EDF9AE700B482AB /* File.m in Sources */,
 				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
 				376F4DCD1EDAF8B300CE9B26 /* DDFileLogger.m in Sources */,
 				376F4DDF1EDAF8B300CE9B26 /* HTTPDynamicFileResponse.m in Sources */,
@@ -890,6 +927,7 @@
 				374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */,
 				377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */,
 				376F4DD11EDAF8B300CE9B26 /* DispatchQueueLogFormatter.m in Sources */,
+				371597AC1EDFB1A500B482AB /* Device.m in Sources */,
 				374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */,
 				37E41AE31EDAFAF60096C7BF /* playView.m in Sources */,
 				376F4DDC1EDAF8B300CE9B26 /* MultipartMessageHeaderField.m in Sources */,
@@ -901,6 +939,7 @@
 				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
 				376F4DE41EDAF8B300CE9B26 /* MyHTTPConnection.m in Sources */,
 				376F4DDD1EDAF8B300CE9B26 /* HTTPAsyncFileResponse.m in Sources */,
+				371597A11EDF9A2400B482AB /* PDFDocument.m in Sources */,
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
 				377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */,
 				376F4DD01EDAF8B300CE9B26 /* ContextFilterLogFormatter.m in Sources */,
@@ -910,6 +949,7 @@
 				376F4DD91EDAF8B300CE9B26 /* HTTPServer.m in Sources */,
 				376F4DCC1EDAF8B300CE9B26 /* DDASLLogger.m in Sources */,
 				37E41ADF1EDAFAF60096C7BF /* playView+playControl.m in Sources */,
+				371597F11EDFC26E00B482AB /* PDFPage.m in Sources */,
 				376F4DDA1EDAF8B300CE9B26 /* MultipartFormDataParser.m in Sources */,
 				376F4DD31EDAF8B300CE9B26 /* DDData.m in Sources */,
 				376F4DCB1EDAF8B300CE9B26 /* DDAbstractDatabaseLogger.m in Sources */,
