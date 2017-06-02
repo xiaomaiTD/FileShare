@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		371597A11EDF9A2400B482AB /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597A01EDF9A2400B482AB /* PDFDocument.m */; };
 		371597A51EDF9AE700B482AB /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597A41EDF9AE700B482AB /* File.m */; };
 		371597AC1EDFB1A500B482AB /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597AB1EDFB1A500B482AB /* Device.m */; };
-		371597F11EDFC26E00B482AB /* PDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F01EDFC26E00B482AB /* PDFPage.m */; };
+		371597F91EE0F99900B482AB /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F61EE0F99900B482AB /* PDFDocument.m */; };
+		371597FA1EE0F99900B482AB /* PDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F81EE0F99900B482AB /* PDFPage.m */; };
+		371597FD1EE0F9E000B482AB /* PDFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597FC1EE0F9E000B482AB /* PDFPageViewController.m */; };
 		372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */; };
 		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
 		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
@@ -101,14 +102,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3715979F1EDF9A2400B482AB /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDocument.h; sourceTree = "<group>"; };
-		371597A01EDF9A2400B482AB /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDocument.m; sourceTree = "<group>"; };
 		371597A31EDF9AE700B482AB /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
 		371597A41EDF9AE700B482AB /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
 		371597AA1EDFB1A500B482AB /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
 		371597AB1EDFB1A500B482AB /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
-		371597EF1EDFC26E00B482AB /* PDFPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPage.h; sourceTree = "<group>"; };
-		371597F01EDFC26E00B482AB /* PDFPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPage.m; sourceTree = "<group>"; };
+		371597F51EE0F99900B482AB /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDocument.h; sourceTree = "<group>"; };
+		371597F61EE0F99900B482AB /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDocument.m; sourceTree = "<group>"; };
+		371597F71EE0F99900B482AB /* PDFPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPage.h; sourceTree = "<group>"; };
+		371597F81EE0F99900B482AB /* PDFPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPage.m; sourceTree = "<group>"; };
+		371597FB1EE0F9E000B482AB /* PDFPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPageViewController.h; sourceTree = "<group>"; };
+		371597FC1EE0F9E000B482AB /* PDFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageViewController.m; sourceTree = "<group>"; };
 		372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderPDFViewController.h; sourceTree = "<group>"; };
 		372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderPDFViewController.m; sourceTree = "<group>"; };
 		374AB5B11ED7D088004CFD0B /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
@@ -300,14 +303,40 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		371597F21EE0F46A00B482AB /* PDFView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PDFView;
+			sourceTree = "<group>";
+		};
+		371597F31EE0F92800B482AB /* PDFModel */ = {
+			isa = PBXGroup;
+			children = (
+				371597F51EE0F99900B482AB /* PDFDocument.h */,
+				371597F61EE0F99900B482AB /* PDFDocument.m */,
+				371597F71EE0F99900B482AB /* PDFPage.h */,
+				371597F81EE0F99900B482AB /* PDFPage.m */,
+			);
+			path = PDFModel;
+			sourceTree = "<group>";
+		};
+		371597F41EE0F93900B482AB /* PDFController */ = {
+			isa = PBXGroup;
+			children = (
+				371597FB1EE0F9E000B482AB /* PDFPageViewController.h */,
+				371597FC1EE0F9E000B482AB /* PDFPageViewController.m */,
+			);
+			path = PDFController;
+			sourceTree = "<group>";
+		};
 		372B6A831EDE5FE300C4E979 /* PDFReader */ = {
 			isa = PBXGroup;
 			children = (
+				371597F41EE0F93900B482AB /* PDFController */,
+				371597F31EE0F92800B482AB /* PDFModel */,
+				371597F21EE0F46A00B482AB /* PDFView */,
 				371597A21EDF9AB500B482AB /* Folder */,
-				3715979F1EDF9A2400B482AB /* PDFDocument.h */,
-				371597A01EDF9A2400B482AB /* PDFDocument.m */,
-				371597EF1EDFC26E00B482AB /* PDFPage.h */,
-				371597F01EDFC26E00B482AB /* PDFPage.m */,
 			);
 			path = PDFReader;
 			sourceTree = "<group>";
@@ -905,6 +934,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				376F4DE01EDAF8B300CE9B26 /* HTTPErrorResponse.m in Sources */,
+				371597F91EE0F99900B482AB /* PDFDocument.m in Sources */,
 				37E41ADD1EDAFAF60096C7BF /* cacheVideoConnect.m in Sources */,
 				376F4DCE1EDAF8B300CE9B26 /* DDLog.m in Sources */,
 				376F4DC91EDAF8B300CE9B26 /* GCDAsyncSocket.m in Sources */,
@@ -913,6 +943,7 @@
 				376F4DD51EDAF8B300CE9B26 /* DDRange.m in Sources */,
 				374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */,
 				371597A51EDF9AE700B482AB /* File.m in Sources */,
+				371597FD1EE0F9E000B482AB /* PDFPageViewController.m in Sources */,
 				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
 				376F4DCD1EDAF8B300CE9B26 /* DDFileLogger.m in Sources */,
 				376F4DDF1EDAF8B300CE9B26 /* HTTPDynamicFileResponse.m in Sources */,
@@ -939,8 +970,8 @@
 				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
 				376F4DE41EDAF8B300CE9B26 /* MyHTTPConnection.m in Sources */,
 				376F4DDD1EDAF8B300CE9B26 /* HTTPAsyncFileResponse.m in Sources */,
-				371597A11EDF9A2400B482AB /* PDFDocument.m in Sources */,
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
+				371597FA1EE0F99900B482AB /* PDFPage.m in Sources */,
 				377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */,
 				376F4DD01EDAF8B300CE9B26 /* ContextFilterLogFormatter.m in Sources */,
 				37E41AE21EDAFAF60096C7BF /* playView+slidePlayControl.m in Sources */,
@@ -949,7 +980,6 @@
 				376F4DD91EDAF8B300CE9B26 /* HTTPServer.m in Sources */,
 				376F4DCC1EDAF8B300CE9B26 /* DDASLLogger.m in Sources */,
 				37E41ADF1EDAFAF60096C7BF /* playView+playControl.m in Sources */,
-				371597F11EDFC26E00B482AB /* PDFPage.m in Sources */,
 				376F4DDA1EDAF8B300CE9B26 /* MultipartFormDataParser.m in Sources */,
 				376F4DD31EDAF8B300CE9B26 /* DDData.m in Sources */,
 				376F4DCB1EDAF8B300CE9B26 /* DDAbstractDatabaseLogger.m in Sources */,
