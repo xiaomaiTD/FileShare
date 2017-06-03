@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDFPage.h"
+
 
 @interface PDFPageViewController : UIViewController
+
+@property (nonatomic, strong, readonly) PDFPage *page;
+
+-(instancetype)initWithPage:(PDFPage *)page;
 
 @end

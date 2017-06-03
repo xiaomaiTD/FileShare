@@ -10,6 +10,7 @@
 #import "ConnectWifiWebViewController.h"
 #import "openImageViewController.h"
 #import "playVideoViewController.h"
+#import "ReaderPDFViewController.h"
 
 
 
@@ -161,7 +162,14 @@
             vc.model = model;
             
             [self.navigationController pushViewController:vc animated:YES];
+        }
+        if ([model.fileType isEqualToString:@"pdf"]) {
             
+            ReaderPDFViewController *vc = [[ReaderPDFViewController alloc] init];
+            
+            vc.pdfPath = model.fullPath;
+            
+            [self.navigationController pushViewController:vc animated:YES];
             
         }
         

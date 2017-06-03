@@ -18,4 +18,7 @@
 
 - (instancetype)initWithCGPDFPage:(CGPDFPageRef)CGPDFPage;
 
+- (UIImage *)thumbnailImageWithSize:(CGSize)size cropping:(BOOL)cropping;
+- (void)drawInRect:(CGRect)rect inContext:(CGContextRef)context cropping:(BOOL)cropping;
+
 @end

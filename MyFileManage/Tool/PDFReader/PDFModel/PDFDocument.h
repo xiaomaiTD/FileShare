@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "File.h"
+#import "PDFPage.h"
+
 
 @interface PDFDocument : File
 
@@ -17,5 +19,9 @@
 @property (nonatomic, copy, readonly) NSString *title;
 
 @property(nonatomic,  assign,  readonly)NSUInteger currentPage;
+
+-(instancetype)initWithPath:(NSString *)path;
+
+- (PDFPage *)pageAtIndex:(NSUInteger)index;
 
 @end

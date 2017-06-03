@@ -7,34 +7,94 @@
 //
 
 #import "ReaderPDFViewController.h"
+#import "PDFPageViewController.h"
+#import "PDFDocument.h"
 
-@interface ReaderPDFViewController ()
+
+@interface ReaderPDFViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
+
+
+@property(nonatomic,strong)UIPageViewController *pageVC;
 
 @end
 
 @implementation ReaderPDFViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _document = [[PDFDocument alloc] initWithPath:_pdfPath];
+    
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    
+    self.pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionInterPageSpacingKey:@(24)}];
+    
+    PDFPageViewController *firstVc = [self pageViewControllerAtIndex:1];
+    
+    firstVc.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.pageVC setViewControllers:@[firstVc] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
+    
+    
+    self.pageVC.delegate = self;
+    
+    self.pageVC.dataSource = self;
+    
+    [self addChildViewController:self.pageVC];
+ 
+    [self.view addSubview:self.pageVC.view];
+    
+  
+    self.pageVC.view.frame = self.view.bounds;
+    
+    
     
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+      viewControllerBeforeViewController:(UIViewController *)viewController
+{
+    if (self.document.currentPage == 1) {
+        return nil;
+    }
+    
+    return [self pageViewControllerAtIndex:self.document.currentPage - 1];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+       viewControllerAfterViewController:(UIViewController *)viewController
+{
+    return [self pageViewControllerAtIndex:self.document.currentPage + 1];
 }
-*/
+
+
+- (PDFPageViewController *)pageViewControllerAtIndex:(NSUInteger)index
+{
+    PDFPage *page = [self.document pageAtIndex:index];
+    if (!page) {
+        
+        return nil;
+        
+    }
+    PDFPageViewController *vc =
+    [[PDFPageViewController alloc] initWithPage:page];
+    
+    
+    return vc;
+}
+
 
 @end
