@@ -11,6 +11,7 @@
 #import "openImageViewController.h"
 #import "playVideoViewController.h"
 #import "ReaderPDFViewController.h"
+#import "ReaderTextViewController.h"
 
 
 
@@ -170,6 +171,14 @@
             vc.pdfPath = model.fullPath;
             
             [self.navigationController pushViewController:vc animated:YES];
+            
+        }
+        if ([model.fileType isEqualToString:@"txt"]) {
+            
+            ReaderTextViewController *vc = [[ReaderTextViewController alloc] init];
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        
             
         }
         

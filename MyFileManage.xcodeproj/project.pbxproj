@@ -71,6 +71,7 @@
 		377E97161ED68D530080E86D /* tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 377E97151ED68D520080E86D /* tips.png */; };
 		377E971A1ED69BFE0080E86D /* fileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97191ED69BFE0080E86D /* fileModel.m */; };
 		377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E971C1ED6BD1F0080E86D /* openImageViewController.m */; };
+		37B3B2901EE3A569001D9ECD /* ReaderTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B3B28F1EE3A569001D9ECD /* ReaderTextViewController.m */; };
 		37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DA25EC1ED6EFED000C607B /* playVideoViewController.m */; };
 		37E41ADD1EDAFAF60096C7BF /* cacheVideoConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AC91EDAFAF60096C7BF /* cacheVideoConnect.m */; };
 		37E41ADE1EDAFAF60096C7BF /* cacheVideoSaveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ACB1EDAFAF60096C7BF /* cacheVideoSaveCache.m */; };
@@ -232,6 +233,8 @@
 		377E97191ED69BFE0080E86D /* fileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fileModel.m; sourceTree = "<group>"; };
 		377E971B1ED6BD1F0080E86D /* openImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openImageViewController.h; sourceTree = "<group>"; };
 		377E971C1ED6BD1F0080E86D /* openImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openImageViewController.m; sourceTree = "<group>"; };
+		37B3B28E1EE3A569001D9ECD /* ReaderTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderTextViewController.h; sourceTree = "<group>"; };
+		37B3B28F1EE3A569001D9ECD /* ReaderTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderTextViewController.m; sourceTree = "<group>"; };
 		37DA25EB1ED6EFED000C607B /* playVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playVideoViewController.h; sourceTree = "<group>"; };
 		37DA25EC1ED6EFED000C607B /* playVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playVideoViewController.m; sourceTree = "<group>"; };
 		37E41AC81EDAFAF60096C7BF /* cacheVideoConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cacheVideoConnect.h; sourceTree = "<group>"; };
@@ -307,12 +310,14 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = PDFView;
+			name = PDFView;
+			path = ../PDFView;
 			sourceTree = "<group>";
 		};
 		371597F31EE0F92800B482AB /* PDFModel */ = {
 			isa = PBXGroup;
 			children = (
+				371597F21EE0F46A00B482AB /* PDFView */,
 				371597F51EE0F99900B482AB /* PDFDocument.h */,
 				371597F61EE0F99900B482AB /* PDFDocument.m */,
 				371597F71EE0F99900B482AB /* PDFPage.h */,
@@ -335,7 +340,6 @@
 			children = (
 				371597F41EE0F93900B482AB /* PDFController */,
 				371597F31EE0F92800B482AB /* PDFModel */,
-				371597F21EE0F46A00B482AB /* PDFView */,
 				371597A21EDF9AB500B482AB /* Folder */,
 			);
 			path = PDFReader;
@@ -578,12 +582,14 @@
 				377E97171ED69B980080E86D /* Model */,
 				377E95EB1ED533FC0080E86D /* homeViewController.h */,
 				377E95EC1ED533FC0080E86D /* homeViewController.m */,
-				377E971B1ED6BD1F0080E86D /* openImageViewController.h */,
 				377E971C1ED6BD1F0080E86D /* openImageViewController.m */,
+				377E971B1ED6BD1F0080E86D /* openImageViewController.h */,
 				37DA25EB1ED6EFED000C607B /* playVideoViewController.h */,
 				37DA25EC1ED6EFED000C607B /* playVideoViewController.m */,
 				372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */,
 				372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */,
+				37B3B28E1EE3A569001D9ECD /* ReaderTextViewController.h */,
+				37B3B28F1EE3A569001D9ECD /* ReaderTextViewController.m */,
 				377E97081ED5C5C40080E86D /* ConnectWifiWebViewController.h */,
 				377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */,
 			);
@@ -939,6 +945,7 @@
 				376F4DCE1EDAF8B300CE9B26 /* DDLog.m in Sources */,
 				376F4DC91EDAF8B300CE9B26 /* GCDAsyncSocket.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
+				37B3B2901EE3A569001D9ECD /* ReaderTextViewController.m in Sources */,
 				376F4DDB1EDAF8B300CE9B26 /* MultipartMessageHeader.m in Sources */,
 				376F4DD51EDAF8B300CE9B26 /* DDRange.m in Sources */,
 				374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */,

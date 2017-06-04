@@ -140,6 +140,8 @@
     if (cgPage) {
         
         PDFPage *page = [[PDFPage alloc] initWithCGPDFPage:cgPage];
+        
+        _currentPage = index;
    
         return page;
     } else {
