@@ -13,6 +13,9 @@
 		371597FA1EE0F99900B482AB /* PDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F81EE0F99900B482AB /* PDFPage.m */; };
 		371597FD1EE0F9E000B482AB /* PDFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597FC1EE0F9E000B482AB /* PDFPageViewController.m */; };
 		372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */; };
+		372FD5911EF17C70001A7868 /* ReadTXTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5901EF17C70001A7868 /* ReadTXTView.m */; };
+		372FD5941EF17CA7001A7868 /* ReadTXTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5931EF17CA7001A7868 /* ReadTXTModel.m */; };
+		372FD5971EF184FF001A7868 /* ReadTXTPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5961EF184FF001A7868 /* ReadTXTPageViewController.m */; };
 		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
 		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
 		374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B51ED7D088004CFD0B /* ZoomImageView.m */; };
@@ -72,6 +75,7 @@
 		377E971A1ED69BFE0080E86D /* fileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97191ED69BFE0080E86D /* fileModel.m */; };
 		377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E971C1ED6BD1F0080E86D /* openImageViewController.m */; };
 		37B3B2901EE3A569001D9ECD /* ReaderTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B3B28F1EE3A569001D9ECD /* ReaderTextViewController.m */; };
+		37CB42A41EE63A9D004D1BAC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A6F1ED91C0A001BF4F1 /* QuartzCore.framework */; };
 		37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DA25EC1ED6EFED000C607B /* playVideoViewController.m */; };
 		37E41ADD1EDAFAF60096C7BF /* cacheVideoConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AC91EDAFAF60096C7BF /* cacheVideoConnect.m */; };
 		37E41ADE1EDAFAF60096C7BF /* cacheVideoSaveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ACB1EDAFAF60096C7BF /* cacheVideoSaveCache.m */; };
@@ -115,6 +119,12 @@
 		371597FC1EE0F9E000B482AB /* PDFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageViewController.m; sourceTree = "<group>"; };
 		372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderPDFViewController.h; sourceTree = "<group>"; };
 		372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderPDFViewController.m; sourceTree = "<group>"; };
+		372FD58F1EF17C70001A7868 /* ReadTXTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTView.h; sourceTree = "<group>"; };
+		372FD5901EF17C70001A7868 /* ReadTXTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTView.m; sourceTree = "<group>"; };
+		372FD5921EF17CA7001A7868 /* ReadTXTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTModel.h; sourceTree = "<group>"; };
+		372FD5931EF17CA7001A7868 /* ReadTXTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTModel.m; sourceTree = "<group>"; };
+		372FD5951EF184FF001A7868 /* ReadTXTPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTPageViewController.h; sourceTree = "<group>"; };
+		372FD5961EF184FF001A7868 /* ReadTXTPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTPageViewController.m; sourceTree = "<group>"; };
 		374AB5B11ED7D088004CFD0B /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
 		374AB5B21ED7D088004CFD0B /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		374AB5B31ED7D088004CFD0B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -265,6 +275,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CB42A41EE63A9D004D1BAC /* QuartzCore.framework in Frameworks */,
 				376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */,
 				37739A721ED91C0F001BF4F1 /* UIKit.framework in Frameworks */,
 				55AA0489424634C778B59087 /* libPods-MyFileManage.a in Frameworks */,
@@ -343,6 +354,43 @@
 				371597A21EDF9AB500B482AB /* Folder */,
 			);
 			path = PDFReader;
+			sourceTree = "<group>";
+		};
+		372FD4731EF02955001A7868 /* TXTReader */ = {
+			isa = PBXGroup;
+			children = (
+				372FD58C1EF17C3E001A7868 /* View */,
+				372FD58D1EF17C3E001A7868 /* Controller */,
+				372FD58E1EF17C3E001A7868 /* Model */,
+			);
+			path = TXTReader;
+			sourceTree = "<group>";
+		};
+		372FD58C1EF17C3E001A7868 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				372FD58F1EF17C70001A7868 /* ReadTXTView.h */,
+				372FD5901EF17C70001A7868 /* ReadTXTView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		372FD58D1EF17C3E001A7868 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				372FD5951EF184FF001A7868 /* ReadTXTPageViewController.h */,
+				372FD5961EF184FF001A7868 /* ReadTXTPageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		372FD58E1EF17C3E001A7868 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				372FD5921EF17CA7001A7868 /* ReadTXTModel.h */,
+				372FD5931EF17CA7001A7868 /* ReadTXTModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		376F4D841EDAF8B300CE9B26 /* cocoaHttpServer */ = {
@@ -614,6 +662,7 @@
 				374AB5B41ED7D088004CFD0B /* UIView+Extension.m */,
 				374AB5B51ED7D088004CFD0B /* ZoomImageView.m */,
 				374AB5B61ED7D088004CFD0B /* ZoomImageView.h */,
+				372FD4731EF02955001A7868 /* TXTReader */,
 				372B6A831EDE5FE300C4E979 /* PDFReader */,
 				37E41AC61EDAFAF60096C7BF /* Player */,
 				376F4D841EDAF8B300CE9B26 /* cocoaHttpServer */,
@@ -941,6 +990,8 @@
 			files = (
 				376F4DE01EDAF8B300CE9B26 /* HTTPErrorResponse.m in Sources */,
 				371597F91EE0F99900B482AB /* PDFDocument.m in Sources */,
+				372FD5971EF184FF001A7868 /* ReadTXTPageViewController.m in Sources */,
+				372FD5941EF17CA7001A7868 /* ReadTXTModel.m in Sources */,
 				37E41ADD1EDAFAF60096C7BF /* cacheVideoConnect.m in Sources */,
 				376F4DCE1EDAF8B300CE9B26 /* DDLog.m in Sources */,
 				376F4DC91EDAF8B300CE9B26 /* GCDAsyncSocket.m in Sources */,
@@ -954,6 +1005,7 @@
 				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
 				376F4DCD1EDAF8B300CE9B26 /* DDFileLogger.m in Sources */,
 				376F4DDF1EDAF8B300CE9B26 /* HTTPDynamicFileResponse.m in Sources */,
+				372FD5911EF17C70001A7868 /* ReadTXTView.m in Sources */,
 				37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */,
 				372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */,
 				376F4DD71EDAF8B300CE9B26 /* HTTPConnection.m in Sources */,
