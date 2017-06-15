@@ -16,6 +16,7 @@
 		372FD5911EF17C70001A7868 /* ReadTXTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5901EF17C70001A7868 /* ReadTXTView.m */; };
 		372FD5941EF17CA7001A7868 /* ReadTXTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5931EF17CA7001A7868 /* ReadTXTModel.m */; };
 		372FD5971EF184FF001A7868 /* ReadTXTPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5961EF184FF001A7868 /* ReadTXTPageViewController.m */; };
+		372FD5A01EF29AAF001A7868 /* ReadChapterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD59E1EF29AAF001A7868 /* ReadChapterModel.m */; };
 		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
 		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
 		374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B51ED7D088004CFD0B /* ZoomImageView.m */; };
@@ -125,6 +126,8 @@
 		372FD5931EF17CA7001A7868 /* ReadTXTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTModel.m; sourceTree = "<group>"; };
 		372FD5951EF184FF001A7868 /* ReadTXTPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTPageViewController.h; sourceTree = "<group>"; };
 		372FD5961EF184FF001A7868 /* ReadTXTPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTPageViewController.m; sourceTree = "<group>"; };
+		372FD59E1EF29AAF001A7868 /* ReadChapterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadChapterModel.m; sourceTree = "<group>"; };
+		372FD59F1EF29AAF001A7868 /* ReadChapterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadChapterModel.h; sourceTree = "<group>"; };
 		374AB5B11ED7D088004CFD0B /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
 		374AB5B21ED7D088004CFD0B /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		374AB5B31ED7D088004CFD0B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 			children = (
 				372FD58F1EF17C70001A7868 /* ReadTXTView.h */,
 				372FD5901EF17C70001A7868 /* ReadTXTView.m */,
+				372FD59E1EF29AAF001A7868 /* ReadChapterModel.m */,
+				372FD59F1EF29AAF001A7868 /* ReadChapterModel.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1038,6 +1043,7 @@
 				376F4DD61EDAF8B300CE9B26 /* HTTPAuthenticationRequest.m in Sources */,
 				376F4DD91EDAF8B300CE9B26 /* HTTPServer.m in Sources */,
 				376F4DCC1EDAF8B300CE9B26 /* DDASLLogger.m in Sources */,
+				372FD5A01EF29AAF001A7868 /* ReadChapterModel.m in Sources */,
 				37E41ADF1EDAFAF60096C7BF /* playView+playControl.m in Sources */,
 				376F4DDA1EDAF8B300CE9B26 /* MultipartFormDataParser.m in Sources */,
 				376F4DD31EDAF8B300CE9B26 /* DDData.m in Sources */,
