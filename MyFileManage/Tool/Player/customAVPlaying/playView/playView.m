@@ -120,7 +120,7 @@
     
 
     _hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
-    _hud.label.text = @"正在加载..";
+  //  _hud.label.text = @"正在加载..";
     
     _playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.myPlayer];
     _playerLayer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
@@ -221,7 +221,9 @@
         
         if ([itme status] == AVPlayerStatusReadyToPlay) {
             
-            [_hud hideAnimated:true];
+            [_hud hide:YES];
+            
+        //    [_hud hideAnimated:true];
             
             float total = CMTimeGetSeconds([itme duration]);
             
@@ -234,8 +236,9 @@
             
             NSLog(@"error------%@",itme.error);
             
+            [_hud hide:YES];
         
-            [_hud hideAnimated:true];
+         //   [_hud hideAnimated:true];
             //  NSLog(@"网络有问题");
         
         }
@@ -255,9 +258,11 @@
         weakSelf.playProgress.cacheProgressValue = [NSString stringWithFormat:@"%.6f",timeInterval/totalDuration];
         if (_currentCacheTime - _currentPlayTime > 1 && _myPlayer.rate == 0 ) {
             
-            [self play];
+            [weakSelf play];
             
-            [weakSelf.hud hideAnimated:true];
+            [weakSelf.hud hide:YES];
+            
+           // [weakSelf.hud hideAnimated:true];
         }
         
     }

@@ -101,15 +101,22 @@
     _pageCount = _pageArray.count;
     
 
- /// werwrwrwrwrwr
-   // CGRectMakeWithDictionaryRepresentation(rwrewrwrwrwer, <#CGRect * _Nullable rect#>)
+
 }
 
 -(NSString *)stringOfPage:(NSUInteger)index{
 
 
-    return [NSString stringWithFormat:@"%lu",(unsigned long)_pageArray.count];
-
+    NSUInteger local = [_pageArray[index] integerValue];
+    NSUInteger length;
+    if (index<self.pageCount-1) {
+        length=  [_pageArray[index+1] integerValue] - [_pageArray[index] integerValue];
+    }
+    else{
+        length = _content.length - [_pageArray[index] integerValue];
+    }
+    
+    return [_content substringWithRange:NSMakeRange(local, length)];
 }
 
 @end

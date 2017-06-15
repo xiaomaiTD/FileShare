@@ -7,6 +7,7 @@
 //
 
 #import "ReadTXTPageViewController.h"
+#import "TXTReaderParse.h"
 
 @interface ReadTXTPageViewController ()
 
@@ -21,8 +22,24 @@
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
+    [self.view addSubview:self.textView];
     
-    // Do any additional setup after loading the view.
+    
+}
+
+-(ReadTXTView *)textView{
+
+
+    if (!_textView) {
+        
+        _textView = [[ReadTXTView alloc] initWithFrame:CGRectMake(16, 16, kScreenWidth-32, kScreenHeight-32)];
+        _textView.frameRef = [TXTReaderParse parserContent:_content andBouds:_textView.bounds];
+    }
+    
+    return _textView;
+
+
+
 }
 
 

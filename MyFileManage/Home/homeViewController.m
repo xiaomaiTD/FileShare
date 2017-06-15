@@ -16,6 +16,8 @@
 
 
 #import "fileModel.h"
+#import "ReadTXTModel.h"
+
 
 
 
@@ -175,10 +177,32 @@
         }
         if ([model.fileType isEqualToString:@"txt"]) {
             
-            ReaderTextViewController *vc = [[ReaderTextViewController alloc] init];
+           
             
-            [self.navigationController pushViewController:vc animated:YES];
-        
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                
+
+                NSURL *fileUrl = [NSURL fileURLWithPath:model.fullPath];
+                
+               // NSLog(@"url-----%@",[NSURL fileURLWithPath:model.fullPath]);
+                
+                ReadTXTModel *txtModel = [ReadTXTModel getLocalModelWithUrl:fileUrl];
+                
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   
+                    ReaderTextViewController *vc = [[ReaderTextViewController alloc] init];
+                    vc.model = txtModel;
+                    
+
+                    
+                    [self.navigationController pushViewController:vc animated:YES];
+                    
+
+                });
+                
+                
+            });
             
         }
         

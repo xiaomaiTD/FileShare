@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReadTXTView.h"
+
 
 @interface ReadTXTPageViewController : UIViewController
+
+@property(nonatomic,strong)ReadTXTView *textView;
+
+//电子书 所以字符串
+@property(nonatomic,copy)NSString *content;
+
 
 @end

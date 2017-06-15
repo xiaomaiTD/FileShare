@@ -17,6 +17,10 @@
 		372FD5941EF17CA7001A7868 /* ReadTXTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5931EF17CA7001A7868 /* ReadTXTModel.m */; };
 		372FD5971EF184FF001A7868 /* ReadTXTPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5961EF184FF001A7868 /* ReadTXTPageViewController.m */; };
 		372FD5A01EF29AAF001A7868 /* ReadChapterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD59E1EF29AAF001A7868 /* ReadChapterModel.m */; };
+		372FD5A41EF29C43001A7868 /* TXTReaderParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5A31EF29C43001A7868 /* TXTReaderParse.m */; };
+		372FD5AB1EF2D2F9001A7868 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5A71EF2D2F9001A7868 /* MBProgressHUD+NJ.m */; };
+		372FD5AC1EF2D2F9001A7868 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 372FD5A81EF2D2F9001A7868 /* MBProgressHUD.bundle */; };
+		372FD5AD1EF2D2F9001A7868 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5AA1EF2D2F9001A7868 /* MBProgressHUD.m */; };
 		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
 		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
 		374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B51ED7D088004CFD0B /* ZoomImageView.m */; };
@@ -87,7 +91,7 @@
 		37E41AE31EDAFAF60096C7BF /* playView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AD81EDAFAF60096C7BF /* playView.m */; };
 		37E41AE41EDAFAF60096C7BF /* progressSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ADA1EDAFAF60096C7BF /* progressSlideView.m */; };
 		37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ADC1EDAFAF60096C7BF /* progressView.m */; };
-		55AA0489424634C778B59087 /* libPods-MyFileManage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D709BCD7482118F9BA6191D /* libPods-MyFileManage.a */; };
+		6A1E0D4DC004B85D749A009D /* libPods-MyFileManage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA99DAA997A6074B4A31BC4 /* libPods-MyFileManage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,8 +130,15 @@
 		372FD5931EF17CA7001A7868 /* ReadTXTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTModel.m; sourceTree = "<group>"; };
 		372FD5951EF184FF001A7868 /* ReadTXTPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTPageViewController.h; sourceTree = "<group>"; };
 		372FD5961EF184FF001A7868 /* ReadTXTPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTPageViewController.m; sourceTree = "<group>"; };
-		372FD59E1EF29AAF001A7868 /* ReadChapterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadChapterModel.m; sourceTree = "<group>"; };
-		372FD59F1EF29AAF001A7868 /* ReadChapterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadChapterModel.h; sourceTree = "<group>"; };
+		372FD59E1EF29AAF001A7868 /* ReadChapterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadChapterModel.m; path = ../View/ReadChapterModel.m; sourceTree = "<group>"; };
+		372FD59F1EF29AAF001A7868 /* ReadChapterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadChapterModel.h; path = ../View/ReadChapterModel.h; sourceTree = "<group>"; };
+		372FD5A21EF29C43001A7868 /* TXTReaderParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTReaderParse.h; sourceTree = "<group>"; };
+		372FD5A31EF29C43001A7868 /* TXTReaderParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTReaderParse.m; sourceTree = "<group>"; };
+		372FD5A61EF2D2F9001A7868 /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
+		372FD5A71EF2D2F9001A7868 /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
+		372FD5A81EF2D2F9001A7868 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		372FD5A91EF2D2F9001A7868 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		372FD5AA1EF2D2F9001A7868 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		374AB5B11ED7D088004CFD0B /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
 		374AB5B21ED7D088004CFD0B /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		374AB5B31ED7D088004CFD0B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -194,7 +205,6 @@
 		376F4DC41EDAF8B300CE9B26 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHTTPConnection.m; sourceTree = "<group>"; };
 		376F4DC61EDAF8B300CE9B26 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		376F4DC71EDAF8B300CE9B26 /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
-		37739A5B1ED91B9F001BF4F1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37739A5D1ED91BA8001BF4F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		37739A5F1ED91BB4001BF4F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		37739A611ED91BBF001BF4F1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -207,8 +217,6 @@
 		37739A6F1ED91C0A001BF4F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		37739A711ED91C0F001BF4F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37739A731ED91C17001BF4F1 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		37739AB91ED95F26001BF4F1 /* IJKMediaFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IJKMediaFramework.h; sourceTree = "<group>"; };
-		37739ABA1ED95F26001BF4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377E95B01ED532CD0080E86D /* MyFileManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFileManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		377E95B41ED532CD0080E86D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		377E95BF1ED532CD0080E86D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -268,9 +276,9 @@
 		37E41ADA1EDAFAF60096C7BF /* progressSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = progressSlideView.m; sourceTree = "<group>"; };
 		37E41ADB1EDAFAF60096C7BF /* progressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = progressView.h; sourceTree = "<group>"; };
 		37E41ADC1EDAFAF60096C7BF /* progressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = progressView.m; sourceTree = "<group>"; };
-		5D709BCD7482118F9BA6191D /* libPods-MyFileManage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFileManage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BBEE5BC6080511F749649BD /* Pods-MyFileManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.release.xcconfig"; sourceTree = "<group>"; };
-		95E5D5FA0AB0EBE658CF0DDD /* Pods-MyFileManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.debug.xcconfig"; sourceTree = "<group>"; };
+		3BA99DAA997A6074B4A31BC4 /* libPods-MyFileManage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFileManage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BE11BA20A57DA626274A2BD /* Pods-MyFileManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.debug.xcconfig"; sourceTree = "<group>"; };
+		E03FDBB762C016C433F89C26 /* Pods-MyFileManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,7 +289,7 @@
 				37CB42A41EE63A9D004D1BAC /* QuartzCore.framework in Frameworks */,
 				376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */,
 				37739A721ED91C0F001BF4F1 /* UIKit.framework in Frameworks */,
-				55AA0489424634C778B59087 /* libPods-MyFileManage.a in Frameworks */,
+				6A1E0D4DC004B85D749A009D /* libPods-MyFileManage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +370,7 @@
 		372FD4731EF02955001A7868 /* TXTReader */ = {
 			isa = PBXGroup;
 			children = (
+				372FD5A11EF29C17001A7868 /* TXTReadTool */,
 				372FD58C1EF17C3E001A7868 /* View */,
 				372FD58D1EF17C3E001A7868 /* Controller */,
 				372FD58E1EF17C3E001A7868 /* Model */,
@@ -374,8 +383,6 @@
 			children = (
 				372FD58F1EF17C70001A7868 /* ReadTXTView.h */,
 				372FD5901EF17C70001A7868 /* ReadTXTView.m */,
-				372FD59E1EF29AAF001A7868 /* ReadChapterModel.m */,
-				372FD59F1EF29AAF001A7868 /* ReadChapterModel.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,10 +399,33 @@
 		372FD58E1EF17C3E001A7868 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				372FD59E1EF29AAF001A7868 /* ReadChapterModel.m */,
+				372FD59F1EF29AAF001A7868 /* ReadChapterModel.h */,
 				372FD5921EF17CA7001A7868 /* ReadTXTModel.h */,
 				372FD5931EF17CA7001A7868 /* ReadTXTModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		372FD5A11EF29C17001A7868 /* TXTReadTool */ = {
+			isa = PBXGroup;
+			children = (
+				372FD5A21EF29C43001A7868 /* TXTReaderParse.h */,
+				372FD5A31EF29C43001A7868 /* TXTReaderParse.m */,
+			);
+			path = TXTReadTool;
+			sourceTree = "<group>";
+		};
+		372FD5A51EF2D2F9001A7868 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				372FD5A61EF2D2F9001A7868 /* MBProgressHUD+NJ.h */,
+				372FD5A71EF2D2F9001A7868 /* MBProgressHUD+NJ.m */,
+				372FD5A81EF2D2F9001A7868 /* MBProgressHUD.bundle */,
+				372FD5A91EF2D2F9001A7868 /* MBProgressHUD.h */,
+				372FD5AA1EF2D2F9001A7868 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		376F4D841EDAF8B300CE9B26 /* cocoaHttpServer */ = {
@@ -532,7 +562,6 @@
 			isa = PBXGroup;
 			children = (
 				376F4D821EDAEEE100CE9B26 /* libstdc++.tbd */,
-				37739AB81ED95F26001BF4F1 /* IJKMediaFramework */,
 				37739A731ED91C17001BF4F1 /* VideoToolbox.framework */,
 				37739A711ED91C0F001BF4F1 /* UIKit.framework */,
 				37739A6F1ED91C0A001BF4F1 /* QuartzCore.framework */,
@@ -545,20 +574,9 @@
 				37739A611ED91BBF001BF4F1 /* CoreMedia.framework */,
 				37739A5F1ED91BB4001BF4F1 /* AVFoundation.framework */,
 				37739A5D1ED91BA8001BF4F1 /* CoreGraphics.framework */,
-				37739A5B1ED91B9F001BF4F1 /* AudioToolbox.framework */,
-				5D709BCD7482118F9BA6191D /* libPods-MyFileManage.a */,
+				3BA99DAA997A6074B4A31BC4 /* libPods-MyFileManage.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		37739AB81ED95F26001BF4F1 /* IJKMediaFramework */ = {
-			isa = PBXGroup;
-			children = (
-				37739AB91ED95F26001BF4F1 /* IJKMediaFramework.h */,
-				37739ABA1ED95F26001BF4F1 /* Info.plist */,
-			);
-			name = IJKMediaFramework;
-			path = "../../ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaFramework";
 			sourceTree = "<group>";
 		};
 		377E95A71ED532CD0080E86D = {
@@ -569,7 +587,7 @@
 				377E95D71ED532CD0080E86D /* MyFileManageUITests */,
 				377E95B11ED532CD0080E86D /* Products */,
 				37739A5A1ED91B9F001BF4F1 /* Frameworks */,
-				3AFF6A8AC1E347EB99F7106C /* Pods */,
+				9FE7D7A07000F49AA295B00E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -667,6 +685,7 @@
 				374AB5B41ED7D088004CFD0B /* UIView+Extension.m */,
 				374AB5B51ED7D088004CFD0B /* ZoomImageView.m */,
 				374AB5B61ED7D088004CFD0B /* ZoomImageView.h */,
+				372FD5A51EF2D2F9001A7868 /* MBProgressHUD */,
 				372FD4731EF02955001A7868 /* TXTReader */,
 				372B6A831EDE5FE300C4E979 /* PDFReader */,
 				37E41AC61EDAFAF60096C7BF /* Player */,
@@ -784,11 +803,11 @@
 			path = playView;
 			sourceTree = "<group>";
 		};
-		3AFF6A8AC1E347EB99F7106C /* Pods */ = {
+		9FE7D7A07000F49AA295B00E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				95E5D5FA0AB0EBE658CF0DDD /* Pods-MyFileManage.debug.xcconfig */,
-				7BBEE5BC6080511F749649BD /* Pods-MyFileManage.release.xcconfig */,
+				4BE11BA20A57DA626274A2BD /* Pods-MyFileManage.debug.xcconfig */,
+				E03FDBB762C016C433F89C26 /* Pods-MyFileManage.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -800,12 +819,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 377E95DD1ED532CD0080E86D /* Build configuration list for PBXNativeTarget "MyFileManage" */;
 			buildPhases = (
-				60F481FE68534333300682BA /* [CP] Check Pods Manifest.lock */,
+				C31674FDB11CC82ED0F3EE2A /* [CP] Check Pods Manifest.lock */,
 				377E95AC1ED532CD0080E86D /* Sources */,
 				377E95AD1ED532CD0080E86D /* Frameworks */,
 				377E95AE1ED532CD0080E86D /* Resources */,
-				043A5B9B7FF91A2800E4B2BC /* [CP] Embed Pods Frameworks */,
-				C370054685EECF516BA01EC2 /* [CP] Copy Pods Resources */,
+				0EC76E215CB98ED2AC2F9C6A /* [CP] Embed Pods Frameworks */,
+				4D7F2DFC19908C00733F52AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -907,6 +926,7 @@
 			files = (
 				377E97041ED57F210080E86D /* navLeft@2x.png in Resources */,
 				377E97051ED57F210080E86D /* navLeft@3x.png in Resources */,
+				372FD5AC1EF2D2F9001A7868 /* MBProgressHUD.bundle in Resources */,
 				376F4DD21EDAF8B300CE9B26 /* README.txt in Resources */,
 				377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */,
 				377E97071ED5C4050080E86D /* 点击.png in Resources */,
@@ -941,7 +961,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		043A5B9B7FF91A2800E4B2BC /* [CP] Embed Pods Frameworks */ = {
+		0EC76E215CB98ED2AC2F9C6A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -956,22 +976,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		60F481FE68534333300682BA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C370054685EECF516BA01EC2 /* [CP] Copy Pods Resources */ = {
+		4D7F2DFC19908C00733F52AB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -984,6 +989,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C31674FDB11CC82ED0F3EE2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1016,6 +1036,7 @@
 				376F4DD71EDAF8B300CE9B26 /* HTTPConnection.m in Sources */,
 				37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */,
 				377E95B51ED532CD0080E86D /* main.m in Sources */,
+				372FD5AB1EF2D2F9001A7868 /* MBProgressHUD+NJ.m in Sources */,
 				37E41AE11EDAFAF60096C7BF /* playView+showHMSecond.m in Sources */,
 				37E41ADE1EDAFAF60096C7BF /* cacheVideoSaveCache.m in Sources */,
 				376F4DE21EDAF8B300CE9B26 /* HTTPRedirectResponse.m in Sources */,
@@ -1030,6 +1051,7 @@
 				376F4DD41EDAF8B300CE9B26 /* DDNumber.m in Sources */,
 				376F4DE31EDAF8B300CE9B26 /* WebSocket.m in Sources */,
 				376F4DCF1EDAF8B300CE9B26 /* DDTTYLogger.m in Sources */,
+				372FD5A41EF29C43001A7868 /* TXTReaderParse.m in Sources */,
 				377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */,
 				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
 				376F4DE41EDAF8B300CE9B26 /* MyHTTPConnection.m in Sources */,
@@ -1044,6 +1066,7 @@
 				376F4DD91EDAF8B300CE9B26 /* HTTPServer.m in Sources */,
 				376F4DCC1EDAF8B300CE9B26 /* DDASLLogger.m in Sources */,
 				372FD5A01EF29AAF001A7868 /* ReadChapterModel.m in Sources */,
+				372FD5AD1EF2D2F9001A7868 /* MBProgressHUD.m in Sources */,
 				37E41ADF1EDAFAF60096C7BF /* playView+playControl.m in Sources */,
 				376F4DDA1EDAF8B300CE9B26 /* MultipartFormDataParser.m in Sources */,
 				376F4DD31EDAF8B300CE9B26 /* DDData.m in Sources */,
@@ -1192,7 +1215,7 @@
 		};
 		377E95DE1ED532CD0080E86D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95E5D5FA0AB0EBE658CF0DDD /* Pods-MyFileManage.debug.xcconfig */;
+			baseConfigurationReference = 4BE11BA20A57DA626274A2BD /* Pods-MyFileManage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
@@ -1207,7 +1230,7 @@
 		};
 		377E95DF1ED532CD0080E86D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BBEE5BC6080511F749649BD /* Pods-MyFileManage.release.xcconfig */;
+			baseConfigurationReference = E03FDBB762C016C433F89C26 /* Pods-MyFileManage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;

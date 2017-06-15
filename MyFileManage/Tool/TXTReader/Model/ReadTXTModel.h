@@ -13,6 +13,19 @@
 
 @property(nonatomic,copy)NSString *content;
 
+@property(nonatomic,assign)NSInteger currentPage;
+
+@property(nonatomic,assign,readonly)NSUInteger pageCount;
+
+@property(nonatomic,strong)NSMutableArray *pageArray;
+
+
+-(NSString *)stringOfPage:(NSUInteger)index;
+
+-(void)dividePageWithBounds:(CGRect)bounds;
+
+
+
 -(instancetype)initWithContentString:(NSString *)content;
 
 +(instancetype)getLocalModelWithUrl:(NSURL *)url;

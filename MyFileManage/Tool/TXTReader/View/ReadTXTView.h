@@ -10,4 +10,6 @@
 
 @interface ReadTXTView : UIView
 
+@property (nonatomic,assign) CTFrameRef frameRef;
+
 @end

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReadTXTModel.h"
 
 @interface ReaderTextViewController : UIViewController
+
+@property(nonatomic,strong)ReadTXTModel *model;
 
 @end
