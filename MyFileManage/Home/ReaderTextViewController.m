@@ -39,7 +39,7 @@
     
     self.pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionInterPageSpacingKey:@(24)}];
     
-  ReadTXTPageViewController *firstVc = [self pageViewControllerAtIndex:1];
+  ReadTXTPageViewController *firstVc = [self pageViewControllerAtIndex:0];
     
     [self.pageVC setViewControllers:@[firstVc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     

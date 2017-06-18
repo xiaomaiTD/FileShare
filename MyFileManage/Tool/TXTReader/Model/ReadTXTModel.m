@@ -8,6 +8,9 @@
 
 #import "ReadTXTModel.h"
 
+#import "TXTReaderConfigue.h"
+#import "TXTReaderParse.h"
+
 
 
 
@@ -113,6 +116,9 @@
     CGPathRef path;
     NSMutableAttributedString *attrStr;
     attrStr = [[NSMutableAttributedString  alloc] initWithString:self.content];
+    NSDictionary *attributeDic = [TXTReaderParse parserAttribute:[TXTReaderConfigue shareInstance]];
+    
+    [attrStr addAttributes:attributeDic range:NSMakeRange(0, attrStr.length)];
     
     attrString = [attrStr copy];
     frameSetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef) attrString);
@@ -120,35 +126,9 @@
     int currentOffset = 0;
     int currentInnerOffset = 0;
     BOOL hasMorePages = YES;
-    // 防止死循环，如果在同一个位置获取CTFrame超过2次，则跳出循环
-    int preventDeadLoopSign = currentOffset;
-    int samePlaceRepeatCount = 0;
-    
+   
     while (hasMorePages) {
-        if (preventDeadLoopSign == currentOffset) {
-            
-            ++samePlaceRepeatCount;
-            
-        } else {
-            
-            samePlaceRepeatCount = 0;
-        }
         
-        if (samePlaceRepeatCount > 1) {
-            // 退出循环前检查一下最后一页是否已经加上
-            if (_pageArray.count == 0) {
-                [_pageArray addObject:@(currentOffset)];
-            }
-            else {
-                
-                NSUInteger lastOffset = [[_pageArray lastObject] integerValue];
-                
-                if (lastOffset != currentOffset) {
-                    [_pageArray addObject:@(currentOffset)];
-                }
-            }
-            break;
-        }
         
         [_pageArray addObject:@(currentOffset)];
         

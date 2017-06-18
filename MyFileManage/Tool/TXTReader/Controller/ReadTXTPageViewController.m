@@ -20,7 +20,7 @@
     
     
     
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.textView];
     

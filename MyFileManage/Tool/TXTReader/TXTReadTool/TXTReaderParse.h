@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreText/CoreText.h>
+#import "TXTReaderConfigue.h"
 
 
 @interface TXTReaderParse : NSObject
+
++(NSDictionary *)parserAttribute:(TXTReaderConfigue *)config;
+
 
 +(CTFrameRef)parserContent:(NSString *)content  andBouds:(CGRect)bounds;
 
