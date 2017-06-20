@@ -65,13 +65,13 @@
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
 
     
-    if (_model.currentPage == 1) {
+    if (_model.currentPage == 0) {
         return nil;
     }
     
     
     
-    return [self pageViewControllerAtIndex:_model.currentPage];
+    return [self pageViewControllerAtIndex:_model.currentPage-1];
 
 }
 

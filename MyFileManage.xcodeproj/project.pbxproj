@@ -14,6 +14,7 @@
 		371597FD1EE0F9E000B482AB /* PDFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597FC1EE0F9E000B482AB /* PDFPageViewController.m */; };
 		372A98CB1EF6276700954DEA /* TXTReaderConfigue.m in Sources */ = {isa = PBXBuildFile; fileRef = 372A98CA1EF6276600954DEA /* TXTReaderConfigue.m */; };
 		372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */; };
+		372F7D891EF7AB17001D74EB /* ReadTXTMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372F7D881EF7AB17001D74EB /* ReadTXTMagnifierView.m */; };
 		372FD5911EF17C70001A7868 /* ReadTXTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5901EF17C70001A7868 /* ReadTXTView.m */; };
 		372FD5941EF17CA7001A7868 /* ReadTXTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5931EF17CA7001A7868 /* ReadTXTModel.m */; };
 		372FD5971EF184FF001A7868 /* ReadTXTPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5961EF184FF001A7868 /* ReadTXTPageViewController.m */; };
@@ -127,6 +128,8 @@
 		372A98CA1EF6276600954DEA /* TXTReaderConfigue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTReaderConfigue.m; sourceTree = "<group>"; };
 		372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderPDFViewController.h; sourceTree = "<group>"; };
 		372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderPDFViewController.m; sourceTree = "<group>"; };
+		372F7D871EF7AB17001D74EB /* ReadTXTMagnifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTMagnifierView.h; sourceTree = "<group>"; };
+		372F7D881EF7AB17001D74EB /* ReadTXTMagnifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTMagnifierView.m; sourceTree = "<group>"; };
 		372FD58F1EF17C70001A7868 /* ReadTXTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTView.h; sourceTree = "<group>"; };
 		372FD5901EF17C70001A7868 /* ReadTXTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTView.m; sourceTree = "<group>"; };
 		372FD5921EF17CA7001A7868 /* ReadTXTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTModel.h; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 			children = (
 				372FD58F1EF17C70001A7868 /* ReadTXTView.h */,
 				372FD5901EF17C70001A7868 /* ReadTXTView.m */,
+				372F7D871EF7AB17001D74EB /* ReadTXTMagnifierView.h */,
+				372F7D881EF7AB17001D74EB /* ReadTXTMagnifierView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1044,6 +1049,7 @@
 				372FD5AB1EF2D2F9001A7868 /* MBProgressHUD+NJ.m in Sources */,
 				37E41AE11EDAFAF60096C7BF /* playView+showHMSecond.m in Sources */,
 				37E41ADE1EDAFAF60096C7BF /* cacheVideoSaveCache.m in Sources */,
+				372F7D891EF7AB17001D74EB /* ReadTXTMagnifierView.m in Sources */,
 				376F4DE21EDAF8B300CE9B26 /* HTTPRedirectResponse.m in Sources */,
 				374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */,
 				377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */,
