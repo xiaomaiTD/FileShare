@@ -18,4 +18,8 @@
 
 +(CTFrameRef)parserContent:(NSString *)content  andBouds:(CGRect)bounds;
 
+//获取默认选中区域
++(CGRect)parserRectWithPoint:(CGPoint)point range:(NSRange *)selectRange frameRef:(CTFrameRef)frameRef;
+
+
 @end

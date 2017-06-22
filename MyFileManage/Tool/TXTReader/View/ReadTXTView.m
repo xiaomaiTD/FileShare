@@ -7,11 +7,18 @@
 //
 
 #import "ReadTXTView.h"
+#import "TXTReaderParse.h"
 #import "ReadTXTMagnifierView.h"
 
 
 @interface ReadTXTView()
+{
 
+    NSRange _selectRange;
+    NSArray *_pathArray;
+
+
+}
 
 @property(nonatomic,strong)ReadTXTMagnifierView *magnifierView;
 
@@ -60,11 +67,24 @@
         
         _magnifierView.touchPoint = point;
         
+
+        CGRect rect = [TXTReaderParse parserRectWithPoint:point range:&_selectRange frameRef:_frameRef];
+        
+        if (!CGRectEqualToRect(rect, CGRectZero)) {
+            
+            _pathArray = @[NSStringFromCGRect(rect)];
+            [self setNeedsDisplay];
+
+        }
+        
         
     }
+    if (gester.state == UIGestureRecognizerStateEnded) {
+        
+        [self hideenMagnifierView];
+    }
     
-//    NSLog(@"point---------%@",NSStringFromCGPoint(point));
-    
+
     
 
 }
@@ -77,12 +97,37 @@
     CGContextTranslateCTM(ctx, 0, self.bounds.size.height);
     CGContextScaleCTM(ctx, 1.0, -1.0);
     
-    CTFrameDraw(_frameRef, ctx);
+    [self drawSelectedPath:_pathArray];
     
-    CFRelease(_frameRef);
+    
+    
+    CTFrameDraw(_frameRef, ctx);
+   // CFRelease(_frameRef);
     
     
 }
+
+#pragma mark  Draw Selected Path
+-(void)drawSelectedPath:(NSArray *)array{
+    if (!array.count) {
+        
+        return;
+    }
+    
+    CGMutablePathRef _path = CGPathCreateMutable();
+    [[UIColor redColor]setFill];
+    for (int i = 0; i < [array count]; i++) {
+        CGRect rect = CGRectFromString([array objectAtIndex:i]);
+        CGPathAddRect(_path, NULL, rect);
+        
+    }
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextAddPath(ctx, _path);
+    CGContextFillPath(ctx);
+    CGPathRelease(_path);
+    
+}
+
 
 
 -(void)showMagnifierView{
