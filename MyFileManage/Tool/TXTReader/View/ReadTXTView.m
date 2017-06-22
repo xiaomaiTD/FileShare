@@ -7,8 +7,18 @@
 //
 
 #import "ReadTXTView.h"
+#import "ReadTXTMagnifierView.h"
+
+
+@interface ReadTXTView()
+
+
+@property(nonatomic,strong)ReadTXTMagnifierView *magnifierView;
+
+@end
 
 @implementation ReadTXTView
+
 
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -17,9 +27,45 @@
         
         
         self.backgroundColor = [UIColor whiteColor];
+        
+        
+        [self addGestureRecognizer:({
+            
+            UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+            
+            longPress;
+        
+        })];
+        
+
+        
+        
+        
     }
 
     return self;
+
+}
+
+-(void)longPress:(UILongPressGestureRecognizer *)gester{
+
+
+    [self hideenMagnifierView];
+    
+    CGPoint point = [gester locationInView:self];
+    
+    if (gester.state  == UIGestureRecognizerStateBegan || gester.state == UIGestureRecognizerStateChanged) {
+        
+        [self showMagnifierView];
+        
+        _magnifierView.touchPoint = point;
+        
+        
+    }
+    
+    NSLog(@"point---------%@",NSStringFromCGPoint(point));
+    
+    
 
 }
 
@@ -37,5 +83,33 @@
     
     
 }
+
+
+-(void)showMagnifierView{
+    
+    
+    if (!_magnifierView) {
+        
+        _magnifierView = [[ReadTXTMagnifierView alloc] init];
+        
+        _magnifierView.readView = self;
+        
+        [self addSubview:_magnifierView];
+        
+    }
+    
+}
+-(void)hideenMagnifierView{
+    
+    if (_magnifierView) {
+        
+        [_magnifierView removeFromSuperview];
+        
+        _magnifierView = nil;
+    }
+    
+    
+}
+
 
 @end
