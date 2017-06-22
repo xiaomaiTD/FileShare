@@ -63,7 +63,7 @@
         
     }
     
-    NSLog(@"point---------%@",NSStringFromCGPoint(point));
+//    NSLog(@"point---------%@",NSStringFromCGPoint(point));
     
     
 
