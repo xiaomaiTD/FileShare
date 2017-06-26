@@ -11,6 +11,7 @@
 @interface ReadTXTView : UIView
 
 @property (nonatomic,assign) CTFrameRef frameRef;
+@property (nonatomic,strong) NSString *content;
 
 -(void)cancelSelected;
 

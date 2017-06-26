@@ -23,6 +23,9 @@
     BOOL _direction;
     
     BOOL _selectState;
+    
+    CGRect _menuRect;
+
 
 
 }
@@ -97,6 +100,11 @@
     if (pan.state == UIGestureRecognizerStateEnded) {
         [self hidenMagnifierView];
         
+        if (!CGRectEqualToRect(_menuRect, CGRectZero)) {
+            [self showMenu];
+        }
+
+        
         _selectState = NO;
     }
 
@@ -133,12 +141,69 @@
     if (gester.state == UIGestureRecognizerStateEnded) {
         
         [self hidenMagnifierView];
+        
+        if (!CGRectEqualToRect(_menuRect, CGRectZero)) {
+            [self showMenu];
+        }
+
     }
     
 
     
 
 }
+
+#pragma mark Show Menu
+-(void)showMenu
+{
+        [self becomeFirstResponder];
+  //  if ([self becomeFirstResponder]) {
+        UIMenuController *menuController = [UIMenuController sharedMenuController];
+        UIMenuItem *menuItemCopy = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(menuCopy:)];
+//        UIMenuItem *menuItemNote = [[UIMenuItem alloc] initWithTitle:@"笔记" action:@selector(menuNote:)];
+//        UIMenuItem *menuItemShare = [[UIMenuItem alloc] initWithTitle:@"分享" action:@selector(menuShare:)];
+        NSArray *menus = @[menuItemCopy];
+        [menuController setMenuItems:menus];
+        [menuController setTargetRect:CGRectMake(CGRectGetMidX(_menuRect), ViewSize(self).height-CGRectGetMidY(_menuRect), CGRectGetHeight(_menuRect), CGRectGetWidth(_menuRect)) inView:self];
+        [menuController setMenuVisible:YES animated:YES];
+        
+   // }
+}
+
+-(BOOL)canBecomeFirstResponder{
+    
+    return YES;
+    
+}
+// 用于UIMenuController显示，缺一不可
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+    
+    if (action ==@selector(menuCopy:)){
+        
+        return YES;
+        
+    }
+    
+    return NO;//隐藏系统默认的菜单项
+}
+
+#pragma mark Hidden Menu
+-(void)hiddenMenu
+{
+    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+}
+
+
+#pragma mark Menu Function
+-(void)menuCopy:(id)sender
+{
+    [self hiddenMenu];
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    
+    [pasteboard setString:[_content substringWithRange:_selectRange]];
+}
+
+
 
 -(void)drawRect:(CGRect)rect{
 
@@ -152,6 +217,7 @@
     CGRect left = CGRectZero;
     CGRect right = CGRectZero;
     
+    _menuRect = CGRectZero;
 
     [self drawSelectedPath:_pathArray andLeft:&left andRight:&right];
     
@@ -201,6 +267,7 @@
         
         if (i == 0) {
             *left = rect;
+            _menuRect = rect;
         }
         if (i == [array count]-1) {
             *right = rect;
@@ -249,6 +316,9 @@
         _pathArray = nil;
     }
     
+    [self hidenMagnifierView];
+
+    [self hiddenMenu];
     [self setNeedsDisplay];
     
 

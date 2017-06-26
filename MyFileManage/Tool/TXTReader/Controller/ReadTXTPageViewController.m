@@ -34,6 +34,8 @@
         
         _textView = [[ReadTXTView alloc] initWithFrame:CGRectMake(16, 16, kScreenWidth-32, kScreenHeight-32)];
         _textView.frameRef = [TXTReaderParse parserContent:_content andBouds:_textView.bounds];
+        _textView.content = _content;
+        
     }
     
     return _textView;
