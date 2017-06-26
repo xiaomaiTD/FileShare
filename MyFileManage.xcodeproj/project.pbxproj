@@ -93,6 +93,7 @@
 		37E41AE31EDAFAF60096C7BF /* playView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AD81EDAFAF60096C7BF /* playView.m */; };
 		37E41AE41EDAFAF60096C7BF /* progressSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ADA1EDAFAF60096C7BF /* progressSlideView.m */; };
 		37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ADC1EDAFAF60096C7BF /* progressView.m */; };
+		37EDE9121EFFEBA40013410F /* r_drag-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37EDE9111EFFEBA40013410F /* r_drag-dot@2x.png */; };
 		6A1E0D4DC004B85D749A009D /* libPods-MyFileManage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA99DAA997A6074B4A31BC4 /* libPods-MyFileManage.a */; };
 /* End PBXBuildFile section */
 
@@ -282,6 +283,7 @@
 		37E41ADA1EDAFAF60096C7BF /* progressSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = progressSlideView.m; sourceTree = "<group>"; };
 		37E41ADB1EDAFAF60096C7BF /* progressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = progressView.h; sourceTree = "<group>"; };
 		37E41ADC1EDAFAF60096C7BF /* progressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = progressView.m; sourceTree = "<group>"; };
+		37EDE9111EFFEBA40013410F /* r_drag-dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "r_drag-dot@2x.png"; sourceTree = "<group>"; };
 		3BA99DAA997A6074B4A31BC4 /* libPods-MyFileManage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFileManage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE11BA20A57DA626274A2BD /* Pods-MyFileManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.debug.xcconfig"; sourceTree = "<group>"; };
 		E03FDBB762C016C433F89C26 /* Pods-MyFileManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.release.xcconfig"; sourceTree = "<group>"; };
@@ -743,6 +745,7 @@
 				377E97031ED57F210080E86D /* navLeft@3x.png */,
 				377E96FE1ED565F10080E86D /* setting@2x.png */,
 				377E97001ED567050080E86D /* home@2x.png */,
+				37EDE9111EFFEBA40013410F /* r_drag-dot@2x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -935,6 +938,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				377E97041ED57F210080E86D /* navLeft@2x.png in Resources */,
+				37EDE9121EFFEBA40013410F /* r_drag-dot@2x.png in Resources */,
 				377E97051ED57F210080E86D /* navLeft@3x.png in Resources */,
 				372FD5AC1EF2D2F9001A7868 /* MBProgressHUD.bundle in Resources */,
 				376F4DD21EDAF8B300CE9B26 /* README.txt in Resources */,

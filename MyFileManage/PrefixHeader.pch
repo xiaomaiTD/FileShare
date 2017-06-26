@@ -32,6 +32,9 @@
 #define iPhone67s kScreenWidth >= 640 && kScreenWidth <=375
 #define iPhone67sp kScreenWidth > 375
 
+#define ViewSize(view)  (view.frame.size)
+#define ViewOrigin(view)   (view.frame.origin)
+
 
 #define FileFinish @"FileFinish"
 

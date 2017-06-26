@@ -12,4 +12,6 @@
 
 @property (nonatomic,assign) CTFrameRef frameRef;
 
+-(void)cancelSelected;
+
 @end
