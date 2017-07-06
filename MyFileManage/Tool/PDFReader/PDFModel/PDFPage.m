@@ -8,6 +8,13 @@
 
 #import "PDFPage.h"
 
+@interface PDFPage()
+
+
+@property (nonatomic ,assign)CGRect pageRect;
+
+@end
+
 @implementation PDFPage
 
 

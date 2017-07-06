@@ -7,6 +7,8 @@
 //
 
 #import "PDFPageViewController.h"
+#import "PDFContentView.h"
+
 
 @interface PDFPageViewController ()
 
@@ -26,12 +28,19 @@
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
    
-//    UIImage *lowResolutionImage = [self.page thumbnailImageWithSize:self.view.frame.size cropping:YES];
-//    self.pdfImgV = [[UIImageView alloc] initWithImage:lowResolutionImage];
-//    self.pdfImgV.frame = self.view.bounds;
-//    
-//    [self.view addSubview:self.pdfImgV];
-//    
+
+    PDFContentView *pageView = [[PDFContentView alloc] initWithPage:_page];
+    
+    CGFloat pageViewH = self.view.width /  _page.rect.size.width * _page.rect.size.height;
+    
+    
+    pageView.frame = CGRectMake(0, 0, self.view.width, pageViewH);
+    
+    pageView.center = self.view.center;
+    
+    
+    [self.view addSubview:pageView];
+    
     
     
 }

@@ -8,14 +8,49 @@
 
 #import "PDFContentView.h"
 
+
+@interface PDFContentView()
+
+
+@property(nonatomic,strong)PDFPage *page;
+
+
+@end
+
 @implementation PDFContentView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(instancetype)initWithPage:(PDFPage *)page{
+
+
+    if (self = [super init]) {
+        
+
+        
+        _page = page;
+ 
+    }
+ 
+    return self;
+
+
 }
-*/
+
+-(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
+
+
+    [_page drawInRect:self.bounds inContext:ctx cropping:NO];
+
+
+}
+
++(Class)layerClass
+{
+
+
+    return [PDFCATiledLayer class];
+
+}
+
+
 
 @end

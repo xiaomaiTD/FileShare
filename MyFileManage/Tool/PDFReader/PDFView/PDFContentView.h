@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDFCATiledLayer.h"
+
+
+#import "PDFPage.h"
+
 
 @interface PDFContentView : UIView
+
+
+@property(nonatomic,strong,readonly)PDFPage *page;
+
+-(instancetype)initWithPage:(PDFPage *)page;
+
+
 
 @end

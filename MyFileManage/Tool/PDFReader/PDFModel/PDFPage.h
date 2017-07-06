@@ -14,7 +14,7 @@
 @property (nonatomic, readonly) NSUInteger index;
 @property (nonatomic, readonly) CGRect rect;
 @property (nonatomic, readonly) CGRect croppedRect;
-
+@property (nonatomic, readonly)CGRect pageRect;
 
 - (instancetype)initWithCGPDFPage:(CGPDFPageRef)CGPDFPage;
 
