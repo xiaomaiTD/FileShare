@@ -23,6 +23,7 @@
 		372FD5AB1EF2D2F9001A7868 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5A71EF2D2F9001A7868 /* MBProgressHUD+NJ.m */; };
 		372FD5AC1EF2D2F9001A7868 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 372FD5A81EF2D2F9001A7868 /* MBProgressHUD.bundle */; };
 		372FD5AD1EF2D2F9001A7868 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5AA1EF2D2F9001A7868 /* MBProgressHUD.m */; };
+		373BD4BA1F0DF01500CD4A3D /* PDFContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373BD4B91F0DF01500CD4A3D /* PDFContentView.m */; };
 		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
 		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
 		374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B51ED7D088004CFD0B /* ZoomImageView.m */; };
@@ -146,6 +147,8 @@
 		372FD5A81EF2D2F9001A7868 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		372FD5A91EF2D2F9001A7868 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		372FD5AA1EF2D2F9001A7868 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		373BD4B81F0DF01500CD4A3D /* PDFContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFContentView.h; sourceTree = "<group>"; };
+		373BD4B91F0DF01500CD4A3D /* PDFContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFContentView.m; sourceTree = "<group>"; };
 		374AB5B11ED7D088004CFD0B /* DataBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseTool.h; sourceTree = "<group>"; };
 		374AB5B21ED7D088004CFD0B /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		374AB5B31ED7D088004CFD0B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -339,15 +342,15 @@
 		371597F21EE0F46A00B482AB /* PDFView */ = {
 			isa = PBXGroup;
 			children = (
+				373BD4B81F0DF01500CD4A3D /* PDFContentView.h */,
+				373BD4B91F0DF01500CD4A3D /* PDFContentView.m */,
 			);
-			name = PDFView;
-			path = ../PDFView;
+			path = PDFView;
 			sourceTree = "<group>";
 		};
 		371597F31EE0F92800B482AB /* PDFModel */ = {
 			isa = PBXGroup;
 			children = (
-				371597F21EE0F46A00B482AB /* PDFView */,
 				371597F51EE0F99900B482AB /* PDFDocument.h */,
 				371597F61EE0F99900B482AB /* PDFDocument.m */,
 				371597F71EE0F99900B482AB /* PDFPage.h */,
@@ -368,6 +371,7 @@
 		372B6A831EDE5FE300C4E979 /* PDFReader */ = {
 			isa = PBXGroup;
 			children = (
+				371597F21EE0F46A00B482AB /* PDFView */,
 				371597F41EE0F93900B482AB /* PDFController */,
 				371597F31EE0F92800B482AB /* PDFModel */,
 				371597A21EDF9AB500B482AB /* Folder */,
@@ -1050,6 +1054,7 @@
 				376F4DD71EDAF8B300CE9B26 /* HTTPConnection.m in Sources */,
 				37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */,
 				377E95B51ED532CD0080E86D /* main.m in Sources */,
+				373BD4BA1F0DF01500CD4A3D /* PDFContentView.m in Sources */,
 				372FD5AB1EF2D2F9001A7868 /* MBProgressHUD+NJ.m in Sources */,
 				37E41AE11EDAFAF60096C7BF /* playView+showHMSecond.m in Sources */,
 				37E41ADE1EDAFAF60096C7BF /* cacheVideoSaveCache.m in Sources */,

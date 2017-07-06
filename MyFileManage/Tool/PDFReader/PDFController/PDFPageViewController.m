@@ -26,12 +26,12 @@
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
    
-    UIImage *lowResolutionImage = [self.page thumbnailImageWithSize:self.view.frame.size cropping:YES];
-    self.pdfImgV = [[UIImageView alloc] initWithImage:lowResolutionImage];
-    self.pdfImgV.frame = self.view.bounds;
-    
-    [self.view addSubview:self.pdfImgV];
-    
+//    UIImage *lowResolutionImage = [self.page thumbnailImageWithSize:self.view.frame.size cropping:YES];
+//    self.pdfImgV = [[UIImageView alloc] initWithImage:lowResolutionImage];
+//    self.pdfImgV.frame = self.view.bounds;
+//    
+//    [self.view addSubview:self.pdfImgV];
+//    
     
     
 }
