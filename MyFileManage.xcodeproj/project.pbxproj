@@ -97,6 +97,7 @@
 		37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ADC1EDAFAF60096C7BF /* progressView.m */; };
 		37EDE9121EFFEBA40013410F /* r_drag-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37EDE9111EFFEBA40013410F /* r_drag-dot@2x.png */; };
 		37FEB6211F1B192800CB66CD /* PDFLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FEB6201F1B192800CB66CD /* PDFLoopView.m */; };
+		37FEB6251F1B924D00CB66CD /* PDFPageScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FEB6241F1B924D00CB66CD /* PDFPageScanner.m */; };
 		6A1E0D4DC004B85D749A009D /* libPods-MyFileManage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA99DAA997A6074B4A31BC4 /* libPods-MyFileManage.a */; };
 /* End PBXBuildFile section */
 
@@ -293,6 +294,8 @@
 		37EDE9111EFFEBA40013410F /* r_drag-dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "r_drag-dot@2x.png"; sourceTree = "<group>"; };
 		37FEB61F1F1B192800CB66CD /* PDFLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFLoopView.h; sourceTree = "<group>"; };
 		37FEB6201F1B192800CB66CD /* PDFLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFLoopView.m; sourceTree = "<group>"; };
+		37FEB6231F1B924D00CB66CD /* PDFPageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPageScanner.h; sourceTree = "<group>"; };
+		37FEB6241F1B924D00CB66CD /* PDFPageScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageScanner.m; sourceTree = "<group>"; };
 		3BA99DAA997A6074B4A31BC4 /* libPods-MyFileManage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFileManage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE11BA20A57DA626274A2BD /* Pods-MyFileManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.debug.xcconfig"; sourceTree = "<group>"; };
 		E03FDBB762C016C433F89C26 /* Pods-MyFileManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.release.xcconfig"; sourceTree = "<group>"; };
@@ -381,6 +384,7 @@
 		372B6A831EDE5FE300C4E979 /* PDFReader */ = {
 			isa = PBXGroup;
 			children = (
+				37FEB6221F1B91C800CB66CD /* PDFParser */,
 				371597F21EE0F46A00B482AB /* PDFView */,
 				371597F41EE0F93900B482AB /* PDFController */,
 				371597F31EE0F92800B482AB /* PDFModel */,
@@ -830,6 +834,15 @@
 			path = playView;
 			sourceTree = "<group>";
 		};
+		37FEB6221F1B91C800CB66CD /* PDFParser */ = {
+			isa = PBXGroup;
+			children = (
+				37FEB6231F1B924D00CB66CD /* PDFPageScanner.h */,
+				37FEB6241F1B924D00CB66CD /* PDFPageScanner.m */,
+			);
+			path = PDFParser;
+			sourceTree = "<group>";
+		};
 		9FE7D7A07000F49AA295B00E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1041,6 +1054,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37FEB6251F1B924D00CB66CD /* PDFPageScanner.m in Sources */,
 				376F4DE01EDAF8B300CE9B26 /* HTTPErrorResponse.m in Sources */,
 				371597F91EE0F99900B482AB /* PDFDocument.m in Sources */,
 				372FD5971EF184FF001A7868 /* ReadTXTPageViewController.m in Sources */,
