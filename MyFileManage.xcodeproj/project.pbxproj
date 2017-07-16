@@ -96,6 +96,7 @@
 		37E41AE41EDAFAF60096C7BF /* progressSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ADA1EDAFAF60096C7BF /* progressSlideView.m */; };
 		37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ADC1EDAFAF60096C7BF /* progressView.m */; };
 		37EDE9121EFFEBA40013410F /* r_drag-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37EDE9111EFFEBA40013410F /* r_drag-dot@2x.png */; };
+		37FEB6211F1B192800CB66CD /* PDFLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FEB6201F1B192800CB66CD /* PDFLoopView.m */; };
 		6A1E0D4DC004B85D749A009D /* libPods-MyFileManage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA99DAA997A6074B4A31BC4 /* libPods-MyFileManage.a */; };
 /* End PBXBuildFile section */
 
@@ -290,6 +291,8 @@
 		37E41ADB1EDAFAF60096C7BF /* progressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = progressView.h; sourceTree = "<group>"; };
 		37E41ADC1EDAFAF60096C7BF /* progressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = progressView.m; sourceTree = "<group>"; };
 		37EDE9111EFFEBA40013410F /* r_drag-dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "r_drag-dot@2x.png"; sourceTree = "<group>"; };
+		37FEB61F1F1B192800CB66CD /* PDFLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFLoopView.h; sourceTree = "<group>"; };
+		37FEB6201F1B192800CB66CD /* PDFLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFLoopView.m; sourceTree = "<group>"; };
 		3BA99DAA997A6074B4A31BC4 /* libPods-MyFileManage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFileManage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE11BA20A57DA626274A2BD /* Pods-MyFileManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.debug.xcconfig"; sourceTree = "<group>"; };
 		E03FDBB762C016C433F89C26 /* Pods-MyFileManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage.release.xcconfig"; sourceTree = "<group>"; };
@@ -349,6 +352,8 @@
 				373BD4B91F0DF01500CD4A3D /* PDFContentView.m */,
 				373BD4BB1F0E3ED400CD4A3D /* PDFCATiledLayer.h */,
 				373BD4BC1F0E3ED400CD4A3D /* PDFCATiledLayer.m */,
+				37FEB61F1F1B192800CB66CD /* PDFLoopView.h */,
+				37FEB6201F1B192800CB66CD /* PDFLoopView.m */,
 			);
 			path = PDFView;
 			sourceTree = "<group>";
@@ -1074,6 +1079,7 @@
 				376F4DDC1EDAF8B300CE9B26 /* MultipartMessageHeaderField.m in Sources */,
 				37E41AE41EDAFAF60096C7BF /* progressSlideView.m in Sources */,
 				373BD4BD1F0E3ED400CD4A3D /* PDFCATiledLayer.m in Sources */,
+				37FEB6211F1B192800CB66CD /* PDFLoopView.m in Sources */,
 				376F4DD41EDAF8B300CE9B26 /* DDNumber.m in Sources */,
 				376F4DE31EDAF8B300CE9B26 /* WebSocket.m in Sources */,
 				372A98CB1EF6276700954DEA /* TXTReaderConfigue.m in Sources */,
