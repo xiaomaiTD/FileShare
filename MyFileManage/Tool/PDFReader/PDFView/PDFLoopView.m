@@ -69,7 +69,9 @@
     [bezierPath closePath];
     [bezierPath addClip];
     
-    [[UIColor colorWithWhite:128/255.0 alpha:1.0] set];
+    [[UIColor clearColor] set];
+    
+    //[[UIColor colorWithWhite:128/255.0 alpha:1.0] set];
     UIRectFill(rect);
     [self.image drawInRect:CGRectMake(-CGRectGetWidth(rect) / 2.0,
                                       -CGRectGetHeight(rect) / 2.0 - CGRectGetHeight([[self class] arrowRect]) / 2.0,
@@ -85,4 +87,5 @@
     _image = image;
     [self setNeedsDisplay];
 }
+
 @end
