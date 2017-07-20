@@ -9,6 +9,8 @@
 #import "ReaderTextViewController.h"
 #import "ReadTXTPageViewController.h"
 
+#import "sentenSpliteViewController.h"
+
 
 
 
@@ -54,10 +56,35 @@
     
     
     self.pageVC.view.frame = self.view.bounds;
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getSpliteStr:) name:SPLITECONTENTNOTIFY object:nil];
+
 
     
     
 
+}
+
+-(void)getSpliteStr:(NSNotification *)notify{
+    
+    
+    NSString *content = notify.userInfo[@"contentString"];
+    
+    
+    sentenSpliteViewController *vc= [[sentenSpliteViewController alloc] init];
+    
+    vc.contentString = content;
+    
+    
+    [self presentViewController:vc animated:YES completion:nil];
+    
+    
+    
+    
+    
+    
+    
 }
 
 

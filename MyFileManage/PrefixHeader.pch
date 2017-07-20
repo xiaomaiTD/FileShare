@@ -44,5 +44,12 @@
 #define SupportVideoArray @[@"MP4",@"RMVB"]
 
 
+#define SPLITECONTENTNOTIFY @"spliteNotifi"
+
+#define WEAKSEFL __weak typeof(self) wekSelf = self
+
+
+
+
 
 #endif /* PrefixHeader_pch */

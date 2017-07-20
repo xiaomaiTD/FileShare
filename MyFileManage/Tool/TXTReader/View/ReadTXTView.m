@@ -161,8 +161,8 @@
         UIMenuController *menuController = [UIMenuController sharedMenuController];
         UIMenuItem *menuItemCopy = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(menuCopy:)];
 //        UIMenuItem *menuItemNote = [[UIMenuItem alloc] initWithTitle:@"笔记" action:@selector(menuNote:)];
-//        UIMenuItem *menuItemShare = [[UIMenuItem alloc] initWithTitle:@"分享" action:@selector(menuShare:)];
-        NSArray *menus = @[menuItemCopy];
+        UIMenuItem *menuItemShare = [[UIMenuItem alloc] initWithTitle:@"分裂" action:@selector(menuItemShare:)];
+        NSArray *menus = @[menuItemCopy,menuItemShare];
         [menuController setMenuItems:menus];
         [menuController setTargetRect:CGRectMake(CGRectGetMidX(_menuRect), ViewSize(self).height-CGRectGetMidY(_menuRect), CGRectGetHeight(_menuRect), CGRectGetWidth(_menuRect)) inView:self];
         [menuController setMenuVisible:YES animated:YES];
@@ -178,7 +178,7 @@
 // 用于UIMenuController显示，缺一不可
 -(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
     
-    if (action ==@selector(menuCopy:)){
+    if (action ==@selector(menuCopy:) || action == @selector(menuItemShare:)){
         
         return YES;
         
@@ -201,6 +201,22 @@
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     
     [pasteboard setString:[_content substringWithRange:_selectRange]];
+}
+
+-(void)menuItemShare:(id)sender{
+
+    
+    NSString *spliteStr = [_content substringWithRange:_selectRange];
+    
+    NSDictionary *contentDic= @{@"contentString":spliteStr};
+    
+    POSTNotificationName(SPLITECONTENTNOTIFY, contentDic);
+    
+    
+   // NSLog(@"spliteStr-----%@",spliteStr);
+
+
+    
 }
 
 
