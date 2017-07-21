@@ -14,6 +14,7 @@
 		371597FD1EE0F9E000B482AB /* PDFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597FC1EE0F9E000B482AB /* PDFPageViewController.m */; };
 		3722BFE31F20EC73005D2EDB /* spliteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE21F20EC73005D2EDB /* spliteView.m */; };
 		3722BFE61F20FC69005D2EDB /* sentenSpliteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE51F20FC69005D2EDB /* sentenSpliteViewController.m */; };
+		3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */; };
 		372A98CB1EF6276700954DEA /* TXTReaderConfigue.m in Sources */ = {isa = PBXBuildFile; fileRef = 372A98CA1EF6276600954DEA /* TXTReaderConfigue.m */; };
 		372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */; };
 		372F7D891EF7AB17001D74EB /* ReadTXTMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372F7D881EF7AB17001D74EB /* ReadTXTMagnifierView.m */; };
@@ -135,6 +136,8 @@
 		3722BFE21F20EC73005D2EDB /* spliteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = spliteView.m; sourceTree = "<group>"; };
 		3722BFE41F20FC69005D2EDB /* sentenSpliteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sentenSpliteViewController.h; sourceTree = "<group>"; };
 		3722BFE51F20FC69005D2EDB /* sentenSpliteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sentenSpliteViewController.m; sourceTree = "<group>"; };
+		3722BFE71F21CB56005D2EDB /* NSString+CHChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CHChinese.h"; sourceTree = "<group>"; };
+		3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHChinese.m"; sourceTree = "<group>"; };
 		372A98C91EF6276600954DEA /* TXTReaderConfigue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTReaderConfigue.h; sourceTree = "<group>"; };
 		372A98CA1EF6276600954DEA /* TXTReaderConfigue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTReaderConfigue.m; sourceTree = "<group>"; };
 		372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderPDFViewController.h; sourceTree = "<group>"; };
@@ -719,6 +722,8 @@
 		377E95EE1ED5367B0080E86D /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				3722BFE71F21CB56005D2EDB /* NSString+CHChinese.h */,
+				3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */,
 				374AB5B11ED7D088004CFD0B /* DataBaseTool.h */,
 				374AB5B21ED7D088004CFD0B /* DataBaseTool.m */,
 				374AB5B31ED7D088004CFD0B /* UIView+Extension.h */,
@@ -1122,6 +1127,7 @@
 				37E41AE21EDAFAF60096C7BF /* playView+slidePlayControl.m in Sources */,
 				376F4DD81EDAF8B300CE9B26 /* HTTPMessage.m in Sources */,
 				376F4DD61EDAF8B300CE9B26 /* HTTPAuthenticationRequest.m in Sources */,
+				3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */,
 				376F4DD91EDAF8B300CE9B26 /* HTTPServer.m in Sources */,
 				376F4DCC1EDAF8B300CE9B26 /* DDASLLogger.m in Sources */,
 				372FD5A01EF29AAF001A7868 /* ReadChapterModel.m in Sources */,

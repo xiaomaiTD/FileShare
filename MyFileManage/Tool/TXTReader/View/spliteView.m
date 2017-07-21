@@ -7,6 +7,8 @@
 //
 
 #import "spliteView.h"
+#import "NSString+CHChinese.h"
+
 
 @interface spliteView()
 
@@ -27,7 +29,6 @@
         
         _spliteStrArray = [[NSMutableArray alloc] initWithCapacity:0];
         
-     //   _beSpliteString = str;
         
         _spliteStrBtnArray = [[NSMutableArray alloc] initWithCapacity:0];
         
@@ -46,9 +47,15 @@
 
     WEAKSEFL;
     
+    
+ 
+    _beSpliteString = [_beSpliteString ch_substringWithChinese:CHNSStringChineseTypeCharacter inRange:NSMakeRange(0, _beSpliteString.length)];
+    
+   
+    
     [_beSpliteString enumerateSubstringsInRange:NSMakeRange(0, _beSpliteString.length) options:NSStringEnumerationByWords usingBlock:^(NSString * _Nullable substring, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
         
-        
+
         [wekSelf.spliteStrArray addObject:substring];
         
 
@@ -72,11 +79,16 @@
 
     [self.spliteStrArray enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * _Nonnull stop) {
        
+    
+        CGFloat btnW = [self getWidthWithText:obj font:13 height:20].width;
+        
+        btnW = btnW >= 20 ? btnW:30;
+        
         if (idx == 0) {
             
             UIButton *btn = [self createBtnWithTitle:obj];
             
-            btn.frame = CGRectMake(8, 32, [self getWidthWithText:obj font:13 height:20].width + 5, 20);
+            btn.frame = CGRectMake(8, 32, btnW + 5, 20);
             
             [wekSelf.spliteStrBtnArray addObject:btn];
             
@@ -90,7 +102,7 @@
         
             UIButton *currentBtn = [self createBtnWithTitle:obj];
             
-            currentBtn.frame = CGRectMake(lastBtn.maxX + 8, lastBtn.y, [self getWidthWithText:obj font:13 height:20].width, 20);
+            currentBtn.frame = CGRectMake(lastBtn.maxX + 8, lastBtn.y, btnW + 5, 20);
             
             //说明超出屏幕外面了
             if (currentBtn.maxX > self.width) {
