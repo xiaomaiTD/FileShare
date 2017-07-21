@@ -105,7 +105,7 @@
             currentBtn.frame = CGRectMake(lastBtn.maxX + 8, lastBtn.y, btnW + 5, 20);
             
             //说明超出屏幕外面了
-            if (currentBtn.maxX > self.width) {
+            if (currentBtn.maxX > self.width - 8) {
                 
                 currentBtn.x  = 8;
                 currentBtn.y = lastBtn.maxY + 8;

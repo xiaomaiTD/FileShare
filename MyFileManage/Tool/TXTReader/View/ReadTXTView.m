@@ -32,6 +32,8 @@
 
 @property(nonatomic,strong)ReadTXTMagnifierView *magnifierView;
 
+@property(nonatomic,strong)UIPanGestureRecognizer *pan;
+
 @end
 
 @implementation ReadTXTView
@@ -57,10 +59,18 @@
         [self addGestureRecognizer:({
         
             UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+            _pan = pan;
             
+           
             pan;
         
         })];
+        
+        
+       
+        
+        
+        
         
 
         
@@ -72,11 +82,13 @@
 
 }
 
+
+
 -(void)pan:(UIPanGestureRecognizer *)pan{
 
 
     CGPoint point = [pan locationInView:self];
-
+    [self hiddenMenu];
     if (pan.state == UIGestureRecognizerStateBegan || pan.state == UIGestureRecognizerStateChanged) {
         [self showMagnifierView];
         self.magnifierView.touchPoint = point;
@@ -90,7 +102,8 @@
             _selectState = YES;
         }
         if (_selectState) {
-            //            NSArray *path = [LSYReadParser parserRectsWithPoint:point range:&_selectRange frameRef:_frameRef paths:_pathArray];
+    
+            
             NSArray *path = [TXTReaderParse parserRectsWithPoint:point range:&_selectRange frameRef:_frameRef paths:_pathArray direction:_direction];
             _pathArray = path;
             [self setNeedsDisplay];
@@ -99,16 +112,11 @@
     }
     if (pan.state == UIGestureRecognizerStateEnded) {
         [self hidenMagnifierView];
-        
+        _selectState = NO;
         if (!CGRectEqualToRect(_menuRect, CGRectZero)) {
             [self showMenu];
         }
-
-        
-        _selectState = NO;
     }
-
-
 
     
 
@@ -120,12 +128,17 @@
 
     [self hidenMagnifierView];
     
+   
     CGPoint point = [gester locationInView:self];
     
+    
     if (gester.state  == UIGestureRecognizerStateBegan || gester.state == UIGestureRecognizerStateChanged) {
+
+        NSLog(@"longPress---");
         
         [self showMagnifierView];
         
+      
         _magnifierView.touchPoint = point;
         
 
@@ -140,8 +153,11 @@
     }
     if (gester.state == UIGestureRecognizerStateEnded) {
         
+        
+    
         [self hidenMagnifierView];
         
+       
         if (!CGRectEqualToRect(_menuRect, CGRectZero)) {
             [self showMenu];
         }
@@ -190,6 +206,8 @@
 #pragma mark Hidden Menu
 -(void)hiddenMenu
 {
+   
+   
     [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
 }
 
@@ -213,8 +231,7 @@
     POSTNotificationName(SPLITECONTENTNOTIFY, contentDic);
     
     
-   // NSLog(@"spliteStr-----%@",spliteStr);
-
+   
 
     
 }
@@ -223,7 +240,7 @@
 
 -(void)drawRect:(CGRect)rect{
 
-
+    
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetTextMatrix(ctx, CGAffineTransformIdentity);
     CGContextTranslateCTM(ctx, 0, self.bounds.size.height);
@@ -249,8 +266,13 @@
 -(void)drawDotWithLeft:(CGRect)Left right:(CGRect)right
 {
     if (CGRectEqualToRect(CGRectZero, Left) || (CGRectEqualToRect(CGRectZero, right))){
+        
+    
+        
         return;
     }
+    
+   
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGMutablePathRef _path = CGPathCreateMutable();
     [[UIColor orangeColor] setFill];
@@ -270,10 +292,15 @@
 
 #pragma mark  Draw Selected Path
 -(void)drawSelectedPath:(NSArray *)array andLeft:(CGRect *)left andRight:(CGRect *)right{
+    
     if (!array.count) {
         
+        _pan.enabled = NO;
+      
         return;
     }
+    
+    _pan.enabled = YES;
     
     CGMutablePathRef _path = CGPathCreateMutable();
     [[UIColor redColor]setFill];
@@ -302,7 +329,7 @@
 
 -(void)showMagnifierView{
     
-    
+   
     if (!_magnifierView) {
         
         _magnifierView = [[ReadTXTMagnifierView alloc] init];
@@ -316,6 +343,7 @@
 }
 -(void)hidenMagnifierView{
     
+    
     if (_magnifierView) {
         
         [_magnifierView removeFromSuperview];
@@ -326,26 +354,30 @@
     
 }
 
--(void)cancelSelected{
-    if (_pathArray) {
-        
-        _pathArray = nil;
-    }
-    
-    [self hidenMagnifierView];
-
-    [self hiddenMenu];
-    [self setNeedsDisplay];
-    
-
-
-}
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-
-
-    [self cancelSelected];
-
-}
+//
+//-(void)cancelSelected{
+//    
+//    if (_pathArray) {
+//        
+//        _pathArray = nil;
+//        
+//    }
+//    
+//    [self hidenMagnifierView];
+//
+//    [self hiddenMenu];
+//    [self setNeedsDisplay];
+//    
+//
+//
+//}
+//
+//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//
+//    NSLog(@"touchesBegan");
+//
+// //   [self cancelSelected];
+//
+//}
 
 @end
