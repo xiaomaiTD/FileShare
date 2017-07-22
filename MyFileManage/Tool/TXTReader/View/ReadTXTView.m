@@ -355,29 +355,22 @@
 }
 
 //
-//-(void)cancelSelected{
-//    
-//    if (_pathArray) {
-//        
-//        _pathArray = nil;
-//        
-//    }
-//    
-//    [self hidenMagnifierView];
-//
-//    [self hiddenMenu];
-//    [self setNeedsDisplay];
-//    
-//
-//
-//}
-//
-//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//
-//    NSLog(@"touchesBegan");
-//
-// //   [self cancelSelected];
-//
-//}
+-(void)cancelSelected{
+    
+    if (_pathArray) {
+        
+        _pathArray = nil;
+        
+    }
+    
+    [self hidenMagnifierView];
+
+    [self hiddenMenu];
+    [self setNeedsDisplay];
+    
+
+
+}
+
 
 @end
