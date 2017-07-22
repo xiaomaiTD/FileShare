@@ -43,7 +43,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     
 }
 
@@ -142,6 +142,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
     if (_dataSourceArray.count > 0) {

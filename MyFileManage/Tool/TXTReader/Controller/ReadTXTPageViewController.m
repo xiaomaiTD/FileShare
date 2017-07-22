@@ -9,6 +9,8 @@
 #import "ReadTXTPageViewController.h"
 #import "TXTReaderParse.h"
 
+
+
 @interface ReadTXTPageViewController ()
 
 @end
@@ -25,32 +27,12 @@
     [self.view addSubview:self.textView];
     
     
-    [self.view addGestureRecognizer:({
-    
-    
-        UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelSelected)];
-        
-        tap;
-    
-    
-    })];
     
     
 }
 
 
 
--(void)cancelSelected{
-
-
-
-
-    [self.textView cancelSelected];
-    
-
-
-
-}
 
 -(ReadTXTView *)textView{
 

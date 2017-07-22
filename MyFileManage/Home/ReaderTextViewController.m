@@ -11,14 +11,15 @@
 
 #import "sentenSpliteViewController.h"
 
+#import "MenuAndNavBarView.h"
+
+
 
 
 
 @interface ReaderTextViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
 
 @property(nonatomic,strong)UIPageViewController *pageVC;
-
-
 
 @end
 
@@ -27,7 +28,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
 }
 
@@ -43,9 +44,19 @@
     
     ReadTXTPageViewController *firstVc = [self pageViewControllerAtIndex:0];
     
+   
+    [self.view addGestureRecognizer:({
+        
+        
+        UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelSelected)];
+        
+        tap;
+        
+        
+    })];
+
+    
     [self.pageVC setViewControllers:@[firstVc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-    
-    
     self.pageVC.delegate = self;
     
     self.pageVC.dataSource = self;
@@ -65,6 +76,26 @@
     
 
 }
+-(void)cancelSelected{
+    
+    
+    [MenuAndNavBarView MenuAndNavBarShowOrHidden];
+    
+
+
+    [_pageVC.viewControllers enumerateObjectsUsingBlock:^(__kindof ReadTXTPageViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        
+        [obj.textView cancelSelected];
+        
+        
+    }];
+    
+    
+    
+}
+
+
 
 -(void)getSpliteStr:(NSNotification *)notify{
     
@@ -120,8 +151,16 @@
     ReadTXTPageViewController *vc = [[ReadTXTPageViewController alloc] init];
     vc.content = content;
 
+    
     return vc;
 
+
+}
+
+-(void)dealloc{
+
+
+    NSLog(@"dealloc");
 
 }
 

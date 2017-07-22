@@ -13,6 +13,6 @@
 
 
 
-+(void)MenuAndNavBarShow;
++(void)MenuAndNavBarShowOrHidden;
 
 @end

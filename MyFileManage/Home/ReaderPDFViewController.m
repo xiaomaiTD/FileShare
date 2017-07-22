@@ -9,6 +9,8 @@
 #import "ReaderPDFViewController.h"
 #import "PDFPageViewController.h"
 #import "PDFDocument.h"
+#import "MenuAndNavBarView.h"
+
 
 
 @interface ReaderPDFViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
@@ -29,6 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     _document = [[PDFDocument alloc] initWithPath:_pdfPath];
     
@@ -56,7 +59,29 @@
     self.pageVC.view.frame = self.view.bounds;
     
     
+
+    [self.view addGestureRecognizer:({
+        
+        
+        UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelSelected)];
+        
+        tap;
+        
+        
+    })];
     
+    
+    
+}
+
+-(void)cancelSelected{
+
+
+
+
+    [MenuAndNavBarView MenuAndNavBarShowOrHidden];
+
+
 }
 
 
@@ -94,6 +119,15 @@
     
     return vc;
 }
+
+-(void)dealloc{
+    
+    
+    NSLog(@"dealloc");
+    
+}
+
+
 
 
 @end
