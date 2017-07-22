@@ -177,7 +177,7 @@
         UIMenuController *menuController = [UIMenuController sharedMenuController];
         UIMenuItem *menuItemCopy = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(menuCopy:)];
 //        UIMenuItem *menuItemNote = [[UIMenuItem alloc] initWithTitle:@"笔记" action:@selector(menuNote:)];
-        UIMenuItem *menuItemShare = [[UIMenuItem alloc] initWithTitle:@"分裂" action:@selector(menuItemShare:)];
+        UIMenuItem *menuItemShare = [[UIMenuItem alloc] initWithTitle:@"分词" action:@selector(menuItemShare:)];
         NSArray *menus = @[menuItemCopy,menuItemShare];
         [menuController setMenuItems:menus];
         [menuController setTargetRect:CGRectMake(CGRectGetMidX(_menuRect), ViewSize(self).height-CGRectGetMidY(_menuRect), CGRectGetHeight(_menuRect), CGRectGetWidth(_menuRect)) inView:self];
@@ -226,9 +226,12 @@
     
     NSString *spliteStr = [_content substringWithRange:_selectRange];
     
+
+    
     NSDictionary *contentDic= @{@"contentString":spliteStr};
     
     POSTNotificationName(SPLITECONTENTNOTIFY, contentDic);
+   
     
     
    

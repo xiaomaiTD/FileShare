@@ -27,6 +27,8 @@
     if (self = [super initWithFrame:frame]) {
         
         
+       // self.backgroundColor = [UIColor greenColor];
+        
         _spliteStrArray = [[NSMutableArray alloc] initWithCapacity:0];
         
         
@@ -88,7 +90,7 @@
             
             UIButton *btn = [self createBtnWithTitle:obj];
             
-            btn.frame = CGRectMake(8, 32, btnW + 5, 20);
+            btn.frame = CGRectMake(8, 0, btnW + 5, 20);
             
             [wekSelf.spliteStrBtnArray addObject:btn];
             
@@ -102,9 +104,9 @@
         
             UIButton *currentBtn = [self createBtnWithTitle:obj];
             
-            currentBtn.frame = CGRectMake(lastBtn.maxX + 8, lastBtn.y, btnW + 5, 20);
+            currentBtn.frame = CGRectMake(lastBtn.maxX + 8,lastBtn.y, btnW + 5, 20);
             
-            //说明超出屏幕外面了
+           // 说明超出屏幕外面了
             if (currentBtn.maxX > self.width - 8) {
                 
                 currentBtn.x  = 8;
@@ -121,11 +123,39 @@
         
         
     }];
+    
+    
+    
+    for (UIButton *btn in self.spliteStrBtnArray) {
+        
+        btn.y = btn.y + self.height;
+    }
+    
+    
+    for (int i = 0; i<self.spliteStrBtnArray.count; i++) {
+        
+        
+        UIButton *btn = self.spliteStrBtnArray[i];
+        
+
+
+            [UIView animateWithDuration:0.2 delay:i*0.05 usingSpringWithDamping:0.8 initialSpringVelocity:5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                
+                btn.y  =btn.y - self.height;
+                
+            } completion:nil];
+            
+        
+        
+    }
+    
+    
 
 
 
 
 }
+
 
 
 -(UIButton *)createBtnWithTitle:(NSString *)title{

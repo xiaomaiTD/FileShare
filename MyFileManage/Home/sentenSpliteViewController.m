@@ -24,7 +24,7 @@
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     
-    spliteView *sv = [[spliteView alloc] initWithFrame:self.view.bounds];
+    spliteView *sv = [[spliteView alloc] initWithFrame:CGRectMake(0, 16, self.view.width, self.view.height - 16)];
     
     sv.beSpliteString = self.contentString;
     
