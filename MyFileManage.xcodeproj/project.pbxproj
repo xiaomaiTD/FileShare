@@ -15,6 +15,7 @@
 		3722BFE31F20EC73005D2EDB /* spliteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE21F20EC73005D2EDB /* spliteView.m */; };
 		3722BFE61F20FC69005D2EDB /* sentenSpliteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE51F20FC69005D2EDB /* sentenSpliteViewController.m */; };
 		3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */; };
+		3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */; };
 		372A98CB1EF6276700954DEA /* TXTReaderConfigue.m in Sources */ = {isa = PBXBuildFile; fileRef = 372A98CA1EF6276600954DEA /* TXTReaderConfigue.m */; };
 		372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */; };
 		372F7D891EF7AB17001D74EB /* ReadTXTMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372F7D881EF7AB17001D74EB /* ReadTXTMagnifierView.m */; };
@@ -138,6 +139,8 @@
 		3722BFE51F20FC69005D2EDB /* sentenSpliteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sentenSpliteViewController.m; sourceTree = "<group>"; };
 		3722BFE71F21CB56005D2EDB /* NSString+CHChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CHChinese.h"; sourceTree = "<group>"; };
 		3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHChinese.m"; sourceTree = "<group>"; };
+		3722BFEF1F2364E2005D2EDB /* MenuAndNavBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuAndNavBarView.h; sourceTree = "<group>"; };
+		3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuAndNavBarView.m; sourceTree = "<group>"; };
 		372A98C91EF6276600954DEA /* TXTReaderConfigue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTReaderConfigue.h; sourceTree = "<group>"; };
 		372A98CA1EF6276600954DEA /* TXTReaderConfigue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTReaderConfigue.m; sourceTree = "<group>"; };
 		372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderPDFViewController.h; sourceTree = "<group>"; };
@@ -755,6 +758,8 @@
 				377E96F21ED55FA70080E86D /* BaseNavgaitionController.m */,
 				377E96F31ED55FA70080E86D /* MainViewController.h */,
 				377E96F41ED55FA70080E86D /* MainViewController.m */,
+				3722BFEF1F2364E2005D2EDB /* MenuAndNavBarView.h */,
+				3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */,
 			);
 			path = BaseToolAndCategory;
 			sourceTree = "<group>";
@@ -1080,6 +1085,7 @@
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
 				37B3B2901EE3A569001D9ECD /* ReaderTextViewController.m in Sources */,
 				376F4DDB1EDAF8B300CE9B26 /* MultipartMessageHeader.m in Sources */,
+				3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */,
 				376F4DD51EDAF8B300CE9B26 /* DDRange.m in Sources */,
 				374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */,
 				371597A51EDF9AE700B482AB /* File.m in Sources */,
