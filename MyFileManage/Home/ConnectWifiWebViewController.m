@@ -46,10 +46,7 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(copyString)];
     longPress.minimumPressDuration = 1;
     [_ipLable addGestureRecognizer:longPress];
-    
-
-    
-    
+        
     UIImageView *tipsImagV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tips"]];
     tipsImagV.frame = CGRectMake(16, _ipLable.maxY + 20, 30, 30);
     [self.view addSubview:tipsImagV];
@@ -63,23 +60,16 @@
     tipsLable.numberOfLines = 0;
     
     tipsLable.text = @"在浏览器下敲入以上ip地址，可以将文件传输到app里面。必须确定电脑和手机连接在同一个wifi下面";
-    
     [self.view addSubview:tipsLable];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideMenu) name:UIMenuControllerDidHideMenuNotification object:nil];
-    
-    
 
 
 }
 
 -(void)hideMenu{
 
-
     if (_menuController) {
-        
         _menuController = nil;
-        
     }
     
 }
@@ -87,13 +77,10 @@
 -(void)copyString{
 
     if (!_menuController) {
-        
         _menuController = [UIMenuController sharedMenuController];
         [_menuController setTargetRect:self.ipLable.frame inView:self.view];
         [_menuController setMenuVisible:YES animated:YES];
     }
-    
-    
 }
 
 

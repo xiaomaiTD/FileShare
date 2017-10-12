@@ -14,7 +14,11 @@
 
 
 @interface ReaderPDFViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
-
+{
+    
+    BOOL _navShow;
+    
+}
 
 @property(nonatomic,strong)UIPageViewController *pageVC;
 
@@ -34,16 +38,13 @@
     
     
     _document = [[PDFDocument alloc] initWithPath:_pdfPath];
-    
+    _navShow = NO;
+    self.title = _document.title;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
-    
     self.pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionInterPageSpacingKey:@(24)}];
     
     PDFPageViewController *firstVc = [self pageViewControllerAtIndex:1];
-    
     firstVc.view.backgroundColor = [UIColor whiteColor];
-    
     [self.pageVC setViewControllers:@[firstVc] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
     self.pageVC.delegate = self;
     self.pageVC.dataSource = self;
@@ -57,7 +58,7 @@
     
     [self.view addGestureRecognizer:({
         
-        UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelSelected)];
+        UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showOrHidenNav)];
         tap;
 
     })];
@@ -66,13 +67,10 @@
     
 }
 
--(void)cancelSelected{
-    [MenuAndNavBarView MenuAndNavBarShowOrHidden];
+-(void)showOrHidenNav{
+    _navShow = !_navShow;
+    [self.navigationController setNavigationBarHidden:!_navShow animated:YES];
 }
-
-
-
-
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
       viewControllerBeforeViewController:(UIViewController *)viewController

@@ -141,18 +141,16 @@
         if ([model.fileType isEqualToString:@"pdf"]) {
             
             ReaderPDFViewController *vc = [[ReaderPDFViewController alloc] init];
-            
+            vc.title = model.fileName;
             vc.pdfPath = model.fullPath;
-            
             [self.navigationController pushViewController:vc animated:YES];
             
         }
         if ([model.fileType isEqualToString:@"txt"]) {
             
-           
+
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 
-
                 NSURL *fileUrl = [NSURL fileURLWithPath:model.fullPath];
                 
                 ReadTXTModel *txtModel = [ReadTXTModel getLocalModelWithUrl:fileUrl];
@@ -183,13 +181,13 @@
 
 -(void)fileFinishAndReloadTable{
     
-    [self.dataSourceArray removeAllObjects];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.dataSourceArray removeAllObjects];
+        NSArray *allFiles = [self getAllUploadAllFileNames];
+        [self.dataSourceArray addObjectsFromArray:allFiles];
+        [self.tableView reloadData];
+    });
     
-    NSArray *allFiles = [self getAllUploadAllFileNames];
-    
-    [self.dataSourceArray addObjectsFromArray:allFiles];
-    
-    [self.tableView reloadData];
 }
 
 - (NSArray *) getAllUploadAllFileNames

@@ -27,20 +27,11 @@
 
 
     if (self = [super init]) {
-        
         _loopeView = [[PDFLoopView alloc] init];
-
-        
         _page = page;
-        
-        
         UILongPressGestureRecognizer *tap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGes:)];
-        
         [self addGestureRecognizer:tap];
-        
- 
     }
- 
     return self;
 
 
@@ -50,26 +41,17 @@
 -(void)longPressGes:(UITapGestureRecognizer *)recognizer{
 
     CGPoint point = [recognizer locationInView:self];
-    
+
     if (recognizer.state != UIGestureRecognizerStateEnded) {
-        
         [self showLoopeAtPoint:point andInView:[self superview]];
-        
     }else{
     
         [self hideLoopView];
     }
-    
-
 }
 
 -(void)hideLoopView{
-
-
     [self.loopeView removeFromSuperview];
-    
-    
-    
 }
 
 -(void)showLoopeAtPoint:(CGPoint)point andInView:(UIView *)containerView{
@@ -100,16 +82,12 @@
 
 -(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
 
-
     [_page drawInRect:self.bounds inContext:ctx cropping:NO];
-
-
+    
 }
 
 +(Class)layerClass
 {
-
-
     return [PDFCATiledLayer class];
 
 }

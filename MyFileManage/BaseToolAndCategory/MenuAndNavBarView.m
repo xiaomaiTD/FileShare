@@ -9,25 +9,15 @@
 #import "MenuAndNavBarView.h"
 #import "MainViewController.h"
 
-
-
-
 @interface MenuAndNavBarView()
-
-
 
 @end
 
 @implementation MenuAndNavBarView
 
-
-
 static MenuAndNavBarView *menAndNaView;
 
-
 +(void)MenuAndNavBarShowOrHidden{
-
-
 
     [self shareInstance];
     
@@ -37,15 +27,10 @@ static MenuAndNavBarView *menAndNaView;
         
     }];
 
-
-
-
 }
 
 
 +(instancetype)shareInstance{
-
-
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -70,30 +55,18 @@ static MenuAndNavBarView *menAndNaView;
 
     if (self = [super initWithFrame:frame]) {
         
-        
-        
         UILabel *lineLable = [[UILabel alloc] initWithFrame:CGRectMake(0, self.height - 1, self.width, 1)];
         lineLable.backgroundColor = RGBACOLOR(217, 216, 217, 1.0);
-        
-        
         [self addSubview:lineLable];
         
-        
+
         UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        
         backBtn.bounds = CGRectMake(0, 0, 30, 30);
-        
         [backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-        
         backBtn.centerY = 40;
-        
         [backBtn addTarget:self action:@selector(backClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
         backBtn.centerX = 32;
-        
         [self addSubview:backBtn];
-        
         
     }
 
@@ -104,13 +77,6 @@ static MenuAndNavBarView *menAndNaView;
 
 -(void)backClick:(UIButton *)sender{
 
-
-  //  [MenuAndNavBarView MenuAndNavBarShowOrHidden];
-
-   // UIViewController *currentVc = [self getCurrentVC];
-    
-    
-    
     [UIView animateWithDuration:0.2 animations:^{
         
         menAndNaView.y = -64;
@@ -119,7 +85,6 @@ static MenuAndNavBarView *menAndNaView;
     } completion:^(BOOL finished) {
        
         MainViewController *tabbar = (MainViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-        
         
         UINavigationController *nav = (UINavigationController *)[tabbar childViewControllers].firstObject;
         

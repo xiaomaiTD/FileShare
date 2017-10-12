@@ -17,11 +17,7 @@
 @property (nonatomic, strong, readonly) UIImage *thumbnailImage;
 @property (nonatomic, assign, readonly) CGPDFDocumentRef CGPDFDocument;
 @property (nonatomic, copy, readonly) NSString *title;
-
 @property(nonatomic,  assign,  readonly)NSUInteger currentPage;
-
 -(instancetype)initWithPath:(NSString *)path;
-
 - (PDFPage *)pageAtIndex:(NSUInteger)index;
-
 @end

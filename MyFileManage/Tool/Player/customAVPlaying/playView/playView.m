@@ -12,15 +12,9 @@
 #import "playView+playControl.h"
 #import "playView+showHMSecond.h"
 #import "playView+slidePlayControl.h"
-
-
 #import "cacheVideoConnect.h"
-
 #import "Masonry.h"
 #import "MBProgressHUD.h"
-
-
-
 
 @interface playView()<progressViewDelegate>
 
@@ -40,30 +34,22 @@
 
 +(Class)layerClass{
 
-    
     return [AVPlayerLayer class];
     
 }
 
-
-
 -(instancetype)initWithFrameAndUrl:(CGRect)frame url:(NSString *)urlString
 {
-
 
     if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = [UIColor blackColor];
-        
         _urlString = urlString;
-        
         [self setUp];
         //初始化控制手势
         [self initControlGester];
         //添加进度条控制
         [self addSlidePlayControl];
-        
-
         
     }
 
@@ -92,8 +78,7 @@
 
     
     if ([_urlString hasPrefix:@"http"] || [_urlString hasPrefix:@"https"]) {
-        
-        
+    
         _cacheConnnect = [[cacheVideoConnect alloc] init];
         
         NSURL *url = [NSURL URLWithString:_urlString];
@@ -102,26 +87,17 @@
         NSURL *playUrl = [self getSchemeVideoURL:url];
         _videoURLAsset = [AVURLAsset assetWithURL:playUrl];
         //设置resourceLoader的代理
-        
         [_videoURLAsset.resourceLoader setDelegate:_cacheConnnect queue:dispatch_get_main_queue()];
-        
         _playItem = [AVPlayerItem playerItemWithAsset:self.videoURLAsset];
 
-        
-        
     }else{
-    
         
         NSURL *sourceMovieURL = [NSURL fileURLWithPath:_urlString];
         AVAsset *movieAsset = [AVURLAsset URLAssetWithURL:sourceMovieURL options:nil];
         _playItem = [[AVPlayerItem alloc] initWithAsset:movieAsset];
         
     }
-    
-
     _hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
-  //  _hud.label.text = @"正在加载..";
-    
     _playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.myPlayer];
     _playerLayer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     _playerLayer.backgroundColor = [UIColor clearColor].CGColor;
@@ -129,26 +105,18 @@
     self.backgroundColor = [UIColor clearColor];
     _playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.layer addSublayer:_playerLayer];
-    
-
-
     _playProgress = [[progressView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 40, self.frame.size.width, 40)];
     _playProgress.delegate = self;
     [self addSubview:_playProgress];
     
-    
     [_playProgress mas_makeConstraints:^(MASConstraintMaker *make) {
-       
         make.size.height.mas_equalTo(40);
         make.bottom.equalTo(self).with.offset(0);
         make.right.equalTo(self).with.offset(0);
         make.left.equalTo(self).with.offset(0);
-        
     }];
     
-    
     [self addProgressObserver];
-    
     [self addPlayStatus];
     
 
@@ -157,9 +125,6 @@
 
 
 -(void)addPlayStatus{
-    
-    
-    
     
     [self.myPlayer.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     
@@ -178,31 +143,18 @@
 - (void)addProgressObserver{
     
     AVPlayerItem *playerItem = self.myPlayer.currentItem;
-    
-
     //这里设置每秒执行一次
     __weak __typeof(self) weakself = self;
-    
    [_myPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-       
         float current = CMTimeGetSeconds(playerItem.currentTime);
         float total = CMTimeGetSeconds([playerItem duration]);
-       
        weakself.currentPlayTime = current;
-    
-       
        NSString * currentHMSString = [weakself showHMAndSecondString:current];
-       
        NSString * totalHMSString = [weakself showHMAndSecondString:total];
-       
        weakself.playProgress.currentTimeLable.text = currentHMSString;
-       
        weakself.playProgress.totalTimeLable.text = totalHMSString;
-
        NSString *progressString = [NSString stringWithFormat:@"%.6f",current/total];
-       
        weakself.playProgress.progressValue = progressString;
-       
    
     }];
 }
@@ -210,74 +162,42 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
 
-
     AVPlayerItem * itme = (AVPlayerItem *)object;
-    
     __weak playView * weakSelf = self;
     
-
-  
     if ([keyPath isEqualToString:@"status"]) {
         
         if ([itme status] == AVPlayerStatusReadyToPlay) {
             
             [_hud hide:YES];
-            
-        //    [_hud hideAnimated:true];
-            
             float total = CMTimeGetSeconds([itme duration]);
-            
             NSString * totalString = [weakSelf showHMAndSecondString:total];
             weakSelf.playProgress.totalTimeLable.text = totalString;
-
             weakSelf.playProgress.playButton.enabled = true;
             
         }else{
             
-            NSLog(@"error------%@",itme.error);
-            
             [_hud hide:YES];
         
-         //   [_hud hideAnimated:true];
-            //  NSLog(@"网络有问题");
-        
         }
-      //  NSLog(@"");
-        
-        
     }
     if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
         
         NSTimeInterval timeInterval = [self availableDuration];// 计算缓冲进度
-        
         _currentCacheTime = timeInterval;
-        
         CMTime duration = _playItem.duration;
         CGFloat totalDuration = CMTimeGetSeconds(duration);
-    
         weakSelf.playProgress.cacheProgressValue = [NSString stringWithFormat:@"%.6f",timeInterval/totalDuration];
         if (_currentCacheTime - _currentPlayTime > 1 && _myPlayer.rate == 0 ) {
-            
             [weakSelf play];
-            
             [weakSelf.hud hide:YES];
-            
-           // [weakSelf.hud hideAnimated:true];
         }
-        
     }
-    
-    
     
     if ([keyPath isEqualToString:@"frame"]) {
         
         _playerLayer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     }
-    
-
-
-
-
 }
 - (NSTimeInterval)availableDuration {
     
@@ -293,17 +213,10 @@
 
 -(void)moveDidPlayEnd:(NSNotification *)noti{
 
-
     [self moveToTime:0];
     //从零开始
     [self pause];
- //
- 
     self.playProgress.currentTimeLable.text = @"00:00";
-    
-    
-    NSLog(@"move");
-
 
 }
 
@@ -313,8 +226,6 @@
 
 
 -(void)playOrPause:(playStaus)status{
-
-
 
     switch (status) {
         case PLAY:
@@ -326,30 +237,19 @@
         default:
             break;
     }
-    
-    
-    
-
 }
 
 #pragma mark-----播放
 
 -(void)play{
-
    
     if (self.myPlayer.currentItem == nil) {
-        
-        
+
         [self.myPlayer replaceCurrentItemWithPlayerItem:self.playItem];
         
     }
-    
     [self.playProgress.playButton setTitle:@"暂停" forState:UIControlStateNormal];
-    
-   
     [self.myPlayer play];
-    
-    
 }
 // 替换系统无法识别的 URL
 - (NSURL *)getSchemeVideoURL:(NSURL *)url
@@ -376,13 +276,9 @@
 -(void)dealloc{
     
     [self.myPlayer.currentItem removeObserver:self forKeyPath:@"status" context:nil];
-    
     [self removeObserver:self forKeyPath:@"frame"];
-
     [self.myPlayer.currentItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-    
     
 }
 

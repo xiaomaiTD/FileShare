@@ -13,7 +13,6 @@
 @interface ReaderPDFViewController : UIViewController
 
 @property (nonatomic, strong) PDFDocument *document;
-
 @property(nonatomic,strong)NSString *pdfPath;
 
 @end

@@ -10,9 +10,6 @@
 
 @interface MenuAndNavBarView : UIView
 
-
-
-
 +(void)MenuAndNavBarShowOrHidden;
 
 @end

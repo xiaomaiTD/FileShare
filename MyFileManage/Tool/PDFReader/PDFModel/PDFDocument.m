@@ -13,12 +13,9 @@
 
 @interface PDFDocument()
 
-
 @property (nonatomic, assign, readwrite) NSUInteger numberOfPages;
 @property (nonatomic, strong, readwrite) UIImage *thumbnailImage;
-
 @property (nonatomic, assign, readwrite) CGPDFDocumentRef CGPDFDocument;
-
 @property (nonatomic, copy, readwrite) NSString *title;
 @property (nonatomic, assign, readwrite) NSUInteger currentPage;
 
@@ -32,7 +29,6 @@
     if (self = [super initWithPath:path]) {
         
         NSURL *URL = [NSURL fileURLWithPath:path];
-        
         _CGPDFDocument = CGPDFDocumentCreateWithURL((__bridge CFURLRef)URL);
         if (_CGPDFDocument) {
             _numberOfPages = CGPDFDocumentGetNumberOfPages(_CGPDFDocument);
@@ -40,10 +36,7 @@
             self.fileNotExist = YES;
             return self;
         }
-        
          _currentPage = 1;
-        
-        
         [self loadThumbnailImageAsync];
         
     }
@@ -151,11 +144,19 @@
 
 - (NSString *)imagePath
 {
-   
-  
     return [NSString stringWithFormat:@"%@/PDFImageCache/%@",FileUploadSavePath,self.path.lastPathComponent];
 }
 
+-(NSString *)title
+{
+    if (_title == nil) {
+        CGPDFDictionaryRef dict = CGPDFDocumentGetInfo(self.CGPDFDocument);
+        CGPDFStringRef title = NULL;
+        CGPDFDictionaryGetString(dict, "Title", &title);
+        _title = (__bridge_transfer NSString *)CGPDFStringCopyTextString(title);
+    }
+    return _title;
+}
 
 
 
