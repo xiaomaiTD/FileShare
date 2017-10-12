@@ -45,17 +45,13 @@
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(copyString)];
     longPress.minimumPressDuration = 1;
-    
-    
     [_ipLable addGestureRecognizer:longPress];
     
 
     
     
     UIImageView *tipsImagV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tips"]];
-    
     tipsImagV.frame = CGRectMake(16, _ipLable.maxY + 20, 30, 30);
-    
     [self.view addSubview:tipsImagV];
     
     UILabel *tipsLable = [[UILabel alloc] initWithFrame:CGRectMake(tipsImagV.maxX, tipsImagV.y, kScreenWidth - tipsImagV.maxX, 40)];
@@ -95,8 +91,6 @@
         _menuController = [UIMenuController sharedMenuController];
         [_menuController setTargetRect:self.ipLable.frame inView:self.view];
         [_menuController setMenuVisible:YES animated:YES];
-        
-
     }
     
     

@@ -10,7 +10,6 @@
 
 @interface sentenSpliteViewController : UIViewController
 
-
 @property(nonatomic,copy)NSString *contentString;
 
 @end

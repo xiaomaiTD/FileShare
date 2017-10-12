@@ -78,17 +78,11 @@
 }
 -(void)cancelSelected{
     
-    
     [MenuAndNavBarView MenuAndNavBarShowOrHidden];
     
-
-
     [_pageVC.viewControllers enumerateObjectsUsingBlock:^(__kindof ReadTXTPageViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-       
-        
+
         [obj.textView cancelSelected];
-        
-        
     }];
     
     
@@ -106,12 +100,7 @@
     sentenSpliteViewController *vc= [[sentenSpliteViewController alloc] init];
     
     vc.contentString = content;
-    
-    
     [self presentViewController:vc animated:YES completion:nil];
-    
-    
-    
     
 }
 

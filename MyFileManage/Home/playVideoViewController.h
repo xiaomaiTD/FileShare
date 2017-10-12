@@ -13,5 +13,4 @@
 
 @property(nonatomic,strong)fileModel *model;
 
-
 @end

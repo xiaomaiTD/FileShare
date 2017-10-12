@@ -12,9 +12,6 @@
 #import "playVideoViewController.h"
 #import "ReaderPDFViewController.h"
 #import "ReaderTextViewController.h"
-
-
-
 #import "fileModel.h"
 #import "ReadTXTModel.h"
 
@@ -52,27 +49,17 @@
     
     [super viewDidLoad];
     
-   
     NSArray *tempArray = [self getAllUploadAllFileNames];
-    
      if (tempArray && tempArray.count > 0 ) {
         
-        [self.dataSourceArray addObjectsFromArray:tempArray];
- 
-    }
-    
+         self.dataSourceArray = tempArray.mutableCopy;
+     }
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    
     _tableView.tableFooterView = [[UIView alloc] init];
-    
     _tableView.delegate = self;
-    
     _tableView.dataSource = self;
-    
     [self.view addSubview:_tableView];
-    
     [self configueNavItem];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
 
     
@@ -83,23 +70,13 @@
 
     
     UIButton *leftItem = [UIButton buttonWithType:UIButtonTypeCustom];
-    
     [leftItem addTarget:self action:@selector(leftItemClick:) forControlEvents:UIControlEventTouchUpInside];
-    
     [leftItem setImage:[UIImage imageNamed:@"点击"] forState:UIControlStateNormal];
-    
-    
     leftItem.frame = CGRectMake(0, 0, 25, 25);
-    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftItem];
-    
-    
     UIButton *addfile = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    
     [addfile setTintColor:[UIColor orangeColor]];
-    
     addfile.frame = CGRectMake(0, 0, 25, 25);
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addfile];
     
 }
@@ -127,14 +104,9 @@
     }
     
     if (_dataSourceArray.count > 0) {
-        
-        
         fileModel *model = _dataSourceArray[indexPath.row];
-        
         cell.textLabel.text = model.fileName;
     }
-    
-    
     return cell;
     
     
@@ -178,7 +150,6 @@
         if ([model.fileType isEqualToString:@"txt"]) {
             
            
-            
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 
 
@@ -192,20 +163,13 @@
                     vc.model = txtModel;
                     
                     [self.navigationController pushViewController:vc animated:YES];
-                    
 
                 });
                 
-                
             });
-            
         }
         
-        
     }
-
-
-
 
 }
 
@@ -226,9 +190,6 @@
     [self.dataSourceArray addObjectsFromArray:allFiles];
     
     [self.tableView reloadData];
-    
-  //  NSLog(@"allFiles-----%@",allFiles);
-    
 }
 
 - (NSArray *) getAllUploadAllFileNames
@@ -238,8 +199,7 @@
    NSString *uploadDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
  
     uploadDirPath = [NSString stringWithFormat:@"%@/MyFileManageUpload",uploadDirPath];
- 
- 
+
     NSArray *files = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:uploadDirPath error:nil];
     
    __block NSMutableArray *fileModelArray = [[NSMutableArray alloc] initWithCapacity:0];
@@ -251,11 +211,8 @@
         if (![fileString isEqualToString:@".DS_Store"]) {
             
             fileModel *model = [[fileModel alloc] initWithFileString:[NSString stringWithFormat:@"%@",obj]];
-            
             [fileModelArray addObject:model];
-            
 
-            
         }
         
     }];

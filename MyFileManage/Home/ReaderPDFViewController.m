@@ -45,10 +45,7 @@
     firstVc.view.backgroundColor = [UIColor whiteColor];
     
     [self.pageVC setViewControllers:@[firstVc] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
-    
-    
     self.pageVC.delegate = self;
-    
     self.pageVC.dataSource = self;
     
     [self addChildViewController:self.pageVC];
@@ -58,16 +55,11 @@
   
     self.pageVC.view.frame = self.view.bounds;
     
-    
-
     [self.view addGestureRecognizer:({
         
-        
         UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelSelected)];
-        
         tap;
-        
-        
+
     })];
     
     
@@ -75,13 +67,7 @@
 }
 
 -(void)cancelSelected{
-
-
-
-
     [MenuAndNavBarView MenuAndNavBarShowOrHidden];
-
-
 }
 
 
@@ -109,19 +95,15 @@
 {
     PDFPage *page = [self.document pageAtIndex:index];
     if (!page) {
-        
+
         return nil;
-        
     }
     PDFPageViewController *vc =
     [[PDFPageViewController alloc] initWithPage:page];
-    
-    
     return vc;
 }
 
 -(void)dealloc{
-    
     
     NSLog(@"dealloc");
     

@@ -57,17 +57,10 @@
     [imgV addGestureRecognizer:DoubleTap];
     _zoomOut_In = YES;//控制点击图片放大或缩小
     
-    
-    
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapClick:)];
     singleTap.numberOfTapsRequired = 1;
     [imgV addGestureRecognizer:singleTap];
     [singleTap requireGestureRecognizerToFail:DoubleTap];
-    
-    
-    
-    
-    
     
     _bgScrollView.maximumZoomScale=2.0;//最大倍率（默认倍率）
     _bgScrollView.minimumZoomScale=0.1;//最小倍率（默认倍率）
@@ -129,9 +122,7 @@
     
     zoomRect.size.height = [_bgScrollView frame].size.height / scale;
     zoomRect.size.width  = [_bgScrollView frame].size.width  / scale;
-    
     zoomRect.origin.x    = center.x - (zoomRect.size.width  / 2.0);
-    
     zoomRect.origin.y    = center.y - (zoomRect.size.height / 2.0);
     
     return zoomRect;
