@@ -31,20 +31,11 @@
     self.title = _model.fileName;
     
     self.view.backgroundColor = [UIColor blackColor];
-    
     _bgScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    
     [self.view addSubview:_bgScrollView];
-    
-   
-    
-
     NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
-    
     UIImage *fileImage = [UIImage imageWithData:imageData scale:2];
-    
     if (iPhone67sp) {
-        
         fileImage = [UIImage imageWithData:imageData scale:3];
     }
     UIImageView *imgV = [[UIImageView alloc] initWithImage:fileImage];
@@ -67,36 +58,15 @@
     _bgScrollView.decelerationRate=1.0;//减速倍率（默认倍率）
     
     if (fileImage) {
-        
         _bgScrollView.delegate = self;
     }
-    
-    
     [_bgScrollView addSubview:imgV];
-    
     _bgScrollView.contentSize = CGSizeMake(imgV.width, imgV.height);
-    
-    
 }
 
 #pragma mark ---- 弹出编辑视图，待开发
 -(void)singleTapClick:(UITapGestureRecognizer *)gestureRecognizer{
 
-//
-//    float navShouldMove = self.navigationController.navigationBar.y >= 0 ? -64:20;
-//    
-//    float imageY = self.navigationController.navigationBar.y >=0 ? 0:84;
-//    
-//    [UIView animateWithDuration:0.25 animations:^{
-//       
-//        
-//        self.navigationController.navigationBar.y = navShouldMove;
-//        
-//        self.localImgV.y = 0;
-//        
-//        
-//    }];
-    
 
 }
 -(void)DoubleTapClick:(UIGestureRecognizer*)gestureRecognizer//手势执行事件
