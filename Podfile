@@ -1,5 +1,8 @@
-platform :ios, ‘8.0’
+platform :ios, ‘9.0’
+use_frameworks!
+
 target 'MyFileManage' do
-    pod 'Masonry', '~> 1.0.2'
-    pod 'ReactiveCocoa', '~> 6.0'
+	pod 'Masonry', '~> 1.0.2'
+    pod 'iOSPhotoEditor'
+    pod 'SDWebImage', '~> 4.0'
 end

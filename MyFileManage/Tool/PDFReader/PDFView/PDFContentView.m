@@ -82,7 +82,9 @@
 
 -(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
 
-    [_page drawInRect:self.bounds inContext:ctx cropping:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_page drawInRect:self.bounds inContext:ctx cropping:NO];
+    });
     
 }
 

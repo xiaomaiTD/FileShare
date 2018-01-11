@@ -10,7 +10,6 @@
 
 @interface PDFPage()
 
-
 @property (nonatomic ,assign)CGRect pageRect;
 
 @end

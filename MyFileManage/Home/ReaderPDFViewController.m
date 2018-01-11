@@ -52,15 +52,11 @@
     [self addChildViewController:self.pageVC];
  
     [self.view addSubview:self.pageVC.view];
-    
-  
     self.pageVC.view.frame = self.view.bounds;
     
     [self.view addGestureRecognizer:({
-        
         UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showOrHidenNav)];
         tap;
-
     })];
     
     
