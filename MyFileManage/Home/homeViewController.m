@@ -42,7 +42,6 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -151,6 +150,7 @@
         ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:document];
         readerViewController.delegate = self; // Set the ReaderViewController delegate to self
         [self.navigationController pushViewController:readerViewController animated:YES];
+        self.navigationController.navigationBar.hidden = YES;
     }
     else // Log an error so that we know that something went wrong
     {
@@ -200,15 +200,9 @@
 
 - (void)dismissReaderViewController:(ReaderViewController *)viewController
 {
-#if (DEMO_VIEW_CONTROLLER_PUSH == TRUE)
-    
+  
     [self.navigationController popViewControllerAnimated:YES];
-    
-#else // dismiss the modal view controller
-    
-    [self dismissViewControllerAnimated:YES completion:NULL];
-    
-#endif // DEMO_VIEW_CONTROLLER_PUSH
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 

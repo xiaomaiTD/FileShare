@@ -9,9 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseNavgaitionController : UINavigationController
-
 @property(nonatomic,strong)UIButton *backItem;
-
-
-
 @end

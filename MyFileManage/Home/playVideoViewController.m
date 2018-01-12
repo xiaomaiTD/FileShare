@@ -28,8 +28,6 @@
 
 }
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -60,22 +58,13 @@
     else{
 
         [UIView animateWithDuration:0.5 animations:^{
-            
             CGAffineTransform form = CGAffineTransformIdentity;
-            
             self.myPlayView.transform = CGAffineTransformRotate(form, 0);
-            
             self.myPlayView.frame = CGRectMake(0, 0, kScreenWidth , kScreenHeight - 300);
-            
         } completion:^(BOOL finished) {
-            
             [sender setTitle:@"全屏" forState:UIControlStateNormal];
-            
         }];
-
     }
- 
-    
 }
 
 -(void)dealloc{

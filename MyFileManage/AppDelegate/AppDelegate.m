@@ -7,19 +7,13 @@
 //
 
 #import "AppDelegate.h"
-
 #import "HTTPServer.h"
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 #import "MyHTTPConnection.h"
-
 #import "MainViewController.h"
 
-
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-
-
-
 @interface AppDelegate ()
 
 @end
@@ -31,14 +25,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
     self.window.rootViewController = [MainViewController new];
-    
-    
     [self.window makeKeyAndVisible];
   
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    
     httpServer = [[HTTPServer alloc] init];
   
     [httpServer setType:@"_http._tcp."];
@@ -50,7 +40,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     if(![httpServer start:&error])
     {
         DDLogError(@"Error starting HTTP Server: %@", error);
-        
     }else{
         [[DataBaseTool shareInstance] setIPAddree:[NSString stringWithFormat:@"%d",[httpServer listeningPort]]];
     }
