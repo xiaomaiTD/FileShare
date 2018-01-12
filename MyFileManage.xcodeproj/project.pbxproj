@@ -51,6 +51,59 @@
 		0032F8B1200787F7006EF52B /* Reader-Thumbs.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032F894200787F6006EF52B /* Reader-Thumbs.png */; };
 		0032F8B2200787F7006EF52B /* Reader-Thumbs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032F895200787F6006EF52B /* Reader-Thumbs@2x.png */; };
 		0032F8B3200787F7006EF52B /* Reader-Thumbs@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032F896200787F6006EF52B /* Reader-Thumbs@3x.png */; };
+		0032FA8E20089F3F006EF52B /* LSYChapterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA2320089F3E006EF52B /* LSYChapterVC.m */; };
+		0032FA8F20089F3F006EF52B /* LSYMarkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA2520089F3E006EF52B /* LSYMarkVC.m */; };
+		0032FA9020089F3F006EF52B /* LSYNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA2720089F3E006EF52B /* LSYNoteVC.m */; };
+		0032FA9120089F3F006EF52B /* LSYReadConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA2A20089F3E006EF52B /* LSYReadConfig.m */; };
+		0032FA9220089F3F006EF52B /* LSYReadParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA2C20089F3E006EF52B /* LSYReadParser.m */; };
+		0032FA9320089F3F006EF52B /* LSYReadUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA2E20089F3E006EF52B /* LSYReadUtilites.m */; };
+		0032FA9420089F3F006EF52B /* LSYCatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA3020089F3E006EF52B /* LSYCatalogViewController.m */; };
+		0032FA9520089F3F006EF52B /* LSYReadPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA3220089F3E006EF52B /* LSYReadPageViewController.m */; };
+		0032FA9620089F3F006EF52B /* LSYReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA3420089F3E006EF52B /* LSYReadView.m */; };
+		0032FA9720089F3F006EF52B /* LSYReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA3620089F3E006EF52B /* LSYReadViewController.m */; };
+		0032FA9820089F3F006EF52B /* LSYChapterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA3920089F3E006EF52B /* LSYChapterModel.m */; };
+		0032FA9920089F3F006EF52B /* LSYMarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA3B20089F3E006EF52B /* LSYMarkModel.m */; };
+		0032FA9A20089F3F006EF52B /* LSYNoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA3D20089F3E006EF52B /* LSYNoteModel.m */; };
+		0032FA9B20089F3F006EF52B /* LSYReadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA3F20089F3E006EF52B /* LSYReadModel.m */; };
+		0032FA9C20089F3F006EF52B /* LSYRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA4120089F3E006EF52B /* LSYRecordModel.m */; };
+		0032FAA620089F3F006EF52B /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA4F20089F3E006EF52B /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0032FAA720089F3F006EF52B /* LSYViewPagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA5120089F3E006EF52B /* LSYViewPagerVC.m */; };
+		0032FAA820089F3F006EF52B /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA5320089F3E006EF52B /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0032FAA920089F3F006EF52B /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA5820089F3E006EF52B /* CXMLDocument_CreationExtensions.m */; };
+		0032FAAA20089F3F006EF52B /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA5A20089F3E006EF52B /* CXMLNode_CreationExtensions.m */; };
+		0032FAAB20089F3F006EF52B /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA5C20089F3E006EF52B /* CXHTMLDocument.m */; };
+		0032FAAC20089F3F006EF52B /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA5E20089F3E006EF52B /* CXMLDocument.m */; };
+		0032FAAD20089F3F006EF52B /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA6020089F3E006EF52B /* CXMLDocument_PrivateExtensions.m */; };
+		0032FAAE20089F3F006EF52B /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA6220089F3E006EF52B /* CXMLElement.m */; };
+		0032FAAF20089F3F006EF52B /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA6420089F3E006EF52B /* CXMLElement_CreationExtensions.m */; };
+		0032FAB020089F3F006EF52B /* CXMLElement_ElementTreeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA6620089F3E006EF52B /* CXMLElement_ElementTreeExtensions.m */; };
+		0032FAB120089F3F006EF52B /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA6820089F3E006EF52B /* CXMLNamespaceNode.m */; };
+		0032FAB220089F3F006EF52B /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA6A20089F3E006EF52B /* CXMLNode.m */; };
+		0032FAB320089F3F006EF52B /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA6C20089F3E006EF52B /* CXMLNode_PrivateExtensions.m */; };
+		0032FAB420089F3F006EF52B /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA6E20089F3E006EF52B /* CXMLNode_XPathExtensions.m */; };
+		0032FAB520089F3F006EF52B /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA7020089F3E006EF52B /* CXMLUnsupportedNode.m */; };
+		0032FAB620089F3F006EF52B /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA7320089F3E006EF52B /* CTidy.m */; };
+		0032FAB720089F3F006EF52B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA7620089F3E006EF52B /* UIImage+ImageEffects.m */; };
+		0032FAB820089F3F006EF52B /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA7A20089F3E006EF52B /* ioapi.c */; };
+		0032FAB920089F3F006EF52B /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA7C20089F3E006EF52B /* mztools.c */; };
+		0032FABA20089F3F006EF52B /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA7E20089F3E006EF52B /* unzip.c */; };
+		0032FABB20089F3F006EF52B /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA8020089F3E006EF52B /* zip.c */; };
+		0032FABC20089F3F006EF52B /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA8320089F3E006EF52B /* ZipArchive.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0032FABD20089F3F006EF52B /* bt_tjcp_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FA8520089F3E006EF52B /* bt_tjcp_no@2x.png */; };
+		0032FABE20089F3F006EF52B /* LSYBottomMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA8720089F3E006EF52B /* LSYBottomMenuView.m */; };
+		0032FABF20089F3F006EF52B /* LSYMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA8920089F3E006EF52B /* LSYMagnifierView.m */; };
+		0032FAC020089F3F006EF52B /* LSYMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA8B20089F3E006EF52B /* LSYMenuView.m */; };
+		0032FAC120089F3F006EF52B /* LSYTopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FA8D20089F3E006EF52B /* LSYTopMenuView.m */; };
+		0032FAC320089FDC006EF52B /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC220089FDC006EF52B /* libxml2.2.tbd */; };
+		0032FAC62008A1EE006EF52B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC52008A1EE006EF52B /* Foundation.framework */; };
+		0032FAC72008A667006EF52B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A671ED91BD7001BF4F1 /* libz.tbd */; };
+		0032FAEB2008A92B006EF52B /* reader_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAE42008A92A006EF52B /* reader_more@2x.png */; };
+		0032FAEC2008A92B006EF52B /* r_drag-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAE52008A92A006EF52B /* r_drag-dot@2x.png */; };
+		0032FAED2008A92B006EF52B /* reader_cover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAE62008A92A006EF52B /* reader_cover@2x.png */; };
+		0032FAEE2008A92B006EF52B /* bg_back_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAE72008A92A006EF52B /* bg_back_white.png */; };
+		0032FAEF2008A92B006EF52B /* bg_back_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAE82008A92B006EF52B /* bg_back_white@2x.png */; };
+		0032FAF02008A92B006EF52B /* bt_tjcp_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAE92008A92B006EF52B /* bt_tjcp_no@2x.png */; };
+		0032FAF12008A92B006EF52B /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAEA2008A92B006EF52B /* ic_add.png */; };
 		371597A51EDF9AE700B482AB /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597A41EDF9AE700B482AB /* File.m */; };
 		371597AC1EDFB1A500B482AB /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597AB1EDFB1A500B482AB /* Device.m */; };
 		371597F91EE0F99900B482AB /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F61EE0F99900B482AB /* PDFDocument.m */; };
@@ -223,6 +276,103 @@
 		0032F894200787F6006EF52B /* Reader-Thumbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Thumbs.png"; sourceTree = "<group>"; };
 		0032F895200787F6006EF52B /* Reader-Thumbs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Thumbs@2x.png"; sourceTree = "<group>"; };
 		0032F896200787F6006EF52B /* Reader-Thumbs@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Thumbs@3x.png"; sourceTree = "<group>"; };
+		0032FA2220089F3E006EF52B /* LSYChapterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYChapterVC.h; sourceTree = "<group>"; };
+		0032FA2320089F3E006EF52B /* LSYChapterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYChapterVC.m; sourceTree = "<group>"; };
+		0032FA2420089F3E006EF52B /* LSYMarkVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYMarkVC.h; sourceTree = "<group>"; };
+		0032FA2520089F3E006EF52B /* LSYMarkVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYMarkVC.m; sourceTree = "<group>"; };
+		0032FA2620089F3E006EF52B /* LSYNoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYNoteVC.h; sourceTree = "<group>"; };
+		0032FA2720089F3E006EF52B /* LSYNoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYNoteVC.m; sourceTree = "<group>"; };
+		0032FA2920089F3E006EF52B /* LSYReadConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYReadConfig.h; sourceTree = "<group>"; };
+		0032FA2A20089F3E006EF52B /* LSYReadConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYReadConfig.m; sourceTree = "<group>"; };
+		0032FA2B20089F3E006EF52B /* LSYReadParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYReadParser.h; sourceTree = "<group>"; };
+		0032FA2C20089F3E006EF52B /* LSYReadParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYReadParser.m; sourceTree = "<group>"; };
+		0032FA2D20089F3E006EF52B /* LSYReadUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYReadUtilites.h; sourceTree = "<group>"; };
+		0032FA2E20089F3E006EF52B /* LSYReadUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYReadUtilites.m; sourceTree = "<group>"; };
+		0032FA2F20089F3E006EF52B /* LSYCatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYCatalogViewController.h; sourceTree = "<group>"; };
+		0032FA3020089F3E006EF52B /* LSYCatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYCatalogViewController.m; sourceTree = "<group>"; };
+		0032FA3120089F3E006EF52B /* LSYReadPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYReadPageViewController.h; sourceTree = "<group>"; };
+		0032FA3220089F3E006EF52B /* LSYReadPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYReadPageViewController.m; sourceTree = "<group>"; };
+		0032FA3320089F3E006EF52B /* LSYReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYReadView.h; sourceTree = "<group>"; };
+		0032FA3420089F3E006EF52B /* LSYReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYReadView.m; sourceTree = "<group>"; };
+		0032FA3520089F3E006EF52B /* LSYReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYReadViewController.h; sourceTree = "<group>"; };
+		0032FA3620089F3E006EF52B /* LSYReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYReadViewController.m; sourceTree = "<group>"; };
+		0032FA3820089F3E006EF52B /* LSYChapterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYChapterModel.h; sourceTree = "<group>"; };
+		0032FA3920089F3E006EF52B /* LSYChapterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYChapterModel.m; sourceTree = "<group>"; };
+		0032FA3A20089F3E006EF52B /* LSYMarkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYMarkModel.h; sourceTree = "<group>"; };
+		0032FA3B20089F3E006EF52B /* LSYMarkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYMarkModel.m; sourceTree = "<group>"; };
+		0032FA3C20089F3E006EF52B /* LSYNoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYNoteModel.h; sourceTree = "<group>"; };
+		0032FA3D20089F3E006EF52B /* LSYNoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYNoteModel.m; sourceTree = "<group>"; };
+		0032FA3E20089F3E006EF52B /* LSYReadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYReadModel.h; sourceTree = "<group>"; };
+		0032FA3F20089F3E006EF52B /* LSYReadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYReadModel.m; sourceTree = "<group>"; };
+		0032FA4020089F3E006EF52B /* LSYRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYRecordModel.h; sourceTree = "<group>"; };
+		0032FA4120089F3E006EF52B /* LSYRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYRecordModel.m; sourceTree = "<group>"; };
+		0032FA4D20089F3E006EF52B /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		0032FA4E20089F3E006EF52B /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		0032FA4F20089F3E006EF52B /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		0032FA5020089F3E006EF52B /* LSYViewPagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYViewPagerVC.h; sourceTree = "<group>"; };
+		0032FA5120089F3E006EF52B /* LSYViewPagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYViewPagerVC.m; sourceTree = "<group>"; };
+		0032FA5220089F3E006EF52B /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		0032FA5320089F3E006EF52B /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		0032FA5720089F3E006EF52B /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
+		0032FA5820089F3E006EF52B /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
+		0032FA5920089F3E006EF52B /* CXMLNode_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_CreationExtensions.h; sourceTree = "<group>"; };
+		0032FA5A20089F3E006EF52B /* CXMLNode_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_CreationExtensions.m; sourceTree = "<group>"; };
+		0032FA5B20089F3E006EF52B /* CXHTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHTMLDocument.h; sourceTree = "<group>"; };
+		0032FA5C20089F3E006EF52B /* CXHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHTMLDocument.m; sourceTree = "<group>"; };
+		0032FA5D20089F3E006EF52B /* CXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument.h; sourceTree = "<group>"; };
+		0032FA5E20089F3E006EF52B /* CXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument.m; sourceTree = "<group>"; };
+		0032FA5F20089F3E006EF52B /* CXMLDocument_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_PrivateExtensions.h; sourceTree = "<group>"; };
+		0032FA6020089F3E006EF52B /* CXMLDocument_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_PrivateExtensions.m; sourceTree = "<group>"; };
+		0032FA6120089F3E006EF52B /* CXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement.h; sourceTree = "<group>"; };
+		0032FA6220089F3E006EF52B /* CXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement.m; sourceTree = "<group>"; };
+		0032FA6320089F3E006EF52B /* CXMLElement_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement_CreationExtensions.h; sourceTree = "<group>"; };
+		0032FA6420089F3E006EF52B /* CXMLElement_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement_CreationExtensions.m; sourceTree = "<group>"; };
+		0032FA6520089F3E006EF52B /* CXMLElement_ElementTreeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement_ElementTreeExtensions.h; sourceTree = "<group>"; };
+		0032FA6620089F3E006EF52B /* CXMLElement_ElementTreeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement_ElementTreeExtensions.m; sourceTree = "<group>"; };
+		0032FA6720089F3E006EF52B /* CXMLNamespaceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNamespaceNode.h; sourceTree = "<group>"; };
+		0032FA6820089F3E006EF52B /* CXMLNamespaceNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNamespaceNode.m; sourceTree = "<group>"; };
+		0032FA6920089F3E006EF52B /* CXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode.h; sourceTree = "<group>"; };
+		0032FA6A20089F3E006EF52B /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode.m; sourceTree = "<group>"; };
+		0032FA6B20089F3E006EF52B /* CXMLNode_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_PrivateExtensions.h; sourceTree = "<group>"; };
+		0032FA6C20089F3E006EF52B /* CXMLNode_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_PrivateExtensions.m; sourceTree = "<group>"; };
+		0032FA6D20089F3E006EF52B /* CXMLNode_XPathExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_XPathExtensions.h; sourceTree = "<group>"; };
+		0032FA6E20089F3E006EF52B /* CXMLNode_XPathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_XPathExtensions.m; sourceTree = "<group>"; };
+		0032FA6F20089F3E006EF52B /* CXMLUnsupportedNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLUnsupportedNode.h; sourceTree = "<group>"; };
+		0032FA7020089F3E006EF52B /* CXMLUnsupportedNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLUnsupportedNode.m; sourceTree = "<group>"; };
+		0032FA7220089F3E006EF52B /* CTidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTidy.h; sourceTree = "<group>"; };
+		0032FA7320089F3E006EF52B /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
+		0032FA7420089F3E006EF52B /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
+		0032FA7520089F3E006EF52B /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		0032FA7620089F3E006EF52B /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		0032FA7920089F3E006EF52B /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		0032FA7A20089F3E006EF52B /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		0032FA7B20089F3E006EF52B /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		0032FA7C20089F3E006EF52B /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		0032FA7D20089F3E006EF52B /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		0032FA7E20089F3E006EF52B /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		0032FA7F20089F3E006EF52B /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		0032FA8020089F3E006EF52B /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		0032FA8120089F3E006EF52B /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		0032FA8220089F3E006EF52B /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		0032FA8320089F3E006EF52B /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
+		0032FA8520089F3E006EF52B /* bt_tjcp_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_tjcp_no@2x.png"; sourceTree = "<group>"; };
+		0032FA8620089F3E006EF52B /* LSYBottomMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYBottomMenuView.h; sourceTree = "<group>"; };
+		0032FA8720089F3E006EF52B /* LSYBottomMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYBottomMenuView.m; sourceTree = "<group>"; };
+		0032FA8820089F3E006EF52B /* LSYMagnifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYMagnifierView.h; sourceTree = "<group>"; };
+		0032FA8920089F3E006EF52B /* LSYMagnifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYMagnifierView.m; sourceTree = "<group>"; };
+		0032FA8A20089F3E006EF52B /* LSYMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYMenuView.h; sourceTree = "<group>"; };
+		0032FA8B20089F3E006EF52B /* LSYMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYMenuView.m; sourceTree = "<group>"; };
+		0032FA8C20089F3E006EF52B /* LSYTopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYTopMenuView.h; sourceTree = "<group>"; };
+		0032FA8D20089F3E006EF52B /* LSYTopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYTopMenuView.m; sourceTree = "<group>"; };
+		0032FAC220089FDC006EF52B /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		0032FAC52008A1EE006EF52B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0032FAE42008A92A006EF52B /* reader_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reader_more@2x.png"; sourceTree = "<group>"; };
+		0032FAE52008A92A006EF52B /* r_drag-dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "r_drag-dot@2x.png"; sourceTree = "<group>"; };
+		0032FAE62008A92A006EF52B /* reader_cover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reader_cover@2x.png"; sourceTree = "<group>"; };
+		0032FAE72008A92A006EF52B /* bg_back_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_back_white.png; sourceTree = "<group>"; };
+		0032FAE82008A92B006EF52B /* bg_back_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_back_white@2x.png"; sourceTree = "<group>"; };
+		0032FAE92008A92B006EF52B /* bt_tjcp_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_tjcp_no@2x.png"; sourceTree = "<group>"; };
+		0032FAEA2008A92B006EF52B /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_add.png; sourceTree = "<group>"; };
 		28247406ACE15649A587F961 /* Pods_MyFileManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFileManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		371597A31EDF9AE700B482AB /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
 		371597A41EDF9AE700B482AB /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
@@ -410,6 +560,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0032FAC72008A667006EF52B /* libz.tbd in Frameworks */,
+				0032FAC62008A1EE006EF52B /* Foundation.framework in Frameworks */,
+				0032FAC320089FDC006EF52B /* libxml2.2.tbd in Frameworks */,
 				37CB42A41EE63A9D004D1BAC /* QuartzCore.framework in Frameworks */,
 				376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */,
 				37739A721ED91C0F001BF4F1 /* UIKit.framework in Frameworks */,
@@ -484,6 +637,13 @@
 		0032F879200787F6006EF52B /* ReadSource */ = {
 			isa = PBXGroup;
 			children = (
+				0032FAE72008A92A006EF52B /* bg_back_white.png */,
+				0032FAE82008A92B006EF52B /* bg_back_white@2x.png */,
+				0032FAE92008A92B006EF52B /* bt_tjcp_no@2x.png */,
+				0032FAEA2008A92B006EF52B /* ic_add.png */,
+				0032FAE52008A92A006EF52B /* r_drag-dot@2x.png */,
+				0032FAE62008A92A006EF52B /* reader_cover@2x.png */,
+				0032FAE42008A92A006EF52B /* reader_more@2x.png */,
 				0032F87F200787F6006EF52B /* Reader-Button-H.png */,
 				0032F880200787F6006EF52B /* Reader-Button-H@2x.png */,
 				0032F881200787F6006EF52B /* Reader-Button-H@3x.png */,
@@ -510,6 +670,189 @@
 				0032F896200787F6006EF52B /* Reader-Thumbs@3x.png */,
 			);
 			path = ReadSource;
+			sourceTree = "<group>";
+		};
+		0032FA2020089F3E006EF52B /* TXTSource */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA2120089F3E006EF52B /* CatalogVC */,
+				0032FA2820089F3E006EF52B /* Core */,
+				0032FA2F20089F3E006EF52B /* LSYCatalogViewController.h */,
+				0032FA3020089F3E006EF52B /* LSYCatalogViewController.m */,
+				0032FA3120089F3E006EF52B /* LSYReadPageViewController.h */,
+				0032FA3220089F3E006EF52B /* LSYReadPageViewController.m */,
+				0032FA3320089F3E006EF52B /* LSYReadView.h */,
+				0032FA3420089F3E006EF52B /* LSYReadView.m */,
+				0032FA3520089F3E006EF52B /* LSYReadViewController.h */,
+				0032FA3620089F3E006EF52B /* LSYReadViewController.m */,
+				0032FA3720089F3E006EF52B /* Model */,
+				0032FA4C20089F3E006EF52B /* Third */,
+				0032FA8420089F3E006EF52B /* View */,
+			);
+			path = TXTSource;
+			sourceTree = "<group>";
+		};
+		0032FA2120089F3E006EF52B /* CatalogVC */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA2220089F3E006EF52B /* LSYChapterVC.h */,
+				0032FA2320089F3E006EF52B /* LSYChapterVC.m */,
+				0032FA2420089F3E006EF52B /* LSYMarkVC.h */,
+				0032FA2520089F3E006EF52B /* LSYMarkVC.m */,
+				0032FA2620089F3E006EF52B /* LSYNoteVC.h */,
+				0032FA2720089F3E006EF52B /* LSYNoteVC.m */,
+			);
+			path = CatalogVC;
+			sourceTree = "<group>";
+		};
+		0032FA2820089F3E006EF52B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA2920089F3E006EF52B /* LSYReadConfig.h */,
+				0032FA2A20089F3E006EF52B /* LSYReadConfig.m */,
+				0032FA2B20089F3E006EF52B /* LSYReadParser.h */,
+				0032FA2C20089F3E006EF52B /* LSYReadParser.m */,
+				0032FA2D20089F3E006EF52B /* LSYReadUtilites.h */,
+				0032FA2E20089F3E006EF52B /* LSYReadUtilites.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0032FA3720089F3E006EF52B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA3820089F3E006EF52B /* LSYChapterModel.h */,
+				0032FA3920089F3E006EF52B /* LSYChapterModel.m */,
+				0032FA3A20089F3E006EF52B /* LSYMarkModel.h */,
+				0032FA3B20089F3E006EF52B /* LSYMarkModel.m */,
+				0032FA3C20089F3E006EF52B /* LSYNoteModel.h */,
+				0032FA3D20089F3E006EF52B /* LSYNoteModel.m */,
+				0032FA3E20089F3E006EF52B /* LSYReadModel.h */,
+				0032FA3F20089F3E006EF52B /* LSYReadModel.m */,
+				0032FA4020089F3E006EF52B /* LSYRecordModel.h */,
+				0032FA4120089F3E006EF52B /* LSYRecordModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0032FA4C20089F3E006EF52B /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA4D20089F3E006EF52B /* GTMDefines.h */,
+				0032FA4E20089F3E006EF52B /* GTMNSString+HTML.h */,
+				0032FA4F20089F3E006EF52B /* GTMNSString+HTML.m */,
+				0032FA5020089F3E006EF52B /* LSYViewPagerVC.h */,
+				0032FA5120089F3E006EF52B /* LSYViewPagerVC.m */,
+				0032FA5220089F3E006EF52B /* NSString+HTML.h */,
+				0032FA5320089F3E006EF52B /* NSString+HTML.m */,
+				0032FA5420089F3E006EF52B /* TouchXML */,
+				0032FA7520089F3E006EF52B /* UIImage+ImageEffects.h */,
+				0032FA7620089F3E006EF52B /* UIImage+ImageEffects.m */,
+				0032FA7720089F3E006EF52B /* ZipArchive */,
+			);
+			path = Third;
+			sourceTree = "<group>";
+		};
+		0032FA5420089F3E006EF52B /* TouchXML */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA5520089F3E006EF52B /* Source */,
+			);
+			path = TouchXML;
+			sourceTree = "<group>";
+		};
+		0032FA5520089F3E006EF52B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA5620089F3E006EF52B /* Creation */,
+				0032FA5B20089F3E006EF52B /* CXHTMLDocument.h */,
+				0032FA5C20089F3E006EF52B /* CXHTMLDocument.m */,
+				0032FA5D20089F3E006EF52B /* CXMLDocument.h */,
+				0032FA5E20089F3E006EF52B /* CXMLDocument.m */,
+				0032FA5F20089F3E006EF52B /* CXMLDocument_PrivateExtensions.h */,
+				0032FA6020089F3E006EF52B /* CXMLDocument_PrivateExtensions.m */,
+				0032FA6120089F3E006EF52B /* CXMLElement.h */,
+				0032FA6220089F3E006EF52B /* CXMLElement.m */,
+				0032FA6320089F3E006EF52B /* CXMLElement_CreationExtensions.h */,
+				0032FA6420089F3E006EF52B /* CXMLElement_CreationExtensions.m */,
+				0032FA6520089F3E006EF52B /* CXMLElement_ElementTreeExtensions.h */,
+				0032FA6620089F3E006EF52B /* CXMLElement_ElementTreeExtensions.m */,
+				0032FA6720089F3E006EF52B /* CXMLNamespaceNode.h */,
+				0032FA6820089F3E006EF52B /* CXMLNamespaceNode.m */,
+				0032FA6920089F3E006EF52B /* CXMLNode.h */,
+				0032FA6A20089F3E006EF52B /* CXMLNode.m */,
+				0032FA6B20089F3E006EF52B /* CXMLNode_PrivateExtensions.h */,
+				0032FA6C20089F3E006EF52B /* CXMLNode_PrivateExtensions.m */,
+				0032FA6D20089F3E006EF52B /* CXMLNode_XPathExtensions.h */,
+				0032FA6E20089F3E006EF52B /* CXMLNode_XPathExtensions.m */,
+				0032FA6F20089F3E006EF52B /* CXMLUnsupportedNode.h */,
+				0032FA7020089F3E006EF52B /* CXMLUnsupportedNode.m */,
+				0032FA7120089F3E006EF52B /* Tidy */,
+				0032FA7420089F3E006EF52B /* TouchXML.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		0032FA5620089F3E006EF52B /* Creation */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA5720089F3E006EF52B /* CXMLDocument_CreationExtensions.h */,
+				0032FA5820089F3E006EF52B /* CXMLDocument_CreationExtensions.m */,
+				0032FA5920089F3E006EF52B /* CXMLNode_CreationExtensions.h */,
+				0032FA5A20089F3E006EF52B /* CXMLNode_CreationExtensions.m */,
+			);
+			path = Creation;
+			sourceTree = "<group>";
+		};
+		0032FA7120089F3E006EF52B /* Tidy */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA7220089F3E006EF52B /* CTidy.h */,
+				0032FA7320089F3E006EF52B /* CTidy.m */,
+			);
+			path = Tidy;
+			sourceTree = "<group>";
+		};
+		0032FA7720089F3E006EF52B /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA7820089F3E006EF52B /* minizip */,
+				0032FA8220089F3E006EF52B /* ZipArchive.h */,
+				0032FA8320089F3E006EF52B /* ZipArchive.mm */,
+			);
+			path = ZipArchive;
+			sourceTree = "<group>";
+		};
+		0032FA7820089F3E006EF52B /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA7920089F3E006EF52B /* crypt.h */,
+				0032FA7A20089F3E006EF52B /* ioapi.c */,
+				0032FA7B20089F3E006EF52B /* ioapi.h */,
+				0032FA7C20089F3E006EF52B /* mztools.c */,
+				0032FA7D20089F3E006EF52B /* mztools.h */,
+				0032FA7E20089F3E006EF52B /* unzip.c */,
+				0032FA7F20089F3E006EF52B /* unzip.h */,
+				0032FA8020089F3E006EF52B /* zip.c */,
+				0032FA8120089F3E006EF52B /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		0032FA8420089F3E006EF52B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0032FA8520089F3E006EF52B /* bt_tjcp_no@2x.png */,
+				0032FA8620089F3E006EF52B /* LSYBottomMenuView.h */,
+				0032FA8720089F3E006EF52B /* LSYBottomMenuView.m */,
+				0032FA8820089F3E006EF52B /* LSYMagnifierView.h */,
+				0032FA8920089F3E006EF52B /* LSYMagnifierView.m */,
+				0032FA8A20089F3E006EF52B /* LSYMenuView.h */,
+				0032FA8B20089F3E006EF52B /* LSYMenuView.m */,
+				0032FA8C20089F3E006EF52B /* LSYTopMenuView.h */,
+				0032FA8D20089F3E006EF52B /* LSYTopMenuView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		371597A21EDF9AB500B482AB /* Folder */ = {
@@ -775,6 +1118,8 @@
 		37739A5A1ED91B9F001BF4F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0032FAC52008A1EE006EF52B /* Foundation.framework */,
+				0032FAC220089FDC006EF52B /* libxml2.2.tbd */,
 				376F4D821EDAEEE100CE9B26 /* libstdc++.tbd */,
 				37739A731ED91C17001BF4F1 /* VideoToolbox.framework */,
 				37739A711ED91C0F001BF4F1 /* UIKit.framework */,
@@ -903,6 +1248,7 @@
 				374AB5B41ED7D088004CFD0B /* UIView+Extension.m */,
 				374AB5B51ED7D088004CFD0B /* ZoomImageView.m */,
 				374AB5B61ED7D088004CFD0B /* ZoomImageView.h */,
+				0032FA2020089F3E006EF52B /* TXTSource */,
 				0032F83C20076F16006EF52B /* PDFSources */,
 				372FD5A51EF2D2F9001A7868 /* MBProgressHUD */,
 				372FD4731EF02955001A7868 /* TXTReader */,
@@ -1148,11 +1494,13 @@
 				372FD5AC1EF2D2F9001A7868 /* MBProgressHUD.bundle in Resources */,
 				0032F8A0200787F7006EF52B /* Reader-Button-N@2x.png in Resources */,
 				0032F8A3200787F7006EF52B /* Reader-Email@2x.png in Resources */,
+				0032FAED2008A92B006EF52B /* reader_cover@2x.png in Resources */,
 				376F4DD21EDAF8B300CE9B26 /* README.txt in Resources */,
 				0032F8AC200787F7006EF52B /* Reader-Mark-Y@2x.png in Resources */,
 				0032F8A9200787F7006EF52B /* Reader-Mark-N@2x.png in Resources */,
 				0032F8B0200787F7006EF52B /* Reader-Print@3x.png in Resources */,
 				0032F8AB200787F7006EF52B /* Reader-Mark-Y.png in Resources */,
+				0032FABD20089F3F006EF52B /* bt_tjcp_no@2x.png in Resources */,
 				0032F8AA200787F7006EF52B /* Reader-Mark-N@3x.png in Resources */,
 				0032F8AD200787F7006EF52B /* Reader-Mark-Y@3x.png in Resources */,
 				0032F89E200787F7006EF52B /* Reader-Button-H@3x.png in Resources */,
@@ -1160,19 +1508,25 @@
 				0032F8A8200787F7006EF52B /* Reader-Mark-N.png in Resources */,
 				0032F8AE200787F7006EF52B /* Reader-Print.png in Resources */,
 				0032F8A1200787F7006EF52B /* Reader-Button-N@3x.png in Resources */,
+				0032FAEC2008A92B006EF52B /* r_drag-dot@2x.png in Resources */,
 				377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */,
 				0032F8AF200787F7006EF52B /* Reader-Print@2x.png in Resources */,
 				376F4DE61EDAF8B300CE9B26 /* upload.html in Resources */,
 				376F4DC81EDAF8B300CE9B26 /* About.txt in Resources */,
 				376F4DE51EDAF8B300CE9B26 /* index.html in Resources */,
+				0032FAF12008A92B006EF52B /* ic_add.png in Resources */,
 				376F4DCA1EDAF8B300CE9B26 /* About.txt in Resources */,
 				0032F8B1200787F7006EF52B /* Reader-Thumbs.png in Resources */,
 				0032F8B3200787F7006EF52B /* Reader-Thumbs@3x.png in Resources */,
+				0032FAEB2008A92B006EF52B /* reader_more@2x.png in Resources */,
 				377E95C01ED532CD0080E86D /* Assets.xcassets in Resources */,
+				0032FAEF2008A92B006EF52B /* bg_back_white@2x.png in Resources */,
+				0032FAEE2008A92B006EF52B /* bg_back_white.png in Resources */,
 				0032F8A4200787F7006EF52B /* Reader-Email@3x.png in Resources */,
 				0032F8A6200787F7006EF52B /* Reader-Export@2x.png in Resources */,
 				0032F89F200787F7006EF52B /* Reader-Button-N.png in Resources */,
 				0032F89C200787F7006EF52B /* Reader-Button-H.png in Resources */,
+				0032FAF02008A92B006EF52B /* bt_tjcp_no@2x.png in Resources */,
 				0032F8A7200787F7006EF52B /* Reader-Export@3x.png in Resources */,
 				0032F89D200787F7006EF52B /* Reader-Button-H@2x.png in Resources */,
 			);
@@ -1260,9 +1614,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				37FEB6251F1B924D00CB66CD /* PDFPageScanner.m in Sources */,
+				0032FAB020089F3F006EF52B /* CXMLElement_ElementTreeExtensions.m in Sources */,
 				0032F87620076F16006EF52B /* ThumbsMainToolbar.m in Sources */,
 				376F4DE01EDAF8B300CE9B26 /* HTTPErrorResponse.m in Sources */,
+				0032FABC20089F3F006EF52B /* ZipArchive.mm in Sources */,
 				371597F91EE0F99900B482AB /* PDFDocument.m in Sources */,
+				0032FA9820089F3F006EF52B /* LSYChapterModel.m in Sources */,
+				0032FAB820089F3F006EF52B /* ioapi.c in Sources */,
 				372FD5971EF184FF001A7868 /* ReadTXTPageViewController.m in Sources */,
 				372FD5941EF17CA7001A7868 /* ReadTXTModel.m in Sources */,
 				37E41ADD1EDAFAF60096C7BF /* cacheVideoConnect.m in Sources */,
@@ -1270,21 +1628,31 @@
 				376F4DCE1EDAF8B300CE9B26 /* DDLog.m in Sources */,
 				376F4DC91EDAF8B300CE9B26 /* GCDAsyncSocket.m in Sources */,
 				0032F87020076F16006EF52B /* ReaderThumbQueue.m in Sources */,
+				0032FA8E20089F3F006EF52B /* LSYChapterVC.m in Sources */,
 				0032F86620076F16006EF52B /* ReaderConstants.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
 				37B3B2901EE3A569001D9ECD /* ReaderTextViewController.m in Sources */,
 				376F4DDB1EDAF8B300CE9B26 /* MultipartMessageHeader.m in Sources */,
 				3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */,
+				0032FAC020089F3F006EF52B /* LSYMenuView.m in Sources */,
 				376F4DD51EDAF8B300CE9B26 /* DDRange.m in Sources */,
 				374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */,
+				0032FAAC20089F3F006EF52B /* CXMLDocument.m in Sources */,
 				371597A51EDF9AE700B482AB /* File.m in Sources */,
+				0032FA9120089F3F006EF52B /* LSYReadConfig.m in Sources */,
+				0032FAAA20089F3F006EF52B /* CXMLNode_CreationExtensions.m in Sources */,
 				371597FD1EE0F9E000B482AB /* PDFPageViewController.m in Sources */,
 				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
+				0032FAB420089F3F006EF52B /* CXMLNode_XPathExtensions.m in Sources */,
 				376F4DCD1EDAF8B300CE9B26 /* DDFileLogger.m in Sources */,
 				376F4DDF1EDAF8B300CE9B26 /* HTTPDynamicFileResponse.m in Sources */,
 				372FD5911EF17C70001A7868 /* ReadTXTView.m in Sources */,
 				37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */,
+				0032FA9720089F3F006EF52B /* LSYReadViewController.m in Sources */,
+				0032FAA620089F3F006EF52B /* GTMNSString+HTML.m in Sources */,
 				3722BFE61F20FC69005D2EDB /* sentenSpliteViewController.m in Sources */,
+				0032FAB620089F3F006EF52B /* CTidy.m in Sources */,
+				0032FAA720089F3F006EF52B /* LSYViewPagerVC.m in Sources */,
 				0032F86A20076F16006EF52B /* ReaderDocument.m in Sources */,
 				0032F86C20076F16006EF52B /* ReaderMainPagebar.m in Sources */,
 				372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */,
@@ -1302,37 +1670,54 @@
 				372F7D891EF7AB17001D74EB /* ReadTXTMagnifierView.m in Sources */,
 				376F4DE21EDAF8B300CE9B26 /* HTTPRedirectResponse.m in Sources */,
 				374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */,
+				0032FAA920089F3F006EF52B /* CXMLDocument_CreationExtensions.m in Sources */,
 				0032F87820076F16006EF52B /* UIXToolbarView.m in Sources */,
+				0032FAB720089F3F006EF52B /* UIImage+ImageEffects.m in Sources */,
 				377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */,
 				376F4DD11EDAF8B300CE9B26 /* DispatchQueueLogFormatter.m in Sources */,
+				0032FAB320089F3F006EF52B /* CXMLNode_PrivateExtensions.m in Sources */,
 				371597AC1EDFB1A500B482AB /* Device.m in Sources */,
 				374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */,
 				37E41AE31EDAFAF60096C7BF /* playView.m in Sources */,
 				0032F87320076F16006EF52B /* ReaderThumbsView.m in Sources */,
 				376F4DDC1EDAF8B300CE9B26 /* MultipartMessageHeaderField.m in Sources */,
+				0032FAB920089F3F006EF52B /* mztools.c in Sources */,
 				37E41AE41EDAFAF60096C7BF /* progressSlideView.m in Sources */,
+				0032FA9520089F3F006EF52B /* LSYReadPageViewController.m in Sources */,
 				373BD4BD1F0E3ED400CD4A3D /* PDFCATiledLayer.m in Sources */,
 				37FEB6211F1B192800CB66CD /* PDFLoopView.m in Sources */,
 				376F4DD41EDAF8B300CE9B26 /* DDNumber.m in Sources */,
 				376F4DE31EDAF8B300CE9B26 /* WebSocket.m in Sources */,
 				372A98CB1EF6276700954DEA /* TXTReaderConfigue.m in Sources */,
 				376F4DCF1EDAF8B300CE9B26 /* DDTTYLogger.m in Sources */,
+				0032FA9220089F3F006EF52B /* LSYReadParser.m in Sources */,
 				372FD5A41EF29C43001A7868 /* TXTReaderParse.m in Sources */,
+				0032FABF20089F3F006EF52B /* LSYMagnifierView.m in Sources */,
+				0032FAB220089F3F006EF52B /* CXMLNode.m in Sources */,
+				0032FABA20089F3F006EF52B /* unzip.c in Sources */,
 				377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */,
 				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
 				0032F86B20076F16006EF52B /* ReaderDocumentOutline.m in Sources */,
 				376F4DE41EDAF8B300CE9B26 /* MyHTTPConnection.m in Sources */,
 				376F4DDD1EDAF8B300CE9B26 /* HTTPAsyncFileResponse.m in Sources */,
+				0032FA9A20089F3F006EF52B /* LSYNoteModel.m in Sources */,
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
 				371597FA1EE0F99900B482AB /* PDFPage.m in Sources */,
+				0032FAC120089F3F006EF52B /* LSYTopMenuView.m in Sources */,
+				0032FAAF20089F3F006EF52B /* CXMLElement_CreationExtensions.m in Sources */,
 				377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */,
 				376F4DD01EDAF8B300CE9B26 /* ContextFilterLogFormatter.m in Sources */,
+				0032FAAD20089F3F006EF52B /* CXMLDocument_PrivateExtensions.m in Sources */,
 				0032F86820076F16006EF52B /* ReaderContentTile.m in Sources */,
+				0032FAAE20089F3F006EF52B /* CXMLElement.m in Sources */,
 				37E41AE21EDAFAF60096C7BF /* playView+slidePlayControl.m in Sources */,
 				376F4DD81EDAF8B300CE9B26 /* HTTPMessage.m in Sources */,
 				376F4DD61EDAF8B300CE9B26 /* HTTPAuthenticationRequest.m in Sources */,
+				0032FABB20089F3F006EF52B /* zip.c in Sources */,
 				3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */,
+				0032FA8F20089F3F006EF52B /* LSYMarkVC.m in Sources */,
 				376F4DD91EDAF8B300CE9B26 /* HTTPServer.m in Sources */,
+				0032FA9C20089F3F006EF52B /* LSYRecordModel.m in Sources */,
 				376F4DCC1EDAF8B300CE9B26 /* DDASLLogger.m in Sources */,
 				372FD5A01EF29AAF001A7868 /* ReadChapterModel.m in Sources */,
 				0032F87420076F16006EF52B /* ReaderThumbView.m in Sources */,
@@ -1340,16 +1725,27 @@
 				0032F87120076F16006EF52B /* ReaderThumbRender.m in Sources */,
 				372FD5AD1EF2D2F9001A7868 /* MBProgressHUD.m in Sources */,
 				37E41ADF1EDAFAF60096C7BF /* playView+playControl.m in Sources */,
+				0032FA9320089F3F006EF52B /* LSYReadUtilites.m in Sources */,
+				0032FA9420089F3F006EF52B /* LSYCatalogViewController.m in Sources */,
+				0032FAB120089F3F006EF52B /* CXMLNamespaceNode.m in Sources */,
 				376F4DDA1EDAF8B300CE9B26 /* MultipartFormDataParser.m in Sources */,
+				0032FAAB20089F3F006EF52B /* CXHTMLDocument.m in Sources */,
+				0032FA9620089F3F006EF52B /* LSYReadView.m in Sources */,
 				0032F86D20076F16006EF52B /* ReaderMainToolbar.m in Sources */,
+				0032FA9920089F3F006EF52B /* LSYMarkModel.m in Sources */,
 				376F4DD31EDAF8B300CE9B26 /* DDData.m in Sources */,
 				0032F86520076F16006EF52B /* CGPDFDocument.m in Sources */,
 				376F4DCB1EDAF8B300CE9B26 /* DDAbstractDatabaseLogger.m in Sources */,
+				0032FA9020089F3F006EF52B /* LSYNoteVC.m in Sources */,
+				0032FAB520089F3F006EF52B /* CXMLUnsupportedNode.m in Sources */,
+				0032FAA820089F3F006EF52B /* NSString+HTML.m in Sources */,
 				37E41AE01EDAFAF60096C7BF /* playView+playInfoShow.m in Sources */,
 				0032F86F20076F16006EF52B /* ReaderThumbFetch.m in Sources */,
 				376F4DDE1EDAF8B300CE9B26 /* HTTPDataResponse.m in Sources */,
 				376F4DE11EDAF8B300CE9B26 /* HTTPFileResponse.m in Sources */,
 				377E95ED1ED533FC0080E86D /* homeViewController.m in Sources */,
+				0032FABE20089F3F006EF52B /* LSYBottomMenuView.m in Sources */,
+				0032FA9B20089F3F006EF52B /* LSYReadModel.m in Sources */,
 				0032F87520076F16006EF52B /* ReaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1495,7 +1891,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_PREFIX_HEADER = MyFileManage/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = MyFileManage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1511,7 +1909,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_PREFIX_HEADER = MyFileManage/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = MyFileManage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

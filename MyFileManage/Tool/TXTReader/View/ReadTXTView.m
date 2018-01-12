@@ -306,7 +306,7 @@
     _pan.enabled = YES;
     
     CGMutablePathRef _path = CGPathCreateMutable();
-    [[UIColor redColor]setFill];
+    [[UIColor orangeColor]setFill];
     for (int i = 0; i < [array count]; i++) {
         CGRect rect = CGRectFromString([array objectAtIndex:i]);
         CGPathAddRect(_path, NULL, rect);

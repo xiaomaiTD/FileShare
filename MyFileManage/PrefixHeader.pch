@@ -12,14 +12,40 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-#import "UIView+Extension.h"
-#import "Utility/Device.h"
+
+#import <CoreText/CoreText.h>
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <CoreText/CoreText.h>
 
 #import "DataBaseTool.h"
+#import "LSYReadUtilites.h"
+#import "LSYReadModel.h"
+#import "LSYReadParser.h"
+#import "UIView+Extension.h"
+#import "Utility/Device.h"
 
 
+#define RGB(R, G, B)    [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
+#define TopSpacing 40.0f
+#define BottomSpacing 40.0f
+#define LeftSpacing 20.0f
+#define RightSpacing  20.0f
+#define DELAYEXECUTE(delayTime,func) (dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{func;}))
+#define DistanceFromTopGuiden(view) (view.frame.origin.y + view.frame.size.height)
+#define DistanceFromLeftGuiden(view) (view.frame.origin.x + view.frame.size.width)
+#define ViewOrigin(view)   (view.frame.origin)
+#define ViewSize(view)  (view.frame.size)
+#define ScreenSize [UIScreen mainScreen].bounds.size
 
+
+#define LSYNoteNotification @"LSYNoteNotification"
+#define LSYThemeNotification @"LSYThemeNotification"
+#define LSYEditingNotification @"LSYEditingNotification"
+#define LSYEndEditNotification @"LSYEndEditNotification"
+
+#define MinFontSize 11.0f
+#define MaxFontSize 20.0f
 #define POSTNotificationName(name,userDic)  [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil userInfo:userDic]
 
 #define REmoveNotificationName(removeName)  [[NSNotificationCenter defaultCenter] removeObserver:self name:removeName object:nil]
@@ -31,15 +57,11 @@
 
 #define iPhone67s kScreenWidth >= 640 && kScreenWidth <=375
 #define iPhone67sp kScreenWidth > 375
-
 #define ViewSize(view)  (view.frame.size)
 #define ViewOrigin(view)   (view.frame.origin)
 
-
 #define FileFinish @"FileFinish"
-
 #define FileUploadSavePath  [NSString stringWithFormat:@"%@/MyFileManageUpload",[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]]
-
 #define SupportPictureArray @[@"PNG",@"JPG",@"GIF",@"JPEG"]
 #define SupportVideoArray @[@"MP4",@"RMVB"]
 
@@ -49,7 +71,10 @@
 #define WEAKSEFL __weak typeof(self) wekSelf = self
 
 
-
-
-
 #endif /* PrefixHeader_pch */
+
+
+
+
+
+
