@@ -104,17 +104,23 @@
 		0032FAEF2008A92B006EF52B /* bg_back_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAE82008A92B006EF52B /* bg_back_white@2x.png */; };
 		0032FAF02008A92B006EF52B /* bt_tjcp_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAE92008A92B006EF52B /* bt_tjcp_no@2x.png */; };
 		0032FAF12008A92B006EF52B /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032FAEA2008A92B006EF52B /* ic_add.png */; };
+		0032FB162009F03A006EF52B /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */; };
+		0032FB172009F03A006EF52B /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0B2009F03A006EF52B /* homeViewController.m */; };
+		0032FB182009F03A006EF52B /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0D2009F03A006EF52B /* openImageViewController.m */; };
+		0032FB192009F03A006EF52B /* playVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0F2009F03A006EF52B /* playVideoViewController.m */; };
+		0032FB1A2009F03A006EF52B /* ReaderPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB112009F03A006EF52B /* ReaderPDFViewController.m */; };
+		0032FB1B2009F03A006EF52B /* ReaderTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB132009F03A006EF52B /* ReaderTextViewController.m */; };
+		0032FB1C2009F03A006EF52B /* sentenSpliteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB152009F03A006EF52B /* sentenSpliteViewController.m */; };
+		0032FB1F2009F082006EF52B /* LoadWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB1E2009F082006EF52B /* LoadWebViewController.m */; };
 		371597A51EDF9AE700B482AB /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597A41EDF9AE700B482AB /* File.m */; };
 		371597AC1EDFB1A500B482AB /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597AB1EDFB1A500B482AB /* Device.m */; };
 		371597F91EE0F99900B482AB /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F61EE0F99900B482AB /* PDFDocument.m */; };
 		371597FA1EE0F99900B482AB /* PDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F81EE0F99900B482AB /* PDFPage.m */; };
 		371597FD1EE0F9E000B482AB /* PDFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597FC1EE0F9E000B482AB /* PDFPageViewController.m */; };
 		3722BFE31F20EC73005D2EDB /* spliteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE21F20EC73005D2EDB /* spliteView.m */; };
-		3722BFE61F20FC69005D2EDB /* sentenSpliteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE51F20FC69005D2EDB /* sentenSpliteViewController.m */; };
 		3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */; };
 		3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */; };
 		372A98CB1EF6276700954DEA /* TXTReaderConfigue.m in Sources */ = {isa = PBXBuildFile; fileRef = 372A98CA1EF6276600954DEA /* TXTReaderConfigue.m */; };
-		372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */; };
 		372F7D891EF7AB17001D74EB /* ReadTXTMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372F7D881EF7AB17001D74EB /* ReadTXTMagnifierView.m */; };
 		372FD5911EF17C70001A7868 /* ReadTXTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5901EF17C70001A7868 /* ReadTXTView.m */; };
 		372FD5941EF17CA7001A7868 /* ReadTXTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 372FD5931EF17CA7001A7868 /* ReadTXTModel.m */; };
@@ -168,18 +174,13 @@
 		377E95CE1ED532CD0080E86D /* MyFileManageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E95CD1ED532CD0080E86D /* MyFileManageTests.m */; };
 		377E95D91ED532CD0080E86D /* MyFileManageUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E95D81ED532CD0080E86D /* MyFileManageUITests.m */; };
 		377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E95E91ED533CD0080E86D /* AppDelegate.m */; };
-		377E95ED1ED533FC0080E86D /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E95EC1ED533FC0080E86D /* homeViewController.m */; };
 		377E96E81ED53BB80080E86D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 377E96E61ED53BB80080E86D /* index.html */; };
 		377E96E91ED53BB80080E86D /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 377E96E71ED53BB80080E86D /* upload.html */; };
 		377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E96F21ED55FA70080E86D /* BaseNavgaitionController.m */; };
 		377E96F61ED55FA70080E86D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E96F41ED55FA70080E86D /* MainViewController.m */; };
 		377E96FA1ED560530080E86D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E96F91ED560530080E86D /* SettingViewController.m */; };
-		377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */; };
 		377E971A1ED69BFE0080E86D /* fileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E97191ED69BFE0080E86D /* fileModel.m */; };
-		377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E971C1ED6BD1F0080E86D /* openImageViewController.m */; };
-		37B3B2901EE3A569001D9ECD /* ReaderTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B3B28F1EE3A569001D9ECD /* ReaderTextViewController.m */; };
 		37CB42A41EE63A9D004D1BAC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A6F1ED91C0A001BF4F1 /* QuartzCore.framework */; };
-		37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DA25EC1ED6EFED000C607B /* playVideoViewController.m */; };
 		37E41ADD1EDAFAF60096C7BF /* cacheVideoConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41AC91EDAFAF60096C7BF /* cacheVideoConnect.m */; };
 		37E41ADE1EDAFAF60096C7BF /* cacheVideoSaveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ACB1EDAFAF60096C7BF /* cacheVideoSaveCache.m */; };
 		37E41ADF1EDAFAF60096C7BF /* playView+playControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E41ACF1EDAFAF60096C7BF /* playView+playControl.m */; };
@@ -373,6 +374,22 @@
 		0032FAE82008A92B006EF52B /* bg_back_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_back_white@2x.png"; sourceTree = "<group>"; };
 		0032FAE92008A92B006EF52B /* bt_tjcp_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_tjcp_no@2x.png"; sourceTree = "<group>"; };
 		0032FAEA2008A92B006EF52B /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_add.png; sourceTree = "<group>"; };
+		0032FB082009F03A006EF52B /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
+		0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
+		0032FB0A2009F03A006EF52B /* homeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
+		0032FB0B2009F03A006EF52B /* homeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
+		0032FB0C2009F03A006EF52B /* openImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openImageViewController.h; sourceTree = "<group>"; };
+		0032FB0D2009F03A006EF52B /* openImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openImageViewController.m; sourceTree = "<group>"; };
+		0032FB0E2009F03A006EF52B /* playVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playVideoViewController.h; sourceTree = "<group>"; };
+		0032FB0F2009F03A006EF52B /* playVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playVideoViewController.m; sourceTree = "<group>"; };
+		0032FB102009F03A006EF52B /* ReaderPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderPDFViewController.h; sourceTree = "<group>"; };
+		0032FB112009F03A006EF52B /* ReaderPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderPDFViewController.m; sourceTree = "<group>"; };
+		0032FB122009F03A006EF52B /* ReaderTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderTextViewController.h; sourceTree = "<group>"; };
+		0032FB132009F03A006EF52B /* ReaderTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderTextViewController.m; sourceTree = "<group>"; };
+		0032FB142009F03A006EF52B /* sentenSpliteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sentenSpliteViewController.h; sourceTree = "<group>"; };
+		0032FB152009F03A006EF52B /* sentenSpliteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sentenSpliteViewController.m; sourceTree = "<group>"; };
+		0032FB1D2009F082006EF52B /* LoadWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadWebViewController.h; sourceTree = "<group>"; };
+		0032FB1E2009F082006EF52B /* LoadWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadWebViewController.m; sourceTree = "<group>"; };
 		28247406ACE15649A587F961 /* Pods_MyFileManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFileManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		371597A31EDF9AE700B482AB /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
 		371597A41EDF9AE700B482AB /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
@@ -386,16 +403,12 @@
 		371597FC1EE0F9E000B482AB /* PDFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageViewController.m; sourceTree = "<group>"; };
 		3722BFE11F20EC73005D2EDB /* spliteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spliteView.h; sourceTree = "<group>"; };
 		3722BFE21F20EC73005D2EDB /* spliteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = spliteView.m; sourceTree = "<group>"; };
-		3722BFE41F20FC69005D2EDB /* sentenSpliteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sentenSpliteViewController.h; sourceTree = "<group>"; };
-		3722BFE51F20FC69005D2EDB /* sentenSpliteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sentenSpliteViewController.m; sourceTree = "<group>"; };
 		3722BFE71F21CB56005D2EDB /* NSString+CHChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CHChinese.h"; sourceTree = "<group>"; };
 		3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHChinese.m"; sourceTree = "<group>"; };
 		3722BFEF1F2364E2005D2EDB /* MenuAndNavBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuAndNavBarView.h; sourceTree = "<group>"; };
 		3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuAndNavBarView.m; sourceTree = "<group>"; };
 		372A98C91EF6276600954DEA /* TXTReaderConfigue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTReaderConfigue.h; sourceTree = "<group>"; };
 		372A98CA1EF6276600954DEA /* TXTReaderConfigue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTReaderConfigue.m; sourceTree = "<group>"; };
-		372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderPDFViewController.h; sourceTree = "<group>"; };
-		372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderPDFViewController.m; sourceTree = "<group>"; };
 		372F7D871EF7AB17001D74EB /* ReadTXTMagnifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTMagnifierView.h; sourceTree = "<group>"; };
 		372F7D881EF7AB17001D74EB /* ReadTXTMagnifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTXTMagnifierView.m; sourceTree = "<group>"; };
 		372FD58F1EF17C70001A7868 /* ReadTXTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTXTView.h; sourceTree = "<group>"; };
@@ -508,8 +521,6 @@
 		377E95DA1ED532CD0080E86D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377E95E81ED533CD0080E86D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		377E95E91ED533CD0080E86D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		377E95EB1ED533FC0080E86D /* homeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
-		377E95EC1ED533FC0080E86D /* homeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
 		377E96E61ED53BB80080E86D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		377E96E71ED53BB80080E86D /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
 		377E96EF1ED55D990080E86D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -519,16 +530,8 @@
 		377E96F41ED55FA70080E86D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		377E96F81ED560530080E86D /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		377E96F91ED560530080E86D /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		377E97081ED5C5C40080E86D /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
-		377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
 		377E97181ED69BFE0080E86D /* fileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileModel.h; sourceTree = "<group>"; };
 		377E97191ED69BFE0080E86D /* fileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fileModel.m; sourceTree = "<group>"; };
-		377E971B1ED6BD1F0080E86D /* openImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openImageViewController.h; sourceTree = "<group>"; };
-		377E971C1ED6BD1F0080E86D /* openImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openImageViewController.m; sourceTree = "<group>"; };
-		37B3B28E1EE3A569001D9ECD /* ReaderTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderTextViewController.h; sourceTree = "<group>"; };
-		37B3B28F1EE3A569001D9ECD /* ReaderTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderTextViewController.m; sourceTree = "<group>"; };
-		37DA25EB1ED6EFED000C607B /* playVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playVideoViewController.h; sourceTree = "<group>"; };
-		37DA25EC1ED6EFED000C607B /* playVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playVideoViewController.m; sourceTree = "<group>"; };
 		37E41AC81EDAFAF60096C7BF /* cacheVideoConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cacheVideoConnect.h; sourceTree = "<group>"; };
 		37E41AC91EDAFAF60096C7BF /* cacheVideoConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cacheVideoConnect.m; sourceTree = "<group>"; };
 		37E41ACA1EDAFAF60096C7BF /* cacheVideoSaveCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cacheVideoSaveCache.h; sourceTree = "<group>"; };
@@ -853,6 +856,36 @@
 				0032FA8D20089F3E006EF52B /* LSYTopMenuView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0032FB062009F03A006EF52B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0032FB072009F03A006EF52B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0032FB082009F03A006EF52B /* ConnectWifiWebViewController.h */,
+				0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */,
+				0032FB0A2009F03A006EF52B /* homeViewController.h */,
+				0032FB0B2009F03A006EF52B /* homeViewController.m */,
+				0032FB0C2009F03A006EF52B /* openImageViewController.h */,
+				0032FB0D2009F03A006EF52B /* openImageViewController.m */,
+				0032FB0E2009F03A006EF52B /* playVideoViewController.h */,
+				0032FB0F2009F03A006EF52B /* playVideoViewController.m */,
+				0032FB102009F03A006EF52B /* ReaderPDFViewController.h */,
+				0032FB112009F03A006EF52B /* ReaderPDFViewController.m */,
+				0032FB122009F03A006EF52B /* ReaderTextViewController.h */,
+				0032FB132009F03A006EF52B /* ReaderTextViewController.m */,
+				0032FB142009F03A006EF52B /* sentenSpliteViewController.h */,
+				0032FB152009F03A006EF52B /* sentenSpliteViewController.m */,
+				0032FB1D2009F082006EF52B /* LoadWebViewController.h */,
+				0032FB1E2009F082006EF52B /* LoadWebViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		371597A21EDF9AB500B482AB /* Folder */ = {
@@ -1209,21 +1242,9 @@
 		377E95E61ED5339F0080E86D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0032FB072009F03A006EF52B /* Controller */,
+				0032FB062009F03A006EF52B /* View */,
 				377E97171ED69B980080E86D /* Model */,
-				377E95EB1ED533FC0080E86D /* homeViewController.h */,
-				377E95EC1ED533FC0080E86D /* homeViewController.m */,
-				377E971B1ED6BD1F0080E86D /* openImageViewController.h */,
-				377E971C1ED6BD1F0080E86D /* openImageViewController.m */,
-				37DA25EB1ED6EFED000C607B /* playVideoViewController.h */,
-				37DA25EC1ED6EFED000C607B /* playVideoViewController.m */,
-				372B6A801EDE5F9E00C4E979 /* ReaderPDFViewController.h */,
-				372B6A811EDE5F9E00C4E979 /* ReaderPDFViewController.m */,
-				37B3B28E1EE3A569001D9ECD /* ReaderTextViewController.h */,
-				37B3B28F1EE3A569001D9ECD /* ReaderTextViewController.m */,
-				3722BFE41F20FC69005D2EDB /* sentenSpliteViewController.h */,
-				3722BFE51F20FC69005D2EDB /* sentenSpliteViewController.m */,
-				377E97081ED5C5C40080E86D /* ConnectWifiWebViewController.h */,
-				377E97091ED5C5C40080E86D /* ConnectWifiWebViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1623,6 +1644,7 @@
 				0032FAB820089F3F006EF52B /* ioapi.c in Sources */,
 				372FD5971EF184FF001A7868 /* ReadTXTPageViewController.m in Sources */,
 				372FD5941EF17CA7001A7868 /* ReadTXTModel.m in Sources */,
+				0032FB1B2009F03A006EF52B /* ReaderTextViewController.m in Sources */,
 				37E41ADD1EDAFAF60096C7BF /* cacheVideoConnect.m in Sources */,
 				0032F86E20076F16006EF52B /* ReaderThumbCache.m in Sources */,
 				376F4DCE1EDAF8B300CE9B26 /* DDLog.m in Sources */,
@@ -1631,7 +1653,6 @@
 				0032FA8E20089F3F006EF52B /* LSYChapterVC.m in Sources */,
 				0032F86620076F16006EF52B /* ReaderConstants.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
-				37B3B2901EE3A569001D9ECD /* ReaderTextViewController.m in Sources */,
 				376F4DDB1EDAF8B300CE9B26 /* MultipartMessageHeader.m in Sources */,
 				3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */,
 				0032FAC020089F3F006EF52B /* LSYMenuView.m in Sources */,
@@ -1640,6 +1661,7 @@
 				0032FAAC20089F3F006EF52B /* CXMLDocument.m in Sources */,
 				371597A51EDF9AE700B482AB /* File.m in Sources */,
 				0032FA9120089F3F006EF52B /* LSYReadConfig.m in Sources */,
+				0032FB1F2009F082006EF52B /* LoadWebViewController.m in Sources */,
 				0032FAAA20089F3F006EF52B /* CXMLNode_CreationExtensions.m in Sources */,
 				371597FD1EE0F9E000B482AB /* PDFPageViewController.m in Sources */,
 				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
@@ -1650,16 +1672,13 @@
 				37E41AE51EDAFAF60096C7BF /* progressView.m in Sources */,
 				0032FA9720089F3F006EF52B /* LSYReadViewController.m in Sources */,
 				0032FAA620089F3F006EF52B /* GTMNSString+HTML.m in Sources */,
-				3722BFE61F20FC69005D2EDB /* sentenSpliteViewController.m in Sources */,
 				0032FAB620089F3F006EF52B /* CTidy.m in Sources */,
 				0032FAA720089F3F006EF52B /* LSYViewPagerVC.m in Sources */,
 				0032F86A20076F16006EF52B /* ReaderDocument.m in Sources */,
 				0032F86C20076F16006EF52B /* ReaderMainPagebar.m in Sources */,
-				372B6A821EDE5F9E00C4E979 /* ReaderPDFViewController.m in Sources */,
 				376F4DD71EDAF8B300CE9B26 /* HTTPConnection.m in Sources */,
 				0032F86920076F16006EF52B /* ReaderContentView.m in Sources */,
 				0032F86720076F16006EF52B /* ReaderContentPage.m in Sources */,
-				37DA25ED1ED6EFED000C607B /* playVideoViewController.m in Sources */,
 				377E95B51ED532CD0080E86D /* main.m in Sources */,
 				373BD4BA1F0DF01500CD4A3D /* PDFContentView.m in Sources */,
 				372FD5AB1EF2D2F9001A7868 /* MBProgressHUD+NJ.m in Sources */,
@@ -1673,7 +1692,6 @@
 				0032FAA920089F3F006EF52B /* CXMLDocument_CreationExtensions.m in Sources */,
 				0032F87820076F16006EF52B /* UIXToolbarView.m in Sources */,
 				0032FAB720089F3F006EF52B /* UIImage+ImageEffects.m in Sources */,
-				377E971D1ED6BD1F0080E86D /* openImageViewController.m in Sources */,
 				376F4DD11EDAF8B300CE9B26 /* DispatchQueueLogFormatter.m in Sources */,
 				0032FAB320089F3F006EF52B /* CXMLNode_PrivateExtensions.m in Sources */,
 				371597AC1EDFB1A500B482AB /* Device.m in Sources */,
@@ -1686,6 +1704,7 @@
 				0032FA9520089F3F006EF52B /* LSYReadPageViewController.m in Sources */,
 				373BD4BD1F0E3ED400CD4A3D /* PDFCATiledLayer.m in Sources */,
 				37FEB6211F1B192800CB66CD /* PDFLoopView.m in Sources */,
+				0032FB1A2009F03A006EF52B /* ReaderPDFViewController.m in Sources */,
 				376F4DD41EDAF8B300CE9B26 /* DDNumber.m in Sources */,
 				376F4DE31EDAF8B300CE9B26 /* WebSocket.m in Sources */,
 				372A98CB1EF6276700954DEA /* TXTReaderConfigue.m in Sources */,
@@ -1705,7 +1724,6 @@
 				371597FA1EE0F99900B482AB /* PDFPage.m in Sources */,
 				0032FAC120089F3F006EF52B /* LSYTopMenuView.m in Sources */,
 				0032FAAF20089F3F006EF52B /* CXMLElement_CreationExtensions.m in Sources */,
-				377E970A1ED5C5C40080E86D /* ConnectWifiWebViewController.m in Sources */,
 				376F4DD01EDAF8B300CE9B26 /* ContextFilterLogFormatter.m in Sources */,
 				0032FAAD20089F3F006EF52B /* CXMLDocument_PrivateExtensions.m in Sources */,
 				0032F86820076F16006EF52B /* ReaderContentTile.m in Sources */,
@@ -1720,22 +1738,26 @@
 				0032FA9C20089F3F006EF52B /* LSYRecordModel.m in Sources */,
 				376F4DCC1EDAF8B300CE9B26 /* DDASLLogger.m in Sources */,
 				372FD5A01EF29AAF001A7868 /* ReadChapterModel.m in Sources */,
+				0032FB172009F03A006EF52B /* homeViewController.m in Sources */,
 				0032F87420076F16006EF52B /* ReaderThumbView.m in Sources */,
 				0032F87720076F16006EF52B /* ThumbsViewController.m in Sources */,
 				0032F87120076F16006EF52B /* ReaderThumbRender.m in Sources */,
 				372FD5AD1EF2D2F9001A7868 /* MBProgressHUD.m in Sources */,
+				0032FB182009F03A006EF52B /* openImageViewController.m in Sources */,
 				37E41ADF1EDAFAF60096C7BF /* playView+playControl.m in Sources */,
 				0032FA9320089F3F006EF52B /* LSYReadUtilites.m in Sources */,
 				0032FA9420089F3F006EF52B /* LSYCatalogViewController.m in Sources */,
 				0032FAB120089F3F006EF52B /* CXMLNamespaceNode.m in Sources */,
 				376F4DDA1EDAF8B300CE9B26 /* MultipartFormDataParser.m in Sources */,
 				0032FAAB20089F3F006EF52B /* CXHTMLDocument.m in Sources */,
+				0032FB162009F03A006EF52B /* ConnectWifiWebViewController.m in Sources */,
 				0032FA9620089F3F006EF52B /* LSYReadView.m in Sources */,
 				0032F86D20076F16006EF52B /* ReaderMainToolbar.m in Sources */,
 				0032FA9920089F3F006EF52B /* LSYMarkModel.m in Sources */,
 				376F4DD31EDAF8B300CE9B26 /* DDData.m in Sources */,
 				0032F86520076F16006EF52B /* CGPDFDocument.m in Sources */,
 				376F4DCB1EDAF8B300CE9B26 /* DDAbstractDatabaseLogger.m in Sources */,
+				0032FB192009F03A006EF52B /* playVideoViewController.m in Sources */,
 				0032FA9020089F3F006EF52B /* LSYNoteVC.m in Sources */,
 				0032FAB520089F3F006EF52B /* CXMLUnsupportedNode.m in Sources */,
 				0032FAA820089F3F006EF52B /* NSString+HTML.m in Sources */,
@@ -1743,7 +1765,7 @@
 				0032F86F20076F16006EF52B /* ReaderThumbFetch.m in Sources */,
 				376F4DDE1EDAF8B300CE9B26 /* HTTPDataResponse.m in Sources */,
 				376F4DE11EDAF8B300CE9B26 /* HTTPFileResponse.m in Sources */,
-				377E95ED1ED533FC0080E86D /* homeViewController.m in Sources */,
+				0032FB1C2009F03A006EF52B /* sentenSpliteViewController.m in Sources */,
 				0032FABE20089F3F006EF52B /* LSYBottomMenuView.m in Sources */,
 				0032FA9B20089F3F006EF52B /* LSYReadModel.m in Sources */,
 				0032F87520076F16006EF52B /* ReaderViewController.m in Sources */,

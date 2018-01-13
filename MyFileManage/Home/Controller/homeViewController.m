@@ -124,6 +124,9 @@
             
             [self presentPDFViewController:model];
         }
+        if ([model.fileType.uppercaseString isEqualToString:@"HTML"]) {
+            
+        }
         if ([SupportTXTArray containsObject:[model.fileType uppercaseString]]) {
             LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
             
