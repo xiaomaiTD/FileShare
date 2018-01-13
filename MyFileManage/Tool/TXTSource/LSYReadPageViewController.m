@@ -18,7 +18,10 @@
 #import "NSString+HTML.h"
 #define AnimationDelay 0.3
 
-@interface LSYReadPageViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource,LSYMenuViewDelegate,UIGestureRecognizerDelegate,LSYCatalogViewControllerDelegate,LSYReadViewControllerDelegate>
+@interface LSYReadPageViewController ()
+<
+UIPageViewControllerDelegate,UIPageViewControllerDataSource,LSYMenuViewDelegate,UIGestureRecognizerDelegate,LSYCatalogViewControllerDelegate,LSYReadViewControllerDelegate
+>
 {
     NSUInteger _chapter;    //当前显示的章节
     NSUInteger _page;       //当前显示的页数
@@ -39,6 +42,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addChildViewController:self.pageViewController];
+    
+//    NSLog(@"record-----%@",_model.record);
+    
     [_pageViewController setViewControllers:@[[self readViewWithChapter:_model.record.chapter page:_model.record.page]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     _chapter = _model.record.chapter;
     _page = _model.record.page;

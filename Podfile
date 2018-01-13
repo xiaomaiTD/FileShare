@@ -5,5 +5,4 @@ target 'MyFileManage' do
 	pod 'Masonry', '~> 1.0.2'
     pod 'iOSPhotoEditor'
     pod 'SDWebImage', '~> 4.0'
-    pod 'SSZipArchive'
 end

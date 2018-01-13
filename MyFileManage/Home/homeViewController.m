@@ -8,11 +8,15 @@
 
 #import "homeViewController.h"
 #import "ConnectWifiWebViewController.h"
-#import "openImageViewController.h"
 #import "playVideoViewController.h"
-#import "ReaderTextViewController.h"
 #import "fileModel.h"
-#import "ReadTXTModel.h"
+//IMAGE
+#import "openImageViewController.h"
+//TXT
+#import "LSYReadPageViewController.h"
+#import "LSYReadModel.h"
+
+// PDF
 #import "ReaderDocument.h"
 #import "ReaderViewController.h"
 
@@ -23,7 +27,6 @@
 >
 
 @property(nonatomic,strong)UITableView *tableView;
-
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 
 @end
@@ -45,10 +48,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
     NSArray *tempArray = [self getAllUploadAllFileNames];
      if (tempArray && tempArray.count > 0 ) {
-        
          self.dataSourceArray = tempArray.mutableCopy;
      }
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -108,11 +109,10 @@
         fileModel *model = _dataSourceArray[indexPath.row];
         
         if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
-            
+    
             openImageViewController *vc = [[openImageViewController alloc] init];
             vc.model = model;
             [self.navigationController pushViewController:vc animated:YES];
-            
         }
         if ([SupportVideoArray containsObject:[model.fileType uppercaseString]]) {
             
@@ -124,18 +124,19 @@
             
             [self presentPDFViewController:model];
         }
-        if ([model.fileType.uppercaseString isEqualToString:@"TXT"]) {
-    
+        if ([SupportTXTArray containsObject:[model.fileType uppercaseString]]) {
+            LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
+            
+            NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];
+            
+            pageView.resourceURL = txtFull;
+            //文件位置
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                
-                NSURL *fileUrl = [NSURL fileURLWithPath:model.fullPath];
-                ReadTXTModel *txtModel = [ReadTXTModel getLocalModelWithUrl:fileUrl];
+                LSYReadModel *readModel = [LSYReadModel getLocalModelWithURL:txtFull];
+                pageView.model = readModel;
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    ReaderTextViewController *vc = [[ReaderTextViewController alloc] init];
-                    vc.model = txtModel;
-                    [self.navigationController pushViewController:vc animated:YES];
+                    [self presentViewController:pageView animated:YES completion:nil];
                 });
-                
             });
         }
     }
