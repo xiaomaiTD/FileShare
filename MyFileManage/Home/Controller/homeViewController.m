@@ -109,7 +109,6 @@
         fileModel *model = _dataSourceArray[indexPath.row];
         
         if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
-    
             openImageViewController *vc = [[openImageViewController alloc] init];
             vc.model = model;
             [self.navigationController pushViewController:vc animated:YES];

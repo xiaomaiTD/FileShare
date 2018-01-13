@@ -112,6 +112,18 @@
 		0032FB1B2009F03A006EF52B /* ReaderTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB132009F03A006EF52B /* ReaderTextViewController.m */; };
 		0032FB1C2009F03A006EF52B /* sentenSpliteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB152009F03A006EF52B /* sentenSpliteViewController.m */; };
 		0032FB1F2009F082006EF52B /* LoadWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB1E2009F082006EF52B /* LoadWebViewController.m */; };
+		0032FB252009F4CA006EF52B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB242009F4CA006EF52B /* AudioToolbox.framework */; };
+		0032FB262009F4D3006EF52B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A731ED91C17001BF4F1 /* VideoToolbox.framework */; };
+		0032FB272009F4DF006EF52B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A611ED91BBF001BF4F1 /* CoreMedia.framework */; };
+		0032FB282009F4E6006EF52B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A631ED91BC7001BF4F1 /* CoreVideo.framework */; };
+		0032FB2A2009F4F7006EF52B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB292009F4F7006EF52B /* CoreAudio.framework */; };
+		0032FB2B2009F51C006EF52B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A691ED91BE2001BF4F1 /* MediaPlayer.framework */; };
+		0032FB2D2009F52E006EF52B /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB2C2009F52E006EF52B /* libstdc++.6.0.9.tbd */; };
+		0032FB2F2009F53B006EF52B /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB2E2009F53A006EF52B /* libiconv.2.tbd */; };
+		0032FB312009F545006EF52B /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB302009F544006EF52B /* libc++.1.tbd */; };
+		0032FB332009F54E006EF52B /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB322009F54E006EF52B /* libbz2.1.0.tbd */; };
+		0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB342009F556006EF52B /* libz.1.tbd */; };
+		005A705B2009F78C00400500 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005A70562009F70600400500 /* MobileVLCKit.framework */; };
 		371597A51EDF9AE700B482AB /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597A41EDF9AE700B482AB /* File.m */; };
 		371597AC1EDFB1A500B482AB /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597AB1EDFB1A500B482AB /* Device.m */; };
 		371597F91EE0F99900B482AB /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F61EE0F99900B482AB /* PDFDocument.m */; };
@@ -390,6 +402,14 @@
 		0032FB152009F03A006EF52B /* sentenSpliteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sentenSpliteViewController.m; sourceTree = "<group>"; };
 		0032FB1D2009F082006EF52B /* LoadWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadWebViewController.h; sourceTree = "<group>"; };
 		0032FB1E2009F082006EF52B /* LoadWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadWebViewController.m; sourceTree = "<group>"; };
+		0032FB242009F4CA006EF52B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0032FB292009F4F7006EF52B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		0032FB2C2009F52E006EF52B /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		0032FB2E2009F53A006EF52B /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
+		0032FB302009F544006EF52B /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		0032FB322009F54E006EF52B /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
+		0032FB342009F556006EF52B /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		005A70562009F70600400500 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		28247406ACE15649A587F961 /* Pods_MyFileManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFileManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		371597A31EDF9AE700B482AB /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
 		371597A41EDF9AE700B482AB /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
@@ -563,11 +583,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */,
+				0032FB332009F54E006EF52B /* libbz2.1.0.tbd in Frameworks */,
+				0032FB312009F545006EF52B /* libc++.1.tbd in Frameworks */,
+				0032FB2F2009F53B006EF52B /* libiconv.2.tbd in Frameworks */,
+				0032FB2D2009F52E006EF52B /* libstdc++.6.0.9.tbd in Frameworks */,
+				005A705B2009F78C00400500 /* MobileVLCKit.framework in Frameworks */,
+				0032FB2B2009F51C006EF52B /* MediaPlayer.framework in Frameworks */,
+				376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */,
+				0032FB2A2009F4F7006EF52B /* CoreAudio.framework in Frameworks */,
+				0032FB282009F4E6006EF52B /* CoreVideo.framework in Frameworks */,
+				0032FB272009F4DF006EF52B /* CoreMedia.framework in Frameworks */,
+				0032FB262009F4D3006EF52B /* VideoToolbox.framework in Frameworks */,
+				0032FB252009F4CA006EF52B /* AudioToolbox.framework in Frameworks */,
 				0032FAC72008A667006EF52B /* libz.tbd in Frameworks */,
 				0032FAC62008A1EE006EF52B /* Foundation.framework in Frameworks */,
 				0032FAC320089FDC006EF52B /* libxml2.2.tbd in Frameworks */,
 				37CB42A41EE63A9D004D1BAC /* QuartzCore.framework in Frameworks */,
-				376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */,
 				37739A721ED91C0F001BF4F1 /* UIKit.framework in Frameworks */,
 				BBED331E93ACCAD55317FF2B /* Pods_MyFileManage.framework in Frameworks */,
 			);
@@ -1151,6 +1183,14 @@
 		37739A5A1ED91B9F001BF4F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				005A70562009F70600400500 /* MobileVLCKit.framework */,
+				0032FB342009F556006EF52B /* libz.1.tbd */,
+				0032FB322009F54E006EF52B /* libbz2.1.0.tbd */,
+				0032FB302009F544006EF52B /* libc++.1.tbd */,
+				0032FB2E2009F53A006EF52B /* libiconv.2.tbd */,
+				0032FB2C2009F52E006EF52B /* libstdc++.6.0.9.tbd */,
+				0032FB292009F4F7006EF52B /* CoreAudio.framework */,
+				0032FB242009F4CA006EF52B /* AudioToolbox.framework */,
 				0032FAC52008A1EE006EF52B /* Foundation.framework */,
 				0032FAC220089FDC006EF52B /* libxml2.2.tbd */,
 				376F4D821EDAEEE100CE9B26 /* libstdc++.tbd */,
@@ -1913,6 +1953,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_PREFIX_HEADER = MyFileManage/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
@@ -1931,6 +1975,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_PREFIX_HEADER = MyFileManage/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
