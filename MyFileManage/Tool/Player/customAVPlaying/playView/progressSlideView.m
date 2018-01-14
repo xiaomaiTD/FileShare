@@ -14,12 +14,8 @@
 @implementation progressSlideView
 
 -(UISlider *)sliderView{
-
-    
     if (_sliderView == nil) {
-        
         _sliderView = [[UISlider alloc] initWithFrame:self.frame];
-        
         _sliderView.backgroundColor = [UIColor clearColor];
     }
     
@@ -31,11 +27,9 @@
 
 
     if (_cacheSliderView == nil) {
-        
+
         _cacheSliderView = [[UIProgressView alloc] initWithFrame:self.frame];
-        
       //  [_cacheSliderView setProgress:1];
-        
         _cacheSliderView.backgroundColor = [UIColor clearColor];
         
     }
@@ -77,8 +71,6 @@
             make.left.equalTo(self).with.offset(0);
             make.right.equalTo(self).with.offset(0);
             make.bottom.equalTo(self).with.offset(0);
-            
-
         }];
         
     }
@@ -89,10 +81,7 @@
     UIGraphicsBeginImageContextWithOptions((CGSize){ 1, 1 }, NO, 0.0f);
     UIImage *transparentImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    
     [self.sliderView setMaximumTrackImage:transparentImage forState:UIControlStateNormal];
-    
     [self.sliderView setMinimumTrackImage:transparentImage forState:UIControlStateNormal];
 }
 

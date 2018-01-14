@@ -20,6 +20,9 @@
 #import "ReaderDocument.h"
 #import "ReaderViewController.h"
 
+//HTML
+#import "LoadWebViewController.h"
+
 
 @interface homeViewController ()
 <
@@ -52,12 +55,20 @@
      if (tempArray && tempArray.count > 0 ) {
          self.dataSourceArray = tempArray.mutableCopy;
      }
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _tableView.tableFooterView = [[UIView alloc] init];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_offset(0);
+        make.bottom.mas_offset(0);
+        make.left.mas_offset(0);
+        make.right.mas_offset(0);
+    }];
+    
+   
     [self configueNavItem];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];    
     
@@ -117,7 +128,8 @@
             
             playVideoViewController *vc = [[playVideoViewController alloc] init];
             vc.model = model;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self presentViewController:vc animated:YES completion:nil];
+//            [self.navigationController pushViewController:vc animated:YES];
         }
         if ([model.fileType.uppercaseString isEqualToString:@"PDF"]) {
             
@@ -125,12 +137,13 @@
         }
         if ([model.fileType.uppercaseString isEqualToString:@"HTML"]) {
             
+            LoadWebViewController *webView = [[LoadWebViewController alloc] init];
+            webView.model = model;
+            [self.navigationController pushViewController:webView animated:YES];
         }
         if ([SupportTXTArray containsObject:[model.fileType uppercaseString]]) {
             LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
-            
             NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];
-            
             pageView.resourceURL = txtFull;
             //文件位置
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -188,7 +201,6 @@
     [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
     
         NSString *fileString = [NSString stringWithFormat:@"%@",obj];
-        //.DS_Store
         if (![fileString isEqualToString:@".DS_Store"]) {
             fileModel *model = [[fileModel alloc] initWithFileString:[NSString stringWithFormat:@"%@",obj]];
             [fileModelArray addObject:model];

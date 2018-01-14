@@ -7,8 +7,11 @@
 //
 
 #import "LoadWebViewController.h"
+#import <WebKit/WebKit.h>
 
 @interface LoadWebViewController ()
+
+@property(nonatomic,strong)WKWebView *webView;
 
 @end
 
@@ -16,13 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:_model.fullPath]];
+    [_webView loadRequest:request];
+    [self.view addSubview:_webView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 

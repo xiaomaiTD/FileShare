@@ -124,6 +124,8 @@
 		0032FB332009F54E006EF52B /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB322009F54E006EF52B /* libbz2.1.0.tbd */; };
 		0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB342009F556006EF52B /* libz.1.tbd */; };
 		005A705B2009F78C00400500 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005A70562009F70600400500 /* MobileVLCKit.framework */; };
+		005A705E200A1FE100400500 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A705D200A1FE100400500 /* BaseViewController.m */; };
+		005A7061200B367B00400500 /* VideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A7060200B367B00400500 /* VideoPlayView.m */; };
 		371597A51EDF9AE700B482AB /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597A41EDF9AE700B482AB /* File.m */; };
 		371597AC1EDFB1A500B482AB /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597AB1EDFB1A500B482AB /* Device.m */; };
 		371597F91EE0F99900B482AB /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597F61EE0F99900B482AB /* PDFDocument.m */; };
@@ -410,6 +412,10 @@
 		0032FB322009F54E006EF52B /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		0032FB342009F556006EF52B /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
 		005A70562009F70600400500 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
+		005A705C200A1FE100400500 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		005A705D200A1FE100400500 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		005A705F200B367B00400500 /* VideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayView.h; sourceTree = "<group>"; };
+		005A7060200B367B00400500 /* VideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayView.m; sourceTree = "<group>"; };
 		28247406ACE15649A587F961 /* Pods_MyFileManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFileManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		371597A31EDF9AE700B482AB /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
 		371597A41EDF9AE700B482AB /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
@@ -893,6 +899,8 @@
 		0032FB062009F03A006EF52B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				005A705F200B367B00400500 /* VideoPlayView.h */,
+				005A7060200B367B00400500 /* VideoPlayView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1338,6 +1346,8 @@
 				377E96F41ED55FA70080E86D /* MainViewController.m */,
 				3722BFEF1F2364E2005D2EDB /* MenuAndNavBarView.h */,
 				3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */,
+				005A705C200A1FE100400500 /* BaseViewController.h */,
+				005A705D200A1FE100400500 /* BaseViewController.m */,
 			);
 			path = BaseToolAndCategory;
 			sourceTree = "<group>";
@@ -1715,6 +1725,7 @@
 				0032FAB620089F3F006EF52B /* CTidy.m in Sources */,
 				0032FAA720089F3F006EF52B /* LSYViewPagerVC.m in Sources */,
 				0032F86A20076F16006EF52B /* ReaderDocument.m in Sources */,
+				005A705E200A1FE100400500 /* BaseViewController.m in Sources */,
 				0032F86C20076F16006EF52B /* ReaderMainPagebar.m in Sources */,
 				376F4DD71EDAF8B300CE9B26 /* HTTPConnection.m in Sources */,
 				0032F86920076F16006EF52B /* ReaderContentView.m in Sources */,
@@ -1737,6 +1748,7 @@
 				371597AC1EDFB1A500B482AB /* Device.m in Sources */,
 				374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */,
 				37E41AE31EDAFAF60096C7BF /* playView.m in Sources */,
+				005A7061200B367B00400500 /* VideoPlayView.m in Sources */,
 				0032F87320076F16006EF52B /* ReaderThumbsView.m in Sources */,
 				376F4DDC1EDAF8B300CE9B26 /* MultipartMessageHeaderField.m in Sources */,
 				0032FAB920089F3F006EF52B /* mztools.c in Sources */,
@@ -1953,6 +1965,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1975,6 +1988,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
