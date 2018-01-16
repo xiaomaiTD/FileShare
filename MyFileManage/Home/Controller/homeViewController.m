@@ -26,7 +26,7 @@
 
 @interface homeViewController ()
 <
-    UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
+UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
 >
 
 @property(nonatomic,strong)UITableView *tableView;
@@ -39,7 +39,7 @@
 -(NSMutableArray *)dataSourceArray{
     
     if (!_dataSourceArray) {
-       _dataSourceArray = [[NSMutableArray alloc] initWithCapacity:0];
+        _dataSourceArray = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return _dataSourceArray;
     
@@ -52,9 +52,9 @@
     
     [super viewDidLoad];
     NSArray *tempArray = [self getAllUploadAllFileNames];
-     if (tempArray && tempArray.count > 0 ) {
-         self.dataSourceArray = tempArray.mutableCopy;
-     }
+    if (tempArray && tempArray.count > 0 ) {
+        self.dataSourceArray = tempArray.mutableCopy;
+    }
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _tableView.tableFooterView = [[UIView alloc] init];
     _tableView.delegate = self;
@@ -68,14 +68,13 @@
         make.right.mas_offset(0);
     }];
     
-   
     [self configueNavItem];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
     
 }
 
 -(void)configueNavItem{
-
+    
     UIButton *leftItem = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftItem addTarget:self action:@selector(leftItemClick:) forControlEvents:UIControlEventTouchUpInside];
     [leftItem setImage:[UIImage imageNamed:@"点击"] forState:UIControlStateNormal];
@@ -97,7 +96,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         
@@ -129,7 +128,6 @@
             playVideoViewController *vc = [[playVideoViewController alloc] init];
             vc.model = model;
             [self presentViewController:vc animated:YES completion:nil];
-//            [self.navigationController pushViewController:vc animated:YES];
         }
         if ([model.fileType.uppercaseString isEqualToString:@"PDF"]) {
             
@@ -191,15 +189,15 @@
 
 - (NSArray *) getAllUploadAllFileNames
 {
-   NSString *uploadDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *uploadDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     uploadDirPath = [NSString stringWithFormat:@"%@/MyFileManageUpload",uploadDirPath];
-
+    
     NSArray *files = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:uploadDirPath error:nil];
     
-   __block NSMutableArray *fileModelArray = [[NSMutableArray alloc] initWithCapacity:0];
+    __block NSMutableArray *fileModelArray = [[NSMutableArray alloc] initWithCapacity:0];
     
     [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
-    
+        
         NSString *fileString = [NSString stringWithFormat:@"%@",obj];
         if (![fileString isEqualToString:@".DS_Store"]) {
             fileModel *model = [[fileModel alloc] initWithFileString:[NSString stringWithFormat:@"%@",obj]];
@@ -215,12 +213,9 @@
 
 - (void)dismissReaderViewController:(ReaderViewController *)viewController
 {
-  
     [self.navigationController popViewControllerAnimated:YES];
     self.navigationController.navigationBar.hidden = NO;
 }
 
-
-
-
 @end
+

@@ -10,3 +10,5 @@
 
 BOOL IsPad();
 BOOL IsPhone();
+BOOL isPhonePlus();
+NSString * iphoneType();

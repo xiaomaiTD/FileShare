@@ -54,7 +54,7 @@
     }else{
         NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
         UIImage *fileImage = [UIImage imageWithData:imageData scale:2];
-        if (iPhone67sp) {
+        if (isPhonePlus()) {
             fileImage = [UIImage imageWithData:imageData scale:3];
         }
         self.localImgV = [[UIImageView alloc] initWithImage:fileImage];

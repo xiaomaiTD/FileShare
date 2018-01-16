@@ -37,7 +37,7 @@ static MenuAndNavBarView *menAndNaView;
         
         menAndNaView = [[MenuAndNavBarView alloc] initWithFrame:CGRectMake(0, -64, [UIApplication sharedApplication].keyWindow.bounds.size.width, 64)];
         
-        menAndNaView.backgroundColor = RGBACOLOR(249, 249, 249, 1.0);
+        menAndNaView.backgroundColor = RGB(249, 249, 249);
         
         [[UIApplication sharedApplication].keyWindow addSubview:menAndNaView];;
         
@@ -56,7 +56,7 @@ static MenuAndNavBarView *menAndNaView;
     if (self = [super initWithFrame:frame]) {
         
         UILabel *lineLable = [[UILabel alloc] initWithFrame:CGRectMake(0, self.height - 1, self.width, 1)];
-        lineLable.backgroundColor = RGBACOLOR(217, 216, 217, 1.0);
+        lineLable.backgroundColor = RGB(217, 216, 217);
         [self addSubview:lineLable];
         
 

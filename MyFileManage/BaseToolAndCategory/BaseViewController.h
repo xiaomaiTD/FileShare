@@ -10,4 +10,11 @@
 
 @interface BaseViewController : UIViewController
 
+-(void)showMessage;
+-(void)hidenMessage;
+
+-(void)showMessageWithTitle:(NSString *)title;
+-(void)showSuccess;
+-(void)showError;
 @end
+
