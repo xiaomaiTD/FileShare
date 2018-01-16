@@ -8,21 +8,21 @@
 
 #import "homeViewController.h"
 #import "ConnectWifiWebViewController.h"
-#import "playVideoViewController.h"
 #import "fileModel.h"
+//Video
+#import "playVideoViewController.h"
+//MUsic
+#import "MusicListViewController.h"
 //IMAGE
 #import "openImageViewController.h"
 //TXT
 #import "LSYReadPageViewController.h"
 #import "LSYReadModel.h"
-
 // PDF
 #import "ReaderDocument.h"
 #import "ReaderViewController.h"
-
 //HTML
 #import "LoadWebViewController.h"
-
 
 @interface homeViewController ()
 <
@@ -117,17 +117,19 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
     if (_dataSourceArray.count > 0) {
         
         fileModel *model = _dataSourceArray[indexPath.row];
-        
         if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
             openImageViewController *vc = [[openImageViewController alloc] init];
             vc.model = model;
             [self.navigationController pushViewController:vc animated:YES];
         }
         if ([SupportVideoArray containsObject:[model.fileType uppercaseString]]) {
-            
             playVideoViewController *vc = [[playVideoViewController alloc] init];
             vc.model = model;
             [self presentViewController:vc animated:YES completion:nil];
+        }
+        if ([SupportMusicArray containsObject:[model.fileType uppercaseString]]) {
+            MusicListViewController *listVC = [[UIStoryboard storyboardWithName:@"MusicList" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+            [self presentViewController:listVC animated:YES completion:nil];
         }
         if ([model.fileType.uppercaseString isEqualToString:@"PDF"]) {
             

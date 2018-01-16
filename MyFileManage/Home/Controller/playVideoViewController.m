@@ -14,8 +14,6 @@
 #import "NSTimer+Extension.h"
 #import "playVideoViewController.h"
 
-
-
 @interface playVideoViewController ()<VLCMediaPlayerDelegate>
 
 @property(nonatomic,strong)VLCMediaPlayer *player;

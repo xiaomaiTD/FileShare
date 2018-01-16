@@ -14,6 +14,7 @@
 #import "MainViewController.h"
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @interface AppDelegate ()
 
 @end

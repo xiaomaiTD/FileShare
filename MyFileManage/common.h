@@ -14,7 +14,7 @@
 #define SupportPictureArray @[@"PNG",@"JPG",@"GIF",@"JPEG"]
 #define SupportVideoArray @[@"MP4",@"RMVB",@"MOV",@"MKV"]
 #define SupportTXTArray @[@"TXT",@"EPUB"]
-#define SPLITECONTENTNOTIFY @"spliteNotifi"
+#define SupportMusicArray @[@"MP3",@"WMA",@"WAV"]
 #define VideoSliderChange @"VideoSliderChange"
 
 

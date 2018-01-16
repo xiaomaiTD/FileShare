@@ -43,17 +43,12 @@
     [self.view addSubview:tipsImagV];
     
     UILabel *tipsLable = [[UILabel alloc] initWithFrame:CGRectMake(tipsImagV.maxX, tipsImagV.y, kScreenWidth - tipsImagV.maxX, 40)];
-    
     tipsLable.centerY = tipsImagV.centerY;
-    
     tipsLable.font = [UIFont systemFontOfSize:13];
-    
     tipsLable.numberOfLines = 0;
-    
     tipsLable.text = @"在浏览器下敲入以上ip地址，可以将文件传输到app里面。必须确定电脑和手机连接在同一个wifi下面";
     [self.view addSubview:tipsLable];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideMenu) name:UIMenuControllerDidHideMenuNotification object:nil];
-
 
 }
 
@@ -73,7 +68,6 @@
         [_menuController setMenuVisible:YES animated:YES];
     }
 }
-
 
 - (BOOL)canBecomeFirstResponder
 {
@@ -105,11 +99,7 @@
 -(void)copy:(id)sender{
 
     UIPasteboard* pasteboard = [UIPasteboard generalPasteboard];
-   // self.img2.image = [pasteboard image];
-
     pasteboard.string = self.ipLable.text;
-    
-    
 }
 
 - (NSString *)getIPAddress {
@@ -145,8 +135,6 @@
 
     REmoveNotificationName(UIMenuControllerDidHideMenuNotification);
 }
-
-
 
 
 @end
