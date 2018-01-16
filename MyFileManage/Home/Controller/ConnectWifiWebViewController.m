@@ -23,7 +23,6 @@
     [super viewDidLoad];
     
     self.title = @"文件共享";
-    
     self.view.backgroundColor = [UIColor whiteColor];
     _ipLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 200, 250, 50)];
     _ipLable.centerX = self.view.width/2.0;
@@ -32,9 +31,7 @@
     _ipLable.layer.masksToBounds = true;
     _ipLable.text = [NSString stringWithFormat:@"%@:%@",[self getIPAddress],[[DataBaseTool shareInstance] getIpAddress]];
     _ipLable.textAlignment = NSTextAlignmentCenter;
-    
     _ipLable.userInteractionEnabled = YES;
-    
     [self.view addSubview:_ipLable];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(copyString)];
