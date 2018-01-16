@@ -17,6 +17,10 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 
+## custom file
+MobileVLCKit.framework
+.DS_Store
+
 ## Other
 *.moved-aside
 *.xccheckout
