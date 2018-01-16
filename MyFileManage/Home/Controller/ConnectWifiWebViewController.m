@@ -13,13 +13,8 @@
 #import "ConnectWifiWebViewController.h"
 
 @interface ConnectWifiWebViewController ()
-
-
 @property(nonatomic,strong)UILabel *ipLable;
-
 @property(nonatomic,strong)UIMenuController *menuController;
-
-
 @end
 
 @implementation ConnectWifiWebViewController
@@ -30,7 +25,6 @@
     self.title = @"文件共享";
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
     _ipLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 200, 250, 50)];
     _ipLable.centerX = self.view.width/2.0;
     _ipLable.backgroundColor = [UIColor groupTableViewBackgroundColor];
