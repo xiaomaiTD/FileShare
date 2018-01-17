@@ -107,13 +107,13 @@ NSString * const PDFDocumentDeletedNotification = @"PDFDocumentDeletedNotificati
 
 + (NSString *)absolutePathWithRelativePath:(NSString *)relativePath
 {
-    return [[NSFileManager grt_cachePath]
+    return [[NSFileManager grt_cacheUploadPath]
                stringByAppendingPathComponent:relativePath];
 }
 
 + (NSString *)relativePathWithAbsolutePath:(NSString *)absolutePath
 {
-    NSRange range = [absolutePath rangeOfString:[NSFileManager grt_cachePath]];
+    NSRange range = [absolutePath rangeOfString:[NSFileManager grt_cacheUploadPath]];
     if (range.location == NSNotFound) {
         return nil;
     } else {

@@ -50,7 +50,7 @@
 
 - (NSString *)path
 {
-    NSString * const name = @"MyFileManageUpload";
+    NSString * const name = @"PDFRecentDocumentList";
     return [NSString stringWithFormat:@"%@/%@",
                      [NSFileManager grt_privateDocumentsPath],
                      name];

@@ -96,6 +96,7 @@
                           -(pdfRect.size.height - CGRectGetMaxY(drawRect)));
 
     CGContextDrawPDFPage(context, self.CGPDFPage);
+    
 }
 
 - (UIImage *)thumbnailImageWithSize:(CGSize)size cropping:(BOOL)cropping

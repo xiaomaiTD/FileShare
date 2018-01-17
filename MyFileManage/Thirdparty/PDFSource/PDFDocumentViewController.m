@@ -362,7 +362,7 @@ willTransitionToViewControllers:(NSArray *)pendingViewControllers
 
 - (void)done:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)showOutline:(id)sender

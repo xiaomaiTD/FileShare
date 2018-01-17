@@ -13,6 +13,7 @@
 + (NSString *)grt_documentsPath;
 + (NSString *)grt_libraryPath;
 + (NSString *)grt_cachePath;
++ (NSString *)grt_cacheUploadPath;
 - (void)grt_createPrivateDocumentsDirectory;
 - (NSURL *)grt_incrementURLIfNecessary:(NSURL *)URL;
 @end

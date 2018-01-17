@@ -70,4 +70,11 @@ static NSString * const kPrivateDocuments = @"PrivateDocuments";
     return [NSURL fileURLWithPath:path];
 }
 
++ (NSString *)grt_cacheUploadPath{
+    
+    NSString *uploadDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    uploadDirPath = [NSString stringWithFormat:@"%@/MyFileManageUpload",uploadDirPath];
+    return uploadDirPath;
+}
+
 @end
