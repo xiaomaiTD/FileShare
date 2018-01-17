@@ -99,6 +99,8 @@
 		0005F1F1200F433D0004751A /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DB200F433C0004751A /* Home@2x.png */; };
 		0005F1F2200F433D0004751A /* Forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DD200F433C0004751A /* Forward@2x.png */; };
 		0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DF200F433D0004751A /* CropEven@2x.png */; };
+		0005F1F8200FAAD90004751A /* FileFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1F7200FAAD90004751A /* FileFolder.m */; };
+		0005F1FB200FAB480004751A /* FloderDoumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1FA200FAB480004751A /* FloderDoumentViewController.m */; };
 		0032FAC320089FDC006EF52B /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC220089FDC006EF52B /* libxml2.2.tbd */; };
 		0032FAC62008A1EE006EF52B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC52008A1EE006EF52B /* Foundation.framework */; };
 		0032FAC72008A667006EF52B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A671ED91BD7001BF4F1 /* libz.tbd */; };
@@ -412,6 +414,10 @@
 		0005F1DC200F433C0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Home@2x.png"; sourceTree = SOURCE_ROOT; };
 		0005F1DE200F433C0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Forward@2x.png"; sourceTree = SOURCE_ROOT; };
 		0005F1E0200F433D0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/CropEven@2x.png"; sourceTree = SOURCE_ROOT; };
+		0005F1F6200FAAD90004751A /* FileFolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileFolder.h; sourceTree = "<group>"; };
+		0005F1F7200FAAD90004751A /* FileFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileFolder.m; sourceTree = "<group>"; };
+		0005F1F9200FAB480004751A /* FloderDoumentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloderDoumentViewController.h; sourceTree = "<group>"; };
+		0005F1FA200FAB480004751A /* FloderDoumentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FloderDoumentViewController.m; sourceTree = "<group>"; };
 		0032FAC220089FDC006EF52B /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		0032FAC52008A1EE006EF52B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0032FB082009F03A006EF52B /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
@@ -917,6 +923,8 @@
 				0032FB0D2009F03A006EF52B /* openImageViewController.m */,
 				0032FB0E2009F03A006EF52B /* playVideoViewController.h */,
 				0032FB0F2009F03A006EF52B /* playVideoViewController.m */,
+				0005F1F9200FAB480004751A /* FloderDoumentViewController.h */,
+				0005F1FA200FAB480004751A /* FloderDoumentViewController.m */,
 				0032FB1D2009F082006EF52B /* LoadWebViewController.h */,
 				0032FB1E2009F082006EF52B /* LoadWebViewController.m */,
 			);
@@ -1544,6 +1552,8 @@
 			children = (
 				377E97181ED69BFE0080E86D /* fileModel.h */,
 				377E97191ED69BFE0080E86D /* fileModel.m */,
+				0005F1F6200FAAD90004751A /* FileFolder.h */,
+				0005F1F7200FAAD90004751A /* FileFolder.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1815,6 +1825,7 @@
 				00B3A979200E02790009DC52 /* GTMNSString+HTML.m in Sources */,
 				00B3A920200E02790009DC52 /* DispatchQueueLogFormatter.m in Sources */,
 				00B3A96B200E02790009DC52 /* LSYMarkVC.m in Sources */,
+				0005F1FB200FAB480004751A /* FloderDoumentViewController.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
 				00B3A97F200E02790009DC52 /* CXMLDocument.m in Sources */,
 				0005F150200F36440004751A /* PDFRenderingCharacter.m in Sources */,
@@ -1898,6 +1909,7 @@
 				00B3A984200E02790009DC52 /* CXMLNamespaceNode.m in Sources */,
 				00B3A926200E02790009DC52 /* HTTPConnection.m in Sources */,
 				00B3A9E2200E04550009DC52 /* GVUserDefaults+Properties.m in Sources */,
+				0005F1F8200FAAD90004751A /* FileFolder.m in Sources */,
 				0005F199200F36440004751A /* UIColor+GreatReaderAdditions.m in Sources */,
 				0005F14D200F36440004751A /* PDFPageLoopeView.m in Sources */,
 				0005F19E200F36440004751A /* NSString+GreatReaderAdditions.m in Sources */,
