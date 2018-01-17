@@ -11,5 +11,6 @@ target 'MyFileManage' do
     pod 'GVUserDefaults'
     pod 'Mantle', '1.5.5'
     pod 'AFNetworking', '~> 2.0'
+    pod 'KVOController'
 end
 

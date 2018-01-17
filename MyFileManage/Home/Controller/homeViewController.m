@@ -20,19 +20,22 @@
 #import "LSYReadPageViewController.h"
 #import "LSYReadModel.h"
 // PDF
-#import "ReaderDocument.h"
-#import "ReaderViewController.h"
+#import "PDFDocumentStore.h"
+#import "PDFDocument.h"
+#import "PDFDocumentViewController.h"
+
 //HTML
 #import "LoadWebViewController.h"
 
 @interface homeViewController ()
 <
-UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
+UITableViewDelegate,UITableViewDataSource
 >
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)NSMutableArray *musicEntities;
+@property(nonatomic,strong)PDFDocumentStore *documentStore;
 
 @end
 
@@ -73,7 +76,10 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
     
     [self configueNavItem];
     
+    // Music data
     self.musicEntities = [MusicEntity arrayOfEntitiesFromArray:[self getAllUploadMusicDic]].mutableCopy;
+    //PDF data
+    self.documentStore = [[PDFDocumentStore alloc] init];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
 }
@@ -170,20 +176,13 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
 }
 
 -(void)presentPDFViewController:(fileModel *)model{
-    NSString *phrase = nil; // Document password (for unlocking most encrypted PDF files)
-    NSString *filePath = model.fullPath; // Path to first PDF file
-    ReaderDocument *document = [ReaderDocument withDocumentFilePath:filePath password:phrase];
-    if (document != nil) // Must have a valid ReaderDocument object in order to proceed with things
-    {
-        ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:document];
-        readerViewController.delegate = self; // Set the ReaderViewController delegate to self
-        [self.navigationController pushViewController:readerViewController animated:YES];
-        self.navigationController.navigationBar.hidden = YES;
-    }
-    else // Log an error so that we know that something went wrong
-    {
-        NSLog(@"%s [ReaderDocument withDocumentFilePath:'%@' password:'%@'] failed.", __FUNCTION__, filePath, phrase);
-    }
+    
+    PDFDocument *doument = [self.documentStore documentAtPath:model.fullPath];
+    NSString *storyboardName = IsPhone() ? @"MainStoryboard_iPhone":@"MainStoryboard_iPad";
+    PDFDocumentViewController *vc = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateViewControllerWithIdentifier:@"StoryboardPDFDocument"];
+    vc.document = doument;
+    [doument.store addHistory:doument];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -253,14 +252,6 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
     
     NSArray *files = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:uploadDirPath error:nil];
     return files;
-}
-
-#pragma mark - ReaderViewControllerDelegate methods
-
-- (void)dismissReaderViewController:(ReaderViewController *)viewController
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    self.navigationController.navigationBar.hidden = NO;
 }
 
 @end
