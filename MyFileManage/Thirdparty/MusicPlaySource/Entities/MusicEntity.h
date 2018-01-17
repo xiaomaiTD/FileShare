@@ -11,8 +11,6 @@
 @interface MusicEntity : BaseEntity
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *musicUrl;
-@property (nonatomic, copy) NSString *cover;
 @property (nonatomic, copy) NSString *artistName;
 @property (nonatomic, copy) NSString *fileName;
 @property (nonatomic, copy) NSString *fullPath;

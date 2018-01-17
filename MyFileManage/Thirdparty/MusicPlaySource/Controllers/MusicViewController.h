@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DOUAudioStreamer.h"
 #import "GVUserDefaults+Properties.h"
+#import "BaseViewController.h"
 #import "MusicEntity.h"
 
 @protocol MusicViewControllerDelegate <NSObject>
@@ -16,7 +17,7 @@
 - (void)updatePlaybackIndicatorOfVisisbleCells;
 @end
 
-@interface MusicViewController : UIViewController
+@interface MusicViewController : BaseViewController
 @property (nonatomic, strong) NSMutableArray *musicEntities;
 @property (nonatomic, copy) NSString *musicTitle;
 @property (nonatomic, strong) DOUAudioStreamer *streamer;

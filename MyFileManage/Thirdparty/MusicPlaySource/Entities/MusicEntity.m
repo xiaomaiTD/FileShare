@@ -21,9 +21,7 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"name" : @"name",
-             @"cover" : @"pic",
              @"artistName" : @"name",
-             @"musicUrl" : @"musicUrl",
              @"fileName" : @"name",
              @"fullPath" : @"fullPath"
              };

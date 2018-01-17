@@ -48,7 +48,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2v-2u-wPG">
                                 <rect key="frame" x="0.0" y="20" width="375" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asX-KC-gxh">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asX-KC-gxh">
                                         <rect key="frame" x="10" y="7.5" width="46" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="b1H-YI-76F"/>
@@ -282,7 +282,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zMJ-CT-WwR" firstAttribute="leading" secondItem="wg7-Zc-vBf" secondAttribute="leading" id="8NZ-Xf-AQC"/>
                             <constraint firstAttribute="bottom" secondItem="WPj-Te-9Dc" secondAttribute="bottom" id="Bm7-Dz-SXN"/>

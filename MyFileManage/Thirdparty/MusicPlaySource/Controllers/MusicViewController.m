@@ -8,7 +8,6 @@
 
 #import "MusicViewController.h"
 #import "MusicSlider.h"
-#import "MusicHandler.h"
 
 #import "Track.h"
 #import "MusicIndicator.h"
@@ -133,7 +132,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     _musicEntity = entity;
     _musicNameLabel.text = _musicEntity.name;
     _singerLabel.text = _musicEntity.artistName;
-    _musicTitleLabel.text = _musicTitle;
+    _musicTitleLabel.text = entity.name;
     [self setupBackgroudImage];
     [self checkMusicFavoritedIcon];
 }
@@ -161,7 +160,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 
 - (void)setupRadioMusicIfNeeded {
-    _musicMenuButton.hidden = NO;
+//    _musicMenuButton.hidden = NO;
     [self updateMusicCycleButton];
     [self checkCurrentIndex];
 }
@@ -179,9 +178,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     _albumImageView.layer.masksToBounds = YES;
     
     NSString *imageWidth = [NSString stringWithFormat:@"%.f", (kScreenWidth - 70) * 2];
-    NSURL *imageUrl = [BaseHelper qiniuImageCenter:_musicEntity.cover withWidth:imageWidth withHeight:imageWidth];
-    [_backgroudImageView sd_setImageWithURL:imageUrl placeholderImage:[UIImage imageNamed:@"music_placeholder"]];
-    [_albumImageView sd_setImageWithURL:imageUrl placeholderImage:[UIImage imageNamed:@"music_placeholder"]];
+ 
+    _backgroudImageView.image = [UIImage imageNamed:@"music_placeholder"];
+    _albumImageView.image = [UIImage imageNamed:@"music_placeholder"];
     
     if(![_visualEffectView isDescendantOfView:_backgroudView]) {
         UIVisualEffect *blurEffect;
@@ -214,9 +213,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (IBAction)didTouchDismissButton:(id)sender {
     __weak typeof(self) weakSelf = self;
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+    [self dismissViewControllerAnimated:YES completion:^{
         weakSelf.dontReloadMusic = NO;
-        weakSelf.lastMusicUrl = [weakSelf currentPlayingMusic].musicUrl.mutableCopy;
     }];
 }
 
@@ -396,22 +394,31 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     _musicDurationTimer = nil;
 }
 
+#pragma mark --- setter
+
+-(void)setMusicTitle:(NSString *)musicTitle{
+     _musicTitle = musicTitle;
+    [_musicEntities enumerateObjectsUsingBlock:^(MusicEntity * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.name isEqualToString:_musicTitle]) {
+            _specialIndex = idx;
+        }
+    }];
+}
+
+
 # pragma mark - Audio Handle
 
 - (void)createStreamer {
+    
     if (_specialIndex > 0) {
         _currentIndex = _specialIndex;
         _specialIndex = 0;
     }
     
     [self setupMusicViewWithMusicEntity:_musicEntities[_currentIndex]];
-    [self loadPreviousAndNextMusicImage];
-    [MusicHandler configNowPlayingInfoCenter];
     
     Track *track = [[Track alloc] init];
-    
     NSURL *fileURL = [NSURL fileURLWithPath:_musicEntity.fullPath];
-
     track.audioFileURL = fileURL;
     
     @try {
@@ -514,12 +521,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     if (_delegate && [_delegate respondsToSelector:@selector(updatePlaybackIndicatorOfVisisbleCells)]) {
         [_delegate updatePlaybackIndicatorOfVisisbleCells];
     }
-}
-
-# pragma mark - Music convenient method
-
-- (void)loadPreviousAndNextMusicImage {
-    [MusicHandler cacheMusicCoverWithMusicEntities:_musicEntities currentIndex:_currentIndex];
 }
 
 # pragma mark - HUD

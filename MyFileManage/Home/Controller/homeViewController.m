@@ -12,7 +12,8 @@
 //Video
 #import "playVideoViewController.h"
 //MUsic
-#import "MusicListViewController.h"
+#import "MusicViewController.h"
+
 //IMAGE
 #import "openImageViewController.h"
 //TXT
@@ -31,6 +32,7 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
+@property(nonatomic,strong)NSMutableArray *musicEntities;
 
 @end
 
@@ -51,7 +53,8 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    NSArray *tempArray = [self getAllUploadAllFileNames];
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    NSArray *tempArray = [self getAllUploadAllFileModels];
     if (tempArray && tempArray.count > 0 ) {
         self.dataSourceArray = tempArray.mutableCopy;
     }
@@ -69,8 +72,10 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
     }];
     
     [self configueNavItem];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
     
+    self.musicEntities = [MusicEntity arrayOfEntitiesFromArray:[self getAllUploadMusicDic]].mutableCopy;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
 }
 
 -(void)configueNavItem{
@@ -128,8 +133,7 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
             [self presentViewController:vc animated:YES completion:nil];
         }
         if ([SupportMusicArray containsObject:[model.fileType uppercaseString]]) {
-            MusicListViewController *listVC = [[UIStoryboard storyboardWithName:@"MusicList" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-            [self presentViewController:listVC animated:YES completion:nil];
+            [self presentMusicViewController:model];
         }
         if ([model.fileType.uppercaseString isEqualToString:@"PDF"]) {
             
@@ -155,6 +159,14 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
             });
         }
     }
+}
+
+-(void)presentMusicViewController:(fileModel *)model{
+    
+    MusicViewController *musicVC = [MusicViewController sharedInstance];
+    musicVC.musicEntities = _musicEntities;
+    musicVC.musicTitle = model.fileName;
+    [self presentViewController:musicVC animated:YES completion:nil];
 }
 
 -(void)presentPDFViewController:(fileModel *)model{
@@ -183,32 +195,64 @@ UITableViewDelegate,UITableViewDataSource,ReaderViewControllerDelegate
 -(void)fileFinishAndReloadTable{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.dataSourceArray removeAllObjects];
-        NSArray *allFiles = [self getAllUploadAllFileNames];
+        NSArray *allFiles = [self getAllUploadAllFileModels];
         [self.dataSourceArray addObjectsFromArray:allFiles];
         [self.tableView reloadData];
     });
 }
 
-- (NSArray *) getAllUploadAllFileNames
+
+/**
+ 构造 音乐列表字典
+
+ @return array
+ */
+- (NSArray *) getAllUploadMusicDic
 {
+   NSArray *fileModelArray =  [[[[self getAllFilesName] firstleap_filter:^BOOL(NSString *obj) {
+        return [obj hasSuffix:@"mp3"];
+    }] firstleap_map:^NSDictionary * ( NSString *fileString) {
+    
+        NSString *fileName = [fileString stringByDeletingPathExtension];
+        NSString *fullPath = [NSString stringWithFormat:@"%@/%@",FileUploadSavePath,fileString];
+        NSDictionary *musicDic = @{@"name":fileName,
+                                   @"fileName":fileName,
+                                   @"fullPath":fullPath
+                                   };
+        return musicDic;
+    }] copy];
+    
+    return fileModelArray;
+}
+
+/**
+ 获取所有file model
+
+ @return array
+ */
+- (NSArray *) getAllUploadAllFileModels
+{
+    NSArray *fileModelArray = [[[self getAllFilesName] firstleap_filter:^BOOL(NSString *files) {
+        return ![files isEqualToString:@".DS_Store"];
+    }] firstleap_map:^fileModel *(NSString *files) {
+        return [[fileModel alloc] initWithFileString:files];
+    }];
+    return fileModelArray;
+}
+
+
+/**
+ 获取 MyFileManageUpload 文件夹下的所有文件名字
+
+ @return 文件数组
+ */
+-(NSArray *)getAllFilesName{
+    
     NSString *uploadDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     uploadDirPath = [NSString stringWithFormat:@"%@/MyFileManageUpload",uploadDirPath];
     
     NSArray *files = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:uploadDirPath error:nil];
-    
-    __block NSMutableArray *fileModelArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        NSString *fileString = [NSString stringWithFormat:@"%@",obj];
-        if (![fileString isEqualToString:@".DS_Store"]) {
-            fileModel *model = [[fileModel alloc] initWithFileString:[NSString stringWithFormat:@"%@",obj]];
-            [fileModelArray addObject:model];
-        }
-        
-    }];
-    return fileModelArray;
-    
+    return files;
 }
 
 #pragma mark - ReaderViewControllerDelegate methods
