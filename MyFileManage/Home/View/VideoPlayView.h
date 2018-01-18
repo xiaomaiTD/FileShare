@@ -7,8 +7,6 @@
 //
 
 #import <MobileVLCKit/MobileVLCKit.h>
-#import <QMUIKit/QMUIKit.h>
-
 #import <UIKit/UIKit.h>
 #import "fileModel.h"
 
@@ -22,7 +20,7 @@ typedef enum : NSUInteger {
 @property(nonatomic,strong)fileModel *model;
 @property(nonatomic,strong)NSString *titleLable;
 @property(nonatomic,strong)UIButton *playButton;
-@property(nonatomic,strong)QMUISlider *slider;
+@property(nonatomic,strong)UISlider *slider;
 @property(nonatomic,strong)UILabel *timeLable;
 @property(nonatomic,strong)VLCMediaPlayer *player;
 

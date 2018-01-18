@@ -42,13 +42,13 @@
         make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
     
-    self.slider = [[QMUISlider alloc] init];
+    self.slider = [[UISlider alloc] init];
     self.slider.value = 0;
     self.slider.minimumTrackTintColor = MAINCOLOR;
     self.slider.maximumTrackTintColor = [UIColor whiteColor];
-    self.slider.trackHeight = 1;
-    self.slider.thumbColor = MAINCOLOR;
-    self.slider.thumbSize = CGSizeMake(14, 14);
+//    self.slider.trackHeight = 1;
+//    self.slider.thumbColor = MAINCOLOR;
+//    self.slider.thumbSize = CGSizeMake(14, 14);
     [self.slider addTarget:self action:@selector(sliderValueChange:) forControlEvents:UIControlEventValueChanged];
     [self.slider addTarget:self action:@selector(sliderBegin:) forControlEvents:UIControlEventTouchDown];
     [self.slider addTarget:self action:@selector(sliderEnd:) forControlEvents:UIControlEventTouchUpInside];
@@ -80,18 +80,18 @@
     sender.selected = !sender.isSelected;
     sender.isSelected ? [self.player pause] : [self.player play];
 }
--(void)sliderBegin:(QMUISlider *)slider{
+-(void)sliderBegin:(UISlider *)slider{
     if ([self.player canPause]) {
         [self.player pause];
     }
     NSDictionary *status = @{@"status":@"0"};
     POSTNotificationName(VideoSliderChange, status);
 }
--(void)sliderValueChange:(QMUISlider *)slider{
+-(void)sliderValueChange:(UISlider *)slider{
     
     [self.player setPosition:slider.value];
 }
--(void)sliderEnd:(QMUISlider *)slider{
+-(void)sliderEnd:(UISlider *)slider{
     [self.player play];
     NSDictionary *status = @{@"status":@"1"};
     POSTNotificationName(VideoSliderChange, status);
