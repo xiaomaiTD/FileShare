@@ -15,6 +15,8 @@
 #define SupportVideoArray @[@"MP4",@"RMVB",@"MOV",@"MKV"]
 #define SupportTXTArray @[@"TXT",@"EPUB"]
 #define SupportMusicArray @[@"MP3",@"WMA",@"WAV"]
+#define SupportOAArray @[@"HTML",@"NUMBERS",@"DOC",@"DOCX",@"XLSX",@"XLS",@"XLSM",@"PPT",@"PPTX",@"PPS",@"PPA",@"PAGES",@"KEY"]
+
 #define VideoSliderChange @"VideoSliderChange"
 
 

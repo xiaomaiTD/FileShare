@@ -102,7 +102,7 @@ UIPageViewControllerDelegate,UIPageViewControllerDataSource,LSYMenuViewDelegate,
 -(UIPageViewController *)pageViewController
 {
     if (!_pageViewController) {
-        _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+        _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
         _pageViewController.delegate = self;
         _pageViewController.dataSource = self;
         [self.view addSubview:_pageViewController.view];

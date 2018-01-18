@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "fileModel.h"
 
 @interface homeViewController : UIViewController
+
+@property(nonatomic,assign)BOOL isPushSelf;
+@property(nonatomic,strong)fileModel *model;
 
 @end

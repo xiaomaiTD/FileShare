@@ -46,9 +46,8 @@
     self.slider.value = 0;
     self.slider.minimumTrackTintColor = MAINCOLOR;
     self.slider.maximumTrackTintColor = [UIColor whiteColor];
-//    self.slider.trackHeight = 1;
-//    self.slider.thumbColor = MAINCOLOR;
-//    self.slider.thumbSize = CGSizeMake(14, 14);
+    [self.slider setThumbImage:[UIImage imageNamed:@"sliderImage"] forState:UIControlStateNormal];
+    [self.slider setThumbImage:[UIImage imageNamed:@"sliderImage"] forState:UIControlStateSelected];
     [self.slider addTarget:self action:@selector(sliderValueChange:) forControlEvents:UIControlEventValueChanged];
     [self.slider addTarget:self action:@selector(sliderBegin:) forControlEvents:UIControlEventTouchDown];
     [self.slider addTarget:self action:@selector(sliderEnd:) forControlEvents:UIControlEventTouchUpInside];

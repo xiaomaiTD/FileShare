@@ -11,7 +11,6 @@
 #import "homeViewController.h"
 #import "SettingViewController.h"
 
-
 @interface MainViewController ()
 
 @end

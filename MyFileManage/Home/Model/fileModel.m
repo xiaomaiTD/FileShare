@@ -10,24 +10,27 @@
 
 @implementation fileModel
 
--(instancetype)initWithFileString:(NSString *)fileString{
+-(instancetype)initWithFilePath:(NSString *)path{
 
     if (self = [super init]) {
-        NSString *temp = nil;
-        for(int i = 0; i <= (int)(fileString.length - 1); i++)
-        {
-            temp = [fileString substringWithRange:NSMakeRange( fileString.length - 1 - i, 1)];
-            if ([temp isEqualToString:@"."]) {
-                temp = [fileString substringWithRange:NSMakeRange(fileString.length -  i, i)];
-                _fileType = temp;
-                _fileName = [fileString substringWithRange:NSMakeRange(0, fileString.length -i - 1)];
-                NSString *path = FileUploadSavePath;
-                _fullPath = [NSString stringWithFormat:@"%@/%@.%@",path,_fileName,_fileType];
-                break;
-            }
-        }
+        
+        self.fileName = [[path lastPathComponent] stringByDeletingPathExtension];
+        self.fileType = [path pathExtension];
+        self.fullPath = path;
+        self.isFolder = self.fileType.length == 0 ? YES:NO;
     }
     return self;
 }
+
+-(id)copyWithZone:(NSZone *)zone{
+
+    fileModel *model = [[fileModel alloc] init];
+    model.fileName = self.fileName;
+    model.fileType = self.fileType;
+    model.fullPath = self.fullPath;
+    model.isFolder = self.isFolder;
+    return model;
+}
+
 
 @end

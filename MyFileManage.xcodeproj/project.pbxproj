@@ -101,6 +101,8 @@
 		0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DF200F433D0004751A /* CropEven@2x.png */; };
 		0005F1F8200FAAD90004751A /* FileFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1F7200FAAD90004751A /* FileFolder.m */; };
 		0005F1FB200FAB480004751A /* FloderDoumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1FA200FAB480004751A /* FloderDoumentViewController.m */; };
+		002ECE202010E41D00319300 /* FolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE1F2010E41D00319300 /* FolderCell.m */; };
+		002ECE232010E7B300319300 /* ResourceFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE222010E7B300319300 /* ResourceFileManager.m */; };
 		0032FAC320089FDC006EF52B /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC220089FDC006EF52B /* libxml2.2.tbd */; };
 		0032FAC62008A1EE006EF52B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC52008A1EE006EF52B /* Foundation.framework */; };
 		0032FAC72008A667006EF52B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A671ED91BD7001BF4F1 /* libz.tbd */; };
@@ -213,6 +215,7 @@
 		00B3A9ED200EF76D0009DC52 /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00B3A9E8200EF76C0009DC52 /* Music.storyboard */; };
 		00B3A9EE200EF76D0009DC52 /* MusicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9E9200EF76D0009DC52 /* MusicSlider.m */; };
 		00B3A9EF200EF76D0009DC52 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */; };
+		00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */; };
 		371597AC1EDFB1A500B482AB /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597AB1EDFB1A500B482AB /* Device.m */; };
 		3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */; };
 		3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */; };
@@ -418,6 +421,10 @@
 		0005F1F7200FAAD90004751A /* FileFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileFolder.m; sourceTree = "<group>"; };
 		0005F1F9200FAB480004751A /* FloderDoumentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloderDoumentViewController.h; sourceTree = "<group>"; };
 		0005F1FA200FAB480004751A /* FloderDoumentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FloderDoumentViewController.m; sourceTree = "<group>"; };
+		002ECE1E2010E41D00319300 /* FolderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FolderCell.h; sourceTree = "<group>"; };
+		002ECE1F2010E41D00319300 /* FolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FolderCell.m; sourceTree = "<group>"; };
+		002ECE212010E7B300319300 /* ResourceFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceFileManager.h; sourceTree = "<group>"; };
+		002ECE222010E7B300319300 /* ResourceFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceFileManager.m; sourceTree = "<group>"; };
 		0032FAC220089FDC006EF52B /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		0032FAC52008A1EE006EF52B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0032FB082009F03A006EF52B /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
@@ -621,6 +628,8 @@
 		00B3A9EA200EF76D0009DC52 /* MusicIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicIndicator.h; sourceTree = "<group>"; };
 		00B3A9EB200EF76D0009DC52 /* MusicSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicSlider.h; sourceTree = "<group>"; };
 		00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicIndicator.m; sourceTree = "<group>"; };
+		00BB14E12010AB6700F0E4A1 /* FolderFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FolderFileManager.h; sourceTree = "<group>"; };
+		00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FolderFileManager.m; sourceTree = "<group>"; };
 		28247406ACE15649A587F961 /* Pods_MyFileManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFileManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		371597AA1EDFB1A500B482AB /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
 		371597AB1EDFB1A500B482AB /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
@@ -908,6 +917,8 @@
 				005A7060200B367B00400500 /* VideoPlayView.m */,
 				00B3A817200DA0F90009DC52 /* VideoCoverView.h */,
 				00B3A818200DA0F90009DC52 /* VideoCoverView.m */,
+				002ECE1E2010E41D00319300 /* FolderCell.h */,
+				002ECE1F2010E41D00319300 /* FolderCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1367,6 +1378,17 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		00BB14E02010AB3F00F0E4A1 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				00BB14E12010AB6700F0E4A1 /* FolderFileManager.h */,
+				00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */,
+				002ECE212010E7B300319300 /* ResourceFileManager.h */,
+				002ECE222010E7B300319300 /* ResourceFileManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		371597A91EDFB1A500B482AB /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1438,6 +1460,7 @@
 				377E95EE1ED5367B0080E86D /* Tool */,
 				377E96F01ED55F460080E86D /* Base */,
 				00B3A824200E02790009DC52 /* Thirdparty */,
+				00BB14E02010AB3F00F0E4A1 /* Manager */,
 				377E95C11ED532CD0080E86D /* LaunchScreen.storyboard */,
 				377E95C41ED532CD0080E86D /* Info.plist */,
 				377E95BF1ED532CD0080E86D /* Assets.xcassets */,
@@ -1823,6 +1846,7 @@
 				00B3A979200E02790009DC52 /* GTMNSString+HTML.m in Sources */,
 				00B3A920200E02790009DC52 /* DispatchQueueLogFormatter.m in Sources */,
 				00B3A96B200E02790009DC52 /* LSYMarkVC.m in Sources */,
+				002ECE232010E7B300319300 /* ResourceFileManager.m in Sources */,
 				0005F1FB200FAB480004751A /* FloderDoumentViewController.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
 				00B3A97F200E02790009DC52 /* CXMLDocument.m in Sources */,
@@ -1913,6 +1937,7 @@
 				0005F19E200F36440004751A /* NSString+GreatReaderAdditions.m in Sources */,
 				0005F177200F36440004751A /* PDFFontDescriptor.m in Sources */,
 				00B3A977200E02790009DC52 /* LSYReadModel.m in Sources */,
+				002ECE202010E41D00319300 /* FolderCell.m in Sources */,
 				005A7061200B367B00400500 /* VideoPlayView.m in Sources */,
 				00B3A924200E02790009DC52 /* DDRange.m in Sources */,
 				00B3A981200E02790009DC52 /* CXMLElement.m in Sources */,
@@ -1969,6 +1994,7 @@
 				00B3A983200E02790009DC52 /* CXMLElement_ElementTreeExtensions.m in Sources */,
 				00B3A970200E02790009DC52 /* LSYCatalogViewController.m in Sources */,
 				0005F156200F36440004751A /* PDFDocumentSearchViewModel.m in Sources */,
+				00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */,
 				0005F16C200F36440004751A /* PDFRecentDocumentList.m in Sources */,
 				0005F149200F36440004751A /* PDFDocumentBrightnessViewController.m in Sources */,
 				00B3A9D5200E04550009DC52 /* NAKPlaybackIndicatorContentView.m in Sources */,

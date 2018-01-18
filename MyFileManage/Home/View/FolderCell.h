@@ -1,5 +1,5 @@
 //
-//  FloderDoumentViewController.h
+//  FolderCell.h
 //  MyFileManage
 //
 //  Created by Viterbi on 2018/1/18.
@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "fileModel.h"
 
-@interface FloderDoumentViewController : UIViewController
+@interface FolderCell : UICollectionViewCell
 
 @property(nonatomic,strong)fileModel *model;
-
+@property(nonatomic,strong)UITextView *textView;
 @end

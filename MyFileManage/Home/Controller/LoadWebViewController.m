@@ -9,7 +9,7 @@
 #import "LoadWebViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface LoadWebViewController ()
+@interface LoadWebViewController ()<WKNavigationDelegate>
 
 @property(nonatomic,strong)WKWebView *webView;
 
@@ -24,10 +24,15 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:_model.fullPath]];
     [_webView loadRequest:request];
+    _webView.navigationDelegate = self;
     [self.view addSubview:_webView];
+    [self showMessageWithTitle:@"正在加载..."];
 }
 
-
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    
+    [self hidenMessage];
+}
 
 
 @end
