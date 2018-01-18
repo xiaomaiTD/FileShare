@@ -10,6 +10,7 @@
 #import "LSYReadConfig.h"
 #import "LSYReadParser.h"
 #import "NSString+HTML.h"
+#import "NSFileManager+GreatReaderAdditions.h"
 //#include <vector>
 @interface LSYChapterModel ()
 @property (nonatomic,strong) NSMutableArray *pageArray;
@@ -247,10 +248,20 @@
     [aCoder encodeObject:self.title forKey:@"title"];
     [aCoder encodeInteger:self.pageCount forKey:@"pageCount"];
     [aCoder encodeObject:self.pageArray forKey:@"pageArray"];
-    [aCoder encodeObject:self.epubImagePath forKey:@"epubImagePath"];
+    
+    NSString *doucemnt = [NSFileManager grt_documentsPath];
+    if ([self.epubImagePath containsString:doucemnt]) {
+       NSRange range = [self.epubImagePath rangeOfString:doucemnt];
+        self.relativeImagePath = [self.epubImagePath substringFromIndex:range.location + range.length];
+    }
+    if ([self.chapterpath containsString:doucemnt]) {
+        NSRange range = [self.chapterpath rangeOfString:doucemnt];
+        self.relativeEpubPath = [self.chapterpath substringFromIndex:range.length + range.location];
+    }
+    [aCoder encodeObject:self.relativeImagePath forKey:@"epubImagePath"];
+    [aCoder encodeObject:self.relativeEpubPath forKey:@"chapterpath"];
     [aCoder encodeObject:@(self.type) forKey:@"type"];
     [aCoder encodeObject:self.epubContent forKey:@"epubContent"];
-    [aCoder encodeObject:self.chapterpath forKey:@"chapterpath"];
     [aCoder encodeObject:self.html forKey:@"html"];
     [aCoder encodeObject:self.epubString forKey:@"epubString"];
     /**
@@ -271,9 +282,9 @@
         self.pageCount = [aDecoder decodeIntegerForKey:@"pageCount"];
         self.pageArray = [aDecoder decodeObjectForKey:@"pageArray"];
 //        self.type = [[aDecoder decodeObjectForKey:@"type"] integerValue];
-        self.epubImagePath = [aDecoder decodeObjectForKey:@"epubImagePath"];
+        self.epubImagePath = [NSString stringWithFormat:@"%@/%@",[NSFileManager grt_documentsPath],[aDecoder decodeObjectForKey:@"epubImagePath"]];
         self.epubContent = [aDecoder decodeObjectForKey:@"epubContent"];
-        self.chapterpath = [aDecoder decodeObjectForKey:@"chapterpath"];
+        self.chapterpath = [NSString stringWithFormat:@"%@/%@",[NSFileManager grt_documentsPath],[aDecoder decodeObjectForKey:@"chapterpath"]];
         self.html = [aDecoder decodeObjectForKey:@"html"];
         self.epubString = [aDecoder decodeObjectForKey:@"epubString"];
 //        self.epubframeRef = [aDecoder decodeObjectForKey:@"epubframeRef"];

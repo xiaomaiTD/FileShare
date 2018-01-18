@@ -43,8 +43,6 @@ UIPageViewControllerDelegate,UIPageViewControllerDataSource,LSYMenuViewDelegate,
     [super viewDidLoad];
     [self addChildViewController:self.pageViewController];
     
-//    NSLog(@"record-----%@",_model.record);
-    
     [_pageViewController setViewControllers:@[[self readViewWithChapter:_model.record.chapter page:_model.record.page]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     _chapter = _model.record.chapter;
     _page = _model.record.page;
@@ -54,7 +52,7 @@ UIPageViewControllerDelegate,UIPageViewControllerDataSource,LSYMenuViewDelegate,
         tap;
     })];
     [self.view addSubview:self.menuView];
-    
+
     [self addChildViewController:self.catalogVC];
     [self.view addSubview:self.catalogView];
     [self.catalogView addSubview:self.catalogVC.view];
@@ -246,7 +244,6 @@ UIPageViewControllerDelegate,UIPageViewControllerDataSource,LSYMenuViewDelegate,
 
 -(LSYReadViewController *)readViewWithChapter:(NSUInteger)chapter page:(NSUInteger)page{
 
-    
     if (_model.record.chapter != chapter) {
         [_model.record.chapterModel updateFont];
         if (_model.type == ReaderEpub) {
@@ -260,7 +257,6 @@ UIPageViewControllerDelegate,UIPageViewControllerDataSource,LSYMenuViewDelegate,
     }
     _readView = [[LSYReadViewController alloc] init];
     _readView.recordModel = _model.record;
-//     NSLog(@"---%@",[NSURL fileURLWithPath:_model.chapters[chapter].chapterpath]);
     if (_model.type == ReaderEpub) {
         _readView.type = ReaderEpub;
         if (!_model.chapters[chapter].epubframeRef) {
@@ -270,7 +266,6 @@ UIPageViewControllerDelegate,UIPageViewControllerDataSource,LSYMenuViewDelegate,
             [_model.chapters[chapter] parserEpubToDictionary];
             [_model.chapters[chapter] paginateEpubWithBounds:CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width-LeftSpacing-RightSpacing, [UIScreen mainScreen].bounds.size.height-TopSpacing-BottomSpacing)];
         }
-        
         _readView.epubFrameRef = _model.chapters[chapter].epubframeRef[page];
         _readView.imageArray = _model.chapters[chapter].imageArray;
         _readView.content = _model.chapters[chapter].content;
@@ -280,8 +275,6 @@ UIPageViewControllerDelegate,UIPageViewControllerDataSource,LSYMenuViewDelegate,
         _readView.content = [_model.chapters[chapter] stringOfPage:page];
     }
     _readView.delegate = self;
-    NSLog(@"_readGreate");
-    
     return _readView;
 }
 -(void)updateReadModelWithChapter:(NSUInteger)chapter page:(NSUInteger)page

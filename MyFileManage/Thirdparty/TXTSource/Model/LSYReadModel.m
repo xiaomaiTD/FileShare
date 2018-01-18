@@ -79,6 +79,7 @@
 +(id)getLocalModelWithURL:(NSURL *)url
 {
     NSString *key = [url.path lastPathComponent];
+//    NSLog(@"key------%@",key);
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (!data) {
         if ([[key pathExtension] isEqualToString:@"txt"]) {

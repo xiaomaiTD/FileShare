@@ -128,6 +128,7 @@ UITableViewDelegate,UITableViewDataSource
     if (_dataSourceArray.count > 0) {
         
         fileModel *model = _dataSourceArray[indexPath.row];
+        NSLog(@"fullpath----------%@",model.fullPath);
         if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
             openImageViewController *vc = [[openImageViewController alloc] init];
             vc.model = model;
@@ -142,11 +143,11 @@ UITableViewDelegate,UITableViewDataSource
             [self presentMusicViewController:model];
         }
         if ([model.fileType.uppercaseString isEqualToString:@"PDF"]) {
-            
+
             [self presentPDFViewController:model];
         }
         if ([model.fileType.uppercaseString isEqualToString:@"HTML"]) {
-            
+
             LoadWebViewController *webView = [[LoadWebViewController alloc] init];
             webView.model = model;
             [self.navigationController pushViewController:webView animated:YES];
@@ -156,7 +157,7 @@ UITableViewDelegate,UITableViewDataSource
             NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];
             pageView.resourceURL = txtFull;
             //文件位置
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        dispatch_async(dispatch_get_global_queue(0,0), ^{
                 LSYReadModel *readModel = [LSYReadModel getLocalModelWithURL:txtFull];
                 pageView.model = readModel;
                 dispatch_async(dispatch_get_main_queue(), ^{

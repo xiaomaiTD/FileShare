@@ -44,6 +44,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }else{
         [[DataBaseTool shareInstance] setIPAddree:[NSString stringWithFormat:@"%d",[httpServer listeningPort]]];
     }
+    
     return YES;
 }
 

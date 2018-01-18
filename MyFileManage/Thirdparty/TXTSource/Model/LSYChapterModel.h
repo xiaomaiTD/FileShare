@@ -34,9 +34,13 @@ typedef  NS_ENUM(NSInteger,ReaderType){
 -(NSString *)stringOfPage:(NSUInteger)index;
 -(void)updateFont;
 
+
+//相对路径
+@property(nonatomic,copy) NSString *relativeImagePath;
+@property(nonatomic,copy) NSString *relativeEpubPath;
+
 @property (nonatomic,copy) NSString *chapterpath;
 @property (nonatomic,copy) NSString *html;
-
 @property (nonatomic,copy) NSArray *epubContent;
 @property (nonatomic,copy) NSArray *epubString;
 @property (nonatomic,copy) NSArray *epubframeRef;

@@ -235,7 +235,6 @@
     NSMutableArray *chapters = [NSMutableArray array];
     for (CXMLElement* element in itemRefsArray){
         NSString* chapHref = [itemDictionary objectForKey:[[element attributeForName:@"idref"] stringValue]];
-//        LSYChapterModel *model = [LSYChapterModel chapterWithEpub:[NSString stringWithFormat:@"%@/%@",absolutePath,chapHref] title:[titleDictionary valueForKey:chapHref] imagePath:[opfPath stringByDeletingLastPathComponent]];
         LSYChapterModel *model = [LSYChapterModel chapterWithEpub:[NSString stringWithFormat:@"%@/%@",absolutePath,chapHref] title:[titleDictionary objectForKey:chapHref] imagePath:[[[opfPath stringByDeletingLastPathComponent]stringByAppendingPathComponent:chapHref] stringByDeletingLastPathComponent]];
         [chapters addObject:model];
         
