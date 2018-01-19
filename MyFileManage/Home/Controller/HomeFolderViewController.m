@@ -6,6 +6,9 @@
 //  Copyright © 2017年 wangchao. All rights reserved.
 //
 
+#import <SSZipArchive/SSZipArchive.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+
 #import "HomeFolderViewController.h"
 #import "ConnectWifiWebViewController.h"
 //Video
@@ -28,15 +31,13 @@
 #import "ResourceFileManager.h"
 #import "FolderFileManager.h"
 #import "FolderCell.h"
-
-#import "FloderDoumentViewController.h"
+#import "GCD.h"
 
 @interface HomeFolderViewController ()
 <
-UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource
+UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
 >
 
-@property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)UICollectionView *collectionView;
 
@@ -140,11 +141,26 @@ UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionV
     return cell;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
         NSLog(@"path-----%@",model.fullPath);
+        NSLog(@"path-----%@",model.fileType);
+        //如果是文件夹
+        if (model.isFolder) {
+            HomeFolderViewController *vc = [[HomeFolderViewController alloc] init];
+            vc.model = model;
+            vc.isPushSelf = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+            return;
+        }
         if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
             openImageViewController *vc = [[openImageViewController alloc] init];
             vc.model = model;
@@ -170,20 +186,48 @@ UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionV
         if ([SupportTXTArray containsObject:[model.fileType uppercaseString]]) {
             [self presentTXTViewControllerWithModel:model];
         }
-        //文件夹没有后缀名
-        if (model.fileType.length == 0) {
-            HomeFolderViewController *vc = [[HomeFolderViewController alloc] init];
-            vc.model = model;
-            vc.isPushSelf = YES;
-            [self.navigationController pushViewController:vc animated:YES];
+        if ([SupportZIPARRAY containsObject:[model.fileType uppercaseString]]) {
+            [self unZipFileWithPath:model.fullPath];
         }
     }
     
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
+/**
+ 解压到当前文件夹
+
+ @param path 需要解压的文件路径
+ */
+-(void)unZipFileWithPath:(NSString *)path{
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeDeterminateHorizontalBar;
+    hud.label.text = @"unziping...";
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSString *destinationPath = [path stringByDeletingLastPathComponent];
+        [SSZipArchive unzipFileAtPath:path toDestination:destinationPath delegate:self];
+    });
+    
+   
+}
+#pragma mark ---SSZipArchiveDelegate
+
+-(void)zipArchiveWillUnzipArchiveAtPath:(NSString *)path zipInfo:(unz_global_info)zipInfo{
+   
+}
+- (void)zipArchiveDidUnzipArchiveAtPath:(NSString *)path zipInfo:(unz_global_info)zipInfo unzippedPath:(NSString *)unzippedPath{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"finishzip");
+        [self hidenMessage];
+        [self fileFinishAndReloadTable];
+    });
+}
+- (void)zipArchiveProgressEvent:(unsigned long long)loaded total:(unsigned long long)total{
+    
+    float progress = loaded / (float)total;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD HUDForView:self.view].progress = progress;
+    });
 }
 
 -(void)presentTXTViewControllerWithModel:(fileModel *)model{
@@ -221,10 +265,11 @@ UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionV
 -(void)fileFinishAndReloadTable{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.dataSourceArray removeAllObjects];
-        NSArray *allFiles = [[ResourceFileManager shareInstance] getAllUploadAllFileModels];
+        NSArray *allFiles = self.isPushSelf ? [[FolderFileManager shareInstance] getAllFileModelInDic:self.model.fullPath]:[[ResourceFileManager shareInstance] getAllUploadAllFileModels];
         [self.dataSourceArray addObjectsFromArray:allFiles];
-        [self.tableView reloadData];
+        [self.collectionView reloadData];
     });
+
 }
 
 

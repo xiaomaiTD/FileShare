@@ -16,8 +16,11 @@
         
         self.fileName = [[path lastPathComponent] stringByDeletingPathExtension];
         self.fileType = [path pathExtension];
+        
         self.fullPath = path;
-        self.isFolder = self.fileType.length == 0 ? YES:NO;
+        bool folder = NO;
+        [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&folder];
+        self.isFolder = folder;
     }
     return self;
 }

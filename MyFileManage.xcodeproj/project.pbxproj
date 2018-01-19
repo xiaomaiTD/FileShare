@@ -100,7 +100,6 @@
 		0005F1F2200F433D0004751A /* Forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DD200F433C0004751A /* Forward@2x.png */; };
 		0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DF200F433D0004751A /* CropEven@2x.png */; };
 		0005F1F8200FAAD90004751A /* FileFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1F7200FAAD90004751A /* FileFolder.m */; };
-		0005F1FB200FAB480004751A /* FloderDoumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1FA200FAB480004751A /* FloderDoumentViewController.m */; };
 		002ECE202010E41D00319300 /* FolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE1F2010E41D00319300 /* FolderCell.m */; };
 		002ECE232010E7B300319300 /* ResourceFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE222010E7B300319300 /* ResourceFileManager.m */; };
 		002ECE242011869400319300 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A6B1ED91BED001BF4F1 /* MobileCoreServices.framework */; };
@@ -212,6 +211,10 @@
 		00B3A9EE200EF76D0009DC52 /* MusicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9E9200EF76D0009DC52 /* MusicSlider.m */; };
 		00B3A9EF200EF76D0009DC52 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */; };
 		00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */; };
+		00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13A2011CF0000BE57BB /* GCDGroup.m */; };
+		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
+		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
+		00FEF1442011CF0000BE57BB /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF1402011CF0000BE57BB /* GCDTimer.m */; };
 		371597AC1EDFB1A500B482AB /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597AB1EDFB1A500B482AB /* Device.m */; };
 		3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */; };
 		3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */; };
@@ -415,8 +418,6 @@
 		0005F1E0200F433D0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/CropEven@2x.png"; sourceTree = SOURCE_ROOT; };
 		0005F1F6200FAAD90004751A /* FileFolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileFolder.h; sourceTree = "<group>"; };
 		0005F1F7200FAAD90004751A /* FileFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileFolder.m; sourceTree = "<group>"; };
-		0005F1F9200FAB480004751A /* FloderDoumentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloderDoumentViewController.h; sourceTree = "<group>"; };
-		0005F1FA200FAB480004751A /* FloderDoumentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FloderDoumentViewController.m; sourceTree = "<group>"; };
 		002ECE1E2010E41D00319300 /* FolderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FolderCell.h; sourceTree = "<group>"; };
 		002ECE1F2010E41D00319300 /* FolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FolderCell.m; sourceTree = "<group>"; };
 		002ECE212010E7B300319300 /* ResourceFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceFileManager.h; sourceTree = "<group>"; };
@@ -615,6 +616,15 @@
 		00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicIndicator.m; sourceTree = "<group>"; };
 		00BB14E12010AB6700F0E4A1 /* FolderFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FolderFileManager.h; sourceTree = "<group>"; };
 		00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FolderFileManager.m; sourceTree = "<group>"; };
+		00FEF1382011CF0000BE57BB /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
+		00FEF1392011CF0000BE57BB /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
+		00FEF13A2011CF0000BE57BB /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
+		00FEF13B2011CF0000BE57BB /* GCDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDQueue.h; sourceTree = "<group>"; };
+		00FEF13C2011CF0000BE57BB /* GCDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDQueue.m; sourceTree = "<group>"; };
+		00FEF13D2011CF0000BE57BB /* GCDSemaphore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSemaphore.h; sourceTree = "<group>"; };
+		00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSemaphore.m; sourceTree = "<group>"; };
+		00FEF13F2011CF0000BE57BB /* GCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
+		00FEF1402011CF0000BE57BB /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
 		28247406ACE15649A587F961 /* Pods_MyFileManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFileManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		371597AA1EDFB1A500B482AB /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
 		371597AB1EDFB1A500B482AB /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
@@ -920,8 +930,6 @@
 				0032FB0D2009F03A006EF52B /* openImageViewController.m */,
 				0032FB0E2009F03A006EF52B /* playVideoViewController.h */,
 				0032FB0F2009F03A006EF52B /* playVideoViewController.m */,
-				0005F1F9200FAB480004751A /* FloderDoumentViewController.h */,
-				0005F1FA200FAB480004751A /* FloderDoumentViewController.m */,
 				0032FB1D2009F082006EF52B /* LoadWebViewController.h */,
 				0032FB1E2009F082006EF52B /* LoadWebViewController.m */,
 			);
@@ -1348,9 +1356,26 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		00FEF1372011CF0000BE57BB /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				00FEF1382011CF0000BE57BB /* GCD.h */,
+				00FEF1392011CF0000BE57BB /* GCDGroup.h */,
+				00FEF13A2011CF0000BE57BB /* GCDGroup.m */,
+				00FEF13B2011CF0000BE57BB /* GCDQueue.h */,
+				00FEF13C2011CF0000BE57BB /* GCDQueue.m */,
+				00FEF13D2011CF0000BE57BB /* GCDSemaphore.h */,
+				00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */,
+				00FEF13F2011CF0000BE57BB /* GCDTimer.h */,
+				00FEF1402011CF0000BE57BB /* GCDTimer.m */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
 		371597A91EDFB1A500B482AB /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				00FEF1372011CF0000BE57BB /* GCD */,
 				371597AA1EDFB1A500B482AB /* Device.h */,
 				371597AB1EDFB1A500B482AB /* Device.m */,
 			);
@@ -1806,9 +1831,9 @@
 				00B3A992200E02790009DC52 /* LSYMagnifierView.m in Sources */,
 				00B3A979200E02790009DC52 /* GTMNSString+HTML.m in Sources */,
 				00B3A920200E02790009DC52 /* DispatchQueueLogFormatter.m in Sources */,
+				00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */,
 				00B3A96B200E02790009DC52 /* LSYMarkVC.m in Sources */,
 				002ECE232010E7B300319300 /* ResourceFileManager.m in Sources */,
-				0005F1FB200FAB480004751A /* FloderDoumentViewController.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
 				00B3A97F200E02790009DC52 /* CXMLDocument.m in Sources */,
 				0005F150200F36440004751A /* PDFRenderingCharacter.m in Sources */,
@@ -1821,6 +1846,7 @@
 				00B3A974200E02790009DC52 /* LSYChapterModel.m in Sources */,
 				0005F158200F36440004751A /* DocumentListCollectionViewController.m in Sources */,
 				00B3A922200E02790009DC52 /* DDData.m in Sources */,
+				00FEF1442011CF0000BE57BB /* GCDTimer.m in Sources */,
 				0005F14F200F36440004751A /* PDFPageLinkList.m in Sources */,
 				3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */,
 				0005F1A4200F36440004751A /* PDFUtils.m in Sources */,
@@ -1899,6 +1925,7 @@
 				00B3A924200E02790009DC52 /* DDRange.m in Sources */,
 				00B3A981200E02790009DC52 /* CXMLElement.m in Sources */,
 				00B3A932200E02790009DC52 /* WebSocket.m in Sources */,
+				00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */,
 				0005F16B200F36440004751A /* PDFDocumentInfoView.m in Sources */,
 				00B3A9DC200E04550009DC52 /* MusicListEntity.m in Sources */,
 				00B3A91A200E02790009DC52 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -1951,6 +1978,7 @@
 				00B3A970200E02790009DC52 /* LSYCatalogViewController.m in Sources */,
 				0005F156200F36440004751A /* PDFDocumentSearchViewModel.m in Sources */,
 				00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */,
+				00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */,
 				0005F16C200F36440004751A /* PDFRecentDocumentList.m in Sources */,
 				0005F149200F36440004751A /* PDFDocumentBrightnessViewController.m in Sources */,
 				00B3A9D5200E04550009DC52 /* NAKPlaybackIndicatorContentView.m in Sources */,
