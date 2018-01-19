@@ -103,11 +103,12 @@
 		0005F1FB200FAB480004751A /* FloderDoumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1FA200FAB480004751A /* FloderDoumentViewController.m */; };
 		002ECE202010E41D00319300 /* FolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE1F2010E41D00319300 /* FolderCell.m */; };
 		002ECE232010E7B300319300 /* ResourceFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE222010E7B300319300 /* ResourceFileManager.m */; };
+		002ECE242011869400319300 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A6B1ED91BED001BF4F1 /* MobileCoreServices.framework */; };
 		0032FAC320089FDC006EF52B /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC220089FDC006EF52B /* libxml2.2.tbd */; };
 		0032FAC62008A1EE006EF52B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC52008A1EE006EF52B /* Foundation.framework */; };
 		0032FAC72008A667006EF52B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A671ED91BD7001BF4F1 /* libz.tbd */; };
 		0032FB162009F03A006EF52B /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */; };
-		0032FB172009F03A006EF52B /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0B2009F03A006EF52B /* homeViewController.m */; };
+		0032FB172009F03A006EF52B /* HomeFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */; };
 		0032FB182009F03A006EF52B /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0D2009F03A006EF52B /* openImageViewController.m */; };
 		0032FB192009F03A006EF52B /* playVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0F2009F03A006EF52B /* playVideoViewController.m */; };
 		0032FB1F2009F082006EF52B /* LoadWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB1E2009F082006EF52B /* LoadWebViewController.m */; };
@@ -192,11 +193,6 @@
 		00B3A988200E02790009DC52 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A8F9200E02790009DC52 /* CXMLUnsupportedNode.m */; };
 		00B3A989200E02790009DC52 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A8FC200E02790009DC52 /* CTidy.m */; };
 		00B3A98A200E02790009DC52 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A8FF200E02790009DC52 /* UIImage+ImageEffects.m */; };
-		00B3A98B200E02790009DC52 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A903200E02790009DC52 /* ioapi.c */; };
-		00B3A98C200E02790009DC52 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A905200E02790009DC52 /* mztools.c */; };
-		00B3A98D200E02790009DC52 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A907200E02790009DC52 /* unzip.c */; };
-		00B3A98E200E02790009DC52 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A909200E02790009DC52 /* zip.c */; };
-		00B3A98F200E02790009DC52 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A90C200E02790009DC52 /* ZipArchive.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		00B3A990200E02790009DC52 /* bt_tjcp_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B3A90E200E02790009DC52 /* bt_tjcp_no@2x.png */; };
 		00B3A991200E02790009DC52 /* LSYBottomMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A910200E02790009DC52 /* LSYBottomMenuView.m */; };
 		00B3A992200E02790009DC52 /* LSYMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A912200E02790009DC52 /* LSYMagnifierView.m */; };
@@ -429,8 +425,8 @@
 		0032FAC52008A1EE006EF52B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0032FB082009F03A006EF52B /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
 		0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
-		0032FB0A2009F03A006EF52B /* homeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
-		0032FB0B2009F03A006EF52B /* homeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
+		0032FB0A2009F03A006EF52B /* HomeFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFolderViewController.h; sourceTree = "<group>"; };
+		0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFolderViewController.m; sourceTree = "<group>"; };
 		0032FB0C2009F03A006EF52B /* openImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openImageViewController.h; sourceTree = "<group>"; };
 		0032FB0D2009F03A006EF52B /* openImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openImageViewController.m; sourceTree = "<group>"; };
 		0032FB0E2009F03A006EF52B /* playVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playVideoViewController.h; sourceTree = "<group>"; };
@@ -583,17 +579,6 @@
 		00B3A8FD200E02790009DC52 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		00B3A8FE200E02790009DC52 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		00B3A8FF200E02790009DC52 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		00B3A902200E02790009DC52 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		00B3A903200E02790009DC52 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		00B3A904200E02790009DC52 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		00B3A905200E02790009DC52 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		00B3A906200E02790009DC52 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		00B3A907200E02790009DC52 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		00B3A908200E02790009DC52 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		00B3A909200E02790009DC52 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		00B3A90A200E02790009DC52 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		00B3A90B200E02790009DC52 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
-		00B3A90C200E02790009DC52 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		00B3A90E200E02790009DC52 /* bt_tjcp_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_tjcp_no@2x.png"; sourceTree = "<group>"; };
 		00B3A90F200E02790009DC52 /* LSYBottomMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYBottomMenuView.h; sourceTree = "<group>"; };
 		00B3A910200E02790009DC52 /* LSYBottomMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYBottomMenuView.m; sourceTree = "<group>"; };
@@ -689,6 +674,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002ECE242011869400319300 /* MobileCoreServices.framework in Frameworks */,
 				0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */,
 				0032FB332009F54E006EF52B /* libbz2.1.0.tbd in Frameworks */,
 				0032FB312009F545006EF52B /* libc++.1.tbd in Frameworks */,
@@ -928,8 +914,8 @@
 			children = (
 				0032FB082009F03A006EF52B /* ConnectWifiWebViewController.h */,
 				0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */,
-				0032FB0A2009F03A006EF52B /* homeViewController.h */,
-				0032FB0B2009F03A006EF52B /* homeViewController.m */,
+				0032FB0A2009F03A006EF52B /* HomeFolderViewController.h */,
+				0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */,
 				0032FB0C2009F03A006EF52B /* openImageViewController.h */,
 				0032FB0D2009F03A006EF52B /* openImageViewController.m */,
 				0032FB0E2009F03A006EF52B /* playVideoViewController.h */,
@@ -1159,7 +1145,6 @@
 				00B3A8DD200E02790009DC52 /* TouchXML */,
 				00B3A8FE200E02790009DC52 /* UIImage+ImageEffects.h */,
 				00B3A8FF200E02790009DC52 /* UIImage+ImageEffects.m */,
-				00B3A900200E02790009DC52 /* ZipArchive */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -1222,32 +1207,6 @@
 				00B3A8FC200E02790009DC52 /* CTidy.m */,
 			);
 			path = Tidy;
-			sourceTree = "<group>";
-		};
-		00B3A900200E02790009DC52 /* ZipArchive */ = {
-			isa = PBXGroup;
-			children = (
-				00B3A901200E02790009DC52 /* minizip */,
-				00B3A90B200E02790009DC52 /* ZipArchive.h */,
-				00B3A90C200E02790009DC52 /* ZipArchive.mm */,
-			);
-			path = ZipArchive;
-			sourceTree = "<group>";
-		};
-		00B3A901200E02790009DC52 /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				00B3A902200E02790009DC52 /* crypt.h */,
-				00B3A903200E02790009DC52 /* ioapi.c */,
-				00B3A904200E02790009DC52 /* ioapi.h */,
-				00B3A905200E02790009DC52 /* mztools.c */,
-				00B3A906200E02790009DC52 /* mztools.h */,
-				00B3A907200E02790009DC52 /* unzip.c */,
-				00B3A908200E02790009DC52 /* unzip.h */,
-				00B3A909200E02790009DC52 /* zip.c */,
-				00B3A90A200E02790009DC52 /* zip.h */,
-			);
-			path = minizip;
 			sourceTree = "<group>";
 		};
 		00B3A90D200E02790009DC52 /* View */ = {
@@ -1778,6 +1737,7 @@
 				"${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSPhotoEditor/iOSPhotoEditor.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1790,6 +1750,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mantle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSPhotoEditor.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1856,7 +1817,6 @@
 				0005F151200F36440004751A /* File.m in Sources */,
 				0005F198200F36440004751A /* PDFDocumentViewController.m in Sources */,
 				0005F154200F36440004751A /* DocumentListViewModel.m in Sources */,
-				00B3A98E200E02790009DC52 /* zip.c in Sources */,
 				0005F1A1200F36440004751A /* DocumentModalTransitionAnimator.m in Sources */,
 				00B3A974200E02790009DC52 /* LSYChapterModel.m in Sources */,
 				0005F158200F36440004751A /* DocumentListCollectionViewController.m in Sources */,
@@ -1893,11 +1853,9 @@
 				0005F15A200F36440004751A /* PDFPage.m in Sources */,
 				00B3A96C200E02790009DC52 /* LSYNoteVC.m in Sources */,
 				0005F15B200F36440004751A /* PDFDocumentCrop.m in Sources */,
-				00B3A98F200E02790009DC52 /* ZipArchive.mm in Sources */,
 				00B3A976200E02790009DC52 /* LSYNoteModel.m in Sources */,
 				00B3A925200E02790009DC52 /* HTTPAuthenticationRequest.m in Sources */,
 				00B3A96D200E02790009DC52 /* LSYReadConfig.m in Sources */,
-				00B3A98D200E02790009DC52 /* unzip.c in Sources */,
 				00B3A982200E02790009DC52 /* CXMLElement_CreationExtensions.m in Sources */,
 				00B3A929200E02790009DC52 /* MultipartFormDataParser.m in Sources */,
 				00B3A993200E02790009DC52 /* LSYMenuView.m in Sources */,
@@ -1923,7 +1881,6 @@
 				371597AC1EDFB1A500B482AB /* Device.m in Sources */,
 				00B3A97E200E02790009DC52 /* CXHTMLDocument.m in Sources */,
 				0005F162200F36440004751A /* PDFDocumentOutlineViewController.m in Sources */,
-				00B3A98B200E02790009DC52 /* ioapi.c in Sources */,
 				0005F19B200F36440004751A /* PDFDocumentSearch.m in Sources */,
 				374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */,
 				0005F14B200F36440004751A /* PDFPageLink.m in Sources */,
@@ -1971,7 +1928,7 @@
 				00B3A9D6200E04550009DC52 /* NAKPlaybackIndicatorView.m in Sources */,
 				00B3A91F200E02790009DC52 /* ContextFilterLogFormatter.m in Sources */,
 				3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */,
-				0032FB172009F03A006EF52B /* homeViewController.m in Sources */,
+				0032FB172009F03A006EF52B /* HomeFolderViewController.m in Sources */,
 				00B3A9EE200EF76D0009DC52 /* MusicSlider.m in Sources */,
 				00B3A92E200E02790009DC52 /* HTTPDynamicFileResponse.m in Sources */,
 				00B3A97C200E02790009DC52 /* CXMLDocument_CreationExtensions.m in Sources */,
@@ -1980,7 +1937,6 @@
 				0005F172200F36440004751A /* RecentDocumentListViewModel.m in Sources */,
 				0032FB182009F03A006EF52B /* openImageViewController.m in Sources */,
 				0005F163200F36440004751A /* PDFDocumentOutline.m in Sources */,
-				00B3A98C200E02790009DC52 /* mztools.c in Sources */,
 				00B3A980200E02790009DC52 /* CXMLDocument_PrivateExtensions.m in Sources */,
 				0032FB162009F03A006EF52B /* ConnectWifiWebViewController.m in Sources */,
 				00B3A92A200E02790009DC52 /* MultipartMessageHeader.m in Sources */,

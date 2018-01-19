@@ -6,9 +6,9 @@
 //  Copyright © 2016年 okwei. All rights reserved.
 //
 
+#import <SSZipArchive/SSZipArchive.h>
 #import "LSYReadUtilites.h"
 #import "LSYChapterModel.h"
-#import "ZipArchive.h"
 #import "TouchXML.h"
 @implementation LSYReadUtilites
 +(void)separateChapter:(NSMutableArray **)chapters content:(NSString *)content
@@ -138,18 +138,15 @@
 #pragma mark - 解压文件路径
 +(NSString *)unZip:(NSString *)path
 {
-    ZipArchive *zip = [[ZipArchive alloc] init];
     NSString *zipFile = [[path stringByDeletingPathExtension] lastPathComponent];
-    if ([zip UnzipOpenFile:path]) {
-        NSString *zipPath = [NSString stringWithFormat:@"%@/%@",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject,zipFile];
-        NSFileManager *filemanager=[[NSFileManager alloc] init];
-        if ([filemanager fileExistsAtPath:zipPath]) {
-            NSError *error;
-            [filemanager removeItemAtPath:zipPath error:&error];
-        }
-        if ([zip UnzipFileTo:[NSString stringWithFormat:@"%@/",zipPath] overWrite:YES]) {
-            return zipPath;
-        }
+    NSString *zipPath = [NSString stringWithFormat:@"%@/%@",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject,zipFile];
+    NSFileManager *filemanager=[[NSFileManager alloc] init];
+    if ([filemanager fileExistsAtPath:zipPath]) {
+        NSError *error;
+        [filemanager removeItemAtPath:zipPath error:&error];
+    }
+    if ([SSZipArchive unzipFileAtPath:path toDestination:zipPath]) {
+        return zipPath;
     }
     return nil;
 }

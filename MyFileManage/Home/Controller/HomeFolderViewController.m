@@ -6,7 +6,7 @@
 //  Copyright © 2017年 wangchao. All rights reserved.
 //
 
-#import "homeViewController.h"
+#import "HomeFolderViewController.h"
 #import "ConnectWifiWebViewController.h"
 //Video
 #import "playVideoViewController.h"
@@ -27,20 +27,22 @@
 
 #import "ResourceFileManager.h"
 #import "FolderFileManager.h"
+#import "FolderCell.h"
 
 #import "FloderDoumentViewController.h"
 
-@interface homeViewController ()
+@interface HomeFolderViewController ()
 <
-UITableViewDelegate,UITableViewDataSource
+UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource
 >
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
+@property(nonatomic,strong)UICollectionView *collectionView;
 
 @end
 
-@implementation homeViewController
+@implementation HomeFolderViewController
 
 -(NSMutableArray *)dataSourceArray{
     
@@ -67,22 +69,29 @@ UITableViewDelegate,UITableViewDataSource
             self.dataSourceArray = tempArray.mutableCopy;
         }
     }
-    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    _tableView.tableFooterView = [[UIView alloc] init];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [self.view addSubview:_tableView];
-    
-    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_offset(0);
-        make.bottom.mas_offset(0);
-        make.left.mas_offset(0);
-        make.right.mas_offset(0);
-    }];
     if (!self.isPushSelf) {
         [self configueNavItem];
     }
-    // Music data
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    flowLayout.minimumLineSpacing = 10;
+    flowLayout.minimumInteritemSpacing = 10;
+    flowLayout.itemSize = CGSizeMake((kScreenWidth - 40)/3.0, (kScreenWidth - 40)/3.0);
+    //设置CollectionView的属性
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.scrollEnabled = YES;
+    [self.collectionView registerClass:[FolderCell class] forCellWithReuseIdentifier:@"cell"];
+    [self.view addSubview:self.collectionView];
+    
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+
+        // Music data
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
 }
@@ -107,25 +116,32 @@ UITableViewDelegate,UITableViewDataSource
     [self.navigationController pushViewController:vc animated:YES];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark  设置CollectionView每组所包含的个数
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    if (_dataSourceArray.count > 0) {
-        fileModel *model = _dataSourceArray[indexPath.row];
-        cell.textLabel.text = model.fileName;
-    }
-    return cell;
+    return self.dataSourceArray.count;
     
 }
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10, 10, 10, 10);//（上、左、下、右）
+}
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+#pragma mark  设置CollectionCell的内容
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identify = @"cell";
+    FolderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
+    if (self.dataSourceArray.count >0) {
+        cell.model = [self.dataSourceArray objectAtIndex:indexPath.row];
+    }
+    cell.textView.editable = NO;
+    cell.textView.userInteractionEnabled = NO;
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
     if (_dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
         NSLog(@"path-----%@",model.fullPath);
@@ -143,7 +159,7 @@ UITableViewDelegate,UITableViewDataSource
             [self presentMusicViewController:model];
         }
         if ([model.fileType.uppercaseString isEqualToString:@"PDF"]) {
-
+            
             [self presentPDFViewController:model];
         }
         if ([SupportOAArray containsObject:[model.fileType uppercaseString]]) {
@@ -156,18 +172,20 @@ UITableViewDelegate,UITableViewDataSource
         }
         //文件夹没有后缀名
         if (model.fileType.length == 0) {
-            homeViewController *vc = [[homeViewController alloc] init];
+            HomeFolderViewController *vc = [[HomeFolderViewController alloc] init];
             vc.model = model;
             vc.isPushSelf = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
+    
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.dataSourceArray.count;
+    return YES;
 }
+
 -(void)presentTXTViewControllerWithModel:(fileModel *)model{
     LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
     NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];

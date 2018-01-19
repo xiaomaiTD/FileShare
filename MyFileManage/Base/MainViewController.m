@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 #import "BaseNavgaitionController.h"
-#import "homeViewController.h"
+#import "HomeFolderViewController.h"
 #import "SettingViewController.h"
 
 @interface MainViewController ()
@@ -37,7 +37,7 @@
 //添加字控制器
 -(void)addChildViewControllers{
     
-    [self addOneChlildVc:[homeViewController new] title:@"首页" imageName:@"home"];
+    [self addOneChlildVc:[HomeFolderViewController new] title:@"首页" imageName:@"home"];
     [self addOneChlildVc:[SettingViewController new] title:@"设置" imageName:@"setting"];
 }
 

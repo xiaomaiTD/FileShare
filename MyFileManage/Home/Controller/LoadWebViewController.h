@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "BaseViewController.h"
 #import "fileModel.h"
 
 @interface LoadWebViewController : BaseViewController
-
 @property(nonatomic,strong)fileModel *model;
-
 @end

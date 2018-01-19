@@ -79,7 +79,6 @@
 +(id)getLocalModelWithURL:(NSURL *)url
 {
     NSString *key = [url.path lastPathComponent];
-//    NSLog(@"key------%@",key);
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (!data) {
         if ([[key pathExtension] isEqualToString:@"txt"]) {
@@ -98,7 +97,6 @@
         else{
             @throw [NSException exceptionWithName:@"FileException" reason:@"文件格式错误" userInfo:nil];
         }
-        
     }
     NSKeyedUnarchiver *unarchive = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
     //主线程操作
