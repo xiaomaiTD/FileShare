@@ -11,4 +11,5 @@
 BOOL IsPad();
 BOOL IsPhone();
 BOOL isPhonePlus();
+NSString * IPAddress();
 NSString * iphoneType();

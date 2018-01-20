@@ -8,8 +8,6 @@
 
 #import <ifaddrs.h>
 #import <arpa/inet.h>
-
-
 #import "ConnectWifiWebViewController.h"
 
 @interface ConnectWifiWebViewController ()

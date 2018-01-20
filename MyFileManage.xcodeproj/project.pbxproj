@@ -122,8 +122,17 @@
 		0032FB312009F545006EF52B /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB302009F544006EF52B /* libc++.1.tbd */; };
 		0032FB332009F54E006EF52B /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB322009F54E006EF52B /* libbz2.1.0.tbd */; };
 		0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB342009F556006EF52B /* libz.1.tbd */; };
+		005155EC20132B03009DA2A3 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 005155E920132B03009DA2A3 /* AsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		005155ED20132B03009DA2A3 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 005155EB20132B03009DA2A3 /* AsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		005155F620132C6A009DA2A3 /* Receiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 005155F120132C69009DA2A3 /* Receiver.m */; };
+		005155FC201334C8009DA2A3 /* SendMessageManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 005155FA201334C8009DA2A3 /* SendMessageManger.m */; };
 		005A705E200A1FE100400500 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A705D200A1FE100400500 /* BaseViewController.m */; };
 		005A7061200B367B00400500 /* VideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A7060200B367B00400500 /* VideoPlayView.m */; };
+		00886F3120133581006148BF /* UdpServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F2F20133581006148BF /* UdpServerManager.m */; };
+		00886F372013368B006148BF /* senderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F322013368A006148BF /* senderViewController.m */; };
+		00886F382013368B006148BF /* receiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F342013368B006148BF /* receiveViewController.m */; };
+		00886F3D201336AC006148BF /* FileInfoCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F3A201336AB006148BF /* FileInfoCenter.m */; };
+		00886F3E201336AC006148BF /* ConnectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F3B201336AB006148BF /* ConnectionItem.m */; };
 		008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B862012ED9600FA08EC /* connectionViewController.m */; };
 		008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B892012F4A300FA08EC /* pushHelp.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
@@ -443,10 +452,29 @@
 		0032FB302009F544006EF52B /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		0032FB322009F54E006EF52B /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		0032FB342009F556006EF52B /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		005155E820132B03009DA2A3 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		005155E920132B03009DA2A3 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		005155EA20132B03009DA2A3 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		005155EB20132B03009DA2A3 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		005155F120132C69009DA2A3 /* Receiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receiver.m; sourceTree = "<group>"; };
+		005155F320132C69009DA2A3 /* Receiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receiver.h; sourceTree = "<group>"; };
+		005155F92013337A009DA2A3 /* UdpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdpConfig.h; sourceTree = "<group>"; };
+		005155FA201334C8009DA2A3 /* SendMessageManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageManger.m; sourceTree = "<group>"; };
+		005155FB201334C8009DA2A3 /* SendMessageManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageManger.h; sourceTree = "<group>"; };
 		005A705C200A1FE100400500 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		005A705D200A1FE100400500 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		005A705F200B367B00400500 /* VideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayView.h; sourceTree = "<group>"; };
 		005A7060200B367B00400500 /* VideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayView.m; sourceTree = "<group>"; };
+		00886F2F20133581006148BF /* UdpServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UdpServerManager.m; sourceTree = "<group>"; };
+		00886F3020133581006148BF /* UdpServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdpServerManager.h; sourceTree = "<group>"; };
+		00886F322013368A006148BF /* senderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = senderViewController.m; sourceTree = "<group>"; };
+		00886F342013368B006148BF /* receiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = receiveViewController.m; sourceTree = "<group>"; };
+		00886F352013368B006148BF /* senderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = senderViewController.h; sourceTree = "<group>"; };
+		00886F362013368B006148BF /* receiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = receiveViewController.h; sourceTree = "<group>"; };
+		00886F39201336AB006148BF /* ConnectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionItem.h; sourceTree = "<group>"; };
+		00886F3A201336AB006148BF /* FileInfoCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileInfoCenter.m; sourceTree = "<group>"; };
+		00886F3B201336AB006148BF /* ConnectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionItem.m; sourceTree = "<group>"; };
+		00886F3C201336AC006148BF /* FileInfoCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileInfoCenter.h; sourceTree = "<group>"; };
 		008F8B852012ED9600FA08EC /* connectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectionViewController.h; sourceTree = "<group>"; };
 		008F8B862012ED9600FA08EC /* connectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = connectionViewController.m; sourceTree = "<group>"; };
 		008F8B882012F4A300FA08EC /* pushHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushHelp.h; sourceTree = "<group>"; };
@@ -942,11 +970,38 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		005155E720132B03009DA2A3 /* AsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				005155E820132B03009DA2A3 /* AsyncSocket.h */,
+				005155E920132B03009DA2A3 /* AsyncSocket.m */,
+				005155EA20132B03009DA2A3 /* AsyncUdpSocket.h */,
+				005155EB20132B03009DA2A3 /* AsyncUdpSocket.m */,
+			);
+			path = AsyncSocket;
+			sourceTree = "<group>";
+		};
+		00886F332013368A006148BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00886F39201336AB006148BF /* ConnectionItem.h */,
+				00886F3B201336AB006148BF /* ConnectionItem.m */,
+				00886F3C201336AC006148BF /* FileInfoCenter.h */,
+				00886F3A201336AB006148BF /* FileInfoCenter.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		008F8B842012ED6B00FA08EC /* Connection */ = {
 			isa = PBXGroup;
 			children = (
 				008F8B852012ED9600FA08EC /* connectionViewController.h */,
 				008F8B862012ED9600FA08EC /* connectionViewController.m */,
+				00886F362013368B006148BF /* receiveViewController.h */,
+				00886F342013368B006148BF /* receiveViewController.m */,
+				00886F352013368B006148BF /* senderViewController.h */,
+				00886F322013368A006148BF /* senderViewController.m */,
+				00886F332013368A006148BF /* Model */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -954,6 +1009,7 @@
 		00B3A824200E02790009DC52 /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				005155E720132B03009DA2A3 /* AsyncSocket */,
 				0005F083200F350C0004751A /* PDFSource */,
 				00B3A995200E03820009DC52 /* MusicPlaySource */,
 				00B3A825200E02790009DC52 /* cocoaHttpServer */,
@@ -1363,6 +1419,12 @@
 		00BB14E02010AB3F00F0E4A1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				005155F320132C69009DA2A3 /* Receiver.h */,
+				005155F120132C69009DA2A3 /* Receiver.m */,
+				005155FB201334C8009DA2A3 /* SendMessageManger.h */,
+				005155FA201334C8009DA2A3 /* SendMessageManger.m */,
+				00886F3020133581006148BF /* UdpServerManager.h */,
+				00886F2F20133581006148BF /* UdpServerManager.m */,
 				00BB14E12010AB6700F0E4A1 /* FolderFileManager.h */,
 				00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */,
 				002ECE212010E7B300319300 /* ResourceFileManager.h */,
@@ -1477,6 +1539,7 @@
 			children = (
 				377E95B41ED532CD0080E86D /* main.m */,
 				377E96EF1ED55D990080E86D /* PrefixHeader.pch */,
+				005155F92013337A009DA2A3 /* UdpConfig.h */,
 				00B3A820200DC9240009DC52 /* common.h */,
 			);
 			name = "Supporting Files";
@@ -1847,9 +1910,11 @@
 				00B3A97B200E02790009DC52 /* NSString+HTML.m in Sources */,
 				00B3A918200E02790009DC52 /* GCDAsyncSocket.m in Sources */,
 				00B3A81F200DA6D00009DC52 /* NSTimer+Extension.m in Sources */,
+				005155ED20132B03009DA2A3 /* AsyncUdpSocket.m in Sources */,
 				00B3A992200E02790009DC52 /* LSYMagnifierView.m in Sources */,
 				00B3A979200E02790009DC52 /* GTMNSString+HTML.m in Sources */,
 				00B3A920200E02790009DC52 /* DispatchQueueLogFormatter.m in Sources */,
+				005155FC201334C8009DA2A3 /* SendMessageManger.m in Sources */,
 				00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */,
 				00B3A96B200E02790009DC52 /* LSYMarkVC.m in Sources */,
 				002ECE232010E7B300319300 /* ResourceFileManager.m in Sources */,
@@ -1866,6 +1931,7 @@
 				0005F158200F36440004751A /* DocumentListCollectionViewController.m in Sources */,
 				00B3A922200E02790009DC52 /* DDData.m in Sources */,
 				00FEF1442011CF0000BE57BB /* GCDTimer.m in Sources */,
+				00886F3D201336AC006148BF /* FileInfoCenter.m in Sources */,
 				0005F14F200F36440004751A /* PDFPageLinkList.m in Sources */,
 				3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */,
 				0005F1A4200F36440004751A /* PDFUtils.m in Sources */,
@@ -1873,6 +1939,7 @@
 				0005F17A200F36440004751A /* PDFDocumentCropOverlayView.m in Sources */,
 				374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */,
 				00B3A928200E02790009DC52 /* HTTPServer.m in Sources */,
+				00886F3120133581006148BF /* UdpServerManager.m in Sources */,
 				0005F175200F36440004751A /* Folder.m in Sources */,
 				00B3A92F200E02790009DC52 /* HTTPErrorResponse.m in Sources */,
 				0005F153200F36440004751A /* DocumentListViewController.m in Sources */,
@@ -1886,6 +1953,7 @@
 				00B3A986200E02790009DC52 /* CXMLNode_PrivateExtensions.m in Sources */,
 				00B3A9D4200E04550009DC52 /* Track.m in Sources */,
 				00B3A96E200E02790009DC52 /* LSYReadParser.m in Sources */,
+				005155F620132C6A009DA2A3 /* Receiver.m in Sources */,
 				0005F170200F36440004751A /* PDFDocumentSearchViewController.m in Sources */,
 				00B3A91E200E02790009DC52 /* DDTTYLogger.m in Sources */,
 				0005F161200F36440004751A /* PDFDocumentBookmarkList.m in Sources */,
@@ -1912,6 +1980,7 @@
 				00B3A989200E02790009DC52 /* CTidy.m in Sources */,
 				0005F16D200F36440004751A /* PDFPageContentView.m in Sources */,
 				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
+				00886F3E201336AC006148BF /* ConnectionItem.m in Sources */,
 				00B3A91C200E02790009DC52 /* DDFileLogger.m in Sources */,
 				0005F167200F36440004751A /* PDFDocumentNameList.m in Sources */,
 				005A705E200A1FE100400500 /* BaseViewController.m in Sources */,
@@ -1945,6 +2014,7 @@
 				00B3A981200E02790009DC52 /* CXMLElement.m in Sources */,
 				00B3A932200E02790009DC52 /* WebSocket.m in Sources */,
 				00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */,
+				00886F382013368B006148BF /* receiveViewController.m in Sources */,
 				0005F16B200F36440004751A /* PDFDocumentInfoView.m in Sources */,
 				00B3A9DC200E04550009DC52 /* MusicListEntity.m in Sources */,
 				00B3A91A200E02790009DC52 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -1964,6 +2034,7 @@
 				00B3A930200E02790009DC52 /* HTTPFileResponse.m in Sources */,
 				00B3A81C200DA6040009DC52 /* NSObject+Extension.m in Sources */,
 				00B3A988200E02790009DC52 /* CXMLUnsupportedNode.m in Sources */,
+				005155EC20132B03009DA2A3 /* AsyncSocket.m in Sources */,
 				00B3A933200E02790009DC52 /* MyHTTPConnection.m in Sources */,
 				0005F1A0200F36440004751A /* LibraryUtils.m in Sources */,
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
@@ -1994,6 +2065,7 @@
 				0005F14A200F36440004751A /* PDFDocumentCropViewController.m in Sources */,
 				0005F146200F36440004751A /* Localize.m in Sources */,
 				0005F147200F36440004751A /* PDFFont.m in Sources */,
+				00886F372013368B006148BF /* senderViewController.m in Sources */,
 				00B3A983200E02790009DC52 /* CXMLElement_ElementTreeExtensions.m in Sources */,
 				00B3A970200E02790009DC52 /* LSYCatalogViewController.m in Sources */,
 				0005F156200F36440004751A /* PDFDocumentSearchViewModel.m in Sources */,
