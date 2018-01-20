@@ -158,18 +158,18 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
             HomeFolderViewController *vc = [[HomeFolderViewController alloc] init];
             vc.model = model;
             vc.isPushSelf = YES;
-            [self.navigationController pushViewController:vc animated:YES];
+            APPNavPushViewController(vc);
             return;
         }
         if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
             openImageViewController *vc = [[openImageViewController alloc] init];
             vc.model = model;
-            [self.navigationController pushViewController:vc animated:YES];
+            APPNavPushViewController(vc);
         }
         if ([SupportVideoArray containsObject:[model.fileType uppercaseString]]) {
             playVideoViewController *vc = [[playVideoViewController alloc] init];
             vc.model = model;
-            [self presentViewController:vc animated:YES completion:nil];
+            APPPresentViewController(vc);
         }
         if ([SupportMusicArray containsObject:[model.fileType uppercaseString]]) {
             [self presentMusicViewController:model];
@@ -181,7 +181,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
         if ([SupportOAArray containsObject:[model.fileType uppercaseString]]) {
             LoadWebViewController *webView = [[LoadWebViewController alloc] init];
             webView.model = model;
-            [self.navigationController pushViewController:webView animated:YES];
+            APPNavPushViewController(webView);
         }
         if ([SupportTXTArray containsObject:[model.fileType uppercaseString]]) {
             [self presentTXTViewControllerWithModel:model];
@@ -239,7 +239,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
         LSYReadModel *readModel = [LSYReadModel getLocalModelWithURL:txtFull];
         pageView.model = readModel;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:pageView animated:YES completion:nil];
+            APPPresentViewController(pageView);
         });
     });
 }
@@ -249,7 +249,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     MusicViewController *musicVC = [MusicViewController sharedInstance];
     musicVC.musicEntities = [ResourceFileManager shareInstance].musicEntities;
     musicVC.musicTitle = model.fileName;
-    [self presentViewController:musicVC animated:YES completion:nil];
+    APPPresentViewController(musicVC);
 }
 
 -(void)presentPDFViewController:(fileModel *)model{
@@ -259,7 +259,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     PDFDocumentViewController *vc = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateViewControllerWithIdentifier:@"StoryboardPDFDocument"];
     vc.document = doument;
     [doument.store addHistory:doument];
-    [self.navigationController pushViewController:vc animated:YES];
+    APPNavPushViewController(vc);
 }
 
 -(void)fileFinishAndReloadTable{

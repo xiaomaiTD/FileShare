@@ -10,6 +10,7 @@
 #import "BaseNavgaitionController.h"
 #import "HomeFolderViewController.h"
 #import "SettingViewController.h"
+#import "connectionViewController.h"
 
 @interface MainViewController ()
 
@@ -38,7 +39,9 @@
 -(void)addChildViewControllers{
     
     [self addOneChlildVc:[HomeFolderViewController new] title:@"首页" imageName:@"home"];
+    [self addOneChlildVc:[connectionViewController new] title:@"快传" imageName:@"wifi"];
     [self addOneChlildVc:[SettingViewController new] title:@"设置" imageName:@"setting"];
+    
 }
 
 

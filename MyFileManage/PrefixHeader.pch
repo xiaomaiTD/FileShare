@@ -24,6 +24,7 @@
 #import "LSYReadParser.h"
 #import "UIView+Extension.h"
 #import "Utility/Device.h"
+#import "pushHelp.h"
 #import "UIImageView+WebCache.h"
 #import "NSObject+Extension.h"
 #import "common.h"

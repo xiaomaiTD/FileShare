@@ -124,6 +124,8 @@
 		0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB342009F556006EF52B /* libz.1.tbd */; };
 		005A705E200A1FE100400500 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A705D200A1FE100400500 /* BaseViewController.m */; };
 		005A7061200B367B00400500 /* VideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A7060200B367B00400500 /* VideoPlayView.m */; };
+		008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B862012ED9600FA08EC /* connectionViewController.m */; };
+		008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B892012F4A300FA08EC /* pushHelp.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
 		00B3A819200DA0F90009DC52 /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A818200DA0F90009DC52 /* VideoCoverView.m */; };
 		00B3A81C200DA6040009DC52 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A81A200DA6040009DC52 /* NSObject+Extension.m */; };
@@ -445,6 +447,10 @@
 		005A705D200A1FE100400500 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		005A705F200B367B00400500 /* VideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayView.h; sourceTree = "<group>"; };
 		005A7060200B367B00400500 /* VideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayView.m; sourceTree = "<group>"; };
+		008F8B852012ED9600FA08EC /* connectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectionViewController.h; sourceTree = "<group>"; };
+		008F8B862012ED9600FA08EC /* connectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = connectionViewController.m; sourceTree = "<group>"; };
+		008F8B882012F4A300FA08EC /* pushHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushHelp.h; sourceTree = "<group>"; };
+		008F8B892012F4A300FA08EC /* pushHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pushHelp.m; sourceTree = "<group>"; };
 		00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		00B3A817200DA0F90009DC52 /* VideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCoverView.h; sourceTree = "<group>"; };
 		00B3A818200DA0F90009DC52 /* VideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCoverView.m; sourceTree = "<group>"; };
@@ -936,6 +942,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		008F8B842012ED6B00FA08EC /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				008F8B852012ED9600FA08EC /* connectionViewController.h */,
+				008F8B862012ED9600FA08EC /* connectionViewController.m */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
 		00B3A824200E02790009DC52 /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
@@ -1378,6 +1393,8 @@
 				00FEF1372011CF0000BE57BB /* GCD */,
 				371597AA1EDFB1A500B482AB /* Device.h */,
 				371597AB1EDFB1A500B482AB /* Device.m */,
+				008F8B882012F4A300FA08EC /* pushHelp.h */,
+				008F8B892012F4A300FA08EC /* pushHelp.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1440,6 +1457,7 @@
 			children = (
 				377E95E71ED533CD0080E86D /* AppDelegate */,
 				377E95E61ED5339F0080E86D /* Home */,
+				008F8B842012ED6B00FA08EC /* Connection */,
 				377E96F71ED560260080E86D /* Setting */,
 				377E95EE1ED5367B0080E86D /* Tool */,
 				377E96F01ED55F460080E86D /* Base */,
@@ -1823,6 +1841,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */,
 				00B3A91D200E02790009DC52 /* DDLog.m in Sources */,
 				0005F1A6200F36440004751A /* GRTNavigationController.m in Sources */,
 				00B3A97B200E02790009DC52 /* NSString+HTML.m in Sources */,
@@ -1966,6 +1985,7 @@
 				0005F163200F36440004751A /* PDFDocumentOutline.m in Sources */,
 				00B3A980200E02790009DC52 /* CXMLDocument_PrivateExtensions.m in Sources */,
 				0032FB162009F03A006EF52B /* ConnectWifiWebViewController.m in Sources */,
+				008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */,
 				00B3A92A200E02790009DC52 /* MultipartMessageHeader.m in Sources */,
 				0005F15D200F36440004751A /* PDFDocumentSearchResult.m in Sources */,
 				0032FB192009F03A006EF52B /* playVideoViewController.m in Sources */,
@@ -2345,7 +2365,10 @@
 				);
 				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_PREFIX_HEADER = MyFileManage/PrefixHeader.pch;
-				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = (
+					"${SDKROOT}/usr/include/libxml2",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = MyFileManage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2368,7 +2391,10 @@
 				);
 				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_PREFIX_HEADER = MyFileManage/PrefixHeader.pch;
-				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = (
+					"${SDKROOT}/usr/include/libxml2",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = MyFileManage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
