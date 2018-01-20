@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ConnectWifiWebViewController : UIViewController
+@class HTTPServer;
+
+
+@interface ConnectWifiWebViewController : BaseViewController
+{
+    HTTPServer *httpServer;
+}
 
 @end

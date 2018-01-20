@@ -8,7 +8,14 @@
 
 #import <ifaddrs.h>
 #import <arpa/inet.h>
+
+#import "HTTPServer.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
+#import "MyHTTPConnection.h"
 #import "ConnectWifiWebViewController.h"
+
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface ConnectWifiWebViewController ()
 @property(nonatomic,strong)UILabel *ipLable;
@@ -16,6 +23,11 @@
 @end
 
 @implementation ConnectWifiWebViewController
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [httpServer stop];
+    httpServer = nil;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +39,7 @@
     _ipLable.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _ipLable.layer.cornerRadius = 5;
     _ipLable.layer.masksToBounds = true;
-    _ipLable.text = [NSString stringWithFormat:@"%@:%@",[self getIPAddress],[[DataBaseTool shareInstance] getIpAddress]];
+//    _ipLable.text = [NSString stringWithFormat:@"%@:%@",[self getIPAddress],[[DataBaseTool shareInstance] getIpAddress]];
     _ipLable.textAlignment = NSTextAlignmentCenter;
     _ipLable.userInteractionEnabled = YES;
     [self.view addSubview:_ipLable];
@@ -35,6 +47,8 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(copyString)];
     longPress.minimumPressDuration = 1;
     [_ipLable addGestureRecognizer:longPress];
+    
+    [self createHttpServe];
         
     UIImageView *tipsImagV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tips"]];
     tipsImagV.frame = CGRectMake(16, _ipLable.maxY + 20, 30, 30);
@@ -50,12 +64,34 @@
 
 }
 
--(void)hideMenu{
+-(void)createHttpServe{
+    [GCDQueue executeInGlobalQueue:^{
+        
+        [DDLog addLogger:[DDTTYLogger sharedInstance]];
+        httpServer = [[HTTPServer alloc] init];
+        
+        [httpServer setType:@"_http._tcp."];
+        NSString *docRoot = [[NSBundle mainBundle] resourcePath];
+        [httpServer setDocumentRoot:docRoot];
+        [httpServer setConnectionClass:[MyHTTPConnection class]];
+        NSError *error = nil;
+        if(![httpServer start:&error])
+        {
+            DDLogError(@"Error starting HTTP Server: %@", error);
+        }else{
+            [GCDQueue executeInMainQueue:^{
+                self.ipLable.text = [NSString stringWithFormat:@"%@:%hu",IPAddress(),httpServer.listeningPort];
+            }];
+        }
+        
+    }];
+}
 
+-(void)hideMenu{
+    
     if (_menuController) {
         _menuController = nil;
     }
-    
 }
 
 -(void)copyString{
@@ -129,10 +165,6 @@
     
 }
 
--(void)dealloc{
-
-    REmoveNotificationName(UIMenuControllerDidHideMenuNotification);
-}
 
 
 @end

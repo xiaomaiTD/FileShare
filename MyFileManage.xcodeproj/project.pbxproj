@@ -997,10 +997,10 @@
 			children = (
 				008F8B852012ED9600FA08EC /* connectionViewController.h */,
 				008F8B862012ED9600FA08EC /* connectionViewController.m */,
-				00886F362013368B006148BF /* receiveViewController.h */,
-				00886F342013368B006148BF /* receiveViewController.m */,
 				00886F352013368B006148BF /* senderViewController.h */,
 				00886F322013368A006148BF /* senderViewController.m */,
+				00886F362013368B006148BF /* receiveViewController.h */,
+				00886F342013368B006148BF /* receiveViewController.m */,
 				00886F332013368A006148BF /* Model */,
 			);
 			path = Connection;
@@ -1725,7 +1725,7 @@
 				TargetAttributes = {
 					377E95AF1ED532CD0080E86D = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 29F87GM9ZX;
+						DevelopmentTeam = S6W7TXYNQR;
 						ProvisioningStyle = Automatic;
 					};
 					377E95C81ED532CD0080E86D = {
@@ -2429,7 +2429,7 @@
 			baseConfigurationReference = 4BE11BA20A57DA626274A2BD /* Pods-MyFileManage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				DEVELOPMENT_TEAM = S6W7TXYNQR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2455,7 +2455,7 @@
 			baseConfigurationReference = E03FDBB762C016C433F89C26 /* Pods-MyFileManage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				DEVELOPMENT_TEAM = S6W7TXYNQR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

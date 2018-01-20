@@ -8,12 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class HTTPServer;
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-{
-    HTTPServer *httpServer;
-}
 
 @property (strong, nonatomic) UIWindow *window;
 

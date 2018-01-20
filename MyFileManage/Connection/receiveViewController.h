@@ -7,7 +7,15 @@
 //
 
 #import "BaseViewController.h"
+#import "UdpServerManager.h"
+#import "HTTPServer.h"
 
-@interface receiveViewController : BaseViewController
+@interface receiveViewController : BaseViewController{
+    NSTimer *_timer;
+    UInt64 currentDataLength;
+}
+
+@property (strong, nonatomic) HTTPServer *httpserver;
+@property (nonatomic,strong) UdpServerManager *clientManger;
 
 @end

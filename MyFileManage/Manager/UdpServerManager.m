@@ -22,6 +22,7 @@
     if (!open) {
         return;
     }
+    po(error);
     //绑定广播
     [_udpSocket enableBroadcast:YES error:nil];
     //加入群里，能接收到群里其他客户端的消息
