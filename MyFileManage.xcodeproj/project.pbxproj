@@ -133,6 +133,7 @@
 		00886F382013368B006148BF /* receiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F342013368B006148BF /* receiveViewController.m */; };
 		00886F3D201336AC006148BF /* FileInfoCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F3A201336AB006148BF /* FileInfoCenter.m */; };
 		00886F3E201336AC006148BF /* ConnectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F3B201336AB006148BF /* ConnectionItem.m */; };
+		00886F6C20158DAC006148BF /* sendFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6B20158DAC006148BF /* sendFileViewController.m */; };
 		008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B862012ED9600FA08EC /* connectionViewController.m */; };
 		008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B892012F4A300FA08EC /* pushHelp.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
@@ -475,6 +476,8 @@
 		00886F3A201336AB006148BF /* FileInfoCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileInfoCenter.m; sourceTree = "<group>"; };
 		00886F3B201336AB006148BF /* ConnectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionItem.m; sourceTree = "<group>"; };
 		00886F3C201336AC006148BF /* FileInfoCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileInfoCenter.h; sourceTree = "<group>"; };
+		00886F6A20158DAC006148BF /* sendFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendFileViewController.h; sourceTree = "<group>"; };
+		00886F6B20158DAC006148BF /* sendFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendFileViewController.m; sourceTree = "<group>"; };
 		008F8B852012ED9600FA08EC /* connectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectionViewController.h; sourceTree = "<group>"; };
 		008F8B862012ED9600FA08EC /* connectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = connectionViewController.m; sourceTree = "<group>"; };
 		008F8B882012F4A300FA08EC /* pushHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushHelp.h; sourceTree = "<group>"; };
@@ -999,6 +1002,8 @@
 				008F8B862012ED9600FA08EC /* connectionViewController.m */,
 				00886F352013368B006148BF /* senderViewController.h */,
 				00886F322013368A006148BF /* senderViewController.m */,
+				00886F6A20158DAC006148BF /* sendFileViewController.h */,
+				00886F6B20158DAC006148BF /* sendFileViewController.m */,
 				00886F362013368B006148BF /* receiveViewController.h */,
 				00886F342013368B006148BF /* receiveViewController.m */,
 				00886F332013368A006148BF /* Model */,
@@ -1963,6 +1968,7 @@
 				00B3A978200E02790009DC52 /* LSYRecordModel.m in Sources */,
 				0005F173200F36440004751A /* PDFCMap.m in Sources */,
 				0005F15E200F36440004751A /* PDFPageSelectionKnob.m in Sources */,
+				00886F6C20158DAC006148BF /* sendFileViewController.m in Sources */,
 				0005F15A200F36440004751A /* PDFPage.m in Sources */,
 				00B3A96C200E02790009DC52 /* LSYNoteVC.m in Sources */,
 				0005F15B200F36440004751A /* PDFDocumentCrop.m in Sources */,

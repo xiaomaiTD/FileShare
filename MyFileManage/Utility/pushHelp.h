@@ -28,7 +28,7 @@
  @param vc 控制器
  */
 void APPNavPushViewController(UIViewController *vc);
-void APPPopViewController(UIViewController *vc);
+void APPPopViewController(Class cla);
 
 /**
  需要Present的控制权

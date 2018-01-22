@@ -7,6 +7,7 @@
 //
 
 #import "senderViewController.h"
+#import "sendFileViewController.h"
 #import "UdpServerManager.h"
 #import "ConnectionItem.h"
 
@@ -45,6 +46,7 @@
     UIBarButtonItem *rightBtn=[[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem=rightBtn;
     
+    self.listData = [[NSMutableArray alloc] init];
     self.serverManger = [[UdpServerManager alloc] init];
     [self.serverManger start];
     //接收到用户通知
@@ -57,7 +59,6 @@
     if (![self isExistsConnection:mod]) {
         [self.listData addObject:mod];
         [self.tableView reloadData];
-        
     }
 }
 - (BOOL)isExistsConnection:(ConnectionItem*)mod{
@@ -66,16 +67,21 @@
     return arr&&[arr count]>0;
 }
 -(void)buttonFinishedClick{
-    
+    sendFileViewController *vc = [[sendFileViewController alloc] init];
+    APPNavPushViewController(vc);
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    if (self.listData.count > 0) {
+        ConnectionItem *model = self.listData[indexPath.row];
+        cell.textLabel.text = model.name;
+    }
     return cell;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.listData.count;
 }
 
 @end

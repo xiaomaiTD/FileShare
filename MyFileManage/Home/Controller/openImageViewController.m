@@ -44,13 +44,10 @@
     [rightItem addTarget:self action:@selector(presentImageEdit) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItem];
     
-    
     if ([_model.fileType.uppercaseString isEqualToString:@"GIF"]) {
-        
         NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
         UIImage *image = [UIImage sd_animatedGIFWithData:imageData];
         self.localImgV = [[UIImageView alloc] initWithImage:image];
-        
     }else{
         NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
         UIImage *fileImage = [UIImage imageWithData:imageData scale:2];
@@ -66,9 +63,6 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapClick:)];
     singleTap.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:singleTap];
-    
-   
-    
 }
 
 -(void)presentImageEdit{
@@ -93,27 +87,17 @@
 
 #pragma mark ---- 弹出编辑视图，待开发
 -(void)singleTapClick:(UITapGestureRecognizer *)gestureRecognizer{
-
-    
     CGFloat NavNeedOffset = _navISHidden ? 20 : -88;
     [UIView animateWithDuration:0.25 animations:^{
         self.navigationController.navigationBar.y = NavNeedOffset;
     }];
     _navISHidden = !_navISHidden;
-    
-   
-
 }
 #pragma mark ----photoEditorDelegate
 
--(void)canceledEditing{
-    
-}
+-(void)canceledEditing{}
 -(void)doneEditingWithImage:(UIImage *)image{
-    
     _localImgV.image = image;
 }
-
-
 
 @end

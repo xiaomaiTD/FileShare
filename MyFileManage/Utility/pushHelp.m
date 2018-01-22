@@ -11,27 +11,34 @@
 void APPNavPushViewController(UIViewController *vc)
 {
     UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UINavigationController *navc = nil;
     
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
-        UINavigationController *navc = [(UITabBarController *)rootVC selectedViewController];
-        [navc pushViewController:vc animated:YES];
+        navc = [(UITabBarController *)rootVC selectedViewController];
     }
     if ([rootVC isKindOfClass:[UINavigationController class]]) {
-        [(UINavigationController *)rootVC pushViewController:vc animated:YES];
+        navc = (UINavigationController *)rootVC;
     }
+     [navc pushViewController:vc animated:YES];
 }
 
-void APPPopViewController(UIViewController *vc){
+void APPPopViewController(Class cla){
     
     UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UINavigationController *navc = nil;
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
-        UINavigationController *navc = [(UITabBarController *)rootVC selectedViewController];
-        [navc popToViewController:vc animated:YES];
+        navc = [(UITabBarController *)rootVC selectedViewController];
     }
     if ([rootVC isKindOfClass:[UINavigationController class]]) {
-        [rootVC.navigationController popToViewController:vc animated:YES];
+        navc = (UINavigationController *)rootVC;
     }
-    
+    for (UIViewController *selectedVC in navc.viewControllers) {
+        NSLog(@"class=======%@",[selectedVC class]);
+        if ([selectedVC isKindOfClass:cla]) {
+            [navc popToViewController:selectedVC animated:YES];
+            break;
+        }
+    }
 }
 
 UIViewController* getCurrentVCFrom(UIViewController *rootVC){
@@ -42,7 +49,6 @@ UIViewController* getCurrentVCFrom(UIViewController *rootVC){
         rootVC = [rootVC presentedViewController];
     }
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
-        
         currentVC = getCurrentVCFrom([(UITabBarController *)rootVC selectedViewController]);
     } else if ([rootVC isKindOfClass:[UINavigationController class]]){
         
