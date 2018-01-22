@@ -7,7 +7,7 @@
 //
 
 #import "receiveViewController.h"
-#import "MyHTTPConnection.h"
+#import "AYHTTPConnection.h"
 #import "NSTimer+Extension.h"
 
 #define GBUnit 1073741824
@@ -34,9 +34,9 @@
     _httpserver = [[HTTPServer alloc] init];
     [_httpserver setType:@"_http._tcp."];
     [_httpserver setPort:kUDPPORT];
-    NSString *webPath = [[NSBundle mainBundle] resourcePath];
+    NSString *webPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"website"];
     [_httpserver setDocumentRoot:webPath];
-    [_httpserver setConnectionClass:[MyHTTPConnection class]];
+    [_httpserver setConnectionClass:[AYHTTPConnection class]];
     [_httpserver start:nil];
     
     [self addObservers];

@@ -134,6 +134,7 @@
 		00886F3D201336AC006148BF /* FileInfoCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F3A201336AB006148BF /* FileInfoCenter.m */; };
 		00886F3E201336AC006148BF /* ConnectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F3B201336AB006148BF /* ConnectionItem.m */; };
 		00886F6C20158DAC006148BF /* sendFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6B20158DAC006148BF /* sendFileViewController.m */; };
+		00886F6F2015D379006148BF /* AYHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6E2015D379006148BF /* AYHTTPConnection.m */; };
 		008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B862012ED9600FA08EC /* connectionViewController.m */; };
 		008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B892012F4A300FA08EC /* pushHelp.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
@@ -478,6 +479,8 @@
 		00886F3C201336AC006148BF /* FileInfoCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileInfoCenter.h; sourceTree = "<group>"; };
 		00886F6A20158DAC006148BF /* sendFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendFileViewController.h; sourceTree = "<group>"; };
 		00886F6B20158DAC006148BF /* sendFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendFileViewController.m; sourceTree = "<group>"; };
+		00886F6D2015D379006148BF /* AYHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTTPConnection.h; sourceTree = "<group>"; };
+		00886F6E2015D379006148BF /* AYHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTTPConnection.m; sourceTree = "<group>"; };
 		008F8B852012ED9600FA08EC /* connectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectionViewController.h; sourceTree = "<group>"; };
 		008F8B862012ED9600FA08EC /* connectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = connectionViewController.m; sourceTree = "<group>"; };
 		008F8B882012F4A300FA08EC /* pushHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushHelp.h; sourceTree = "<group>"; };
@@ -1031,6 +1034,8 @@
 				00B3A83C200E02790009DC52 /* Core */,
 				00B3A864200E02790009DC52 /* MyHTTPConnection.h */,
 				00B3A865200E02790009DC52 /* MyHTTPConnection.m */,
+				00886F6D2015D379006148BF /* AYHTTPConnection.h */,
+				00886F6E2015D379006148BF /* AYHTTPConnection.m */,
 				00B3A866200E02790009DC52 /* web */,
 			);
 			path = cocoaHttpServer;
@@ -2044,6 +2049,7 @@
 				00B3A933200E02790009DC52 /* MyHTTPConnection.m in Sources */,
 				0005F1A0200F36440004751A /* LibraryUtils.m in Sources */,
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
+				00886F6F2015D379006148BF /* AYHTTPConnection.m in Sources */,
 				0005F152200F36440004751A /* DocumentListTableViewController.m in Sources */,
 				00B3A9DA200E04550009DC52 /* BaseEntity.m in Sources */,
 				0005F148200F36440004751A /* NSFileManager+GreatReaderAdditions.m in Sources */,

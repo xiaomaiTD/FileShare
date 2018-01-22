@@ -93,17 +93,44 @@
 -(void)senderFileSelectedModel:(fileModel *)model{
     
     ConnectionItem *item = _listData[_selectedIndex];
-    AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
+//     *manage = [AFURLSessionManager ];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:item.GetRemoteAddress]];
     
-    [manage POST:item.GetRemoteAddress parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        NSString *path = model.fullPath;
-        NSData *data = [NSData dataWithContentsOfFile:path];
-        [formData appendPartWithFormData:data name:@"file"];
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSProgress *progress = nil;
+    
+//  NSURLSessionUploadTask *task =  [[AFHTTPSessionManager manager] uploadTaskWithRequest:request fromFile:[NSURL fileURLWithPath:model.fullPath] progress:nil  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//      NSLog(@"responseObject");
+//
+//      NSLog(@"error========%@",error);
+//
+//    }]
+    
+   NSURLSessionUploadTask *task = [[AFHTTPSessionManager manager] uploadTaskWithRequest:request fromFile:[NSURL fileURLWithPath:model.fullPath] progress:^(NSProgress * _Nonnull uploadProgress) {
+       
+//       if (@available(iOS 11.0, *)) {
+//           NSLog(@"fileTotalCount-------%@",uploadProgress.fileTotalCount);
+//       } else {
+//           // Fallback on earlier versions
+//       }
+//       NSLog(@"totalUnitCount-------%lld",uploadProgress.totalUnitCount);
+//
+//       if (uploadProgress.fractionCompleted >= 1) {
+//           NSLog(@"finihs");
+//       }
+       
+    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSLog(@"response======%@",response);
         NSLog(@"responseObject======%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error=====%@",error);
+        NSLog(@"error======%@",error);
     }];
+    
+    [task resume];
+    
+//    NSProgress *progress = nil;
+    
+    
+//    [task resume];
 }
 
 

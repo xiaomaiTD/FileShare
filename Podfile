@@ -9,7 +9,7 @@ target 'MyFileManage' do
     pod 'DOUAudioStreamer', '0.2.11'
     pod 'GVUserDefaults'
     pod 'Mantle', '1.5.5'
-    pod 'AFNetworking', '~> 2.0'
+    pod 'AFNetworking', '~> 3.0'
     pod 'KVOController'
     pod 'SSZipArchive'
 end
