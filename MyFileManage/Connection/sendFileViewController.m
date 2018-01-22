@@ -86,6 +86,7 @@
 {
     if (_dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
+        NSLog(@"model=========%@",model.fullPath);
         //如果是文件夹
         if (model.isFolder) {
             sendFileViewController *vc = [[sendFileViewController alloc] init];

@@ -33,7 +33,6 @@ void APPPopViewController(Class cla){
         navc = (UINavigationController *)rootVC;
     }
     for (UIViewController *selectedVC in navc.viewControllers) {
-        NSLog(@"class=======%@",[selectedVC class]);
         if ([selectedVC isKindOfClass:cla]) {
             [navc popToViewController:selectedVC animated:YES];
             break;

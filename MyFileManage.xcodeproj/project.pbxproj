@@ -135,6 +135,7 @@
 		00886F3E201336AC006148BF /* ConnectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F3B201336AB006148BF /* ConnectionItem.m */; };
 		00886F6C20158DAC006148BF /* sendFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6B20158DAC006148BF /* sendFileViewController.m */; };
 		00886F6F2015D379006148BF /* AYHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6E2015D379006148BF /* AYHTTPConnection.m */; };
+		008871AA20160A7E006148BF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 008871A920160A7E006148BF /* index.html */; };
 		008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B862012ED9600FA08EC /* connectionViewController.m */; };
 		008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B892012F4A300FA08EC /* pushHelp.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
@@ -481,6 +482,7 @@
 		00886F6B20158DAC006148BF /* sendFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendFileViewController.m; sourceTree = "<group>"; };
 		00886F6D2015D379006148BF /* AYHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTTPConnection.h; sourceTree = "<group>"; };
 		00886F6E2015D379006148BF /* AYHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTTPConnection.m; sourceTree = "<group>"; };
+		008871A920160A7E006148BF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		008F8B852012ED9600FA08EC /* connectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectionViewController.h; sourceTree = "<group>"; };
 		008F8B862012ED9600FA08EC /* connectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = connectionViewController.m; sourceTree = "<group>"; };
 		008F8B882012F4A300FA08EC /* pushHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushHelp.h; sourceTree = "<group>"; };
@@ -998,6 +1000,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		008871A820160A7E006148BF /* website */ = {
+			isa = PBXGroup;
+			children = (
+				008871A920160A7E006148BF /* index.html */,
+			);
+			name = website;
+			path = MyFileManage/website;
+			sourceTree = SOURCE_ROOT;
+		};
 		008F8B842012ED6B00FA08EC /* Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1029,6 +1040,7 @@
 		00B3A825200E02790009DC52 /* cocoaHttpServer */ = {
 			isa = PBXGroup;
 			children = (
+				008871A820160A7E006148BF /* website */,
 				00B3A826200E02790009DC52 /* CocoaAsyncSocket */,
 				00B3A82A200E02790009DC52 /* CocoaLumberjack */,
 				00B3A83C200E02790009DC52 /* Core */,
@@ -1735,7 +1747,7 @@
 				TargetAttributes = {
 					377E95AF1ED532CD0080E86D = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = S6W7TXYNQR;
+						DevelopmentTeam = 29F87GM9ZX;
 						ProvisioningStyle = Automatic;
 					};
 					377E95C81ED532CD0080E86D = {
@@ -1802,6 +1814,7 @@
 				0005F1B4200F42700004751A /* DocumentCollectionViewCell_iPhone.xib in Resources */,
 				0005F1E8200F433D0004751A /* History@2x.png in Resources */,
 				0005F1B7200F42700004751A /* PDFDocumentOutlineItemCell.xib in Resources */,
+				008871AA20160A7E006148BF /* index.html in Resources */,
 				0005F1EF200F433D0004751A /* CropBoth@2x.png in Resources */,
 				0005F1EB200F433D0004751A /* TabHistory@2x.png in Resources */,
 				0005F1B5200F42700004751A /* MainStoryboard_iPhone.storyboard in Resources */,
@@ -2441,7 +2454,7 @@
 			baseConfigurationReference = 4BE11BA20A57DA626274A2BD /* Pods-MyFileManage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = S6W7TXYNQR;
+				DEVELOPMENT_TEAM = 29F87GM9ZX;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2467,7 +2480,7 @@
 			baseConfigurationReference = E03FDBB762C016C433F89C26 /* Pods-MyFileManage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = S6W7TXYNQR;
+				DEVELOPMENT_TEAM = 29F87GM9ZX;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
