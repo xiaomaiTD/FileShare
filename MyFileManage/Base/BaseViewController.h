@@ -14,6 +14,9 @@
 -(void)hidenMessage;
 
 -(void)showMessageWithTitle:(NSString *)title;
+
+-(void)showErrorWithTitle:(NSString *)title;
+-(void)showSuccessWithTitle:(NSString *)title;
 -(void)showSuccess;
 -(void)showError;
 @end

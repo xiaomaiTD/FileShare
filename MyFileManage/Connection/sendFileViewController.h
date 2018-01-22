@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "ConnectionItem.h"
 
 @class fileModel;
 

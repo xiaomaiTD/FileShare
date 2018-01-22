@@ -10,12 +10,17 @@
 #import "sendFileViewController.h"
 #import "UdpServerManager.h"
 #import "ConnectionItem.h"
+#import "fileModel.h"
 
-@interface senderViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import <AFNetworking/AFNetworking.h>
+
+@interface senderViewController ()
+<UITableViewDelegate,UITableViewDataSource,senderFileViewControllerDelegate>
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *listData;
-@property (nonatomic,strong) UdpServerManager *serverManger;
+@property(nonatomic,strong)UdpServerManager *serverManger;
+@property(nonatomic,assign)NSInteger selectedIndex;
 
 @end
 
@@ -29,10 +34,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _selectedIndex = 0;
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
@@ -41,7 +48,8 @@
     UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame=CGRectMake(0, 0, 40, 30);
     [btn setTitle:@"完成" forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [btn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(buttonFinishedClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBtn=[[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem=rightBtn;
@@ -67,9 +75,37 @@
     return arr&&[arr count]>0;
 }
 -(void)buttonFinishedClick{
+    if (self.listData.count == 0) {
+        [self showError];
+        return;
+    }
     sendFileViewController *vc = [[sendFileViewController alloc] init];
+    vc.delegate = self;
     APPNavPushViewController(vc);
 }
+#pragma mark ------sendFileViewControllerDelegate
+
+/**
+ 发送文件
+
+ @param model 文件model
+ */
+-(void)senderFileSelectedModel:(fileModel *)model{
+    
+    ConnectionItem *item = _listData[_selectedIndex];
+    AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
+    
+    [manage POST:item.GetRemoteAddress parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSString *path = model.fullPath;
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        [formData appendPartWithFormData:data name:@"file"];
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        NSLog(@"responseObject======%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error=====%@",error);
+    }];
+}
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     

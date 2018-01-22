@@ -10,7 +10,7 @@
 
 @implementation ConnectionItem
 - (NSString*)GetRemoteAddress{
-    NSString *url=[NSString stringWithFormat:@"http://%@:%d/index.html",self.host,self.port];
+    NSString *url=[NSString stringWithFormat:@"http://%@:%d",self.host,self.port];
     return url;
 }
 //主机格式化

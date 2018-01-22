@@ -21,6 +21,15 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 
 @implementation MyHTTPConnection
 
+-(void)die{
+    
+    if (isUploading) {
+        isUploading = NO;
+        [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADISCONNECTED object:nil];
+    }
+    [super die];
+}
+
 - (BOOL)supportsMethod:(NSString *)method atPath:(NSString *)path
 {
 	HTTPLogTrace();
@@ -121,6 +130,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
     parser.delegate = self;
 
 	uploadedFiles = [[NSMutableArray alloc] init];
+    uploadFileSize = contentLength;
 }
 
 - (void)processBodyData:(NSData *)postDataChunk
@@ -161,7 +171,6 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	if (![[NSFileManager defaultManager]fileExistsAtPath:uploadDirPath isDirectory:&isDir ]) {
 		[[NSFileManager defaultManager]createDirectoryAtPath:uploadDirPath withIntermediateDirectories:YES attributes:nil error:nil];
 	}
-	
     NSString* filePath = [uploadDirPath stringByAppendingPathComponent: filename];
     
     if( [[NSFileManager defaultManager] fileExistsAtPath:filePath] ) {
@@ -179,6 +188,9 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 		storeFile = [NSFileHandle fileHandleForWritingAtPath:filePath];
 		[uploadedFiles addObject: [NSString stringWithFormat:@"/upload/%@", filename]];
     }
+    NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithLongLong:uploadFileSize], @"totalfilesize",filename,@"filename", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADSTART object:nil userInfo:value];
+    
 }
 
 
@@ -188,6 +200,10 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	if( storeFile ) {
         NSLog(@"here we just write the output");
 		[storeFile writeData:data];
+        CGFloat progress = (CGFloat)(data.length) / (CGFloat)uploadFileSize;
+        NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:progress], @"progressvalue",[NSNumber numberWithInteger:data.length], @"cureentvaluelength", nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADING object:nil userInfo:value];
+        
 	}
 }
 
@@ -198,6 +214,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	storeFile = nil;
     
    POSTNotificationName(FileFinish, nil);
+    POSTNotificationName(UPLOADEND, nil);
     
    // NSLog(@"uploadedFiles------%@",uploadedFiles);
 }
