@@ -136,6 +136,7 @@
 		00886F6C20158DAC006148BF /* sendFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6B20158DAC006148BF /* sendFileViewController.m */; };
 		00886F6F2015D379006148BF /* AYHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6E2015D379006148BF /* AYHTTPConnection.m */; };
 		008871AA20160A7E006148BF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 008871A920160A7E006148BF /* index.html */; };
+		008871AE20163225006148BF /* BrowerLocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008871AD20163225006148BF /* BrowerLocalViewController.m */; };
 		008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B862012ED9600FA08EC /* connectionViewController.m */; };
 		008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B892012F4A300FA08EC /* pushHelp.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
@@ -483,6 +484,8 @@
 		00886F6D2015D379006148BF /* AYHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTTPConnection.h; sourceTree = "<group>"; };
 		00886F6E2015D379006148BF /* AYHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTTPConnection.m; sourceTree = "<group>"; };
 		008871A920160A7E006148BF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		008871AC20163225006148BF /* BrowerLocalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowerLocalViewController.h; sourceTree = "<group>"; };
+		008871AD20163225006148BF /* BrowerLocalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowerLocalViewController.m; sourceTree = "<group>"; };
 		008F8B852012ED9600FA08EC /* connectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectionViewController.h; sourceTree = "<group>"; };
 		008F8B862012ED9600FA08EC /* connectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = connectionViewController.m; sourceTree = "<group>"; };
 		008F8B882012F4A300FA08EC /* pushHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushHelp.h; sourceTree = "<group>"; };
@@ -1008,6 +1011,15 @@
 			name = website;
 			path = MyFileManage/website;
 			sourceTree = SOURCE_ROOT;
+		};
+		008871AB201631FF006148BF /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				008871AC20163225006148BF /* BrowerLocalViewController.h */,
+				008871AD20163225006148BF /* BrowerLocalViewController.m */,
+			);
+			path = Local;
+			sourceTree = "<group>";
 		};
 		008F8B842012ED6B00FA08EC /* Connection */ = {
 			isa = PBXGroup;
@@ -1542,6 +1554,7 @@
 				377E95E71ED533CD0080E86D /* AppDelegate */,
 				377E95E61ED5339F0080E86D /* Home */,
 				008F8B842012ED6B00FA08EC /* Connection */,
+				008871AB201631FF006148BF /* Local */,
 				377E96F71ED560260080E86D /* Setting */,
 				377E95EE1ED5367B0080E86D /* Tool */,
 				377E96F01ED55F460080E86D /* Base */,
@@ -2087,6 +2100,7 @@
 				0032FB192009F03A006EF52B /* playVideoViewController.m in Sources */,
 				0005F166200F36440004751A /* RootFolder.m in Sources */,
 				00B3A96F200E02790009DC52 /* LSYReadUtilites.m in Sources */,
+				008871AE20163225006148BF /* BrowerLocalViewController.m in Sources */,
 				0005F14A200F36440004751A /* PDFDocumentCropViewController.m in Sources */,
 				0005F146200F36440004751A /* Localize.m in Sources */,
 				0005F147200F36440004751A /* PDFFont.m in Sources */,
