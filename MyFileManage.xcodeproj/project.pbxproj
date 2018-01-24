@@ -128,6 +128,8 @@
 		005155FC201334C8009DA2A3 /* SendMessageManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 005155FA201334C8009DA2A3 /* SendMessageManger.m */; };
 		005A705E200A1FE100400500 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A705D200A1FE100400500 /* BaseViewController.m */; };
 		005A7061200B367B00400500 /* VideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A7060200B367B00400500 /* VideoPlayView.m */; };
+		006C4D072018CB2700172419 /* localImageAndVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D062018CB2700172419 /* localImageAndVideoCell.m */; };
+		006C4D0A2018D46200172419 /* LocalImageAndVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D092018D46200172419 /* LocalImageAndVideoModel.m */; };
 		00886F3120133581006148BF /* UdpServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F2F20133581006148BF /* UdpServerManager.m */; };
 		00886F372013368B006148BF /* senderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F322013368A006148BF /* senderViewController.m */; };
 		00886F382013368B006148BF /* receiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F342013368B006148BF /* receiveViewController.m */; };
@@ -140,6 +142,7 @@
 		00887206201740D6006148BF /* localCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00887205201740D6006148BF /* localCell.m */; };
 		0088723B20183CB8006148BF /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088723A20183CB8006148BF /* ImageManager.m */; };
 		00887241201861FC006148BF /* LocalImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00887240201861FC006148BF /* LocalImageModel.m */; };
+		00887244201871EE006148BF /* BrowerLocalListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00887243201871EE006148BF /* BrowerLocalListViewController.m */; };
 		008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B862012ED9600FA08EC /* connectionViewController.m */; };
 		008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B892012F4A300FA08EC /* pushHelp.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
@@ -472,6 +475,10 @@
 		005A705D200A1FE100400500 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		005A705F200B367B00400500 /* VideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayView.h; sourceTree = "<group>"; };
 		005A7060200B367B00400500 /* VideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayView.m; sourceTree = "<group>"; };
+		006C4D052018CB2700172419 /* localImageAndVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = localImageAndVideoCell.h; sourceTree = "<group>"; };
+		006C4D062018CB2700172419 /* localImageAndVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = localImageAndVideoCell.m; sourceTree = "<group>"; };
+		006C4D082018D46200172419 /* LocalImageAndVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalImageAndVideoModel.h; sourceTree = "<group>"; };
+		006C4D092018D46200172419 /* LocalImageAndVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalImageAndVideoModel.m; sourceTree = "<group>"; };
 		00886F2F20133581006148BF /* UdpServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UdpServerManager.m; sourceTree = "<group>"; };
 		00886F3020133581006148BF /* UdpServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdpServerManager.h; sourceTree = "<group>"; };
 		00886F322013368A006148BF /* senderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = senderViewController.m; sourceTree = "<group>"; };
@@ -495,6 +502,8 @@
 		0088723A20183CB8006148BF /* ImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
 		0088723F201861FC006148BF /* LocalImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalImageModel.h; sourceTree = "<group>"; };
 		00887240201861FC006148BF /* LocalImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalImageModel.m; sourceTree = "<group>"; };
+		00887242201871EE006148BF /* BrowerLocalListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowerLocalListViewController.h; sourceTree = "<group>"; };
+		00887243201871EE006148BF /* BrowerLocalListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowerLocalListViewController.m; sourceTree = "<group>"; };
 		008F8B852012ED9600FA08EC /* connectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectionViewController.h; sourceTree = "<group>"; };
 		008F8B862012ED9600FA08EC /* connectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = connectionViewController.m; sourceTree = "<group>"; };
 		008F8B882012F4A300FA08EC /* pushHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushHelp.h; sourceTree = "<group>"; };
@@ -1026,6 +1035,8 @@
 			children = (
 				008871AC20163225006148BF /* BrowerLocalViewController.h */,
 				008871AD20163225006148BF /* BrowerLocalViewController.m */,
+				00887242201871EE006148BF /* BrowerLocalListViewController.h */,
+				00887243201871EE006148BF /* BrowerLocalListViewController.m */,
 				0088723E201861E3006148BF /* Model */,
 				00887201201740AD006148BF /* View */,
 			);
@@ -1037,6 +1048,8 @@
 			children = (
 				00887204201740D6006148BF /* localCell.h */,
 				00887205201740D6006148BF /* localCell.m */,
+				006C4D052018CB2700172419 /* localImageAndVideoCell.h */,
+				006C4D062018CB2700172419 /* localImageAndVideoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1046,6 +1059,8 @@
 			children = (
 				0088723F201861FC006148BF /* LocalImageModel.h */,
 				00887240201861FC006148BF /* LocalImageModel.m */,
+				006C4D082018D46200172419 /* LocalImageAndVideoModel.h */,
+				006C4D092018D46200172419 /* LocalImageAndVideoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1791,7 +1806,7 @@
 				TargetAttributes = {
 					377E95AF1ED532CD0080E86D = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 29F87GM9ZX;
+						DevelopmentTeam = S6W7TXYNQR;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
@@ -2015,6 +2030,7 @@
 				00B3A994200E02790009DC52 /* LSYTopMenuView.m in Sources */,
 				00B3A9E7200EF68D0009DC52 /* MusicViewController.m in Sources */,
 				0005F19C200F36440004751A /* PDFPageCropViewController.m in Sources */,
+				00887244201871EE006148BF /* BrowerLocalListViewController.m in Sources */,
 				0005F178200F36440004751A /* PDFPageViewController.m in Sources */,
 				0005F14C200F36440004751A /* PDFText.m in Sources */,
 				0005F176200F36440004751A /* PDFDocumentInfo.m in Sources */,
@@ -2110,6 +2126,7 @@
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
 				00886F6F2015D379006148BF /* AYHTTPConnection.m in Sources */,
 				0005F152200F36440004751A /* DocumentListTableViewController.m in Sources */,
+				006C4D072018CB2700172419 /* localImageAndVideoCell.m in Sources */,
 				00B3A9DA200E04550009DC52 /* BaseEntity.m in Sources */,
 				0005F148200F36440004751A /* NSFileManager+GreatReaderAdditions.m in Sources */,
 				00887206201740D6006148BF /* localCell.m in Sources */,
@@ -2117,6 +2134,7 @@
 				0088723B20183CB8006148BF /* ImageManager.m in Sources */,
 				00B3A9D6200E04550009DC52 /* NAKPlaybackIndicatorView.m in Sources */,
 				00B3A91F200E02790009DC52 /* ContextFilterLogFormatter.m in Sources */,
+				006C4D0A2018D46200172419 /* LocalImageAndVideoModel.m in Sources */,
 				3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */,
 				0032FB172009F03A006EF52B /* HomeFolderViewController.m in Sources */,
 				00B3A9EE200EF76D0009DC52 /* MusicSlider.m in Sources */,
@@ -2504,7 +2522,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				DEVELOPMENT_TEAM = S6W7TXYNQR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2533,7 +2551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 29F87GM9ZX;
+				DEVELOPMENT_TEAM = S6W7TXYNQR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

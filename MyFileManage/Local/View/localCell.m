@@ -19,7 +19,6 @@
         [self setUI];
     }
     return self;
-    
 }
 
 -(void)setUI{
@@ -54,6 +53,25 @@
         make.left.equalTo(self.firstImagV.mas_right).mas_offset(20);
         make.top.equalTo(self.name.mas_bottom).offset(20);
         make.size.mas_equalTo(CGSizeMake(100, 20));
+    }];
+    
+    UIImageView *rightArrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rightArrow"]];
+    [self addSubview:rightArrow];
+    
+    [rightArrow mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.mas_centerY);
+        make.size.mas_offset(CGSizeMake(20, 20));
+        make.right.mas_offset(-20);
+    }];
+    
+    UILabel *lineLable = [[UILabel alloc] initWithFrame:CGRectZero];
+    lineLable.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self addSubview:lineLable];
+    [lineLable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_offset(0);
+        make.right.mas_offset(0);
+        make.bottom.mas_offset(0);
+        make.size.height.mas_offset(1);
     }];
 }
 

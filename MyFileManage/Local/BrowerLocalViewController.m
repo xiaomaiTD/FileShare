@@ -8,6 +8,7 @@
 
 #import <Photos/Photos.h>
 #import "BrowerLocalViewController.h"
+#import "BrowerLocalListViewController.h"
 #import "localCell.h"
 #import "LocalImageModel.h"
 
@@ -39,6 +40,7 @@
     self.navigationItem.title = @"本地文件";
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate =self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[localCell class] forCellReuseIdentifier:@"localCell"];
@@ -65,7 +67,7 @@
     for (PHCollection *collection in userCollection) {
         [self.dataSource addObject:collection];
     }
-    self.localImageArr = [[[self.dataSource firstleap_map:^LocalImageModel *(PHCollection *collection) {
+    self.localImageArr = [[[self.dataSource firstleap_map:^LocalImageModel *(PHAssetCollection *collection) {
         return [[LocalImageModel alloc] initWithCollection:collection];
     }] firstleap_filter:^BOOL(LocalImageModel *model) {
         return model.count != 0;
@@ -77,13 +79,18 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     localCell *cell = [tableView dequeueReusableCellWithIdentifier:@"localCell" forIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (self.localImageArr.count > 0) {
         cell.localImage = self.localImageArr[indexPath.row];
     }
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    BrowerLocalListViewController *list = [[BrowerLocalListViewController alloc] init];
+    LocalImageModel *model = _localImageArr[indexPath.row];
+    list.fetResult = model.result;
+    list.assetCollection = model.collection;
+    APPNavPushViewController(list);
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.localImageArr.count;
 }

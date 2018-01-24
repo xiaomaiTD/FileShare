@@ -11,7 +11,7 @@
 
 @interface LocalImageModel : NSObject<NSCopying>
 
--(instancetype)initWithCollection:(PHCollection *)collection;
+-(instancetype)initWithCollection:(PHAssetCollection *)collection;
 
 /**
  相册的第一张图片
@@ -27,5 +27,9 @@
  相册的数量
  */
 @property(nonatomic,assign)NSInteger count;
+
+@property(nonatomic,strong)PHAssetCollection *collection;
+@property(nonatomic,strong)PHFetchResult *result;
+
 
 @end

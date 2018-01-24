@@ -11,11 +11,9 @@
 
 @implementation LocalImageModel
 
--(instancetype)initWithCollection:(PHCollection *)collection{
+-(instancetype)initWithCollection:(PHAssetCollection *)collection{
     if (self = [super init]) {
-        
-        self.title = collection.localizedTitle;
-        PHAssetCollection *assec = (PHAssetCollection *)collection;
+        PHAssetCollection *assec = collection;
         PHFetchOptions *options = [[PHFetchOptions alloc] init];
         options.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:NO]];
         PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:assec options:options];
@@ -23,6 +21,9 @@
         [[ImageManager shareInstance] SynRequestImageWithAssert:firstObj andtTargertSize:CGSizeMake(200, 200) andCompelete:^(UIImage *image) {
             self.image = image;
         }];
+        self.collection = collection;
+        self.title = collection.localizedTitle;
+        self.result = result;
         self.count = result.count;
     }
     return self;
