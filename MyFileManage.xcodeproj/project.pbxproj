@@ -137,6 +137,9 @@
 		00886F6F2015D379006148BF /* AYHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6E2015D379006148BF /* AYHTTPConnection.m */; };
 		008871AA20160A7E006148BF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 008871A920160A7E006148BF /* index.html */; };
 		008871AE20163225006148BF /* BrowerLocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008871AD20163225006148BF /* BrowerLocalViewController.m */; };
+		00887206201740D6006148BF /* localCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00887205201740D6006148BF /* localCell.m */; };
+		0088723B20183CB8006148BF /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088723A20183CB8006148BF /* ImageManager.m */; };
+		00887241201861FC006148BF /* LocalImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00887240201861FC006148BF /* LocalImageModel.m */; };
 		008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B862012ED9600FA08EC /* connectionViewController.m */; };
 		008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B892012F4A300FA08EC /* pushHelp.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
@@ -486,6 +489,12 @@
 		008871A920160A7E006148BF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		008871AC20163225006148BF /* BrowerLocalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowerLocalViewController.h; sourceTree = "<group>"; };
 		008871AD20163225006148BF /* BrowerLocalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowerLocalViewController.m; sourceTree = "<group>"; };
+		00887204201740D6006148BF /* localCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = localCell.h; sourceTree = "<group>"; };
+		00887205201740D6006148BF /* localCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = localCell.m; sourceTree = "<group>"; };
+		0088723920183CB8006148BF /* ImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
+		0088723A20183CB8006148BF /* ImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
+		0088723F201861FC006148BF /* LocalImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalImageModel.h; sourceTree = "<group>"; };
+		00887240201861FC006148BF /* LocalImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalImageModel.m; sourceTree = "<group>"; };
 		008F8B852012ED9600FA08EC /* connectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectionViewController.h; sourceTree = "<group>"; };
 		008F8B862012ED9600FA08EC /* connectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = connectionViewController.m; sourceTree = "<group>"; };
 		008F8B882012F4A300FA08EC /* pushHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushHelp.h; sourceTree = "<group>"; };
@@ -1017,8 +1026,28 @@
 			children = (
 				008871AC20163225006148BF /* BrowerLocalViewController.h */,
 				008871AD20163225006148BF /* BrowerLocalViewController.m */,
+				0088723E201861E3006148BF /* Model */,
+				00887201201740AD006148BF /* View */,
 			);
 			path = Local;
+			sourceTree = "<group>";
+		};
+		00887201201740AD006148BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00887204201740D6006148BF /* localCell.h */,
+				00887205201740D6006148BF /* localCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0088723E201861E3006148BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0088723F201861FC006148BF /* LocalImageModel.h */,
+				00887240201861FC006148BF /* LocalImageModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		008F8B842012ED6B00FA08EC /* Connection */ = {
@@ -1463,6 +1492,8 @@
 				00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */,
 				002ECE212010E7B300319300 /* ResourceFileManager.h */,
 				002ECE222010E7B300319300 /* ResourceFileManager.m */,
+				0088723920183CB8006148BF /* ImageManager.h */,
+				0088723A20183CB8006148BF /* ImageManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1761,6 +1792,7 @@
 					377E95AF1ED532CD0080E86D = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 29F87GM9ZX;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					377E95C81ED532CD0080E86D = {
@@ -2027,6 +2059,7 @@
 				00B3A92C200E02790009DC52 /* HTTPAsyncFileResponse.m in Sources */,
 				374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */,
 				00B3A91B200E02790009DC52 /* DDASLLogger.m in Sources */,
+				00887241201861FC006148BF /* LocalImageModel.m in Sources */,
 				00B3A931200E02790009DC52 /* HTTPRedirectResponse.m in Sources */,
 				00B3A98A200E02790009DC52 /* UIImage+ImageEffects.m in Sources */,
 				371597AC1EDFB1A500B482AB /* Device.m in Sources */,
@@ -2079,7 +2112,9 @@
 				0005F152200F36440004751A /* DocumentListTableViewController.m in Sources */,
 				00B3A9DA200E04550009DC52 /* BaseEntity.m in Sources */,
 				0005F148200F36440004751A /* NSFileManager+GreatReaderAdditions.m in Sources */,
+				00887206201740D6006148BF /* localCell.m in Sources */,
 				0005F168200F36440004751A /* DocumentListCollectionView.m in Sources */,
+				0088723B20183CB8006148BF /* ImageManager.m in Sources */,
 				00B3A9D6200E04550009DC52 /* NAKPlaybackIndicatorView.m in Sources */,
 				00B3A91F200E02790009DC52 /* ContextFilterLogFormatter.m in Sources */,
 				3722BFE91F21CB56005D2EDB /* NSString+CHChinese.m in Sources */,
@@ -2468,6 +2503,7 @@
 			baseConfigurationReference = 4BE11BA20A57DA626274A2BD /* Pods-MyFileManage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2485,6 +2521,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wangchao.MyFileManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)";
 			};
 			name = Debug;
@@ -2494,6 +2532,7 @@
 			baseConfigurationReference = E03FDBB762C016C433F89C26 /* Pods-MyFileManage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 29F87GM9ZX;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2511,6 +2550,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wangchao.MyFileManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)";
 			};
 			name = Release;
