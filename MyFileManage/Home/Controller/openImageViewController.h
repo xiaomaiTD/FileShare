@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "fileModel.h"
+#import "LocalImageAndVideoModel.h"
 
 @interface openImageViewController : UIViewController
 
 @property(nonatomic,strong)fileModel *model;
+@property(nonatomic,strong)LocalImageAndVideoModel *localModel;
 
 @end

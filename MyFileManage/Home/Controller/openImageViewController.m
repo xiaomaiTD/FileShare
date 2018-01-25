@@ -7,6 +7,8 @@
 //
 
 #import "openImageViewController.h"
+#import "ImageManager.h"
+#import "GCDQueue.h"
 #import <ImageIO/ImageIO.h>
 #import <iOSPhotoEditor/iOSPhotoEditor-Swift.h>
 #import <SDWebImage/UIImage+GIF.h>
@@ -44,19 +46,38 @@
     [rightItem addTarget:self action:@selector(presentImageEdit) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItem];
     
-    if ([_model.fileType.uppercaseString isEqualToString:@"GIF"]) {
-        NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
-        UIImage *image = [UIImage sd_animatedGIFWithData:imageData];
-        self.localImgV = [[UIImageView alloc] initWithImage:image];
+    if (self.localModel) {
+        CGFloat scale = [UIScreen mainScreen].scale;
+        CGSize targertSize = CGSizeMake(self.view.width * scale, self.view.height*scale);
+        void(^completeBlock)(UIImage *) = ^(UIImage *image){
+            if (image) {
+                NSLog(@"image-----%@",image);
+                [GCDQueue executeInMainQueue:^{
+                    self.localImgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
+                    self.localImgV.image = image;
+//                    self.localImgV.contentMode = UIViewContentModeScaleToFill;
+                    NSLog(@"localImgV-----%@",self.localImgV);
+                }];
+            }
+        };
+        void(^progressBlock)(double ,NSError *,BOOL *,NSDictionary *) = ^(double progress,NSError *error,BOOL *stop,NSDictionary *info){
+            NSLog(@"progress-----%f",progress);
+        };
+        [[ImageManager shareInstance] SynRequestImageWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:progressBlock];
     }else{
-        NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
-        UIImage *fileImage = [UIImage imageWithData:imageData scale:2];
-        if (isPhonePlus()) {
-            fileImage = [UIImage imageWithData:imageData scale:3];
+        if ([_model.fileType.uppercaseString isEqualToString:@"GIF"]) {
+            NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
+            UIImage *image = [UIImage sd_animatedGIFWithData:imageData];
+            self.localImgV = [[UIImageView alloc] initWithImage:image];
+        }else{
+            NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
+            UIImage *fileImage = [UIImage imageWithData:imageData scale:2];
+            if (isPhonePlus()) {
+                fileImage = [UIImage imageWithData:imageData scale:3];
+            }
+            self.localImgV = [[UIImageView alloc] initWithImage:fileImage];
         }
-        self.localImgV = [[UIImageView alloc] initWithImage:fileImage];
     }
-    
     self.localImgV.center = CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0);
     [self.view addSubview:_localImgV];
     
@@ -70,7 +91,6 @@
     if ([_model.fileType.uppercaseString isEqualToString:@"GIF"]) {
         return;
     }
-    
     PhotoEditorViewController *photoEdit = [[PhotoEditorViewController alloc] initWithNibName:@"PhotoEditorViewController" bundle:[NSBundle bundleForClass:[PhotoEditorViewController class]]];
     photoEdit.image = _localImgV.image;
     photoEdit.photoEditorDelegate = self;

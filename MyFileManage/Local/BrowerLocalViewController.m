@@ -12,7 +12,7 @@
 #import "localCell.h"
 #import "LocalImageModel.h"
 
-@interface BrowerLocalViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface BrowerLocalViewController ()<UITableViewDelegate,UITableViewDataSource,PHPhotoLibraryChangeObserver>
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSource;
@@ -50,6 +50,7 @@
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     [self getAllUserCollection];
+    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
 }
 
 -(void)getAllUserCollection{
@@ -97,5 +98,11 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 120;
+}
+-(void)photoLibraryDidChange:(PHChange *)changeInstance{
+    
+    if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
+        [self getAllUserCollection];
+    }
 }
 @end

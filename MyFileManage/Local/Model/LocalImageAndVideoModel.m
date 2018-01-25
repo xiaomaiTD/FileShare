@@ -17,16 +17,7 @@
             self.PHImage = image;
         }];
         self.phasset = asset;
-        
-        /*
-         PHAssetMediaSubtypeVideoStreamed      = (1UL << 16),
-         PHAssetMediaSubtypeVideoHighFrameRate = (1UL << 17),
-         PHAssetMediaSubtypeVideoTimelapse
-         */
-        NSLog(@"mediaType------%ld",(long)self.phasset.mediaType);
-        NSLog(@"mediaSubtypes------%lu",(unsigned long)self.phasset.mediaSubtypes);
-        
-        
+
         if (self.phasset.mediaType == PHAssetMediaTypeVideo ) {
             self.type = PHASSETTYPE_Video;
             int mySeconds = (int)self.phasset.duration;
@@ -45,7 +36,6 @@
                 self.type = PHASSETTYPE_Image;
             }
         }
-        
     }
     return self;
 }

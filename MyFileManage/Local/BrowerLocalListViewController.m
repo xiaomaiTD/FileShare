@@ -7,6 +7,7 @@
 //
 
 #import "BrowerLocalListViewController.h"
+#import "openImageViewController.h"
 #import "localImageAndVideoCell.h"
 #import "LocalImageAndVideoModel.h"
 
@@ -55,7 +56,6 @@
  获取所有资源
  */
 -(void)requestAllSource{
-    
     [GCDQueue executeInGlobalQueue:^{
         for (PHAsset *asset in _fetResult) {
             LocalImageAndVideoModel *model =[[LocalImageAndVideoModel alloc] initWithAsset:asset];
@@ -74,6 +74,15 @@
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(10, 10, 10, 10);//（上、左、下、右）
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.dataSourceArray.count > 0) {
+        LocalImageAndVideoModel *model = self.dataSourceArray[indexPath.row];
+        openImageViewController *vc = [[openImageViewController alloc] init];
+        vc.localModel = model;
+        APPNavPushViewController(vc);
+    }
 }
 
 #pragma mark  设置CollectionCell的内容

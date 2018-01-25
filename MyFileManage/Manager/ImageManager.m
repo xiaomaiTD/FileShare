@@ -47,4 +47,16 @@ static ImageManager *manager = nil;
 
 }
 
+-(void)SynRequestImageWithAssert:(PHAsset *)asset andTargetSize:(CGSize)targetSize andCompelete:(ImageManagerBlock)block andRequestProgress:(requestProgress)progressblock{
+    
+    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+    options.progressHandler = [progressblock copy];
+    [options setNetworkAccessAllowed:YES];
+    options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    [self.cacheImageManager requestImageForAsset:asset targetSize:targetSize contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        block(result);
+    }];
+
+}
+
 @end
