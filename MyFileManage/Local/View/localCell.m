@@ -24,7 +24,6 @@
 -(void)setUI{
     
     self.firstImagV = [[UIImageView alloc] init];
-    self.firstImagV.backgroundColor = [UIColor redColor];
     self.firstImagV.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:self.firstImagV];
     [self.firstImagV mas_makeConstraints:^(MASConstraintMaker *make) {

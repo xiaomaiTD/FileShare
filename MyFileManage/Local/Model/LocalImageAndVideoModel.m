@@ -23,15 +23,12 @@
          PHAssetMediaSubtypeVideoHighFrameRate = (1UL << 17),
          PHAssetMediaSubtypeVideoTimelapse
          */
-        if (self.phasset.mediaSubtypes == PHAssetMediaSubtypePhotoLive) {
-            self.type = PHASSETTYPE_LivePhoto;
-        }else if (self.phasset.mediaSubtypes == PHAssetMediaSubtypeVideoStreamed || self.phasset.mediaSubtypes == PHAssetMediaSubtypeVideoHighFrameRate || self.phasset.mediaSubtypes == PHAssetMediaSubtypeVideoTimelapse){
-            self.type = PHASSETTYPE_Video;
-        }else{
-            self.type = PHASSETTYPE_Image;
-        }
+        NSLog(@"mediaType------%ld",(long)self.phasset.mediaType);
+        NSLog(@"mediaSubtypes------%lu",(unsigned long)self.phasset.mediaSubtypes);
         
-        if (self.type == PHASSETTYPE_Video) {
+        
+        if (self.phasset.mediaType == PHAssetMediaTypeVideo ) {
+            self.type = PHASSETTYPE_Video;
             int mySeconds = (int)self.phasset.duration;
             int seconds = mySeconds % 60;
             int minutes = (mySeconds / 60) % 60;
@@ -41,8 +38,13 @@
             }else{
                 self.videoLength = [NSString stringWithFormat:@"%02d:%02d:%02d",hours,minutes,seconds];
             }
+        }else {
+            if (self.phasset.mediaSubtypes == PHAssetMediaSubtypePhotoLive) {
+                self.type = PHASSETTYPE_LivePhoto;
+            }else{
+                self.type = PHASSETTYPE_Image;
+            }
         }
-        
         
     }
     return self;
