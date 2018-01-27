@@ -14,6 +14,7 @@ static ImageManager *manager = nil;
 
 @property(nonatomic,strong)PHCachingImageManager *cacheImageManager;
 @property(nonatomic,strong)PHImageRequestOptions *options;
+@property(nonatomic,strong)PHLivePhotoRequestOptions *LiveOptions;
 
 @end
 
@@ -33,10 +34,18 @@ static ImageManager *manager = nil;
     if (self = [super init]) {
         self.cacheImageManager = [[PHCachingImageManager alloc] init];
         self.options = [[PHImageRequestOptions alloc] init];
+        self.LiveOptions = [[PHLivePhotoRequestOptions alloc] init];
     }
     return self;
 }
 
+/**
+ 获取缩略图的方法
+
+ @param asset 资源
+ @param tagertSize 目标大小
+ @param block 完成block
+ */
 -(void)SynRequestImageWithAssert:(PHAsset *)asset andtTargertSize:(CGSize)tagertSize andCompelete:(ImageManagerBlock)block{
 
     self.options.resizeMode = PHImageRequestOptionsResizeModeExact;
@@ -48,6 +57,14 @@ static ImageManager *manager = nil;
 
 }
 
+/**
+ 获取大图
+
+ @param asset 以上
+ @param targetSize 以上
+ @param block 以上
+ @param progressblock 以上
+ */
 -(void)SynRequestImageWithAssert:(PHAsset *)asset andTargetSize:(CGSize)targetSize andCompelete:(ImageManagerBlock)block andRequestProgress:(requestProgress)progressblock{
     
     self.options.progressHandler = [progressblock copy];
@@ -57,7 +74,27 @@ static ImageManager *manager = nil;
     [self.cacheImageManager requestImageForAsset:asset targetSize:targetSize contentMode:PHImageContentModeAspectFit options:self.options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         block(result);
     }];
+}
 
+
+/**
+ 获取livePhoto
+
+ @param asset 以上
+ @param targetSize 以上
+ @param block 以上
+ @param progressblock 以上
+ */
+-(void)SynRequestLivePhotoWithAssert:(PHAsset *)asset andTargetSize:(CGSize)targetSize andCompelete:(LiveImageManagerBlock)block andRequestProgress:(requestProgress)progressblock{
+    
+    self.LiveOptions.progressHandler = [progressblock copy];
+    [self.LiveOptions setNetworkAccessAllowed:YES];
+    self.LiveOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    
+    [self.cacheImageManager requestLivePhotoForAsset:asset targetSize:targetSize contentMode:PHImageContentModeAspectFit options:self.LiveOptions resultHandler:^(PHLivePhoto * _Nullable livePhoto, NSDictionary * _Nullable info) {
+        block(livePhoto);
+    }];
+    
 }
 
 @end

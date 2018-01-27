@@ -12,11 +12,14 @@
 #import <ImageIO/ImageIO.h>
 #import <iOSPhotoEditor/iOSPhotoEditor-Swift.h>
 #import <SDWebImage/UIImage+GIF.h>
+#import <PhotosUI/PhotosUI.h>
 
 @interface openImageViewController ()<UIScrollViewDelegate,PhotoEditorDelegate>
 
 @property(nonatomic,strong)UIScrollView *bgScrollView;
 @property(nonatomic,strong)UIImageView *localImgV;
+@property(nonatomic,strong)PHLivePhotoView *livePhotoView;
+
 @property(nonatomic,assign)BOOL navISHidden;
 
 @end
@@ -47,22 +50,11 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItem];
     
     if (self.localModel) {
-        self.localImgV = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
-        CGFloat scale = [UIScreen mainScreen].scale;
-        CGSize targertSize = CGSizeMake(self.view.width * scale, self.view.height*scale);
-        void(^completeBlock)(UIImage *) = ^(UIImage *image){
-            if (image) {
-                [GCDQueue executeInMainQueue:^{
-                    self.localImgV.image = image;
-                }];
-            }
-        };
-        //progressBlock 不执行，bug
-        void(^progressBlock)(double ,NSError *,BOOL *,NSDictionary *) = ^(double progress,NSError *error,BOOL *stop,NSDictionary *info){
-//            NSLog(@"progress-----%f",progress);
-        };
-        [[ImageManager shareInstance] SynRequestImageWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:progressBlock];
+        if (self.localModel.type == PHASSETTYPE_LivePhoto) {
+            [self addLivePhotoView];
+        }else{
+            [self addStaticPhoto];
+        }
     }else{
         if ([_model.fileType.uppercaseString isEqualToString:@"GIF"]) {
             NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
@@ -80,9 +72,79 @@
     self.localImgV.center = CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0);
     [self.view addSubview:_localImgV];
     
+    [self addGest];
+}
+
+/**
+ 添加静态图片
+ */
+-(void)addStaticPhoto{
+    
+    self.localImgV = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CGSize targertSize = CGSizeMake(self.view.width * scale, self.view.height*scale);
+    void(^completeBlock)(UIImage *) = ^(UIImage *image){
+        if (image) {
+            [GCDQueue executeInMainQueue:^{
+                self.localImgV.image = image;
+            }];
+        }
+    };
+    //progressBlock 不执行，bug
+    void(^progressBlock)(double ,NSError *,BOOL *,NSDictionary *) = ^(double progress,NSError *error,BOOL *stop,NSDictionary *info){
+        //            NSLog(@"progress-----%f",progress);
+    };
+    [[ImageManager shareInstance] SynRequestImageWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:progressBlock];
+}
+
+/**
+ 添加livePhotoView
+ */
+-(void)addLivePhotoView{
+    if (self.localModel.type != PHASSETTYPE_LivePhoto) {
+        return;
+    }
+    self.livePhotoView = [[PHLivePhotoView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.view addSubview:self.livePhotoView];
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CGSize targertSize = CGSizeMake(self.view.width * scale, self.view.height*scale);
+    void(^completeBlock)(PHLivePhoto *) = ^(PHLivePhoto *livephoto){
+        if (livephoto) {
+            [GCDQueue executeInMainQueue:^{
+                self.livePhotoView.livePhoto = livephoto;
+            }];
+        }
+    };
+    //progressBlock 不执行，bug
+    void(^progressBlock)(double ,NSError *,BOOL *,NSDictionary *) = ^(double progress,NSError *error,BOOL *stop,NSDictionary *info){
+        
+    };
+    [[ImageManager shareInstance] SynRequestLivePhotoWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:progressBlock];
+    
+    
+}
+
+-(void)addGest{
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapClick:)];
     singleTap.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:singleTap];
+    
+    if (self.localModel && self.localModel.type == PHASSETTYPE_LivePhoto) {
+        UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(playLivePhot:)];
+        longGes.minimumPressDuration = 1;
+        [self.view addGestureRecognizer:longGes];
+    }
+}
+
+/**
+ 播放livePhoto
+ */
+-(void)playLivePhot:(UIGestureRecognizer *)gest{
+    if (gest.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"playLivePhot");
+        [self.livePhotoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
+    }
 }
 
 -(void)presentImageEdit{

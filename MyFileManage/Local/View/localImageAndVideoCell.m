@@ -34,7 +34,6 @@
         }];
 
         self.livePhotoImagV = [[UIImageView alloc] initWithFrame:CGRectZero];
-        self.livePhotoImagV.backgroundColor = [UIColor redColor];
         [self addSubview:self.livePhotoImagV];
         [self.livePhotoImagV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_offset(5);
@@ -104,7 +103,6 @@
     }
     if (PHASSETTYPE_LivePhoto) {
         self.livePhotoImagV.image = [PHLivePhotoView livePhotoBadgeImageWithOptions:PHLivePhotoBadgeOptionsOverContent];
-        
     }
     
 }
