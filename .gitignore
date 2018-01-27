@@ -20,6 +20,7 @@ xcuserdata/
 ## custom file
 MobileVLCKit.framework
 .DS_Store
+*.xcworkspace
 
 ## Other
 *.moved-aside
