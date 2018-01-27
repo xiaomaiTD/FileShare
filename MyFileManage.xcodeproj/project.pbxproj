@@ -145,6 +145,7 @@
 		00887244201871EE006148BF /* BrowerLocalListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00887243201871EE006148BF /* BrowerLocalListViewController.m */; };
 		008F8B872012ED9600FA08EC /* connectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B862012ED9600FA08EC /* connectionViewController.m */; };
 		008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 008F8B892012F4A300FA08EC /* pushHelp.m */; };
+		00905FBA201CC9E7004AB430 /* PlayLocalVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00905FB9201CC9E7004AB430 /* PlayLocalVideoViewController.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
 		00B3A819200DA0F90009DC52 /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A818200DA0F90009DC52 /* VideoCoverView.m */; };
 		00B3A81C200DA6040009DC52 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A81A200DA6040009DC52 /* NSObject+Extension.m */; };
@@ -508,6 +509,8 @@
 		008F8B862012ED9600FA08EC /* connectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = connectionViewController.m; sourceTree = "<group>"; };
 		008F8B882012F4A300FA08EC /* pushHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushHelp.h; sourceTree = "<group>"; };
 		008F8B892012F4A300FA08EC /* pushHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pushHelp.m; sourceTree = "<group>"; };
+		00905FB8201CC9E7004AB430 /* PlayLocalVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayLocalVideoViewController.h; sourceTree = "<group>"; };
+		00905FB9201CC9E7004AB430 /* PlayLocalVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayLocalVideoViewController.m; sourceTree = "<group>"; };
 		00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		00B3A817200DA0F90009DC52 /* VideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCoverView.h; sourceTree = "<group>"; };
 		00B3A818200DA0F90009DC52 /* VideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCoverView.m; sourceTree = "<group>"; };
@@ -1037,6 +1040,8 @@
 				008871AD20163225006148BF /* BrowerLocalViewController.m */,
 				00887242201871EE006148BF /* BrowerLocalListViewController.h */,
 				00887243201871EE006148BF /* BrowerLocalListViewController.m */,
+				00905FB8201CC9E7004AB430 /* PlayLocalVideoViewController.h */,
+				00905FB9201CC9E7004AB430 /* PlayLocalVideoViewController.m */,
 				0088723E201861E3006148BF /* Model */,
 				00887201201740AD006148BF /* View */,
 			);
@@ -2163,6 +2168,7 @@
 				0005F156200F36440004751A /* PDFDocumentSearchViewModel.m in Sources */,
 				00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */,
 				00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */,
+				00905FBA201CC9E7004AB430 /* PlayLocalVideoViewController.m in Sources */,
 				0005F16C200F36440004751A /* PDFRecentDocumentList.m in Sources */,
 				0005F149200F36440004751A /* PDFDocumentBrightnessViewController.m in Sources */,
 				00B3A9D5200E04550009DC52 /* NAKPlaybackIndicatorContentView.m in Sources */,

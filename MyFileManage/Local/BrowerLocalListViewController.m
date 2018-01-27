@@ -7,6 +7,7 @@
 //
 
 #import "BrowerLocalListViewController.h"
+#import "PlayLocalVideoViewController.h"
 #import "openImageViewController.h"
 #import "localImageAndVideoCell.h"
 #import "LocalImageAndVideoModel.h"
@@ -78,10 +79,20 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (self.dataSourceArray.count > 0) {
+
         LocalImageAndVideoModel *model = self.dataSourceArray[indexPath.row];
-        openImageViewController *vc = [[openImageViewController alloc] init];
-        vc.localModel = model;
-        APPNavPushViewController(vc);
+        
+        if (model.type == PHASSETTYPE_LivePhoto || model.type == PHASSETTYPE_Image) {
+            openImageViewController *vc = [[openImageViewController alloc] init];
+            vc.localModel = model;
+            APPNavPushViewController(vc);
+        }
+        if (model.type == PHASSETTYPE_Video) {
+            PlayLocalVideoViewController *vc = [[PlayLocalVideoViewController alloc] init];
+            vc.localModel = model;
+            APPNavPushViewController(vc);
+        }
+        
     }
 }
 
