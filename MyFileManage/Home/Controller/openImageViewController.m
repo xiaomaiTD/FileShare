@@ -47,21 +47,20 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItem];
     
     if (self.localModel) {
+        self.localImgV = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
         CGFloat scale = [UIScreen mainScreen].scale;
         CGSize targertSize = CGSizeMake(self.view.width * scale, self.view.height*scale);
         void(^completeBlock)(UIImage *) = ^(UIImage *image){
             if (image) {
-                NSLog(@"image-----%@",image);
                 [GCDQueue executeInMainQueue:^{
-                    self.localImgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
                     self.localImgV.image = image;
-//                    self.localImgV.contentMode = UIViewContentModeScaleToFill;
-                    NSLog(@"localImgV-----%@",self.localImgV);
                 }];
             }
         };
+        //progressBlock 不执行，bug
         void(^progressBlock)(double ,NSError *,BOOL *,NSDictionary *) = ^(double progress,NSError *error,BOOL *stop,NSDictionary *info){
-            NSLog(@"progress-----%f",progress);
+//            NSLog(@"progress-----%f",progress);
         };
         [[ImageManager shareInstance] SynRequestImageWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:progressBlock];
     }else{
