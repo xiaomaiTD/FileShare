@@ -15,6 +15,7 @@ static ImageManager *manager = nil;
 @property(nonatomic,strong)PHCachingImageManager *cacheImageManager;
 @property(nonatomic,strong)PHImageRequestOptions *options;
 @property(nonatomic,strong)PHLivePhotoRequestOptions *LiveOptions;
+@property(nonatomic,strong)PHVideoRequestOptions *VideoOptions;
 
 @end
 
@@ -35,6 +36,7 @@ static ImageManager *manager = nil;
         self.cacheImageManager = [[PHCachingImageManager alloc] init];
         self.options = [[PHImageRequestOptions alloc] init];
         self.LiveOptions = [[PHLivePhotoRequestOptions alloc] init];
+        self.VideoOptions = [[PHVideoRequestOptions alloc] init];
     }
     return self;
 }
@@ -93,6 +95,21 @@ static ImageManager *manager = nil;
     
     [self.cacheImageManager requestLivePhotoForAsset:asset targetSize:targetSize contentMode:PHImageContentModeAspectFit options:self.LiveOptions resultHandler:^(PHLivePhoto * _Nullable livePhoto, NSDictionary * _Nullable info) {
         block(livePhoto);
+    }];
+}
+
+/**
+ 请求video
+
+ @param asset 以上
+ @param block 返回回调
+ */
+-(void)SyncRequestVideoWithAssert:(PHAsset *)asset andCompelte:(VideoImageManagerBlock)block andRequestProgress:(requestProgress)progressblock{
+    self.VideoOptions.progressHandler = progressblock;
+    [self.VideoOptions setNetworkAccessAllowed:YES];
+    self.VideoOptions.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
+    [self.cacheImageManager requestPlayerItemForVideo:asset options:self.VideoOptions resultHandler:^(AVPlayerItem * _Nullable playerItem, NSDictionary * _Nullable info) {
+        block(playerItem);
     }];
     
 }

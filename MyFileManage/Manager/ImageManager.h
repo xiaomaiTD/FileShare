@@ -11,6 +11,7 @@
 
 typedef void(^ImageManagerBlock)(UIImage *image);
 typedef void(^LiveImageManagerBlock)(PHLivePhoto *livePhoto);
+typedef void(^VideoImageManagerBlock)(AVPlayerItem *avPlayItem);
 typedef void(^requestProgress)(double progress,NSError *errir,BOOL *stop,NSDictionary *info);
 
 @interface ImageManager : NSObject
@@ -23,4 +24,5 @@ typedef void(^requestProgress)(double progress,NSError *errir,BOOL *stop,NSDicti
 
 -(void)SynRequestLivePhotoWithAssert:(PHAsset *)asset andTargetSize:(CGSize)targetSize andCompelete:(LiveImageManagerBlock)block andRequestProgress:(requestProgress)progressblock;
 
+-(void)SyncRequestVideoWithAssert:(PHAsset *)asset andCompelte:(VideoImageManagerBlock)block andRequestProgress:(requestProgress)progressblock;
 @end

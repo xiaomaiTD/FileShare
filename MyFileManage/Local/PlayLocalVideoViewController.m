@@ -8,6 +8,8 @@
 
 #import "PlayLocalVideoViewController.h"
 #import "ImageManager.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
 
 @interface PlayLocalVideoViewController ()
 @property(nonatomic,assign)BOOL navISHidden;
@@ -31,12 +33,12 @@
     
     self.playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.playBtn setImage:[UIImage imageNamed:@"PlayClick"] forState:UIControlStateNormal];
+    [self.playBtn addTarget:self action:@selector(playBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.playBtn];
-    
+
     [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_offset(kScreenWidth/2.0);
-        make.centerY.mas_offset(kScreenHeight/2.0);
         make.size.mas_offset(CGSizeMake(200, 200));
+        make.center.equalTo(self.view);
     }];
     
     CGFloat scale = [UIScreen mainScreen].scale;
@@ -53,7 +55,23 @@
         //            NSLog(@"progress-----%f",progress);
     };
     [[ImageManager shareInstance] SynRequestImageWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:progressBlock];
+}
 
+-(void)playBtnClick:(UIButton *)sender{
+    
+    //progressBlock 不执行，bug
+    void(^progressBlock)(double ,NSError *,BOOL *,NSDictionary *) = ^(double progress,NSError *error,BOOL *stop,NSDictionary *info){
+        //            NSLog(@"progress-----%f",progress);
+    };
+    void(^avplayItemComplete)(AVPlayerItem *) = ^(AVPlayerItem *item){
+        AVURLAsset *urlAssert = (AVURLAsset *)item.asset;
+        [GCDQueue executeInMainQueue:^{
+            MPMoviePlayerViewController *vc = [[MPMoviePlayerViewController alloc] initWithContentURL:urlAssert.URL];
+            APPPresentViewController(vc);
+        }];
+    };
+    
+    [[ImageManager shareInstance] SyncRequestVideoWithAssert:self.localModel.phasset andCompelte:avplayItemComplete andRequestProgress:progressBlock];
 }
 
 -(void)singleTapClick:(UITapGestureRecognizer *)gestureRecognizer{
