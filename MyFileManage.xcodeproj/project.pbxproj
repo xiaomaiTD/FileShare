@@ -179,8 +179,6 @@
 		00B3A931200E02790009DC52 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A861200E02790009DC52 /* HTTPRedirectResponse.m */; };
 		00B3A932200E02790009DC52 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A863200E02790009DC52 /* WebSocket.m */; };
 		00B3A933200E02790009DC52 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A865200E02790009DC52 /* MyHTTPConnection.m */; };
-		00B3A934200E02790009DC52 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 00B3A867200E02790009DC52 /* index.html */; };
-		00B3A935200E02790009DC52 /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 00B3A868200E02790009DC52 /* upload.html */; };
 		00B3A96A200E02790009DC52 /* LSYChapterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A8B6200E02790009DC52 /* LSYChapterVC.m */; };
 		00B3A96B200E02790009DC52 /* LSYMarkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A8B8200E02790009DC52 /* LSYMarkVC.m */; };
 		00B3A96C200E02790009DC52 /* LSYNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A8BA200E02790009DC52 /* LSYNoteVC.m */; };
@@ -233,6 +231,8 @@
 		00B3A9EE200EF76D0009DC52 /* MusicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9E9200EF76D0009DC52 /* MusicSlider.m */; };
 		00B3A9EF200EF76D0009DC52 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */; };
 		00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */; };
+		00FE46BF201F704100B4C001 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 00FE46BD201F704100B4C001 /* index.html */; };
+		00FE46C0201F704100B4C001 /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 00FE46BE201F704100B4C001 /* upload.html */; };
 		00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13A2011CF0000BE57BB /* GCDGroup.m */; };
 		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
 		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
@@ -576,8 +576,6 @@
 		00B3A863200E02790009DC52 /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocket.m; sourceTree = "<group>"; };
 		00B3A864200E02790009DC52 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHTTPConnection.h; sourceTree = "<group>"; };
 		00B3A865200E02790009DC52 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHTTPConnection.m; sourceTree = "<group>"; };
-		00B3A867200E02790009DC52 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		00B3A868200E02790009DC52 /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
 		00B3A8B5200E02790009DC52 /* LSYChapterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYChapterVC.h; sourceTree = "<group>"; };
 		00B3A8B6200E02790009DC52 /* LSYChapterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYChapterVC.m; sourceTree = "<group>"; };
 		00B3A8B7200E02790009DC52 /* LSYMarkVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYMarkVC.h; sourceTree = "<group>"; };
@@ -682,6 +680,8 @@
 		00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicIndicator.m; sourceTree = "<group>"; };
 		00BB14E12010AB6700F0E4A1 /* FolderFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FolderFileManager.h; sourceTree = "<group>"; };
 		00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FolderFileManager.m; sourceTree = "<group>"; };
+		00FE46BD201F704100B4C001 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		00FE46BE201F704100B4C001 /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
 		00FEF1382011CF0000BE57BB /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		00FEF1392011CF0000BE57BB /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		00FEF13A2011CF0000BE57BB /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -1101,6 +1101,7 @@
 		00B3A825200E02790009DC52 /* cocoaHttpServer */ = {
 			isa = PBXGroup;
 			children = (
+				00FE46BC201F704100B4C001 /* web */,
 				008871A820160A7E006148BF /* website */,
 				00B3A826200E02790009DC52 /* CocoaAsyncSocket */,
 				00B3A82A200E02790009DC52 /* CocoaLumberjack */,
@@ -1109,7 +1110,6 @@
 				00B3A865200E02790009DC52 /* MyHTTPConnection.m */,
 				00886F6D2015D379006148BF /* AYHTTPConnection.h */,
 				00886F6E2015D379006148BF /* AYHTTPConnection.m */,
-				00B3A866200E02790009DC52 /* web */,
 			);
 			path = cocoaHttpServer;
 			sourceTree = "<group>";
@@ -1220,15 +1220,6 @@
 				00B3A861200E02790009DC52 /* HTTPRedirectResponse.m */,
 			);
 			path = Responses;
-			sourceTree = "<group>";
-		};
-		00B3A866200E02790009DC52 /* web */ = {
-			isa = PBXGroup;
-			children = (
-				00B3A867200E02790009DC52 /* index.html */,
-				00B3A868200E02790009DC52 /* upload.html */,
-			);
-			path = web;
 			sourceTree = "<group>";
 		};
 		00B3A8B3200E02790009DC52 /* TXTSource */ = {
@@ -1517,6 +1508,16 @@
 			);
 			path = Manager;
 			sourceTree = "<group>";
+		};
+		00FE46BC201F704100B4C001 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				00FE46BD201F704100B4C001 /* index.html */,
+				00FE46BE201F704100B4C001 /* upload.html */,
+			);
+			name = web;
+			path = MyFileManage/web;
+			sourceTree = SOURCE_ROOT;
 		};
 		00FEF1372011CF0000BE57BB /* GCD */ = {
 			isa = PBXGroup;
@@ -1858,6 +1859,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00FE46BF201F704100B4C001 /* index.html in Resources */,
 				0005F1B8200F42700004751A /* DocumentCollectionViewCell_iPad.xib in Resources */,
 				0005F1B6200F42700004751A /* MainStoryboard_iPad.storyboard in Resources */,
 				0005F1ED200F433D0004751A /* Folder@2x.png in Resources */,
@@ -1867,12 +1869,12 @@
 				0005F1F2200F433D0004751A /* Forward@2x.png in Resources */,
 				00B3A917200E02790009DC52 /* About.txt in Resources */,
 				0005F1E4200F433D0004751A /* Brightness@2x.png in Resources */,
-				00B3A934200E02790009DC52 /* index.html in Resources */,
 				0005F157200F36440004751A /* Settings.bundle in Resources */,
 				0005F1E3200F433D0004751A /* Setting@2x.png in Resources */,
 				00B3A921200E02790009DC52 /* README.txt in Resources */,
 				0005F1E1200F433D0004751A /* Crop@2x.png in Resources */,
 				0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */,
+				00FE46C0201F704100B4C001 /* upload.html in Resources */,
 				0005F1E2200F433D0004751A /* Back@2x.png in Resources */,
 				377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */,
 				0005F1E6200F433D0004751A /* Documents@2x.png in Resources */,
@@ -1885,7 +1887,6 @@
 				0005F1B5200F42700004751A /* MainStoryboard_iPhone.storyboard in Resources */,
 				0005F1E5200F433D0004751A /* Check@2x.png in Resources */,
 				00B3A990200E02790009DC52 /* bt_tjcp_no@2x.png in Resources */,
-				00B3A935200E02790009DC52 /* upload.html in Resources */,
 				0005F1B9200F42700004751A /* DocumentTableViewCell.xib in Resources */,
 				0005F1EA200F433D0004751A /* Outline@2x.png in Resources */,
 				377E95C01ED532CD0080E86D /* Assets.xcassets in Resources */,

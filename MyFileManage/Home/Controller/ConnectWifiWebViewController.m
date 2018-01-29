@@ -39,7 +39,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     _ipLable.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _ipLable.layer.cornerRadius = 5;
     _ipLable.layer.masksToBounds = true;
-//    _ipLable.text = [NSString stringWithFormat:@"%@:%@",[self getIPAddress],[[DataBaseTool shareInstance] getIpAddress]];
     _ipLable.textAlignment = NSTextAlignmentCenter;
     _ipLable.userInteractionEnabled = YES;
     [self.view addSubview:_ipLable];
@@ -69,9 +68,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         
         [DDLog addLogger:[DDTTYLogger sharedInstance]];
         httpServer = [[HTTPServer alloc] init];
-        
         [httpServer setType:@"_http._tcp."];
-        NSString *docRoot = [[NSBundle mainBundle] resourcePath];
+        NSString *docRoot = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"web"];
         [httpServer setDocumentRoot:docRoot];
         [httpServer setConnectionClass:[MyHTTPConnection class]];
         NSError *error = nil;
@@ -83,19 +81,16 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 self.ipLable.text = [NSString stringWithFormat:@"%@:%hu",IPAddress(),httpServer.listeningPort];
             }];
         }
-        
     }];
 }
 
 -(void)hideMenu{
-    
     if (_menuController) {
         _menuController = nil;
     }
 }
 
 -(void)copyString{
-
     if (!_menuController) {
         _menuController = [UIMenuController sharedMenuController];
         [_menuController setTargetRect:self.ipLable.frame inView:self.view];
@@ -129,16 +124,11 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         return [super canPerformAction:action withSender:sender];
     }
 }
-
 -(void)copy:(id)sender{
-
     UIPasteboard* pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.ipLable.text;
 }
-
 - (NSString *)getIPAddress {
-    
-    
     NSString *address = @"error";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
@@ -162,9 +152,5 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     // Free memory
     freeifaddrs(interfaces);
     return address;
-    
 }
-
-
-
 @end
