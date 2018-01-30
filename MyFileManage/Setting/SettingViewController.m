@@ -10,6 +10,7 @@
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,strong)NSArray *dataArray;
 @property(nonatomic,strong)UITableView *tableView;
 
 @end
@@ -19,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"设置";
+    _dataArray = @[@[@"开启touchID"],@[@"我的收藏"],@[@"回收站",@"历史访问记录"],@[@"下载目录",@"自定义目录"],@[@"显示文件扩展",@"显示隐藏的文件"],@[@"给个好评",@"意见反馈"]];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self setUI];
 }
@@ -32,7 +34,6 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_offset(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
-    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -40,26 +41,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
     return cell;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return _dataArray.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    switch (section) {
-        case 0:
-            return 1;
-            break;
-        case 1:
-            return 3;
-        case 2:
-            return 5;
-        default:
-            return 0;
-            break;
-    }
+    return [_dataArray[section] count];
 }
 
 
