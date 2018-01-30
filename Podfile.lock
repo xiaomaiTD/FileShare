@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - DMPasscode (2.0.1)
   - DOUAudioStreamer (0.2.11)
   - GVUserDefaults (1.0.2)
   - iOSPhotoEditor (0.5)
@@ -30,6 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - DMPasscode
   - DOUAudioStreamer (= 0.2.11)
   - GVUserDefaults
   - iOSPhotoEditor
@@ -42,6 +44,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  DMPasscode: 2c787063d41869bb3f78c88f38ea63739dc0a80e
   DOUAudioStreamer: 8aefc3e80eb6c01ec89fa3c30743c660e8c55bae
   GVUserDefaults: 52d48cf8ba578b40a1a76312b196dfc9134ba36a
   iOSPhotoEditor: 0ddc84bcef9fe73fe8cc45ac999b89e0aa207aea
@@ -52,6 +55,6 @@ SPEC CHECKSUMS:
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
 
-PODFILE CHECKSUM: e0410aaa9717319bed7517eab66bbd54235d7c3b
+PODFILE CHECKSUM: e35c5b6a45c8134979daa60eaa41b6b42d07bf0a
 
 COCOAPODS: 1.3.1

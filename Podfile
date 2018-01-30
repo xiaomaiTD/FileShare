@@ -12,5 +12,6 @@ target 'MyFileManage' do
     pod 'AFNetworking', '~> 3.0'
     pod 'KVOController'
     pod 'SSZipArchive'
+    pod 'DMPasscode'
 end
 

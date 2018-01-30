@@ -7,6 +7,8 @@
 //
 
 #import "SettingViewController.h"
+#import <LocalAuthentication/LocalAuthentication.h>
+#import <DMPasscode/DMPasscode.h>
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -54,6 +56,17 @@
     return [_dataArray[section] count];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        [self showPasswordVC];
+    }
+}
 
+-(void)showPasswordVC{
+
+    [DMPasscode showPasscodeInViewController:self completion:^(BOOL success, NSError *error) {
+        NSLog(@"success");
+    }];
+}
 
 @end
