@@ -8,6 +8,7 @@
 
 #import <SSZipArchive/SSZipArchive.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <KVOController/KVOController.h>
 #import "NSFileManager+GreatReaderAdditions.h"
 
 #import "HomeFolderViewController.h"
@@ -31,6 +32,8 @@
 
 #import "ResourceFileManager.h"
 #import "FolderFileManager.h"
+#import "GloablVarManager.h"
+
 #import "FolderCell.h"
 #import "GCD.h"
 
@@ -41,6 +44,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
 
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)UICollectionView *collectionView;
+@property(nonatomic,strong)FBKVOController *KVOController;
 
 @end
 
@@ -59,10 +63,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
 }
 
 - (void)viewDidLoad {
-    
-    
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     if (self.isPushSelf) {
         self.dataSourceArray = [[[FolderFileManager shareInstance] getAllFileModelInDic:self.model.fullPath] mutableCopy];
@@ -93,8 +94,27 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 
-    // Music data
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
+    // 监听 
+    [self addKVO];
+}
+
+-(void)addKVO{
+    
+    FBKVOController *KVOController = [FBKVOController controllerWithObserver:self];
+    self.KVOController = KVOController;
+    // 是否显示隐藏文件夹
+    [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showHiddenFolder" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+        NSLog(@"change------%@",change);
+        NSLog(@"observer------%@",observer);
+        NSLog(@"object------%@",object);
+    }];
+    // 显示文件后缀
+    [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showFolderType" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+        NSLog(@"change------%@",change);
+        NSLog(@"observer------%@",observer);
+        NSLog(@"object------%@",object);
+    }];
 }
 
 -(void)configueNavItem{

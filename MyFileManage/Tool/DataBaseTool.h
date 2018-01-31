@@ -12,11 +12,8 @@
 
 +(instancetype)shareInstance;
 
-
 -(void)setIPAddree:(NSString *)ip;
-
 -(NSString *)getIpAddress;
-
 
 
 @end

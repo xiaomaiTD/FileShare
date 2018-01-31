@@ -102,6 +102,7 @@
 		0005F1F8200FAAD90004751A /* FileFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1F7200FAAD90004751A /* FileFolder.m */; };
 		002C9A57202199EE0053B1A6 /* SettingBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */; };
 		002C9A5A2021A08B0053B1A6 /* SettingNotifyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A592021A08B0053B1A6 /* SettingNotifyTableCell.m */; };
+		002C9A6C202208270053B1A6 /* GloablVarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A6B202208270053B1A6 /* GloablVarManager.m */; };
 		002ECE202010E41D00319300 /* FolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE1F2010E41D00319300 /* FolderCell.m */; };
 		002ECE232010E7B300319300 /* ResourceFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE222010E7B300319300 /* ResourceFileManager.m */; };
 		002ECE242011869400319300 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A6B1ED91BED001BF4F1 /* MobileCoreServices.framework */; };
@@ -446,6 +447,8 @@
 		002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingBaseTableCell.m; sourceTree = "<group>"; };
 		002C9A582021A08B0053B1A6 /* SettingNotifyTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingNotifyTableCell.h; sourceTree = "<group>"; };
 		002C9A592021A08B0053B1A6 /* SettingNotifyTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingNotifyTableCell.m; sourceTree = "<group>"; };
+		002C9A6A202208270053B1A6 /* GloablVarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GloablVarManager.h; sourceTree = "<group>"; };
+		002C9A6B202208270053B1A6 /* GloablVarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GloablVarManager.m; sourceTree = "<group>"; };
 		002ECE1E2010E41D00319300 /* FolderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FolderCell.h; sourceTree = "<group>"; };
 		002ECE1F2010E41D00319300 /* FolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FolderCell.m; sourceTree = "<group>"; };
 		002ECE212010E7B300319300 /* ResourceFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceFileManager.h; sourceTree = "<group>"; };
@@ -1522,6 +1525,8 @@
 				002ECE222010E7B300319300 /* ResourceFileManager.m */,
 				0088723920183CB8006148BF /* ImageManager.h */,
 				0088723A20183CB8006148BF /* ImageManager.m */,
+				002C9A6A202208270053B1A6 /* GloablVarManager.h */,
+				002C9A6B202208270053B1A6 /* GloablVarManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2092,6 +2097,7 @@
 				0005F16D200F36440004751A /* PDFPageContentView.m in Sources */,
 				377E96FA1ED560530080E86D /* SettingViewController.m in Sources */,
 				00886F3E201336AC006148BF /* ConnectionItem.m in Sources */,
+				002C9A6C202208270053B1A6 /* GloablVarManager.m in Sources */,
 				00B3A91C200E02790009DC52 /* DDFileLogger.m in Sources */,
 				0005F167200F36440004751A /* PDFDocumentNameList.m in Sources */,
 				005A705E200A1FE100400500 /* BaseViewController.m in Sources */,

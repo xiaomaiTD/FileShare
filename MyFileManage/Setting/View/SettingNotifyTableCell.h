@@ -11,4 +11,5 @@
 
 @interface SettingNotifyTableCell : SettingBaseTableCell
 
+
 @end

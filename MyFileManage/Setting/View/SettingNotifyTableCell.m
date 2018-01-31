@@ -7,6 +7,7 @@
 //
 
 #import "SettingNotifyTableCell.h"
+#import "GloablVarManager.h"
 
 @interface SettingNotifyTableCell()
 
@@ -20,6 +21,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.accessoryType = UITableViewCellAccessoryNone;
         self.switchON = [[UISwitch alloc] initWithFrame:CGRectZero];
+        [self.switchON addTarget:self action:@selector(switchON:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:self.switchON];
         
         [self.switchON mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -29,6 +31,12 @@
         }];
     }
     return self;
+}
+
+-(void)switchON:(UISwitch *)switchON{
+    
+    [[GloablVarManager shareManager] setShowHiddenFolder:YES];
+
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface SettingBaseTableCell : UITableViewCell
 
+@property(nonatomic,strong)NSIndexPath *indexPath;
+
 @end

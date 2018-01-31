@@ -43,18 +43,16 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    SettingBaseTableCell *cell;
     if (indexPath.section == 4) {
-        SettingNotifyTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotifyTableCell" forIndexPath:indexPath];
-        cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        return cell;
+        cell = (SettingNotifyTableCell *)[tableView dequeueReusableCellWithIdentifier:@"NotifyTableCell" forIndexPath:indexPath];
     }else{
-        SettingBaseTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BaseTableCell" forIndexPath:indexPath];
-        cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        return cell;
+        cell = [tableView dequeueReusableCellWithIdentifier:@"BaseTableCell" forIndexPath:indexPath];
     }
-
+    cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
+    cell.textLabel.font = [UIFont systemFontOfSize:17];
+    cell.indexPath = indexPath;
+    return cell;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -78,7 +76,6 @@
 }
 
 -(void)showPasswordVC{
-
     [DMPasscode showPasscodeInViewController:self completion:^(BOOL success, NSError *error) {
         NSLog(@"success");
     }];
