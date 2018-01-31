@@ -7,6 +7,8 @@
 //
 
 #import "SettingViewController.h"
+#import "SettingBaseTableCell.h"
+#import "SettingNotifyTableCell.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import <DMPasscode/DMPasscode.h>
 
@@ -29,7 +31,8 @@
 -(void)setUI{
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[SettingNotifyTableCell class] forCellReuseIdentifier:@"NotifyTableCell"];
+    [self.tableView registerClass:[SettingBaseTableCell class] forCellReuseIdentifier:@"BaseTableCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -40,12 +43,18 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:15];
-    return cell;
+    if (indexPath.section == 4) {
+        SettingNotifyTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotifyTableCell" forIndexPath:indexPath];
+        cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        return cell;
+    }else{
+        SettingBaseTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BaseTableCell" forIndexPath:indexPath];
+        cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        return cell;
+    }
+
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -58,8 +67,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
-        [self showPasswordVC];
+        [GCDQueue executeInMainQueue:^{
+           [self showPasswordVC];
+        }];
     }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
 }
 
 -(void)showPasswordVC{

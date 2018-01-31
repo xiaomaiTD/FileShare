@@ -8,6 +8,7 @@
 
 #import <SSZipArchive/SSZipArchive.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "NSFileManager+GreatReaderAdditions.h"
 
 #import "HomeFolderViewController.h"
 #import "ConnectWifiWebViewController.h"
@@ -74,12 +75,11 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     if (!self.isPushSelf) {
         [self configueNavItem];
     }
-    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     flowLayout.minimumLineSpacing = 10;
     flowLayout.minimumInteritemSpacing = 10;
-    flowLayout.itemSize = CGSizeMake((kScreenWidth - 40)/3.0, (kScreenWidth - 40)/3.0);
+    flowLayout.itemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), floor((kScreenWidth - 40)/3.0));
     //设置CollectionView的属性
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -93,8 +93,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 
-        // Music data
-
+    // Music data
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
 }
 

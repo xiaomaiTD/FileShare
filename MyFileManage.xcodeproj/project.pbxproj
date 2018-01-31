@@ -100,6 +100,8 @@
 		0005F1F2200F433D0004751A /* Forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DD200F433C0004751A /* Forward@2x.png */; };
 		0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DF200F433D0004751A /* CropEven@2x.png */; };
 		0005F1F8200FAAD90004751A /* FileFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1F7200FAAD90004751A /* FileFolder.m */; };
+		002C9A57202199EE0053B1A6 /* SettingBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */; };
+		002C9A5A2021A08B0053B1A6 /* SettingNotifyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A592021A08B0053B1A6 /* SettingNotifyTableCell.m */; };
 		002ECE202010E41D00319300 /* FolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE1F2010E41D00319300 /* FolderCell.m */; };
 		002ECE232010E7B300319300 /* ResourceFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002ECE222010E7B300319300 /* ResourceFileManager.m */; };
 		002ECE242011869400319300 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A6B1ED91BED001BF4F1 /* MobileCoreServices.framework */; };
@@ -440,6 +442,10 @@
 		0005F1E0200F433D0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/CropEven@2x.png"; sourceTree = SOURCE_ROOT; };
 		0005F1F6200FAAD90004751A /* FileFolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileFolder.h; sourceTree = "<group>"; };
 		0005F1F7200FAAD90004751A /* FileFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileFolder.m; sourceTree = "<group>"; };
+		002C9A55202199EE0053B1A6 /* SettingBaseTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingBaseTableCell.h; sourceTree = "<group>"; };
+		002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingBaseTableCell.m; sourceTree = "<group>"; };
+		002C9A582021A08B0053B1A6 /* SettingNotifyTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingNotifyTableCell.h; sourceTree = "<group>"; };
+		002C9A592021A08B0053B1A6 /* SettingNotifyTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingNotifyTableCell.m; sourceTree = "<group>"; };
 		002ECE1E2010E41D00319300 /* FolderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FolderCell.h; sourceTree = "<group>"; };
 		002ECE1F2010E41D00319300 /* FolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FolderCell.m; sourceTree = "<group>"; };
 		002ECE212010E7B300319300 /* ResourceFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceFileManager.h; sourceTree = "<group>"; };
@@ -970,6 +976,17 @@
 				0005F1CF200F433B0004751A /* TabHistory@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		002C9A54202199BE0053B1A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				002C9A55202199EE0053B1A6 /* SettingBaseTableCell.h */,
+				002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */,
+				002C9A582021A08B0053B1A6 /* SettingNotifyTableCell.h */,
+				002C9A592021A08B0053B1A6 /* SettingNotifyTableCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0032FB062009F03A006EF52B /* View */ = {
@@ -1718,6 +1735,7 @@
 			children = (
 				377E96F81ED560530080E86D /* SettingViewController.h */,
 				377E96F91ED560530080E86D /* SettingViewController.m */,
+				002C9A54202199BE0053B1A6 /* View */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -2099,6 +2117,7 @@
 				0005F1F8200FAAD90004751A /* FileFolder.m in Sources */,
 				0005F199200F36440004751A /* UIColor+GreatReaderAdditions.m in Sources */,
 				0005F14D200F36440004751A /* PDFPageLoopeView.m in Sources */,
+				002C9A5A2021A08B0053B1A6 /* SettingNotifyTableCell.m in Sources */,
 				0005F19E200F36440004751A /* NSString+GreatReaderAdditions.m in Sources */,
 				0005F177200F36440004751A /* PDFFontDescriptor.m in Sources */,
 				00B3A977200E02790009DC52 /* LSYReadModel.m in Sources */,
@@ -2182,6 +2201,7 @@
 				00B3A923200E02790009DC52 /* DDNumber.m in Sources */,
 				0005F1A5200F36440004751A /* PDFDocumentBookmarkListViewController.m in Sources */,
 				0005F1A3200F36440004751A /* PDFDocument.m in Sources */,
+				002C9A57202199EE0053B1A6 /* SettingBaseTableCell.m in Sources */,
 				0005F169200F36440004751A /* PDFDocumentStore.m in Sources */,
 				00B3A96A200E02790009DC52 /* LSYChapterVC.m in Sources */,
 				00B3A971200E02790009DC52 /* LSYReadPageViewController.m in Sources */,
