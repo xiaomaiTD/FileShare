@@ -19,6 +19,11 @@
 
 -(void)setIndexPath:(NSIndexPath *)indexPath{
     _indexPath = indexPath;
+    if (indexPath.section == 3 && indexPath.row == 0) {
+        self.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        self.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+    }
 }
 
 @end

@@ -13,7 +13,6 @@ static ResourceFileManager *manager = nil;
 @implementation ResourceFileManager
 
 +(instancetype)shareInstance{
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[ResourceFileManager alloc] init];
@@ -23,7 +22,6 @@ static ResourceFileManager *manager = nil;
 
 -(instancetype)init{
     if (self = [super init]) {
-        
         self.musicEntities = [MusicEntity arrayOfEntitiesFromArray:[self getAllUploadMusicDic]].mutableCopy;
         //PDF data
         self.documentStore = [[PDFDocumentStore alloc] init];
@@ -68,7 +66,6 @@ static ResourceFileManager *manager = nil;
     }];
     return fileModelArray;
 }
-
 
 /**
  获取 MyFileManageUpload 文件夹下的所有文件名字

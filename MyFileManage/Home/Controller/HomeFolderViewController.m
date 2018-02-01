@@ -12,7 +12,6 @@
 #import "NSFileManager+GreatReaderAdditions.h"
 
 #import "HomeFolderViewController.h"
-#import "ConnectWifiWebViewController.h"
 //Video
 #import "playVideoViewController.h"
 //MUsic
@@ -75,10 +74,9 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
         if (tempArray && tempArray.count > 0 ) {
             self.dataSourceArray = tempArray.mutableCopy;
         }
-    }
-    if (!self.isPushSelf) {
         [self configueNavItem];
     }
+    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     flowLayout.minimumLineSpacing = 10;
@@ -125,22 +123,10 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
 
 -(void)configueNavItem{
     
-    UIButton *leftItem = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftItem addTarget:self action:@selector(leftItemClick:) forControlEvents:UIControlEventTouchUpInside];
-    [leftItem setImage:[UIImage imageNamed:@"点击"] forState:UIControlStateNormal];
-    leftItem.frame = CGRectMake(0, 0, 25, 25);
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftItem];
     UIButton *addfile = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [addfile setTintColor:[UIColor orangeColor]];
     addfile.frame = CGRectMake(0, 0, 25, 25);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addfile];
-}
-
-
--(void)leftItemClick:(UIButton *)sender{
-    
-    ConnectWifiWebViewController *vc = [[ConnectWifiWebViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark  设置CollectionView每组所包含的个数

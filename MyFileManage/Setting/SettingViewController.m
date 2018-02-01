@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"设置";
-    _dataArray = @[@[@"开启touchID"],@[@"我的收藏"],@[@"回收站",@"历史访问记录"],@[@"下载目录",@"自定义目录"],@[@"显示文件扩展",@"显示隐藏的文件夹"],@[@"给个好评",@"意见反馈"]];
+    _dataArray = @[@[@"开启touchID"],@[@"我的收藏"],@[@"回收站",@"历史访问记录"],@[@"下载至下载目录",@"下载至自定义目录"],@[@"显示文件扩展",@"显示隐藏的文件夹"],@[@"给个好评",@"意见反馈"]];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self setUI];
 }

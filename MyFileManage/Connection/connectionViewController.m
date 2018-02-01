@@ -9,6 +9,7 @@
 #import "connectionViewController.h"
 #import "senderViewController.h"
 #import "receiveViewController.h"
+#import "ConnectWifiWebViewController.h"
 
 @interface connectionViewController ()
 
@@ -19,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self configueNavItem];
     self.navigationItem.title = @"文件快传";
     UIButton *sender = [self createBtnWithTitle:@"我要发送"];
     [sender addTarget:self action:@selector(senderClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -42,6 +44,19 @@
         make.height.mas_equalTo(50);
     }];
     
+}
+-(void)configueNavItem{
+    UIButton *leftItem = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftItem addTarget:self action:@selector(leftItemClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftItem setImage:[UIImage imageNamed:@"点击"] forState:UIControlStateNormal];
+    leftItem.frame = CGRectMake(0, 0, 25, 25);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftItem];
+}
+
+-(void)leftItemClick:(UIButton *)sender{
+    
+    ConnectWifiWebViewController *vc = [[ConnectWifiWebViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)senderClick:(UIButton *)sender{
