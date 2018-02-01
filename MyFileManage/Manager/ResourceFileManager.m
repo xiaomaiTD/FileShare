@@ -79,8 +79,13 @@ static ResourceFileManager *manager = nil;
     
     NSString *uploadDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     uploadDirPath = [NSString stringWithFormat:@"%@/MyFileManageUpload",uploadDirPath];
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:uploadDirPath error:nil];
-    return files;
+    NSMutableArray *files = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:uploadDirPath error:nil] mutableCopy];
+    if (![[DataBaseTool shareInstance] getShowHiddenFolderHidden]) {
+        if ([files containsObject:HiddenFolderName]) {
+            [files removeObject:HiddenFolderName];
+        }
+    }
+    return [files copy];
 }
 
 @end

@@ -47,9 +47,14 @@ static FolderFileManager *manage = nil;
 }
 
 -(void )createDirWithPath:(NSString *)path{
-    
     NSFileManager *manage = [NSFileManager defaultManager];
-    [manage createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    if (![manage fileExistsAtPath:path]) {
+        [manage createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+}
+-(void)createIsBeHiddenFolder{
+    NSString *hiddenPath = [[self getUploadPath] stringByAppendingPathComponent:HiddenFolderName];
+    [self createDirWithPath:hiddenPath];
 }
 
 -(NSArray *)getAllFileModelInDic:(NSString *)dir{

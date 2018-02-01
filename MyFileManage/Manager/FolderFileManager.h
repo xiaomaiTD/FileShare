@@ -48,4 +48,10 @@
  */
 -(NSArray *)getAllFileModelInDic:(NSString *)dir;
 
+
+/**
+ 创建隐藏文件夹
+ */
+-(void)createIsBeHiddenFolder;
+
 @end

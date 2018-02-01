@@ -69,6 +69,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     if (self.isPushSelf) {
         self.dataSourceArray = [[[FolderFileManager shareInstance] getAllFileModelInDic:self.model.fullPath] mutableCopy];
     }else{
+        // 建立隐藏文件夹
+        [[FolderFileManager shareInstance] createIsBeHiddenFolder];
         NSArray *tempArray = [[ResourceFileManager shareInstance] getAllUploadAllFileModels];
         if (tempArray && tempArray.count > 0 ) {
             self.dataSourceArray = tempArray.mutableCopy;
@@ -114,7 +116,9 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     // 是否显示隐藏文件夹
     [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showHiddenFolder" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
 //        BOOL isShow = change[@"new"];
-        
+        BOOL show = [change[@"new"] intValue];
+        [[DataBaseTool shareInstance] setShowHiddenFolderHidden:show];
+        [self fileFinishAndReloadTable];
         
     }];
 }
@@ -289,8 +293,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     });
 
 }
-
-
 
 @end
 
