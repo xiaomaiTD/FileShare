@@ -39,6 +39,12 @@
  */
 -(void )createDirWithPath:(NSString *)path;
 
+/**
+ 创建文本
+
+ @param path 文本路径
+ */
+-(void)createTextWithPath:(NSString *)path;
 
 /**
  获得指定路径下的所有model

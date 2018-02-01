@@ -46,6 +46,14 @@ static FolderFileManager *manage = nil;
     [manage removeItemAtPath:path error:nil];
 }
 
+-(void)createTextWithPath:(NSString *)path{
+    NSFileManager *manag = [NSFileManager defaultManager];
+    BOOL isDir = NO;
+    if (![manag fileExistsAtPath:path isDirectory:&isDir]) {
+        [manag createFileAtPath:path contents:nil attributes:nil];
+    }
+}
+
 -(void )createDirWithPath:(NSString *)path{
     NSFileManager *manage = [NSFileManager defaultManager];
     if (![manage fileExistsAtPath:path]) {

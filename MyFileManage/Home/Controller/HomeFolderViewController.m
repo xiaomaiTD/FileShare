@@ -74,8 +74,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
         if (tempArray && tempArray.count > 0 ) {
             self.dataSourceArray = tempArray.mutableCopy;
         }
-        [self configueNavItem];
     }
+    [self configueNavItem];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -126,7 +126,63 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     UIButton *addfile = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [addfile setTintColor:[UIColor orangeColor]];
     addfile.frame = CGRectMake(0, 0, 25, 25);
+    [addfile addTarget:self action:@selector(addFolderText:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addfile];
+}
+
+-(void)addFolderText:(UIButton *)sender{
+    
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"选择创建类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"文本" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self AddFolderOrTextWithType:1];
+    }];
+    UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"文件夹" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self AddFolderOrTextWithType:0];
+    }];
+    
+    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+
+    [alertCon addAction:textAc];
+    [alertCon addAction:folderAc];
+    [alertCon addAction:cancelAc];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
+}
+
+-(void)AddFolderOrTextWithType:(int)type{
+    
+    NSString *title = type == 0 ? @"创建文件夹":@"创建文本";
+    
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertCon addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        NSString *name = type == 0 ? @"文件夹名字":@"文本名字";
+        textField.placeholder = name;
+    }];
+    UIAlertAction *sureAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSString *baseDir = self.isPushSelf ? self.model.fullPath : [[FolderFileManager shareInstance] getUploadPath];
+        if (type == 0) {
+            NSString *createDir = [baseDir stringByAppendingPathComponent:alertCon.textFields.firstObject.text];
+            [[FolderFileManager shareInstance] createDirWithPath:createDir];
+        }
+        else{
+            NSString *createTxtPath = [baseDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.txt",alertCon.textFields.firstObject.text]];
+            [[FolderFileManager shareInstance] createTextWithPath:createTxtPath];
+        }
+        [self fileFinishAndReloadTable];
+        
+    }];
+    UIAlertAction *cancleAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertCon addAction:sureAc];
+    [alertCon addAction:cancleAc];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
+
 }
 
 #pragma mark  设置CollectionView每组所包含的个数
@@ -162,9 +218,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
 {
     if (_dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
-        NSLog(@"path-----%@",model.fullPath);
-        NSLog(@"path-----%@",model.fileType);
-        //如果是文件夹
         if (model.isFolder) {
             HomeFolderViewController *vc = [[HomeFolderViewController alloc] init];
             vc.model = model;
