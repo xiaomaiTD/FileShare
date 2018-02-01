@@ -19,12 +19,24 @@
         self.textView = [[UITextView alloc] initWithFrame:CGRectZero];
         self.textView.font = [UIFont systemFontOfSize:15];
         [self addSubview:self.textView];
-        
         [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
+        
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+        longPress.minimumPressDuration = 1;
+        [self addGestureRecognizer:longPress];
+        
     }
     return self;
+}
+
+-(void)longPress:(UILongPressGestureRecognizer *)logPress{
+    if (logPress.state == UIGestureRecognizerStateBegan) {
+        if ([self.delegate respondsToSelector:@selector(folderCellLongPressWithModel:)]) {
+            [self.delegate folderCellLongPressWithModel:self.model];
+        }
+    }
 }
 
 -(void)setModel:(fileModel *)model{

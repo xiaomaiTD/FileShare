@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "fileModel.h"
+
+@protocol FolderCellDelegate<NSObject>
+
+-(void)folderCellLongPressWithModel:(fileModel *)model;
+@end
 
 @interface FolderCell : UICollectionViewCell
 
+@property(nonatomic,assign)id<FolderCellDelegate>delegate;
 @property(nonatomic,strong)fileModel *model;
 @property(nonatomic,strong)UITextView *textView;
 @end

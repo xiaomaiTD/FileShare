@@ -39,7 +39,7 @@
 
 @interface HomeFolderViewController ()
 <
-UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
+UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderCellDelegate
 >
 
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
@@ -204,6 +204,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     if (self.dataSourceArray.count >0) {
         cell.model = [self.dataSourceArray objectAtIndex:indexPath.row];
     }
+    cell.delegate = self;
     cell.textView.editable = NO;
     cell.textView.userInteractionEnabled = NO;
     return cell;
@@ -253,6 +254,43 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
             [self unZipFileWithPath:model.fullPath];
         }
     }
+}
+
+#pragma mark -----FolderCellDelegate
+
+-(void)folderCellLongPressWithModel:(fileModel *)model{
+    
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"选择编辑方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"移动至-》" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+       
+    }];
+    [alertCon addAction:textAc];
+    
+    if ([model.fileType.uppercaseString isEqualToString:@"TXT"]) {
+        UIAlertAction *openReadAc = [UIAlertAction actionWithTitle:@"小说阅读方式打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertCon addAction:openReadAc];
+        
+        UIAlertAction *openTXTAc = [UIAlertAction actionWithTitle:@"文本编辑方式打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertCon addAction:openTXTAc];
+
+    }
+    
+    UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertCon addAction:folderAc];
+    
+    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertCon addAction:cancelAc];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
 }
 
 /**
