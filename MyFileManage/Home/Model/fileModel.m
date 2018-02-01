@@ -7,18 +7,19 @@
 //
 
 #import "fileModel.h"
+#import "DataBaseTool.h"
 
 @implementation fileModel
 
 -(instancetype)initWithFilePath:(NSString *)path{
 
     if (self = [super init]) {
-        
         self.fileName = [[path lastPathComponent] stringByDeletingPathExtension];
+        // 根据全局变量 是否要显示文件后缀名
+        self.fileName = [[DataBaseTool shareInstance] getShowFileTypeHidden] ? [path lastPathComponent] :self.fileName;
         self.fileType = [path pathExtension];
-        
         self.fullPath = path;
-        bool folder = NO;
+        BOOL folder = NO;
         [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&folder];
         self.isFolder = folder;
     }

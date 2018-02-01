@@ -29,6 +29,24 @@ static NSUserDefaults *UserDefault;
     return [self getObjectForKey:@"ipAddress"];
 }
 
+-(void)setShowFileTypeHidden:(BOOL)hidden{
+    [self setObjet:[NSString stringWithFormat:@"%d",hidden] forKey:@"FileTypeHidden"];
+}
+
+-(BOOL)getShowFileTypeHidden{
+    NSString *hidden = [self getObjectForKey:@"FileTypeHidden"];
+    return [hidden intValue] > 0;
+}
+
+-(void)setShowHiddenFolderHidden:(BOOL)hidden{
+    [self setObjet:[NSString stringWithFormat:@"%d",hidden] forKey:@"showHiddenFolderHidden"];
+}
+
+-(BOOL)getShowHiddenFolderHidden{
+    NSString *hidden = [self getObjectForKey:@"showHiddenFolderHidden"];
+    return [hidden intValue] > 0;
+}
+
 -(void)setObjet:(id)object forKey:(NSString *)key{
     [UserDefault setObject:object forKey:key];
     [UserDefault synchronize];

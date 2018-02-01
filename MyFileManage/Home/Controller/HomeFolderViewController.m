@@ -33,6 +33,7 @@
 #import "ResourceFileManager.h"
 #import "FolderFileManager.h"
 #import "GloablVarManager.h"
+#import "DataBaseTool.h"
 
 #import "FolderCell.h"
 #import "GCD.h"
@@ -103,17 +104,18 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     
     FBKVOController *KVOController = [FBKVOController controllerWithObserver:self];
     self.KVOController = KVOController;
-    // 是否显示隐藏文件夹
-    [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showHiddenFolder" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
-        NSLog(@"change------%@",change);
-        NSLog(@"observer------%@",observer);
-        NSLog(@"object------%@",object);
-    }];
     // 显示文件后缀
     [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showFolderType" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
-        NSLog(@"change------%@",change);
-        NSLog(@"observer------%@",observer);
-        NSLog(@"object------%@",object);
+        BOOL show = [change[@"new"] intValue];
+        [[DataBaseTool shareInstance] setShowFileTypeHidden:show];
+        [self fileFinishAndReloadTable];
+        
+    }];
+    // 是否显示隐藏文件夹
+    [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showHiddenFolder" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+//        BOOL isShow = change[@"new"];
+        
+        
     }];
 }
 
@@ -166,7 +168,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
     return YES;
 }
 
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_dataSourceArray.count > 0) {
@@ -195,7 +196,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
             [self presentMusicViewController:model];
         }
         if ([model.fileType.uppercaseString isEqualToString:@"PDF"]) {
-            
             [self presentPDFViewController:model];
         }
         if ([SupportOAArray containsObject:[model.fileType uppercaseString]]) {
@@ -210,7 +210,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
             [self unZipFileWithPath:model.fullPath];
         }
     }
-    
 }
 
 /**
@@ -228,7 +227,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate
         [SSZipArchive unzipFileAtPath:path toDestination:destinationPath delegate:self];
     });
     
-   
 }
 #pragma mark ---SSZipArchiveDelegate
 

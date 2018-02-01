@@ -10,7 +10,14 @@
 
 @interface GloablVarManager : NSObject
 
+/**
+ 是否显示隐藏文件夹
+ */
 @property(nonatomic,assign)BOOL showHiddenFolder;
+
+/**
+ 是否隐藏文件扩展名
+ */
 @property(nonatomic,assign)BOOL showFolderType;
 
 +(instancetype)shareManager;
