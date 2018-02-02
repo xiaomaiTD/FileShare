@@ -21,6 +21,7 @@
 #import "openImageViewController.h"
 //TXT
 #import "LSYReadPageViewController.h"
+#import "OpenTXTEditViewController.h"
 #import "LSYReadModel.h"
 // PDF
 #import "PDFDocument.h"
@@ -248,7 +249,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
             APPNavPushViewController(webView);
         }
         if ([SupportTXTArray containsObject:[model.fileType uppercaseString]]) {
-            [self presentTXTViewControllerWithModel:model];
+//            [self presentTXTViewControllerWithModel:model];
+            [self openTXTWithModel:model];
         }
         if ([SupportZIPARRAY containsObject:[model.fileType uppercaseString]]) {
             [self unZipFileWithPath:model.fullPath];
@@ -266,20 +268,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
        
     }];
     [alertCon addAction:textAc];
-    
-    if ([model.fileType.uppercaseString isEqualToString:@"TXT"]) {
-        UIAlertAction *openReadAc = [UIAlertAction actionWithTitle:@"小说阅读方式打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        [alertCon addAction:openReadAc];
-        
-        UIAlertAction *openTXTAc = [UIAlertAction actionWithTitle:@"文本编辑方式打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        [alertCon addAction:openTXTAc];
-
-    }
-    
+  
     UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         
     }];
@@ -329,7 +318,54 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     });
 }
 
--(void)presentTXTViewControllerWithModel:(fileModel *)model{
+-(void)openTXTWithModel:(fileModel *)model{
+  
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"选择阅读方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+  
+    UIAlertAction *openReadAc = [UIAlertAction actionWithTitle:@"小说阅读方式打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self presentNovelViewControllerWithModel:model];
+    }];
+    [alertCon addAction:openReadAc];
+  
+    UIAlertAction *openTXTAc = [UIAlertAction actionWithTitle:@"文本编辑方式打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self presentTXTEditViewControllerWithModel:model];
+    }];
+    [alertCon addAction:openTXTAc];
+    
+    UIAlertAction *cancleAC = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertCon addAction:cancleAC];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
+}
+
+/**
+ 文本方式打开
+
+ @param model model
+ */
+-(void)presentTXTEditViewControllerWithModel:(fileModel *)model{
+    
+    OpenTXTEditViewController *txtVC = [[OpenTXTEditViewController alloc] init];
+    NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        LSYReadModel *readModel = [LSYReadModel getLocalModelWithURL:txtFull];
+        txtVC.model = readModel;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            APPNavPushViewController(txtVC);
+        });
+    });
+    
+}
+
+/**
+ 小说阅读方式打开
+
+ @param model model
+ */
+-(void)presentNovelViewControllerWithModel:(fileModel *)model{
+  
     LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
     NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];
     pageView.resourceURL = txtFull;
