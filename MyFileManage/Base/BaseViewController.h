@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "fileModel.h"
 
 @interface BaseViewController : UIViewController
+
+@property(nonatomic,strong)fileModel *model;
 
 -(void)showMessage;
 -(void)hidenMessage;

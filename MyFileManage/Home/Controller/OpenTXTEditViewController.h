@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "LSYReadModel.h"
 
-@interface OpenTXTEditViewController : UIViewController
+@interface OpenTXTEditViewController : BaseViewController
 
-@property(nonatomic,strong)LSYReadModel *model;
+@property(nonatomic,strong)LSYReadModel *readModel;
 
 @end

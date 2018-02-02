@@ -22,7 +22,7 @@
     
     _webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:_model.fullPath]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:self.model.fullPath]];
     [_webView loadRequest:request];
     _webView.navigationDelegate = self;
     [self.view addSubview:_webView];

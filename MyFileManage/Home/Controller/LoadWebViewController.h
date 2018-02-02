@@ -12,5 +12,5 @@
 #import "fileModel.h"
 
 @interface LoadWebViewController : BaseViewController
-@property(nonatomic,strong)fileModel *model;
+
 @end

@@ -348,15 +348,15 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 -(void)presentTXTEditViewControllerWithModel:(fileModel *)model{
     
     OpenTXTEditViewController *txtVC = [[OpenTXTEditViewController alloc] init];
+    txtVC.model = model;
     NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         LSYReadModel *readModel = [LSYReadModel getLocalModelWithURL:txtFull];
-        txtVC.model = readModel;
+        txtVC.readModel = readModel;
         dispatch_async(dispatch_get_main_queue(), ^{
             APPNavPushViewController(txtVC);
         });
     });
-    
 }
 
 /**

@@ -13,6 +13,6 @@
 @interface HomeFolderViewController: BaseViewController
 
 @property(nonatomic,assign)BOOL isPushSelf;
-@property(nonatomic,strong)fileModel *model;
+
 
 @end

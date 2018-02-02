@@ -13,6 +13,5 @@
 
 @interface playVideoViewController : BaseViewController
 
-@property(nonatomic,strong)fileModel *model;
 
 @end

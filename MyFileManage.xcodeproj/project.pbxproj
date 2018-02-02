@@ -101,6 +101,7 @@
 		0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DF200F433D0004751A /* CropEven@2x.png */; };
 		0005F1F8200FAAD90004751A /* FileFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1F7200FAAD90004751A /* FileFolder.m */; };
 		0014500A2024860500EB2D63 /* OpenTXTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001450092024860500EB2D63 /* OpenTXTEditViewController.m */; };
+		0014500D2024A56700EB2D63 /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0014500C2024A56700EB2D63 /* UIViewController+Extension.m */; };
 		002C9A57202199EE0053B1A6 /* SettingBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */; };
 		002C9A5A2021A08B0053B1A6 /* SettingNotifyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A592021A08B0053B1A6 /* SettingNotifyTableCell.m */; };
 		002C9A6C202208270053B1A6 /* GloablVarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A6B202208270053B1A6 /* GloablVarManager.m */; };
@@ -446,6 +447,8 @@
 		0005F1F7200FAAD90004751A /* FileFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileFolder.m; sourceTree = "<group>"; };
 		001450082024860500EB2D63 /* OpenTXTEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenTXTEditViewController.h; sourceTree = "<group>"; };
 		001450092024860500EB2D63 /* OpenTXTEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenTXTEditViewController.m; sourceTree = "<group>"; };
+		0014500B2024A56700EB2D63 /* UIViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
+		0014500C2024A56700EB2D63 /* UIViewController+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extension.m"; sourceTree = "<group>"; };
 		002C9A55202199EE0053B1A6 /* SettingBaseTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingBaseTableCell.h; sourceTree = "<group>"; };
 		002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingBaseTableCell.m; sourceTree = "<group>"; };
 		002C9A582021A08B0053B1A6 /* SettingNotifyTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingNotifyTableCell.h; sourceTree = "<group>"; };
@@ -1708,6 +1711,8 @@
 				3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */,
 				374AB5B31ED7D088004CFD0B /* UIView+Extension.h */,
 				374AB5B41ED7D088004CFD0B /* UIView+Extension.m */,
+				0014500B2024A56700EB2D63 /* UIViewController+Extension.h */,
+				0014500C2024A56700EB2D63 /* UIViewController+Extension.m */,
 				374AB5B11ED7D088004CFD0B /* DataBaseTool.h */,
 				374AB5B21ED7D088004CFD0B /* DataBaseTool.m */,
 				374AB5B51ED7D088004CFD0B /* ZoomImageView.m */,
@@ -2150,6 +2155,7 @@
 				377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */,
 				377E96F61ED55FA70080E86D /* MainViewController.m in Sources */,
 				00B3A97D200E02790009DC52 /* CXMLNode_CreationExtensions.m in Sources */,
+				0014500D2024A56700EB2D63 /* UIViewController+Extension.m in Sources */,
 				0005F197200F36440004751A /* PDFTextState.m in Sources */,
 				00B3A9E4200E04550009DC52 /* UIView+Animations.m in Sources */,
 				0005F174200F36440004751A /* PDFCMapParser.m in Sources */,

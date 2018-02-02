@@ -21,7 +21,6 @@
 
 @interface sendFileViewController : BaseViewController
 @property(nonatomic,assign)BOOL isPushSelf;
-@property(nonatomic,strong)fileModel *model;
 @property(nonatomic,weak)id<senderFileViewControllerDelegate>delegate;
 
 @end
