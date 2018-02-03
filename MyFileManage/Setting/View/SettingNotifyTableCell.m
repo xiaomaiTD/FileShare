@@ -36,6 +36,7 @@
 
 -(void)setIndexPath:(NSIndexPath *)indexPath{
     [super setIndexPath:indexPath];
+    self.accessoryType = UITableViewCellAccessoryNone;
     if (indexPath.section == 4) {
         self.switchON.on = indexPath.row == 0 ? [[DataBaseTool shareInstance] getShowFileTypeHidden]:[[DataBaseTool shareInstance] getShowHiddenFolderHidden];
     }

@@ -8,6 +8,7 @@
 
 #import "RecyleFileViewController.h"
 #import "ResourceFileManager.h"
+#import "SettingRecycelCell.h"
 #import "fileModel.h"
 
 @interface RecyleFileViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -24,7 +25,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[SettingRecycelCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:self.tableView];
     
@@ -37,10 +38,11 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    SettingRecycelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if (self.dataArray.count > 0) {
         fileModel *model = self.dataArray[indexPath.row];
-        cell.textLabel.text = model.fileName;
+//        cell.textLabel.text = model.fileName;
+        cell.model = model;
     }
     return cell;
 }

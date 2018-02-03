@@ -134,6 +134,7 @@
 		005155FC201334C8009DA2A3 /* SendMessageManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 005155FA201334C8009DA2A3 /* SendMessageManger.m */; };
 		005A705E200A1FE100400500 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A705D200A1FE100400500 /* BaseViewController.m */; };
 		005A7061200B367B00400500 /* VideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A7060200B367B00400500 /* VideoPlayView.m */; };
+		005BD4DA20260E3400340B74 /* SettingRecycelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005BD4D920260E3400340B74 /* SettingRecycelCell.m */; };
 		006C4D072018CB2700172419 /* localImageAndVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D062018CB2700172419 /* localImageAndVideoCell.m */; };
 		006C4D0A2018D46200172419 /* LocalImageAndVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D092018D46200172419 /* LocalImageAndVideoModel.m */; };
 		00886F3120133581006148BF /* UdpServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F2F20133581006148BF /* UdpServerManager.m */; };
@@ -494,6 +495,8 @@
 		005A705D200A1FE100400500 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		005A705F200B367B00400500 /* VideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayView.h; sourceTree = "<group>"; };
 		005A7060200B367B00400500 /* VideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayView.m; sourceTree = "<group>"; };
+		005BD4D820260E3400340B74 /* SettingRecycelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingRecycelCell.h; sourceTree = "<group>"; };
+		005BD4D920260E3400340B74 /* SettingRecycelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingRecycelCell.m; sourceTree = "<group>"; };
 		006C4D052018CB2700172419 /* localImageAndVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = localImageAndVideoCell.h; sourceTree = "<group>"; };
 		006C4D062018CB2700172419 /* localImageAndVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = localImageAndVideoCell.m; sourceTree = "<group>"; };
 		006C4D082018D46200172419 /* LocalImageAndVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalImageAndVideoModel.h; sourceTree = "<group>"; };
@@ -997,6 +1000,8 @@
 				002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */,
 				002C9A582021A08B0053B1A6 /* SettingNotifyTableCell.h */,
 				002C9A592021A08B0053B1A6 /* SettingNotifyTableCell.m */,
+				005BD4D820260E3400340B74 /* SettingRecycelCell.h */,
+				005BD4D920260E3400340B74 /* SettingRecycelCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2155,6 +2160,7 @@
 				00B3A91A200E02790009DC52 /* DDAbstractDatabaseLogger.m in Sources */,
 				00B3A92B200E02790009DC52 /* MultipartMessageHeaderField.m in Sources */,
 				00B3A97A200E02790009DC52 /* LSYViewPagerVC.m in Sources */,
+				005BD4DA20260E3400340B74 /* SettingRecycelCell.m in Sources */,
 				0005F171200F36440004751A /* NSArray+GreatReaderAdditions.m in Sources */,
 				0005F19F200F36440004751A /* PDFDocumentBackForwardList.m in Sources */,
 				0014501020255F2400EB2D63 /* RecyleFileViewController.m in Sources */,
