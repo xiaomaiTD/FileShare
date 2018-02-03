@@ -8,11 +8,12 @@
 
 #import "RecyleFileViewController.h"
 #import "ResourceFileManager.h"
+#import "fileModel.h"
 
 @interface RecyleFileViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)NSArray *dataArray;
+@property(nonatomic,strong)NSArray<fileModel *> *dataArray;
 
 @end
 
@@ -37,6 +38,10 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    if (self.dataArray.count > 0) {
+        fileModel *model = self.dataArray[indexPath.row];
+        cell.textLabel.text = model.fileName;
+    }
     return cell;
 }
 

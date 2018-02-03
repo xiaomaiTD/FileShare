@@ -7,6 +7,7 @@
 //
 
 #import "FolderFileManager.h"
+#import "ResourceFileManager.h"
 #import "NSFileManager+GreatReaderAdditions.h"
 
 static FolderFileManager *manage = nil;
@@ -122,15 +123,52 @@ static FolderFileManager *manage = nil;
 }
 
 -(void)moveToRecyleFolderFromPath:(NSString *)resourcePath{
+    // 移动到隐藏文件夹的时候防止没有创建成功
     NSString *recyclePath = [self getCycleFolderPath];
     NSFileManager *manage = [NSFileManager defaultManager];
     if (![manage fileExistsAtPath:recyclePath]) {
         [self createDirWithPath:recyclePath];
     }
-    NSError *error = nil;
-    BOOL moveSuccess = [manage moveItemAtPath:resourcePath toPath:[recyclePath stringByAppendingPathComponent:[resourcePath lastPathComponent]] error:&error];
-    NSLog(@"success------%d",moveSuccess);
-    NSLog(@"error------%@",error);
+    // 获取hidden目录下的所有文件
+    NSArray *hiddenDirArray = [[ResourceFileManager shareInstance] getAllRecycelFolderFileModels];
+    
+    [self realMoveToRecyleFolderWithHiddenArray:hiddenDirArray andResourcePath:resourcePath andRecyleName:[[resourcePath lastPathComponent] stringByDeletingPathExtension]];
+}
+
+-(void)realMoveToRecyleFolderWithHiddenArray:(NSArray *)hiddenDirArray andResourcePath:(NSString *)resourcePath andRecyleName:(NSString *)recycleName{
+
+    // 判读是不是文件夹
+    BOOL isDir = NO;
+    [[NSFileManager defaultManager] fileExistsAtPath:resourcePath isDirectory:&isDir];
+    
+    //  目标 回收站路径
+    NSString *recyclePath = nil;
+    if (isDir) {
+        recyclePath = [[self getCycleFolderPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",recycleName]];
+    }else{
+        recyclePath = [[self getCycleFolderPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",recycleName,[resourcePath pathExtension]]];
+    }
+    BOOL haveRepeatFile = [[NSFileManager defaultManager] fileExistsAtPath:recyclePath];
+    // 如果和回收站有相同的文件或者文件夹
+    if (haveRepeatFile) {
+        NSString *filename = recycleName;
+        if ([recycleName containsString:@"-"]) {
+            NSInteger fileCount = [[[filename componentsSeparatedByString:@"-"] lastObject] integerValue];
+            NSRange range = [filename rangeOfString:@"-" options:NSBackwardsSearch];
+            filename = [filename substringWithRange:NSMakeRange(0, range.location)];
+            fileCount = fileCount + 1;
+            filename = [filename stringByAppendingString:[NSString stringWithFormat:@"-%ld",(long)fileCount]];
+        }else{
+            filename = [filename stringByAppendingString:@"-1"];
+        }
+        // 循环调用判断是否有相同文件或者文件夹
+        [self realMoveToRecyleFolderWithHiddenArray:hiddenDirArray andResourcePath:resourcePath andRecyleName:filename];
+    }else{
+        NSError *error = nil;
+        BOOL moveSuccess = [[NSFileManager defaultManager] moveItemAtPath:resourcePath toPath:recyclePath error:&error];
+        NSLog(@"success------%d",moveSuccess);
+        NSLog(@"error------%@",error);
+    }
 }
 
 -(NSArray *)getAllFileModelInDic:(NSString *)dir{
