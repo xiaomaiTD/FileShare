@@ -58,6 +58,24 @@ static FolderFileManager *manage = nil;
     BOOL isDir = NO;
     if (![manag fileExistsAtPath:path isDirectory:&isDir]) {
         [manag createFileAtPath:path contents:nil attributes:nil];
+    }else{
+        NSString *filename = [[path lastPathComponent] stringByDeletingPathExtension];
+        // 判断是不是存在 - 的后缀
+        if ([filename containsString:@"-"]) {
+            NSInteger fileCount = [[[filename componentsSeparatedByString:@"-"] lastObject] integerValue];
+            NSRange range = [filename rangeOfString:@"-" options:NSBackwardsSearch];
+            filename = [filename substringWithRange:NSMakeRange(0, range.location)];
+            fileCount = fileCount + 1;
+            filename = [filename stringByAppendingString:[NSString stringWithFormat:@"-%ld.%@",(long)fileCount,path.pathExtension]];
+            NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
+            [self createTextWithPath:newPath];
+            
+        }else{
+            // 不存在的话直接往后面加 -1
+            filename = [NSString stringWithFormat:@"%@.%@",[filename stringByAppendingString:@"-1"],[path pathExtension]];
+            NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
+            [self createTextWithPath:newPath];
+        }
     }
 }
 
@@ -65,16 +83,37 @@ static FolderFileManager *manage = nil;
     NSFileManager *manage = [NSFileManager defaultManager];
     if (![manage fileExistsAtPath:path]) {
         [manage createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }else{
+        // 存在的文件名
+        NSString *filename = [path lastPathComponent];
+        // 判断是不是存在 - 的后缀
+        if ([filename containsString:@"-"]) {
+            NSInteger fileCount = [[[filename componentsSeparatedByString:@"-"] lastObject] integerValue];
+            NSRange range = [filename rangeOfString:@"-" options:NSBackwardsSearch];
+            filename = [filename substringWithRange:NSMakeRange(0, range.location)];
+            fileCount = fileCount + 1;
+            filename = [filename stringByAppendingString:[NSString stringWithFormat:@"-%ld",(long)fileCount]];
+            NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
+            [self createDirWithPath:newPath];
+            
+        }else{
+            // 不存在的话直接往后面加 -1
+            filename = [filename stringByAppendingString:@"-1"];
+            NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
+            [self createDirWithPath:newPath];
+        }
     }
 }
 -(void)createIsBeHiddenFolder{
-//    NSString *hiddenPath = [[self getUploadPath] stringByAppendingPathComponent:HiddenFolderName];
-    [self createDirWithPath:[self getBeHiddenFolderPath]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self getBeHiddenFolderPath]]) {
+         [self createDirWithPath:[self getBeHiddenFolderPath]];
+    }
 }
 
 -(void)createRecycleFolder{
-//    NSString *recyclePath = [[self getUploadPath] stringByAppendingPathComponent:RecycleFolderName];
-    [self createDirWithPath:[self getCycleFolderPath]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self getCycleFolderPath]]) {
+        [self createDirWithPath:[self getCycleFolderPath]];
+    }
 }
 
 -(void)createSystemFolder{
