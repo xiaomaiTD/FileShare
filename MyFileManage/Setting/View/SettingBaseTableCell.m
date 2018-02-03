@@ -13,6 +13,7 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -22,7 +23,7 @@
     if (indexPath.section == 3 && indexPath.row == 0) {
         self.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
-        self.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 }
 

@@ -41,6 +41,22 @@
  */
 - (NSArray *) getAllUploadAllFileModels;
 
+
+/**
+ 获取隐藏文件夹下的所有model
+
+ @return array
+ */
+- (NSArray *) getAllBeHiddenFolderFileModels;
+
+
+/**
+ 获得回收站里面的所有model
+
+ @return array
+ */
+- (NSArray *) getAllRecycelFolderFileModels;
+
 /**
  获取 MyFileManageUpload 文件夹下的所有文件名字
  

@@ -1,0 +1,47 @@
+//
+//  RecyleFileViewController.m
+//  MyFileManage
+//
+//  Created by Viterbi on 2018/2/3.
+//  Copyright © 2018年 wangchao. All rights reserved.
+//
+
+#import "RecyleFileViewController.h"
+#import "ResourceFileManager.h"
+
+@interface RecyleFileViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSArray *dataArray;
+
+@end
+
+@implementation RecyleFileViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    [self.view addSubview:self.tableView];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
+    self.dataArray = [[ResourceFileManager shareInstance] getAllRecycelFolderFileModels];
+    [self.tableView reloadData];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _dataArray.count;
+}
+
+@end

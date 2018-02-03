@@ -7,6 +7,7 @@
 //
 
 #import "ResourceFileManager.h"
+#import "FolderFileManager.h"
 
 static ResourceFileManager *manager = nil;
 
@@ -60,11 +61,21 @@ static ResourceFileManager *manager = nil;
 - (NSArray *) getAllUploadAllFileModels
 {
     NSArray *fileModelArray = [[[self getAllFilesName] firstleap_filter:^BOOL(NSString *files) {
-        return ![files isEqualToString:@".DS_Store"];
+        return ![files isEqualToString:@".DS_Store"] && ![files isEqualToString:RecycleFolderName];
     }] firstleap_map:^fileModel *(NSString *files) {
         return [[fileModel alloc] initWithFilePath:[NSString stringWithFormat:@"%@/%@",FileUploadSavePath,files]];
     }];
     return fileModelArray;
+}
+
+- (NSArray *)getAllBeHiddenFolderFileModels{
+    NSString *hiddenPath = [[FolderFileManager shareInstance] getBeHiddenFolderPath];
+    return [[FolderFileManager shareInstance] getAllFileModelInDic:hiddenPath];
+}
+
+-(NSArray *) getAllRecycelFolderFileModels{
+    NSString *recyclePath = [[FolderFileManager shareInstance] getCycleFolderPath];
+    return [[FolderFileManager shareInstance] getAllFileModelInDic:recyclePath];
 }
 
 /**

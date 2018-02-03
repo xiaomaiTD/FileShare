@@ -69,8 +69,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     if (self.isPushSelf) {
         self.dataSourceArray = [[[FolderFileManager shareInstance] getAllFileModelInDic:self.model.fullPath] mutableCopy];
     }else{
-        // 建立隐藏文件夹
-        [[FolderFileManager shareInstance] createIsBeHiddenFolder];
+        // 建立系统文件夹
+        [[FolderFileManager shareInstance] createSystemFolder];
         NSArray *tempArray = [[ResourceFileManager shareInstance] getAllUploadAllFileModels];
         if (tempArray && tempArray.count > 0 ) {
             self.dataSourceArray = tempArray.mutableCopy;
@@ -220,6 +220,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 {
     if (_dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
+        NSLog(@"fullPath-------%@",model.fullPath);
         if (model.isFolder) {
             HomeFolderViewController *vc = [[HomeFolderViewController alloc] init];
             vc.model = model;
@@ -270,7 +271,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [alertCon addAction:textAc];
   
     UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
+        [[FolderFileManager shareInstance] moveToRecyleFolderFromPath:model.fullPath];
+        [self fileFinishAndReloadTable];
     }];
     [alertCon addAction:folderAc];
     

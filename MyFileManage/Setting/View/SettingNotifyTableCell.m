@@ -37,7 +37,6 @@
 -(void)setIndexPath:(NSIndexPath *)indexPath{
     [super setIndexPath:indexPath];
     if (indexPath.section == 4) {
-        NSLog(@"getShowHiddenFolderHidden-----%d",[[DataBaseTool shareInstance] getShowHiddenFolderHidden]);
         self.switchON.on = indexPath.row == 0 ? [[DataBaseTool shareInstance] getShowFileTypeHidden]:[[DataBaseTool shareInstance] getShowHiddenFolderHidden];
     }
 }

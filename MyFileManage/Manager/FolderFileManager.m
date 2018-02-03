@@ -14,7 +14,6 @@ static FolderFileManager *manage = nil;
 @implementation FolderFileManager
 
 +(instancetype)shareInstance{
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manage = [[FolderFileManager alloc] init];
@@ -41,6 +40,14 @@ static FolderFileManager *manage = nil;
     return [NSFileManager grt_cacheUploadPath];
 }
 
+-(NSString *)getBeHiddenFolderPath{
+    return [[self getUploadPath] stringByAppendingPathComponent:HiddenFolderName];
+}
+
+-(NSString *)getCycleFolderPath{
+    return [[self getUploadPath] stringByAppendingPathComponent:RecycleFolderName];
+}
+
 -(void)deleteFileInPath:(NSString *)path{
     NSFileManager *manage = [NSFileManager defaultManager];
     [manage removeItemAtPath:path error:nil];
@@ -61,8 +68,30 @@ static FolderFileManager *manage = nil;
     }
 }
 -(void)createIsBeHiddenFolder{
-    NSString *hiddenPath = [[self getUploadPath] stringByAppendingPathComponent:HiddenFolderName];
-    [self createDirWithPath:hiddenPath];
+//    NSString *hiddenPath = [[self getUploadPath] stringByAppendingPathComponent:HiddenFolderName];
+    [self createDirWithPath:[self getBeHiddenFolderPath]];
+}
+
+-(void)createRecycleFolder{
+//    NSString *recyclePath = [[self getUploadPath] stringByAppendingPathComponent:RecycleFolderName];
+    [self createDirWithPath:[self getCycleFolderPath]];
+}
+
+-(void)createSystemFolder{
+    [self createRecycleFolder];
+    [self createIsBeHiddenFolder];
+}
+
+-(void)moveToRecyleFolderFromPath:(NSString *)resourcePath{
+    NSString *recyclePath = [self getCycleFolderPath];
+    NSFileManager *manage = [NSFileManager defaultManager];
+    if (![manage fileExistsAtPath:recyclePath]) {
+        [self createDirWithPath:recyclePath];
+    }
+    NSError *error = nil;
+    BOOL moveSuccess = [manage moveItemAtPath:resourcePath toPath:[recyclePath stringByAppendingPathComponent:[resourcePath lastPathComponent]] error:&error];
+    NSLog(@"success------%d",moveSuccess);
+    NSLog(@"error------%@",error);
 }
 
 -(NSArray *)getAllFileModelInDic:(NSString *)dir{

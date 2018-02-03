@@ -15,6 +15,8 @@
 
 -(NSString *)getDocumentPath;
 -(NSString *)getCachePath;
+-(NSString *)getBeHiddenFolderPath;
+-(NSString *)getCycleFolderPath;
 
 /**
  获得上传文件路径
@@ -23,14 +25,12 @@
  */
 -(NSString *)getUploadPath;
 
-
 /**
  删除文件以及文件夹
 
  @param path 文件路径
  */
 -(void )deleteFileInPath:(NSString *)path;
-
 
 /**
  创建文件夹
@@ -54,10 +54,25 @@
  */
 -(NSArray *)getAllFileModelInDic:(NSString *)dir;
 
-
 /**
  创建隐藏文件夹
  */
 -(void)createIsBeHiddenFolder;
+
+/**
+ 创建垃圾回收站
+ */
+-(void)createRecycleFolder;
+
+
+/**
+ 创建系统文件夹,包括隐藏文件夹，垃圾回收站等.
+ */
+-(void)createSystemFolder;
+
+/**
+ 将文件移动的垃圾回收站
+ */
+-(void)moveToRecyleFolderFromPath:(NSString *)resourcePath;
 
 @end
