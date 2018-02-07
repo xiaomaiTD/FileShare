@@ -46,7 +46,17 @@
     if (self.dataArray.count > 0) {
         cell.model = self.dataArray[indexPath.row];
     }
+    if (self.dataArray.count > 0 && indexPath.row == _selectedIndex) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _selectedIndex = indexPath.row;
+    [self.tableView reloadData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -54,8 +64,8 @@
 }
 
 -(void)setUpNav{
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [btn setImage:[UIImage imageNamed:@"folder_back"] forState:UIControlStateNormal];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    [btn setBackgroundImage:[UIImage imageNamed:@"folder_back"] forState:UIControlStateNormal];
     @weakify(self);
     [btn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
@@ -65,6 +75,7 @@
     
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBtn setTitle:@"确定" forState:UIControlStateNormal];
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [rightBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
     [rightBtn addTargetWithBlock:^(UIButton *sender) {
     

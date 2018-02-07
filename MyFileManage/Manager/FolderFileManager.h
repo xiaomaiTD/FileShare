@@ -64,7 +64,6 @@
  */
 -(void)createRecycleFolder;
 
-
 /**
  创建系统文件夹,包括隐藏文件夹，垃圾回收站等.
  */
@@ -74,5 +73,14 @@
  将文件移动的垃圾回收站
  */
 -(void)moveToRecyleFolderFromPath:(NSString *)resourcePath;
+
+
+/**
+ 移动文件到哪里
+
+ @param resource 从哪里
+ @param destination 到哪里
+ */
+-(void)moveFileFromPath:(NSString *)resource toDestionPath:(NSString *)destination;
 
 @end

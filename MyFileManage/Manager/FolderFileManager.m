@@ -61,22 +61,10 @@ static FolderFileManager *manage = nil;
         [manag createFileAtPath:path contents:nil attributes:nil];
     }else{
         NSString *filename = [[path lastPathComponent] stringByDeletingPathExtension];
-        // 判断是不是存在 - 的后缀
-        if ([filename containsString:@"-"]) {
-            NSInteger fileCount = [[[filename componentsSeparatedByString:@"-"] lastObject] integerValue];
-            NSRange range = [filename rangeOfString:@"-" options:NSBackwardsSearch];
-            filename = [filename substringWithRange:NSMakeRange(0, range.location)];
-            fileCount = fileCount + 1;
-            filename = [filename stringByAppendingString:[NSString stringWithFormat:@"-%ld.%@",(long)fileCount,path.pathExtension]];
-            NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
-            [self createTextWithPath:newPath];
-            
-        }else{
-            // 不存在的话直接往后面加 -1
-            filename = [NSString stringWithFormat:@"%@.%@",[filename stringByAppendingString:@"-1"],[path pathExtension]];
-            NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
-            [self createTextWithPath:newPath];
-        }
+        filename = [NSString stringWithFormat:@"%@.%@",[self replaceLineWithFileName:filename],path.pathExtension];
+
+        NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
+        [self createTextWithPath:newPath];
     }
 }
 
@@ -87,22 +75,10 @@ static FolderFileManager *manage = nil;
     }else{
         // 存在的文件名
         NSString *filename = [path lastPathComponent];
-        // 判断是不是存在 - 的后缀
-        if ([filename containsString:@"-"]) {
-            NSInteger fileCount = [[[filename componentsSeparatedByString:@"-"] lastObject] integerValue];
-            NSRange range = [filename rangeOfString:@"-" options:NSBackwardsSearch];
-            filename = [filename substringWithRange:NSMakeRange(0, range.location)];
-            fileCount = fileCount + 1;
-            filename = [filename stringByAppendingString:[NSString stringWithFormat:@"-%ld",(long)fileCount]];
-            NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
-            [self createDirWithPath:newPath];
-            
-        }else{
-            // 不存在的话直接往后面加 -1
-            filename = [filename stringByAppendingString:@"-1"];
-            NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
-            [self createDirWithPath:newPath];
-        }
+        //替换 - 。如果没有-1，如果有就 -%d
+        filename = [self replaceLineWithFileName:filename];
+        NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
+        [self createDirWithPath:newPath];
     }
 }
 -(void)createIsBeHiddenFolder{
@@ -151,16 +127,7 @@ static FolderFileManager *manage = nil;
     BOOL haveRepeatFile = [[NSFileManager defaultManager] fileExistsAtPath:recyclePath];
     // 如果和回收站有相同的文件或者文件夹
     if (haveRepeatFile) {
-        NSString *filename = recycleName;
-        if ([recycleName containsString:@"-"]) {
-            NSInteger fileCount = [[[filename componentsSeparatedByString:@"-"] lastObject] integerValue];
-            NSRange range = [filename rangeOfString:@"-" options:NSBackwardsSearch];
-            filename = [filename substringWithRange:NSMakeRange(0, range.location)];
-            fileCount = fileCount + 1;
-            filename = [filename stringByAppendingString:[NSString stringWithFormat:@"-%ld",(long)fileCount]];
-        }else{
-            filename = [filename stringByAppendingString:@"-1"];
-        }
+        NSString *filename = [self replaceLineWithFileName:recycleName];
         // 循环调用判断是否有相同文件或者文件夹
         [self realMoveToRecyleFolderWithHiddenArray:hiddenDirArray andResourcePath:resourcePath andRecyleName:filename];
     }else{
@@ -169,6 +136,24 @@ static FolderFileManager *manage = nil;
         NSLog(@"success------%d",moveSuccess);
         NSLog(@"error------%@",error);
     }
+}
+
+-(void)moveFileFromPath:(NSString *)resource toDestionPath:(NSString *)destination{
+    
+    
+}
+
+-(NSString *)replaceLineWithFileName:(NSString *)fileName{
+    if ([fileName containsString:@"-"]) {
+        NSInteger fileCount = [[[fileName componentsSeparatedByString:@"-"] lastObject] integerValue];
+        NSRange range = [fileName rangeOfString:@"-" options:NSBackwardsSearch];
+        fileName = [fileName substringWithRange:NSMakeRange(0, range.location)];
+        fileCount = fileCount + 1;
+        fileName = [fileName stringByAppendingString:[NSString stringWithFormat:@"-%ld",(long)fileCount]];
+    }else{
+        fileName = [fileName stringByAppendingString:@"-1"];
+    }
+    return [fileName copy];
 }
 
 -(NSArray *)getAllFileModelInDic:(NSString *)dir{
