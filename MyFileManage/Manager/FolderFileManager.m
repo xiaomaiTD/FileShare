@@ -139,7 +139,33 @@ static FolderFileManager *manage = nil;
 }
 
 -(void)moveFileFromPath:(NSString *)resource toDestionPath:(NSString *)destination{
+    // 判读是不是文件夹
+    BOOL isDir = NO;
+    [[NSFileManager defaultManager] fileExistsAtPath:resource isDirectory:&isDir];
+    NSString *destionationFileName = [[destination lastPathComponent] stringByDeletingLastPathComponent];
+
+    NSString *destinationPath = nil;
+    if (isDir) {
+        destinationPath = [destination stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",destionationFileName]];
+    }else{
+        destinationPath = [destination stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",destionationFileName,destination.pathExtension]];
+    }
     
+    [self moveFileFromPath:resource toDestionPath:destinationPath andDestionName:destionationFileName];
+}
+
+-(void)moveFileFromPath:(NSString *)resource toDestionPath:(NSString *)destination andDestionName:(NSString *)destionName{
+    
+    BOOL haveRepeatFile = [[NSFileManager defaultManager] fileExistsAtPath:destination];
+    if (haveRepeatFile) {
+        NSString *fileName = [self replaceLineWithFileName:destionName];
+        [self moveFileFromPath:resource toDestionPath:destination andDestionName:fileName];
+    }else{
+        NSError *error = nil;
+        BOOL moveSuccess = [[NSFileManager defaultManager] moveItemAtPath:resource toPath:destination error:&error];
+        NSLog(@"success------%d",moveSuccess);
+        NSLog(@"error------%@",error);
+    }
     
 }
 
