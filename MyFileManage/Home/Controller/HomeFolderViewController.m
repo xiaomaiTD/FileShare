@@ -30,6 +30,8 @@
 //HTML && OA
 #import "LoadWebViewController.h"
 
+#import "MoveFolderViewController.h"
+
 #import "ResourceFileManager.h"
 #import "FolderFileManager.h"
 #import "GloablVarManager.h"
@@ -266,7 +268,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"选择编辑方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"移动至-》" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-       
+        [self presentMoveFolderViewController];
     }];
     [alertCon addAction:textAc];
   
@@ -282,6 +284,13 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [alertCon addAction:cancelAc];
     
     [self presentViewController:alertCon animated:YES completion:nil];
+}
+
+-(void)presentMoveFolderViewController{
+    
+    MoveFolderViewController *moveF = [[MoveFolderViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:moveF];
+    APPPresentViewController(nav);
 }
 
 /**

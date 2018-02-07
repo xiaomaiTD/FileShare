@@ -100,6 +100,9 @@
 		0005F1F2200F433D0004751A /* Forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DD200F433C0004751A /* Forward@2x.png */; };
 		0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DF200F433D0004751A /* CropEven@2x.png */; };
 		0005F1F8200FAAD90004751A /* FileFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1F7200FAAD90004751A /* FileFolder.m */; };
+		0006BF2E202949E000C82FF9 /* MoveFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF2D202949E000C82FF9 /* MoveFolderViewController.m */; };
+		0006BF31202958AA00C82FF9 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF30202958AA00C82FF9 /* UIButton+Extension.m */; };
+		0006BF3A202ADC9A00C82FF9 /* MoveFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */; };
 		0014500A2024860500EB2D63 /* OpenTXTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001450092024860500EB2D63 /* OpenTXTEditViewController.m */; };
 		0014500D2024A56700EB2D63 /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0014500C2024A56700EB2D63 /* UIViewController+Extension.m */; };
 		0014501020255F2400EB2D63 /* RecyleFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0014500F20255F2400EB2D63 /* RecyleFileViewController.m */; };
@@ -447,6 +450,12 @@
 		0005F1E0200F433D0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/CropEven@2x.png"; sourceTree = SOURCE_ROOT; };
 		0005F1F6200FAAD90004751A /* FileFolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileFolder.h; sourceTree = "<group>"; };
 		0005F1F7200FAAD90004751A /* FileFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileFolder.m; sourceTree = "<group>"; };
+		0006BF2C202949E000C82FF9 /* MoveFolderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveFolderViewController.h; sourceTree = "<group>"; };
+		0006BF2D202949E000C82FF9 /* MoveFolderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveFolderViewController.m; sourceTree = "<group>"; };
+		0006BF2F202958AA00C82FF9 /* UIButton+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		0006BF30202958AA00C82FF9 /* UIButton+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
+		0006BF38202ADC9A00C82FF9 /* MoveFolderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveFolderCell.h; sourceTree = "<group>"; };
+		0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveFolderCell.m; sourceTree = "<group>"; };
 		001450082024860500EB2D63 /* OpenTXTEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenTXTEditViewController.h; sourceTree = "<group>"; };
 		001450092024860500EB2D63 /* OpenTXTEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenTXTEditViewController.m; sourceTree = "<group>"; };
 		0014500B2024A56700EB2D63 /* UIViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
@@ -1015,6 +1024,8 @@
 				00B3A818200DA0F90009DC52 /* VideoCoverView.m */,
 				002ECE1E2010E41D00319300 /* FolderCell.h */,
 				002ECE1F2010E41D00319300 /* FolderCell.m */,
+				0006BF38202ADC9A00C82FF9 /* MoveFolderCell.h */,
+				0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1026,6 +1037,8 @@
 				0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */,
 				0032FB0A2009F03A006EF52B /* HomeFolderViewController.h */,
 				0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */,
+				0006BF2C202949E000C82FF9 /* MoveFolderViewController.h */,
+				0006BF2D202949E000C82FF9 /* MoveFolderViewController.m */,
 				001450082024860500EB2D63 /* OpenTXTEditViewController.h */,
 				001450092024860500EB2D63 /* OpenTXTEditViewController.m */,
 				0032FB0C2009F03A006EF52B /* openImageViewController.h */,
@@ -1719,6 +1732,8 @@
 				3722BFE81F21CB56005D2EDB /* NSString+CHChinese.m */,
 				374AB5B31ED7D088004CFD0B /* UIView+Extension.h */,
 				374AB5B41ED7D088004CFD0B /* UIView+Extension.m */,
+				0006BF2F202958AA00C82FF9 /* UIButton+Extension.h */,
+				0006BF30202958AA00C82FF9 /* UIButton+Extension.m */,
 				0014500B2024A56700EB2D63 /* UIViewController+Extension.h */,
 				0014500C2024A56700EB2D63 /* UIViewController+Extension.m */,
 				374AB5B11ED7D088004CFD0B /* DataBaseTool.h */,
@@ -2072,11 +2087,13 @@
 				00B3A92D200E02790009DC52 /* HTTPDataResponse.m in Sources */,
 				0005F17A200F36440004751A /* PDFDocumentCropOverlayView.m in Sources */,
 				374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */,
+				0006BF31202958AA00C82FF9 /* UIButton+Extension.m in Sources */,
 				00B3A928200E02790009DC52 /* HTTPServer.m in Sources */,
 				00886F3120133581006148BF /* UdpServerManager.m in Sources */,
 				0005F175200F36440004751A /* Folder.m in Sources */,
 				00B3A92F200E02790009DC52 /* HTTPErrorResponse.m in Sources */,
 				0005F153200F36440004751A /* DocumentListViewController.m in Sources */,
+				0006BF2E202949E000C82FF9 /* MoveFolderViewController.m in Sources */,
 				0005F16F200F36440004751A /* PDFFontCollection.m in Sources */,
 				00B3A994200E02790009DC52 /* LSYTopMenuView.m in Sources */,
 				00B3A9E7200EF68D0009DC52 /* MusicViewController.m in Sources */,
@@ -2150,6 +2167,7 @@
 				00B3A977200E02790009DC52 /* LSYReadModel.m in Sources */,
 				002ECE202010E41D00319300 /* FolderCell.m in Sources */,
 				005A7061200B367B00400500 /* VideoPlayView.m in Sources */,
+				0006BF3A202ADC9A00C82FF9 /* MoveFolderCell.m in Sources */,
 				00B3A924200E02790009DC52 /* DDRange.m in Sources */,
 				00B3A981200E02790009DC52 /* CXMLElement.m in Sources */,
 				00B3A932200E02790009DC52 /* WebSocket.m in Sources */,

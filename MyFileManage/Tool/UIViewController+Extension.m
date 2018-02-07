@@ -13,5 +13,8 @@
 -(void)addRigthItemWithCustomView:(UIView *)custom{
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:custom];
 }
+-(void)addLeftItemWithCustomView:(UIView *)custom{
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:custom];
+}
 
 @end

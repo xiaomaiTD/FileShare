@@ -11,5 +11,5 @@
 @interface UIViewController (Extension)
 
 -(void)addRigthItemWithCustomView:(UIView *)custom;
-
+-(void)addLeftItemWithCustomView:(UIView *)custom;
 @end

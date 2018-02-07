@@ -41,7 +41,6 @@
     SettingRecycelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if (self.dataArray.count > 0) {
         fileModel *model = self.dataArray[indexPath.row];
-//        cell.textLabel.text = model.fileName;
         cell.model = model;
     }
     return cell;

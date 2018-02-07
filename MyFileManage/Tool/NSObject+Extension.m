@@ -11,7 +11,6 @@
 #import <objc/runtime.h>
 #import <sys/utsname.h>
 
-
 static const int block_key;
 
 @interface _FirstLeapKVOBlockTarget : NSObject
@@ -162,7 +161,6 @@ static const int block_key;
     return [(NSString *)self rangeOfString:string].location != NSNotFound;
 }
 
-
 +(NSString *)stringWithUUID{
     
     if ([self isKindOfClass:[NSString class]]) {
@@ -175,6 +173,4 @@ static const int block_key;
     
     return nil;
 }
-
-
 @end
