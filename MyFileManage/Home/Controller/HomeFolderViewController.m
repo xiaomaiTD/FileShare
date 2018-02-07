@@ -268,7 +268,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"选择编辑方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"移动至-》" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self presentMoveFolderViewController];
+        [self presentMoveFolderViewController:model];
     }];
     [alertCon addAction:textAc];
   
@@ -286,9 +286,10 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [self presentViewController:alertCon animated:YES completion:nil];
 }
 
--(void)presentMoveFolderViewController{
+-(void)presentMoveFolderViewController:(fileModel *)model{
     
     MoveFolderViewController *moveF = [[MoveFolderViewController alloc] init];
+    moveF.model = model;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:moveF];
     APPPresentViewController(nav);
 }

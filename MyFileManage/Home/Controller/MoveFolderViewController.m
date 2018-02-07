@@ -9,6 +9,7 @@
 #import "MoveFolderViewController.h"
 #import "UIViewController+Extension.h"
 #import "ResourceFileManager.h"
+#import "FolderFileManager.h"
 #import "MoveFolderCell.h"
 #import "fileModel.h"
 
@@ -16,6 +17,7 @@
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSArray *dataArray;
 @property(nonatomic,assign)NSInteger selectedIndex;
+@property(nonatomic,strong)fileModel *selectedModel;
 @end
 
 @implementation MoveFolderViewController
@@ -38,6 +40,7 @@
     self.dataArray = [[[ResourceFileManager shareInstance] getAllUploadAllFileModels] firstleap_filter:^BOOL(fileModel * model) {
         return model.isFolder;
     }];
+    _selectedModel = self.dataArray.firstObject;
     [self.tableView reloadData];
 }
 
@@ -56,6 +59,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     _selectedIndex = indexPath.row;
+    _selectedModel = self.dataArray[indexPath.row];
     [self.tableView reloadData];
 }
 
@@ -78,7 +82,11 @@
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [rightBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
     [rightBtn addTargetWithBlock:^(UIButton *sender) {
-    
+        @strongify(self);
+        NSString *des = self.selectedModel.fullPath;
+        NSString *from = self.model.fullPath;
+        [[FolderFileManager shareInstance] moveFileFromPath:from toDestionPath:des];
+        APPdismissViewController(self);
     }];
     [self addRigthItemWithCustomView:rightBtn];
 }

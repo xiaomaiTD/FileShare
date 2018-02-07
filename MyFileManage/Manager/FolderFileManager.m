@@ -150,7 +150,6 @@ static FolderFileManager *manage = nil;
     }else{
         destinationPath = [destination stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",destionationFileName,destination.pathExtension]];
     }
-    
     [self moveFileFromPath:resource toDestionPath:destinationPath andDestionName:destionationFileName];
 }
 
