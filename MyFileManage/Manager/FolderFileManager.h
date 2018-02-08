@@ -17,6 +17,7 @@
 -(NSString *)getCachePath;
 -(NSString *)getBeHiddenFolderPath;
 -(NSString *)getCycleFolderPath;
+-(NSString *)getDownloadFolderPath;
 
 /**
  获得上传文件路径

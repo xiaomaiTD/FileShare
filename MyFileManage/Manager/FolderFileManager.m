@@ -49,6 +49,10 @@ static FolderFileManager *manage = nil;
     return [[self getUploadPath] stringByAppendingPathComponent:RecycleFolderName];
 }
 
+-(NSString *)getDownloadFolderPath{
+    return [[self getUploadPath] stringByAppendingPathComponent:DownloadFolderName];
+}
+
 -(void)deleteFileInPath:(NSString *)path{
     NSFileManager *manage = [NSFileManager defaultManager];
     [manage removeItemAtPath:path error:nil];
@@ -81,6 +85,16 @@ static FolderFileManager *manage = nil;
         [self createDirWithPath:newPath];
     }
 }
+
+/**
+ 创建下载文件夹
+ */
+-(void)createDownloadFolder{
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self getDownloadFolderPath]]) {
+        [self createDirWithPath:[self getDownloadFolderPath]];
+    }
+}
+
 -(void)createIsBeHiddenFolder{
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self getBeHiddenFolderPath]]) {
          [self createDirWithPath:[self getBeHiddenFolderPath]];
@@ -96,6 +110,7 @@ static FolderFileManager *manage = nil;
 -(void)createSystemFolder{
     [self createRecycleFolder];
     [self createIsBeHiddenFolder];
+    [self createDownloadFolder];
 }
 
 -(void)moveToRecyleFolderFromPath:(NSString *)resourcePath{

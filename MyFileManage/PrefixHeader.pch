@@ -43,8 +43,9 @@
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
 #define MAINCOLOR [UIColor orangeColor]
-#define HiddenFolderName @"HiddenFolder"
-#define RecycleFolderName @"RecycleFolder"
+#define HiddenFolderName @"隐藏"
+#define RecycleFolderName @"回收站"
+#define DownloadFolderName @"下载"
 
 #define WEAKSEFL __weak typeof(self) wekSelf = self
 

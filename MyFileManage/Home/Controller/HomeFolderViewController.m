@@ -59,7 +59,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         _dataSourceArray = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return _dataSourceArray;
-    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:NO];
@@ -74,9 +73,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         // 建立系统文件夹
         [[FolderFileManager shareInstance] createSystemFolder];
         NSArray *tempArray = [[ResourceFileManager shareInstance] getAllUploadAllFileModels];
-        if (tempArray && tempArray.count > 0 ) {
-            self.dataSourceArray = tempArray.mutableCopy;
-        }
+        self.dataSourceArray = [tempArray mutableCopy];
     }
     [self configueNavItem];
     

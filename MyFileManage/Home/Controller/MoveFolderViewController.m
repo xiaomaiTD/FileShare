@@ -86,6 +86,7 @@
         NSString *des = self.selectedModel.fullPath;
         NSString *from = self.model.fullPath;
         [[FolderFileManager shareInstance] moveFileFromPath:from toDestionPath:des];
+        POSTNotificationName(FileFinish, nil);
         APPdismissViewController(self);
     }];
     [self addRigthItemWithCustomView:rightBtn];

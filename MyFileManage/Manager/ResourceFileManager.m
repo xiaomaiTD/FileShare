@@ -65,7 +65,25 @@ static ResourceFileManager *manager = nil;
     }] firstleap_map:^fileModel *(NSString *files) {
         return [[fileModel alloc] initWithFilePath:[NSString stringWithFormat:@"%@/%@",FileUploadSavePath,files]];
     }];
-    return fileModelArray;
+    
+    NSArray *systemFolder = [fileModelArray firstleap_filter:^BOOL(fileModel *model) {
+        return model.isSystemFolder;
+    }];
+    NSArray *notSystemFolder = [fileModelArray firstleap_filter:^BOOL(fileModel *model) {
+        return !model.isSystemFolder;
+    }];
+    
+   notSystemFolder = [notSystemFolder sortedArrayUsingComparator:^NSComparisonResult(fileModel * obj1, fileModel * obj2) {
+       if (obj1.isFolder < obj2.isFolder) {
+           return NSOrderedDescending;
+       }
+       return NSOrderedAscending;
+    }];
+    
+    NSMutableArray *sortArry = [NSMutableArray arrayWithCapacity:0];
+    [sortArry addObjectsFromArray:systemFolder];
+    [sortArry addObjectsFromArray:notSystemFolder];
+    return [sortArry copy];
 }
 
 - (NSArray *)getAllBeHiddenFolderFileModels{

@@ -15,6 +15,12 @@
 
     if (self = [super init]) {
         self.fileName = [[path lastPathComponent] stringByDeletingPathExtension];
+        
+        self.isSystemFolder = NO;
+        NSArray *systemArray = @[DownloadFolderName,HiddenFolderName];
+        if ([systemArray containsObject:self.fileName]) {
+            self.isSystemFolder = YES;
+        }
         // 根据全局变量 是否要显示文件后缀名
         self.fileName = [[DataBaseTool shareInstance] getShowFileTypeHidden] ? [path lastPathComponent] :self.fileName;
         self.fileType = [path pathExtension];
