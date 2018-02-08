@@ -7,9 +7,7 @@
 //
 
 #import "PDFPageContentView.h"
-
 #import <QuartzCore/QuartzCore.h>
-
 #import "NSArray+GreatReaderAdditions.h"
 #import "PDFPage.h"
 #import "PDFPageLink.h"

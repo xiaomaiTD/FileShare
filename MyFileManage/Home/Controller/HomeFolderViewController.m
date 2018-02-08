@@ -359,13 +359,13 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     OpenTXTEditViewController *txtVC = [[OpenTXTEditViewController alloc] init];
     txtVC.model = model;
     NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];
-    dispatch_async(dispatch_get_global_queue(0,0), ^{
+    [GCDQueue executeInGlobalQueue:^{
         LSYReadModel *readModel = [LSYReadModel getLocalModelWithURL:txtFull];
         txtVC.readModel = readModel;
-        dispatch_async(dispatch_get_main_queue(), ^{
+        [GCDQueue executeInMainQueue:^{
             APPNavPushViewController(txtVC);
-        });
-    });
+        }];
+    }];
 }
 
 /**
@@ -379,13 +379,13 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];
     pageView.resourceURL = txtFull;
     //文件位置
-    dispatch_async(dispatch_get_global_queue(0,0), ^{
+    [GCDQueue executeInGlobalQueue:^{
         LSYReadModel *readModel = [LSYReadModel getLocalModelWithURL:txtFull];
         pageView.model = readModel;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            APPPresentViewController(pageView);
-        });
-    });
+        [GCDQueue executeInMainQueue:^{
+             APPPresentViewController(pageView);
+        }];
+    }];
 }
 
 -(void)presentMusicViewController:(fileModel *)model{
@@ -397,13 +397,18 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 }
 
 -(void)presentPDFViewController:(fileModel *)model{
-    
-    PDFDocument *doument = [[ResourceFileManager shareInstance].documentStore documentAtPath:model.fullPath];
-    NSString *storyboardName = IsPhone() ? @"MainStoryboard_iPhone":@"MainStoryboard_iPad";
-    PDFDocumentViewController *vc = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateViewControllerWithIdentifier:@"StoryboardPDFDocument"];
-    vc.document = doument;
-    [doument.store addHistory:doument];
-    APPNavPushViewController(vc);
+    [self showMessageWithTitle:@"正在加载.."];
+    [GCDQueue executeInGlobalQueue:^{
+        PDFDocument *doument = [[ResourceFileManager shareInstance].documentStore documentAtPath:model.fullPath];
+        NSString *storyboardName = IsPhone() ? @"MainStoryboard_iPhone":@"MainStoryboard_iPad";
+        PDFDocumentViewController *vc = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateViewControllerWithIdentifier:@"StoryboardPDFDocument"];
+        vc.document = doument;
+        [doument.store addHistory:doument];
+        [GCDQueue executeInMainQueue:^{
+            [self hidenMessage];
+            APPNavPushViewController(vc);
+        }];
+    }];
 }
 
 -(void)fileFinishAndReloadTable{
