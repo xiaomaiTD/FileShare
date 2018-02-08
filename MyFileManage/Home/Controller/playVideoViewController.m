@@ -46,7 +46,6 @@
     VLCMediaPlayer *player = [[VLCMediaPlayer alloc] initWithOptions:nil];
     self.player = player;
     self.player.drawable = self.coverView;
-    
     if (isPhonePlus()) {
         // 随意给个数值，自己适配大小。给0的话，在高清设备下，可能显示不了。
         self.player.scaleFactor = 0.5;

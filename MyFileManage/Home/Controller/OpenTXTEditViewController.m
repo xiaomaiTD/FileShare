@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.textV = [[UITextView alloc] initWithFrame:self.view.bounds];
     self.textV.editable = NO;
     [self.view addSubview:self.textV];
@@ -30,7 +29,6 @@
         make.edges.mas_offset(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     [self configurNavBtn];
-    
 }
 
 -(void)configurNavBtn{
@@ -47,10 +45,18 @@
 -(void)editClick:(UIButton *)sender{
     sender.selected = !sender.isSelected;
     self.textV.editable = sender.isSelected;
+    [self.textV becomeFirstResponder];
     // 点击完成的时候
     if (!sender.isSelected) {
         self.readModel.content = self.textV.text;
-        [LSYReadModel updateLocalModel:self.readModel url:[NSURL fileURLWithPath:self.model.fullPath]];
+        [self showMessageWithTitle:@"正在更新"];
+        [GCDQueue executeInGlobalQueue:^{
+            [LSYReadModel updateContentWithModel:self.readModel url:[NSURL fileURLWithPath:self.model.fullPath]];
+            [GCDQueue executeInMainQueue:^{
+                [self hidenMessage];
+                [self showSuccessWithTitle:@"更新完毕"];
+            }];
+        }];
     }
 }
 

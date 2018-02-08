@@ -374,7 +374,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
  @param model model
  */
 -(void)presentNovelViewControllerWithModel:(fileModel *)model{
-  
+    
     LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
     NSURL *txtFull = [NSURL fileURLWithPath:model.fullPath];
     pageView.resourceURL = txtFull;

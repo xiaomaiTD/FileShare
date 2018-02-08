@@ -68,7 +68,6 @@
 }
 +(void)updateLocalModel:(LSYReadModel *)readModel url:(NSURL *)url
 {
-    
     NSString *key = [url.path lastPathComponent];
     NSMutableData *data=[[NSMutableData alloc]init];
     NSKeyedArchiver *archiver=[[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
@@ -76,6 +75,16 @@
     [archiver finishEncoding];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:key];
 }
+
++(void)updateContentWithModel:(LSYReadModel *)model url:(NSURL *)url{
+    NSString *key = [url.path lastPathComponent];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+    LSYReadModel *updataModel = [[LSYReadModel alloc] initWithContent:model.content];
+    updataModel.resource = url;
+    [LSYReadModel updateLocalModel:updataModel url:url];
+    [self updateLocalModel:updataModel url:url];
+}
+
 +(id)getLocalModelWithURL:(NSURL *)url
 {
     NSString *key = [url.path lastPathComponent];

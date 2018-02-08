@@ -11,8 +11,5 @@
 #import "fileModel.h"
 
 @interface HomeFolderViewController: BaseViewController
-
 @property(nonatomic,assign)BOOL isPushSelf;
-
-
 @end

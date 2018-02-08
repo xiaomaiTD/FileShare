@@ -23,6 +23,7 @@
 
 -(instancetype)initWithContent:(NSString *)content;
 -(instancetype)initWithePub:(NSString *)ePubPath;
++(void)updateContentWithModel:(LSYReadModel *)model url:(NSURL *)url;
 +(void)updateLocalModel:(LSYReadModel *)readModel url:(NSURL *)url;
 +(id)getLocalModelWithURL:(NSURL *)url;
 @end
