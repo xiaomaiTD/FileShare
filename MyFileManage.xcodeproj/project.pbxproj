@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00033417202D4F0F00C3328A /* website in Resources */ = {isa = PBXBuildFile; fileRef = 00033416202D4F0F00C3328A /* website */; };
+		00033419202D4F3200C3328A /* web in Resources */ = {isa = PBXBuildFile; fileRef = 00033418202D4F3200C3328A /* web */; };
 		0005F146200F36440004751A /* Localize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F084200F36280004751A /* Localize.m */; };
 		0005F147200F36440004751A /* PDFFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F085200F36280004751A /* PDFFont.m */; };
 		0005F148200F36440004751A /* NSFileManager+GreatReaderAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F08A200F36290004751A /* NSFileManager+GreatReaderAdditions.m */; };
@@ -103,6 +105,7 @@
 		0006BF2E202949E000C82FF9 /* MoveFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF2D202949E000C82FF9 /* MoveFolderViewController.m */; };
 		0006BF31202958AA00C82FF9 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF30202958AA00C82FF9 /* UIButton+Extension.m */; };
 		0006BF3A202ADC9A00C82FF9 /* MoveFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */; };
+		0006BF66202D421B00C82FF9 /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */; };
 		0014500A2024860500EB2D63 /* OpenTXTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001450092024860500EB2D63 /* OpenTXTEditViewController.m */; };
 		0014500D2024A56700EB2D63 /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0014500C2024A56700EB2D63 /* UIViewController+Extension.m */; };
 		0014501020255F2400EB2D63 /* RecyleFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0014500F20255F2400EB2D63 /* RecyleFileViewController.m */; };
@@ -115,7 +118,6 @@
 		0032FAC320089FDC006EF52B /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC220089FDC006EF52B /* libxml2.2.tbd */; };
 		0032FAC62008A1EE006EF52B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC52008A1EE006EF52B /* Foundation.framework */; };
 		0032FAC72008A667006EF52B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A671ED91BD7001BF4F1 /* libz.tbd */; };
-		0032FB162009F03A006EF52B /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */; };
 		0032FB172009F03A006EF52B /* HomeFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */; };
 		0032FB182009F03A006EF52B /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0D2009F03A006EF52B /* openImageViewController.m */; };
 		0032FB192009F03A006EF52B /* playVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0F2009F03A006EF52B /* playVideoViewController.m */; };
@@ -147,7 +149,6 @@
 		00886F3E201336AC006148BF /* ConnectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F3B201336AB006148BF /* ConnectionItem.m */; };
 		00886F6C20158DAC006148BF /* sendFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6B20158DAC006148BF /* sendFileViewController.m */; };
 		00886F6F2015D379006148BF /* AYHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F6E2015D379006148BF /* AYHTTPConnection.m */; };
-		008871AA20160A7E006148BF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 008871A920160A7E006148BF /* index.html */; };
 		008871AE20163225006148BF /* BrowerLocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008871AD20163225006148BF /* BrowerLocalViewController.m */; };
 		00887206201740D6006148BF /* localCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00887205201740D6006148BF /* localCell.m */; };
 		0088723B20183CB8006148BF /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088723A20183CB8006148BF /* ImageManager.m */; };
@@ -241,8 +242,6 @@
 		00B3A9EE200EF76D0009DC52 /* MusicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9E9200EF76D0009DC52 /* MusicSlider.m */; };
 		00B3A9EF200EF76D0009DC52 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */; };
 		00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */; };
-		00FE46BF201F704100B4C001 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 00FE46BD201F704100B4C001 /* index.html */; };
-		00FE46C0201F704100B4C001 /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 00FE46BE201F704100B4C001 /* upload.html */; };
 		00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13A2011CF0000BE57BB /* GCDGroup.m */; };
 		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
 		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
@@ -289,6 +288,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00033416202D4F0F00C3328A /* website */ = {isa = PBXFileReference; lastKnownFileType = folder; name = website; path = MyFileManage/website; sourceTree = SOURCE_ROOT; };
+		00033418202D4F3200C3328A /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web; path = MyFileManage/web; sourceTree = SOURCE_ROOT; };
 		0005F084200F36280004751A /* Localize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Localize.m; sourceTree = "<group>"; };
 		0005F085200F36280004751A /* PDFFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFFont.m; sourceTree = "<group>"; };
 		0005F086200F36290004751A /* NSString+GreatReaderAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GreatReaderAdditions.h"; sourceTree = "<group>"; };
@@ -456,6 +457,8 @@
 		0006BF30202958AA00C82FF9 /* UIButton+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
 		0006BF38202ADC9A00C82FF9 /* MoveFolderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveFolderCell.h; sourceTree = "<group>"; };
 		0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveFolderCell.m; sourceTree = "<group>"; };
+		0006BF64202D421A00C82FF9 /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
+		0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
 		001450082024860500EB2D63 /* OpenTXTEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenTXTEditViewController.h; sourceTree = "<group>"; };
 		001450092024860500EB2D63 /* OpenTXTEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenTXTEditViewController.m; sourceTree = "<group>"; };
 		0014500B2024A56700EB2D63 /* UIViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
@@ -474,8 +477,6 @@
 		002ECE222010E7B300319300 /* ResourceFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceFileManager.m; sourceTree = "<group>"; };
 		0032FAC220089FDC006EF52B /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		0032FAC52008A1EE006EF52B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0032FB082009F03A006EF52B /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
-		0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
 		0032FB0A2009F03A006EF52B /* HomeFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFolderViewController.h; sourceTree = "<group>"; };
 		0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFolderViewController.m; sourceTree = "<group>"; };
 		0032FB0C2009F03A006EF52B /* openImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openImageViewController.h; sourceTree = "<group>"; };
@@ -524,7 +525,6 @@
 		00886F6B20158DAC006148BF /* sendFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendFileViewController.m; sourceTree = "<group>"; };
 		00886F6D2015D379006148BF /* AYHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTTPConnection.h; sourceTree = "<group>"; };
 		00886F6E2015D379006148BF /* AYHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTTPConnection.m; sourceTree = "<group>"; };
-		008871A920160A7E006148BF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		008871AC20163225006148BF /* BrowerLocalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowerLocalViewController.h; sourceTree = "<group>"; };
 		008871AD20163225006148BF /* BrowerLocalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowerLocalViewController.m; sourceTree = "<group>"; };
 		00887204201740D6006148BF /* localCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = localCell.h; sourceTree = "<group>"; };
@@ -710,8 +710,6 @@
 		00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicIndicator.m; sourceTree = "<group>"; };
 		00BB14E12010AB6700F0E4A1 /* FolderFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FolderFileManager.h; sourceTree = "<group>"; };
 		00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FolderFileManager.m; sourceTree = "<group>"; };
-		00FE46BD201F704100B4C001 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		00FE46BE201F704100B4C001 /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
 		00FEF1382011CF0000BE57BB /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		00FEF1392011CF0000BE57BB /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		00FEF13A2011CF0000BE57BB /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -1033,8 +1031,6 @@
 		0032FB072009F03A006EF52B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0032FB082009F03A006EF52B /* ConnectWifiWebViewController.h */,
-				0032FB092009F03A006EF52B /* ConnectWifiWebViewController.m */,
 				0032FB0A2009F03A006EF52B /* HomeFolderViewController.h */,
 				0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */,
 				0006BF2C202949E000C82FF9 /* MoveFolderViewController.h */,
@@ -1072,15 +1068,6 @@
 			);
 			path = Model;
 			sourceTree = "<group>";
-		};
-		008871A820160A7E006148BF /* website */ = {
-			isa = PBXGroup;
-			children = (
-				008871A920160A7E006148BF /* index.html */,
-			);
-			name = website;
-			path = MyFileManage/website;
-			sourceTree = SOURCE_ROOT;
 		};
 		008871AB201631FF006148BF /* Local */ = {
 			isa = PBXGroup;
@@ -1122,6 +1109,8 @@
 		008F8B842012ED6B00FA08EC /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				0006BF64202D421A00C82FF9 /* ConnectWifiWebViewController.h */,
+				0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */,
 				008F8B852012ED9600FA08EC /* connectionViewController.h */,
 				008F8B862012ED9600FA08EC /* connectionViewController.m */,
 				00886F352013368B006148BF /* senderViewController.h */,
@@ -1150,8 +1139,8 @@
 		00B3A825200E02790009DC52 /* cocoaHttpServer */ = {
 			isa = PBXGroup;
 			children = (
-				00FE46BC201F704100B4C001 /* web */,
-				008871A820160A7E006148BF /* website */,
+				00033418202D4F3200C3328A /* web */,
+				00033416202D4F0F00C3328A /* website */,
 				00B3A826200E02790009DC52 /* CocoaAsyncSocket */,
 				00B3A82A200E02790009DC52 /* CocoaLumberjack */,
 				00B3A83C200E02790009DC52 /* Core */,
@@ -1560,16 +1549,6 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		00FE46BC201F704100B4C001 /* web */ = {
-			isa = PBXGroup;
-			children = (
-				00FE46BD201F704100B4C001 /* index.html */,
-				00FE46BE201F704100B4C001 /* upload.html */,
-			);
-			name = web;
-			path = MyFileManage/web;
-			sourceTree = SOURCE_ROOT;
-		};
 		00FEF1372011CF0000BE57BB /* GCD */ = {
 			isa = PBXGroup;
 			children = (
@@ -1917,7 +1896,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00FE46BF201F704100B4C001 /* index.html in Resources */,
 				0005F1B8200F42700004751A /* DocumentCollectionViewCell_iPad.xib in Resources */,
 				0005F1B6200F42700004751A /* MainStoryboard_iPad.storyboard in Resources */,
 				0005F1ED200F433D0004751A /* Folder@2x.png in Resources */,
@@ -1928,18 +1906,17 @@
 				00B3A917200E02790009DC52 /* About.txt in Resources */,
 				0005F1E4200F433D0004751A /* Brightness@2x.png in Resources */,
 				0005F157200F36440004751A /* Settings.bundle in Resources */,
+				00033419202D4F3200C3328A /* web in Resources */,
 				0005F1E3200F433D0004751A /* Setting@2x.png in Resources */,
 				00B3A921200E02790009DC52 /* README.txt in Resources */,
 				0005F1E1200F433D0004751A /* Crop@2x.png in Resources */,
 				0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */,
-				00FE46C0201F704100B4C001 /* upload.html in Resources */,
 				0005F1E2200F433D0004751A /* Back@2x.png in Resources */,
 				377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */,
 				0005F1E6200F433D0004751A /* Documents@2x.png in Resources */,
 				0005F1B4200F42700004751A /* DocumentCollectionViewCell_iPhone.xib in Resources */,
 				0005F1E8200F433D0004751A /* History@2x.png in Resources */,
 				0005F1B7200F42700004751A /* PDFDocumentOutlineItemCell.xib in Resources */,
-				008871AA20160A7E006148BF /* index.html in Resources */,
 				0005F1EF200F433D0004751A /* CropBoth@2x.png in Resources */,
 				0005F1EB200F433D0004751A /* TabHistory@2x.png in Resources */,
 				0005F1B5200F42700004751A /* MainStoryboard_iPhone.storyboard in Resources */,
@@ -1948,6 +1925,7 @@
 				0005F1B9200F42700004751A /* DocumentTableViewCell.xib in Resources */,
 				0005F1EA200F433D0004751A /* Outline@2x.png in Resources */,
 				377E95C01ED532CD0080E86D /* Assets.xcassets in Resources */,
+				00033417202D4F0F00C3328A /* website in Resources */,
 				0005F1E7200F433D0004751A /* CropNone@2x.png in Resources */,
 				0005F1EC200F433D0004751A /* Find@2x.png in Resources */,
 				00B3A919200E02790009DC52 /* About.txt in Resources */,
@@ -2090,6 +2068,7 @@
 				0006BF31202958AA00C82FF9 /* UIButton+Extension.m in Sources */,
 				00B3A928200E02790009DC52 /* HTTPServer.m in Sources */,
 				00886F3120133581006148BF /* UdpServerManager.m in Sources */,
+				0006BF66202D421B00C82FF9 /* ConnectWifiWebViewController.m in Sources */,
 				0005F175200F36440004751A /* Folder.m in Sources */,
 				00B3A92F200E02790009DC52 /* HTTPErrorResponse.m in Sources */,
 				0005F153200F36440004751A /* DocumentListViewController.m in Sources */,
@@ -2221,7 +2200,6 @@
 				0032FB182009F03A006EF52B /* openImageViewController.m in Sources */,
 				0005F163200F36440004751A /* PDFDocumentOutline.m in Sources */,
 				00B3A980200E02790009DC52 /* CXMLDocument_PrivateExtensions.m in Sources */,
-				0032FB162009F03A006EF52B /* ConnectWifiWebViewController.m in Sources */,
 				008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */,
 				00B3A92A200E02790009DC52 /* MultipartMessageHeader.m in Sources */,
 				0005F15D200F36440004751A /* PDFDocumentSearchResult.m in Sources */,

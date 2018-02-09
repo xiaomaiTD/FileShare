@@ -119,6 +119,7 @@
     {
         return;
     }
+    NSLog(@"uploadFilePath------%@",uploadFilePath);
     isUploading = YES;
     storeFile = [NSFileHandle fileHandleForWritingAtPath:uploadFilePath];
     NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithLongLong:uploadFileSize], @"totalfilesize",fileName,@"filename", nil];

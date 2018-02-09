@@ -70,6 +70,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         httpServer = [[HTTPServer alloc] init];
         [httpServer setType:@"_http._tcp."];
         NSString *docRoot = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"web"];
+        NSLog(@"docRoot------%@",docRoot);
         [httpServer setDocumentRoot:docRoot];
         [httpServer setConnectionClass:[MyHTTPConnection class]];
         NSError *error = nil;
