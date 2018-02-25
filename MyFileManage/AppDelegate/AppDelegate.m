@@ -18,15 +18,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [MainViewController new];
     [self.window makeKeyAndVisible];
-    NSString *docRoot = [[NSBundle mainBundle] resourcePath];
-    NSLog(@"docRoot------%@",docRoot);
-    
-
     return YES;
 }
 

@@ -45,6 +45,7 @@
         [self.clientManger sendBroadcast];
        NSLog(@"sendBroadcast");
     } repeats:YES];
+    self.title = IPAddress();
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -73,6 +74,7 @@
 #pragma mark -notification
 - (void) uploadWithStart:(NSNotification *) notification
 {
+    
     UInt64 fileSize = [(NSNumber *)[notification.userInfo objectForKey:@"totalfilesize"] longLongValue];
     __block NSString *showFileSize = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
@@ -97,6 +99,7 @@
         
         
     });
+    NSLog(@"uploadWithEnd");
 }
 
 - (void) uploadWithDisconnect:(NSNotification *) notification
@@ -105,10 +108,12 @@
         currentDataLength = 0;
         
     });
+    NSLog(@"uploadWithDisconnect");
 }
 
 - (void) uploading:(NSNotification *)notification
 {
+    
     float value = [(NSNumber *)[notification.userInfo objectForKey:@"progressvalue"] floatValue];
     currentDataLength += [(NSNumber *)[notification.userInfo objectForKey:@"cureentvaluelength"] intValue];
     __block NSString *showCurrentFileSize = nil;

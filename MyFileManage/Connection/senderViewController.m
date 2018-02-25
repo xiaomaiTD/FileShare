@@ -95,13 +95,16 @@
 -(void)senderFileSelectedModel:(fileModel *)model{
     
     ConnectionItem *item = _listData[_selectedIndex];
+    NSLog(@"port=====%hu",item.port);
     
     AFHTTPSessionManager *mana = [AFHTTPSessionManager manager];
     [mana.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
+    mana.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
 
     [mana POST:item.GetRemoteAddress parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSData *data = [NSData dataWithContentsOfFile:model.fullPath];
-        [formData appendPartWithFormData:data name:@"file"];
+//        [formData appendPartWithFormData:data name:@"file"];
+        [formData appendPartWithFileData:data name:@"file" fileName:@"name" mimeType:@"image/jpeg"];
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
