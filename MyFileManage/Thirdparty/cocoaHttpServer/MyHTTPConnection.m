@@ -151,26 +151,25 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	// check content disposition to find out filename
 
     MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
-	NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
+    NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
 
     if ( (nil == filename) || [filename isEqualToString: @""] ) {
         // it's either not a file part, or
 		// an empty form sent. we won't handle it.
 		return;
-	}    
+	  }
 	//NSString* uploadDirPath = [[config documentRoot] stringByAppendingPathComponent:@"upload"];
 
-    
     NSString *uploadDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     
     uploadDirPath = [NSString stringWithFormat:@"%@/MyFileManageUpload",uploadDirPath];
     
     NSLog(@"%@",uploadDirPath);
     
-	BOOL isDir = YES;
-	if (![[NSFileManager defaultManager]fileExistsAtPath:uploadDirPath isDirectory:&isDir ]) {
-		[[NSFileManager defaultManager]createDirectoryAtPath:uploadDirPath withIntermediateDirectories:YES attributes:nil error:nil];
-	}
+  BOOL isDir = YES;
+  if (![[NSFileManager defaultManager]fileExistsAtPath:uploadDirPath isDirectory:&isDir ]) {
+    [[NSFileManager defaultManager]createDirectoryAtPath:uploadDirPath withIntermediateDirectories:YES attributes:nil error:nil];
+  }
     NSString* filePath = [uploadDirPath stringByAppendingPathComponent: filename];
     
     if( [[NSFileManager defaultManager] fileExistsAtPath:filePath] ) {
@@ -178,15 +177,15 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
     }
     else {
         
-		HTTPLogVerbose(@"Saving file to %@", filePath);
-		if(![[NSFileManager defaultManager] createDirectoryAtPath:uploadDirPath withIntermediateDirectories:true attributes:nil error:nil]) {
-			HTTPLogError(@"Could not create directory at path: %@", filePath);
-		}
-		if(![[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil]) {
-			HTTPLogError(@"Could not create file at path: %@", filePath);
-		}
-		storeFile = [NSFileHandle fileHandleForWritingAtPath:filePath];
-		[uploadedFiles addObject: [NSString stringWithFormat:@"/upload/%@", filename]];
+      HTTPLogVerbose(@"Saving file to %@", filePath);
+      if(![[NSFileManager defaultManager] createDirectoryAtPath:uploadDirPath withIntermediateDirectories:true attributes:nil error:nil]) {
+        HTTPLogError(@"Could not create directory at path: %@", filePath);
+      }
+      if(![[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil]) {
+        HTTPLogError(@"Could not create file at path: %@", filePath);
+      }
+      storeFile = [NSFileHandle fileHandleForWritingAtPath:filePath];
+      [uploadedFiles addObject: [NSString stringWithFormat:@"/upload/%@", filename]];
     }
     NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithLongLong:uploadFileSize], @"totalfilesize",filename,@"filename", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADSTART object:nil userInfo:value];

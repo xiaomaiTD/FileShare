@@ -9,6 +9,7 @@
 #import "receiveViewController.h"
 #import "AYHTTPConnection.h"
 #import "NSTimer+Extension.h"
+#import "receiveFileTableCell.h"
 
 #define GBUnit 1073741824
 #define MBUnit 1048576
@@ -16,16 +17,17 @@
 
 
 @interface receiveViewController ()
+<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)NSTimer *timer;
-
+@property(nonatomic,strong)UITableView *tableView;
 @end
 
 @implementation receiveViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+  
     currentDataLength = 0;
     
     self.clientManger=[[UdpServerManager alloc] init];
@@ -45,7 +47,25 @@
         [self.clientManger sendBroadcast];
        NSLog(@"sendBroadcast");
     } repeats:YES];
+    
+    [self setUI];
     self.title = IPAddress();
+}
+
+-(void)setUI{
+  
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[receiveFileTableCell class] forCellReuseIdentifier:@"receiveFileTableCell"];
+    self.tableView.estimatedRowHeight = 60;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    [self.view addSubview:self.tableView];
+  
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -69,7 +89,6 @@
 - (void)receiveIpFinished:(NSNotification*)notifice{
     NSString *host=[notifice.userInfo objectForKey:@"host"];
     NSLog(@"host =%@",host);
-    
 }
 #pragma mark -notification
 - (void) uploadWithStart:(NSNotification *) notification
@@ -132,6 +151,14 @@
     });
     NSLog(@"value------%f",value);
     showCurrentFileSize = nil;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+  receiveFileTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"receiveFileTableCell" forIndexPath:indexPath];
+  return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  return 10;
 }
 
 @end
