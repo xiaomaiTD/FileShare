@@ -23,6 +23,7 @@
         }
         // 根据全局变量 是否要显示文件后缀名
         self.fileName = [[DataBaseTool shareInstance] getShowFileTypeHidden] ? [path lastPathComponent] :self.fileName;
+        self.name = [path lastPathComponent];
         self.fileType = [path pathExtension];
         self.fullPath = path;
         BOOL folder = NO;

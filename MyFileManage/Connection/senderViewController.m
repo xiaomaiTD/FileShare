@@ -102,8 +102,7 @@
   
     [mana POST:item.GetRemoteAddress parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSData *data = [NSData dataWithContentsOfFile:model.fullPath];
-        [formData appendPartWithFileData:data name:@"uploadnewfile" fileName:@"name" mimeType:@"image/jpeg"];
-        
+        [formData appendPartWithFileData:data name:@"uploadnewfile" fileName:model.name mimeType:@"image/png"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
         NSLog(@"uploadProgress=====%@",uploadProgress);

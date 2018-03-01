@@ -11,6 +11,7 @@
 #import "MultipartMessageHeader.h"
 #import "MultipartMessageHeaderField.h"
 #import "HTTPDynamicFileResponse.h"
+#import "FolderFileManager.h"
 
 @implementation AYHTTPConnection
 
@@ -111,8 +112,8 @@
     if (fileName==nil || [fileName isEqualToString:@""])
         return;
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *uploadFilePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *uploadFilePath = [[[FolderFileManager shareInstance] getUploadPath] stringByAppendingPathComponent:fileName];
     NSFileManager *fm = [NSFileManager defaultManager];
     //Ready to write the file, if the file already exists Overwrite
     if (![fm createFileAtPath:uploadFilePath contents:nil attributes:nil])

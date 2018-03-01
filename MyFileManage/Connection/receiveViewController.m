@@ -21,9 +21,18 @@
 
 @property(nonatomic,strong)NSTimer *timer;
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *dataSourceArray;
+
 @end
 
 @implementation receiveViewController
+
+-(NSMutableArray *)dataSourceArray{
+  if (_dataSourceArray == nil) {
+    _dataSourceArray = [[NSMutableArray alloc] initWithCapacity:0];
+  }
+  return _dataSourceArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -115,8 +124,7 @@
 - (void) uploadWithEnd:(NSNotification *) notification
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        
-        
+      [self showSuccess];
     });
     NSLog(@"uploadWithEnd");
 }
@@ -125,7 +133,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         currentDataLength = 0;
-        
+        [self showErrorWithTitle:@"网络连接断开"];
     });
     NSLog(@"uploadWithDisconnect");
 }
@@ -148,6 +156,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"showCurrentFileSize");
         });
+        NSLog(@"showCurrentFileSize--------%@",showCurrentFileSize);
     });
     NSLog(@"value------%f",value);
     showCurrentFileSize = nil;
@@ -158,7 +167,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  return 10;
+  return _dataSourceArray.count;
 }
 
 @end
