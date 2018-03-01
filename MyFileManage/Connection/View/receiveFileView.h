@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface receiveFileTableCell : UITableViewCell
+@interface receiveFileView : UIView
 
 @property(nonatomic,strong)UILabel *fileNameLable;
 @property(nonatomic,strong)UIProgressView *progressView;

@@ -12,6 +12,7 @@
 #import "ConnectionItem.h"
 #import "fileModel.h"
 #import <AFNetworking/AFNetworking.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface senderViewController ()
 <UITableViewDelegate,UITableViewDataSource,senderFileViewControllerDelegate>
@@ -97,21 +98,25 @@
     NSLog(@"port=====%hu",item.port);
     
     AFHTTPSessionManager *mana = [AFHTTPSessionManager manager];
-    [mana.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
-    mana.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
-  
+    mana.responseSerializer = [AFHTTPResponseSerializer serializer];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeDeterminateHorizontalBar;
+    hud.label.text = @"%0...";
+
     [mana POST:item.GetRemoteAddress parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSData *data = [NSData dataWithContentsOfFile:model.fullPath];
         [formData appendPartWithFileData:data name:@"uploadnewfile" fileName:model.name mimeType:@"image/png"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-        NSLog(@"uploadProgress=====%@",uploadProgress);
-        
+        [GCDQueue executeInMainQueue:^{
+            [MBProgressHUD HUDForView:self.view].progress = uploadProgress.fractionCompleted;
+            hud.label.text = uploadProgress.localizedDescription;
+        }];
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"responseObject=====%@",responseObject);
-        
+        [self hidenMessage];
+        [self showSuccess];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error=====%@",error);
+        [self hidenMessage];
+        [self showError];
     }];
     
 }

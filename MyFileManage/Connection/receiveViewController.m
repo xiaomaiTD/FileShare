@@ -9,7 +9,7 @@
 #import "receiveViewController.h"
 #import "AYHTTPConnection.h"
 #import "NSTimer+Extension.h"
-#import "receiveFileTableCell.h"
+#import "receiveFileView.h"
 
 #define GBUnit 1073741824
 #define MBUnit 1048576
@@ -17,10 +17,10 @@
 
 
 @interface receiveViewController ()
-<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)NSTimer *timer;
-@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)UIScrollView *contenScrollView;
+@property(nonatomic,strong)UIView *containerView;
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 
 @end
@@ -63,17 +63,17 @@
 
 -(void)setUI{
   
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.tableView registerClass:[receiveFileTableCell class] forCellReuseIdentifier:@"receiveFileTableCell"];
-    self.tableView.estimatedRowHeight = 60;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.tableFooterView = [[UIView alloc] init];
-    [self.view addSubview:self.tableView];
-  
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.contenScrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.contenScrollView];
+    [self.contenScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
+    self.containerView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.contenScrollView addSubview:self.containerView];
+    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contenScrollView);
+        make.size.width.equalTo(self.contenScrollView);
     }];
 }
 
@@ -102,7 +102,11 @@
 #pragma mark -notification
 - (void) uploadWithStart:(NSNotification *) notification
 {
-    
+    NSDictionary *info = notification.userInfo;
+    ///filename
+    if (![self.dataSourceArray containsObject:info]) {
+        [self.dataSourceArray addObject:info];
+    }
     UInt64 fileSize = [(NSNumber *)[notification.userInfo objectForKey:@"totalfilesize"] longLongValue];
     __block NSString *showFileSize = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
@@ -125,8 +129,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
       [self showSuccess];
-    });
-    NSLog(@"uploadWithEnd");
+    }); 
 }
 
 - (void) uploadWithDisconnect:(NSNotification *) notification
@@ -135,7 +138,6 @@
         currentDataLength = 0;
         [self showErrorWithTitle:@"网络连接断开"];
     });
-    NSLog(@"uploadWithDisconnect");
 }
 
 - (void) uploading:(NSNotification *)notification
@@ -160,14 +162,6 @@
     });
     NSLog(@"value------%f",value);
     showCurrentFileSize = nil;
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  receiveFileTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"receiveFileTableCell" forIndexPath:indexPath];
-  return cell;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  return _dataSourceArray.count;
 }
 
 @end

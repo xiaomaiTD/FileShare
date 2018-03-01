@@ -242,7 +242,7 @@
 		00B3A9EE200EF76D0009DC52 /* MusicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9E9200EF76D0009DC52 /* MusicSlider.m */; };
 		00B3A9EF200EF76D0009DC52 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */; };
 		00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */; };
-		00D8AA832046EC4F00FA4AF9 /* receiveFileTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D8AA822046EC4F00FA4AF9 /* receiveFileTableCell.m */; };
+		00D8AA832046EC4F00FA4AF9 /* receiveFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D8AA822046EC4F00FA4AF9 /* receiveFileView.m */; };
 		00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13A2011CF0000BE57BB /* GCDGroup.m */; };
 		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
 		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
@@ -711,8 +711,8 @@
 		00B3A9EC200EF76D0009DC52 /* MusicIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicIndicator.m; sourceTree = "<group>"; };
 		00BB14E12010AB6700F0E4A1 /* FolderFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FolderFileManager.h; sourceTree = "<group>"; };
 		00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FolderFileManager.m; sourceTree = "<group>"; };
-		00D8AA812046EC4F00FA4AF9 /* receiveFileTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = receiveFileTableCell.h; sourceTree = "<group>"; };
-		00D8AA822046EC4F00FA4AF9 /* receiveFileTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = receiveFileTableCell.m; sourceTree = "<group>"; };
+		00D8AA812046EC4F00FA4AF9 /* receiveFileView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = receiveFileView.h; sourceTree = "<group>"; };
+		00D8AA822046EC4F00FA4AF9 /* receiveFileView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = receiveFileView.m; sourceTree = "<group>"; };
 		00FEF1382011CF0000BE57BB /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		00FEF1392011CF0000BE57BB /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		00FEF13A2011CF0000BE57BB /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -1556,8 +1556,8 @@
 		00D8AA802046EACE00FA4AF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				00D8AA812046EC4F00FA4AF9 /* receiveFileTableCell.h */,
-				00D8AA822046EC4F00FA4AF9 /* receiveFileTableCell.m */,
+				00D8AA812046EC4F00FA4AF9 /* receiveFileView.h */,
+				00D8AA822046EC4F00FA4AF9 /* receiveFileView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2225,7 +2225,7 @@
 				0005F147200F36440004751A /* PDFFont.m in Sources */,
 				00886F372013368B006148BF /* senderViewController.m in Sources */,
 				00B3A983200E02790009DC52 /* CXMLElement_ElementTreeExtensions.m in Sources */,
-				00D8AA832046EC4F00FA4AF9 /* receiveFileTableCell.m in Sources */,
+				00D8AA832046EC4F00FA4AF9 /* receiveFileView.m in Sources */,
 				00B3A970200E02790009DC52 /* LSYCatalogViewController.m in Sources */,
 				0005F156200F36440004751A /* PDFDocumentSearchViewModel.m in Sources */,
 				00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */,
