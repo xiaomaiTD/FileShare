@@ -23,6 +23,7 @@
 @property(nonatomic,strong)UIView *containerView;
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)NSMutableArray *viewArray;
+@property(nonatomic,strong)UIActivityIndicatorView *indicator;
 
 @end
 
@@ -61,41 +62,60 @@
     [self addObservers];
     
    _timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^(NSTimer *timer) {
-        [self.clientManger sendBroadcast];
-       NSLog(@"sendBroadcast");
+       [self.clientManger sendBroadcast];
+       
     } repeats:YES];
     
-    self.title = IPAddress();
+    self.title = [NSString stringWithFormat:@"本机ip：%@",IPAddress()];
+    [self setRightItem];
+}
+
+
+-(void)setRightItem{
+    
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.indicator.hidesWhenStopped = YES;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicator];
+    [self.indicator startAnimating];
 }
 
 -(void)setUI{
+    
     [self.contenScrollView removeFromSuperview];
+    self.contenScrollView = nil;
     [self.containerView removeFromSuperview];
+    self.containerView = nil;
     if (self.viewArray.count > 0) {
-      [self.viewArray performSelector:@selector(removeFromSuperview) withObject:nil];
+        [self.viewArray performSelector:@selector(removeFromSuperview) withObject:nil];
     }
     [self.viewArray removeAllObjects];
-    
-    self.contenScrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
+
+    self.contenScrollView= [UIScrollView new];
+    self.contenScrollView.backgroundColor = [UIColor whiteColor];
+    self.contenScrollView.layer.masksToBounds = YES;
+    self.contenScrollView.layer.cornerRadius = 5;
     [self.view addSubview:self.contenScrollView];
     [self.contenScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(5,5,5,5));
     }];
-
-    self.containerView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.containerView = [UIView new];
+    self.containerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.contenScrollView addSubview:self.containerView];
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contenScrollView);
-        make.size.width.equalTo(self.contenScrollView);
+        make.width.equalTo(self.contenScrollView);
     }];
     
-    NSInteger count = self.dataSourceArray.count;
+    NSInteger count = 2;
+    
     UIView *lastView = nil;
+    
     for ( int i = 1 ; i <= count ; ++i )
     {
-        receiveFileView *subv = [[receiveFileView alloc] initWithFrame:CGRectZero];
-        [self.viewArray addObject:subv];
+        receiveFileView *subv = [receiveFileView new];
         [self.containerView addSubview:subv];
+        [self.viewArray addObject:subv];
         [subv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.equalTo(self.containerView);
             make.height.mas_equalTo(@(60));
@@ -108,10 +128,15 @@
                 make.top.mas_equalTo(self.containerView.mas_top);
             }
         }];
+        
         lastView = subv;
     }
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(lastView.mas_bottom);
+        if (lastView.maxY < kScreenHeight) {
+            make.height.mas_offset(kScreenHeight);
+        }else{
+            make.bottom.equalTo(lastView.mas_bottom);
+        }
     }];
 
 }
@@ -163,8 +188,9 @@
         });
     });
     showFileSize = nil;
-
-    [self setUI];
+    [GCDQueue executeInMainQueue:^{
+       [self setUI];
+    }];
 }
 
 - (void) uploadWithEnd:(NSNotification *) notification
