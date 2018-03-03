@@ -113,13 +113,9 @@
         return;
     
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *uploadFilePath = [[[FolderFileManager shareInstance] getUploadPath] stringByAppendingPathComponent:fileName];
-    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *uploadFilePath = [[[FolderFileManager shareInstance] getDownloadFolderPath] stringByAppendingPathComponent:fileName];
+    [[FolderFileManager shareInstance] createFileWithPath:uploadFilePath];
     //Ready to write the file, if the file already exists Overwrite
-    if (![fm createFileAtPath:uploadFilePath contents:nil attributes:nil])
-    {
-        return;
-    }
     NSLog(@"uploadFilePath------%@",uploadFilePath);
     isUploading = YES;
     storeFile = [NSFileHandle fileHandleForWritingAtPath:uploadFilePath];

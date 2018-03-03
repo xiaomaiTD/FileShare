@@ -22,6 +22,7 @@
 @property(nonatomic,strong)UdpServerManager *serverManger;
 @property(nonatomic,assign)NSInteger selectedIndex;
 
+@property(nonatomic,strong)UIActivityIndicatorView *indicator;
 @property(nonatomic,strong)NSURLSessionUploadTask *task;
 
 @end
@@ -47,15 +48,10 @@
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
-    UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame=CGRectMake(0, 0, 40, 30);
-    [btn setTitle:@"完成" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [btn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(buttonFinishedClick) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBtn=[[UIBarButtonItem alloc] initWithCustomView:btn];
-    self.navigationItem.rightBarButtonItem=rightBtn;
-    
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.indicator startAnimating];
+    self.indicator.hidesWhenStopped = YES;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicator];
     self.listData = [[NSMutableArray alloc] init];
     self.serverManger = [[UdpServerManager alloc] init];
     [self.serverManger start];
@@ -127,10 +123,21 @@
         ConnectionItem *model = self.listData[indexPath.row];
         cell.textLabel.text = model.name;
     }
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.listData.count;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.listData.count > 0) {
+        _selectedIndex = indexPath.row;
+        [self buttonFinishedClick];
+    }
 }
 
 @end

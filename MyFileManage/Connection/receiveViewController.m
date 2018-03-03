@@ -70,14 +70,12 @@
     [self setRightItem];
 }
 
-
 -(void)setRightItem{
-    
     self.automaticallyAdjustsScrollViewInsets  = NO;
     self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.indicator startAnimating];
     self.indicator.hidesWhenStopped = YES;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicator];
-    [self.indicator startAnimating];
 }
 
 -(void)setUI{
@@ -187,13 +185,10 @@
             showFileSize = [[NSString alloc] initWithFormat:@"%lliKB", fileSize / KBUnit];
         else if (fileSize<=KBUnit)
             showFileSize = [[NSString alloc] initWithFormat:@"%lliB", fileSize];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-        });
     });
     showFileSize = nil;
     [GCDQueue executeInMainQueue:^{
-       [self setUI];
+        [self setUI];
     }];
 }
 
@@ -205,6 +200,7 @@
             [GCDQueue executeInMainQueue:^{
                 [receive updateProgressViewWithValue:1.0];
                 [self showSuccess];
+                [self.indicator stopAnimating];
             }];
         }
     }

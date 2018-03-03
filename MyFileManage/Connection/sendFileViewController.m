@@ -33,12 +33,11 @@
             self.dataSourceArray = tempArray.mutableCopy;
         }
     }
-    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     flowLayout.minimumLineSpacing = 10;
     flowLayout.minimumInteritemSpacing = 10;
-    flowLayout.itemSize = CGSizeMake((kScreenWidth - 40)/3.0, (kScreenWidth - 40)/3.0);
+    flowLayout.itemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), floor((kScreenWidth - 40)/3.0));
     //设置CollectionView的属性
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -57,7 +56,6 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.dataSourceArray.count;
-    
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
@@ -86,7 +84,6 @@
 {
     if (_dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
-        NSLog(@"model=========%@",model.fullPath);
         //如果是文件夹
         if (model.isFolder) {
             sendFileViewController *vc = [[sendFileViewController alloc] init];
