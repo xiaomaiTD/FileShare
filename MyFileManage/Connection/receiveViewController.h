@@ -13,6 +13,7 @@
 @interface receiveViewController : BaseViewController{
     NSTimer *_timer;
     UInt64 currentDataLength;
+    float progress;
 }
 
 @property (strong, nonatomic) HTTPServer *httpserver;

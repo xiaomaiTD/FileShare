@@ -131,9 +131,12 @@
 {
     if (storeFile)
     {
+        MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
+        NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
+
         [storeFile writeData:data];
         CGFloat progress = (CGFloat)(data.length) / (CGFloat)uploadFileSize;
-        NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:progress], @"progressvalue",[NSNumber numberWithInt:data.length], @"cureentvaluelength", nil];
+        NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:progress], @"progressvalue",[NSNumber numberWithInt:data.length], @"cureentvaluelength",filename,@"filename", nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADING object:nil userInfo:value];
     }
 }
@@ -143,7 +146,9 @@
     isUploading = NO;
     [storeFile closeFile];
     storeFile = nil;
-    [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADEND object:nil];
+    MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
+    NSString *filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
+    [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADEND object:nil userInfo:@{@"filename":filename}];
 }
 
 - (void) processPreambleData:(NSData *)data

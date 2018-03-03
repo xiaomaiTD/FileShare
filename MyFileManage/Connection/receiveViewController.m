@@ -73,6 +73,7 @@
 
 -(void)setRightItem{
     
+    self.automaticallyAdjustsScrollViewInsets  = NO;
     self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.indicator.hidesWhenStopped = YES;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicator];
@@ -86,7 +87,9 @@
     [self.containerView removeFromSuperview];
     self.containerView = nil;
     if (self.viewArray.count > 0) {
-        [self.viewArray performSelector:@selector(removeFromSuperview) withObject:nil];
+        for (UIView *view in self.viewArray) {
+            [view removeFromSuperview];
+        }
     }
     [self.viewArray removeAllObjects];
 
@@ -96,24 +99,25 @@
     self.contenScrollView.layer.cornerRadius = 5;
     [self.view addSubview:self.contenScrollView];
     [self.contenScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(5,5,5,5));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(64,5,5,5));
     }];
     
     self.containerView = [UIView new];
-    self.containerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.containerView.backgroundColor = [UIColor whiteColor];
     [self.contenScrollView addSubview:self.containerView];
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contenScrollView);
         make.width.equalTo(self.contenScrollView);
     }];
     
-    NSInteger count = 2;
+    NSInteger count = self.dataSourceArray.count;
     
     UIView *lastView = nil;
     
-    for ( int i = 1 ; i <= count ; ++i )
+    for ( int i = 0 ; i < count ; i++ )
     {
         receiveFileView *subv = [receiveFileView new];
+        subv.fileName = self.dataSourceArray[i][@"filename"];
         [self.containerView addSubview:subv];
         [self.viewArray addObject:subv];
         [subv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -195,9 +199,15 @@
 
 - (void) uploadWithEnd:(NSNotification *) notification
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-      [self showSuccess];
-    }); 
+    NSString *filename = notification.userInfo[@"filename"];
+    for (receiveFileView *receive in self.viewArray) {
+        if ([filename isEqualToString:receive.fileName]) {
+            [GCDQueue executeInMainQueue:^{
+                [receive updateProgressViewWithValue:1.0];
+                [self showSuccess];
+            }];
+        }
+    }
 }
 
 - (void) uploadWithDisconnect:(NSNotification *) notification
@@ -211,6 +221,7 @@
 - (void) uploading:(NSNotification *)notification
 {
     float value = [(NSNumber *)[notification.userInfo objectForKey:@"progressvalue"] floatValue];
+    progress = progress + value;
     currentDataLength += [(NSNumber *)[notification.userInfo objectForKey:@"cureentvaluelength"] intValue];
     __block NSString *showCurrentFileSize = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
@@ -222,13 +233,20 @@
             showCurrentFileSize = [[NSString alloc] initWithFormat:@"%lliKB", currentDataLength / KBUnit];
         else if (currentDataLength<=KBUnit)
             showCurrentFileSize = [[NSString alloc] initWithFormat:@"%lliB", currentDataLength];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"showCurrentFileSize");
-        });
         NSLog(@"showCurrentFileSize--------%@",showCurrentFileSize);
+        NSLog(@"progress-------%f",progress);
+        NSString *filename = notification.userInfo[@"filename"];
+        for (receiveFileView *receive in self.viewArray) {
+            if ([filename isEqualToString:receive.fileName]) {
+                [GCDQueue executeInMainQueue:^{
+                    [receive updateProgressViewWithValue:progress];
+                }];
+            }
+        }
+        
     });
-    NSLog(@"value------%f",value);
     showCurrentFileSize = nil;
+    
 }
 
 @end

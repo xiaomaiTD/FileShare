@@ -13,5 +13,8 @@
 @property(nonatomic,strong)UILabel *fileNameLable;
 @property(nonatomic,strong)UIProgressView *progressView;
 @property(nonatomic,strong)UIImageView *doneImageV;
+@property(nonatomic,copy)NSString *fileName;
+
+-(void)updateProgressViewWithValue:(CGFloat)value;
 
 @end

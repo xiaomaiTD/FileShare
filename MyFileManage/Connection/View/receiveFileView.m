@@ -54,6 +54,19 @@
     return self;
 }
 
+-(void)setFileName:(NSString *)fileName{
+    _fileName = fileName;
+    self.fileNameLable.text = _fileName;
+}
+
+-(void)updateProgressViewWithValue:(CGFloat)value{
+    self.progressView.progress = value;
+    if (value == 1.0) {
+        self.progressView.hidden = YES;
+        self.doneImageV.hidden = NO;
+    }
+}
+
 -(void)layoutSubviews{
     self.fileNameLable.layer.cornerRadius = 5;
     self.fileNameLable.layer.masksToBounds = YES;

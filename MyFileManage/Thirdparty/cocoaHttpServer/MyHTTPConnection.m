@@ -199,10 +199,11 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	if( storeFile ) {
         NSLog(@"here we just write the output");
 		[storeFile writeData:data];
+        MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
+        NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
         CGFloat progress = (CGFloat)(data.length) / (CGFloat)uploadFileSize;
-        NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:progress], @"progressvalue",[NSNumber numberWithInteger:data.length], @"cureentvaluelength", nil];
+        NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:progress], @"progressvalue",[NSNumber numberWithInteger:data.length], @"cureentvaluelength",filename,@"filename", nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADING object:nil userInfo:value];
-        
 	}
 }
 
