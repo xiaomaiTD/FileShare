@@ -151,8 +151,6 @@
 }
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     //添加一个删除按钮
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         [self deleteAlbumWithIndexPath:indexPath];
@@ -166,11 +164,11 @@
     
     return @[deleteAction, editAction];
     
+}
 /**
  删除相册
- @return void
  */
-}
+
 -(void)deleteAlbumWithIndexPath:(NSIndexPath *)indexPath{
     
     LocalImageModel *collection = self.localImageArr[indexPath.row];
@@ -187,7 +185,6 @@
 
 /**
  编辑相册
- @return void
  */
 
 -(void)editAlbumWithIndexPath:(NSIndexPath *)indexPath{
@@ -213,16 +210,12 @@
                 }];
             }
         }];
-
     }];
     UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
     }];
-    
     [alertCon addAction:textAc];
     [alertCon addAction:cancelAc];
     [self presentViewController:alertCon animated:YES completion:nil];
-
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

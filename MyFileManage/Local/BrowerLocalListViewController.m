@@ -11,6 +11,7 @@
 #import "openImageViewController.h"
 #import "localImageAndVideoCell.h"
 #import "LocalImageAndVideoModel.h"
+#import "UIViewController+Extension.h"
 
 
 @interface BrowerLocalListViewController ()
@@ -32,7 +33,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self setUI];
+    [self requestAllSource];
+}
+
+
+-(void)setUI{
+    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     flowLayout.minimumLineSpacing = 10;
@@ -50,7 +57,14 @@
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 
-    [self requestAllSource];
+    UIButton *edit = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [edit setTitle:@"选择" forState:UIControlStateNormal];
+    [edit setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    [self addRigthItemWithCustomView:edit];
+    @weakify(self);
+    [edit addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+    }];
 }
 
 /**

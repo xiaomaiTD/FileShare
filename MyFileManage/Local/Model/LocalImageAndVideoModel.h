@@ -21,6 +21,7 @@ typedef enum : NSUInteger {
 @property(nonatomic,strong)UIImage *PHImage;
 @property(nonatomic,copy) NSString *videoLength;
 @property(nonatomic,assign)PHAssetType type;
+@property(nonatomic,assign)BOOL selected;
 
 -(instancetype)initWithAsset:(PHAsset *)asset;
 

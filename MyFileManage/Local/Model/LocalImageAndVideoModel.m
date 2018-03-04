@@ -17,6 +17,7 @@
             self.PHImage = image;
         }];
         self.phasset = asset;
+        self.selected = NO;
 
         if (self.phasset.mediaType == PHAssetMediaTypeVideo ) {
             self.type = PHASSETTYPE_Video;
