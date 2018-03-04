@@ -116,9 +116,6 @@
         //type == 1
         return model.collection.assetCollectionType == 1 || model.count != 0;
     }] copy] ;
-//    self.localImageArr = [[self.dataSource firstleap_map:^LocalImageModel *(id collection) {
-//        return [[LocalImageModel alloc] initWithCollection:collection];
-//    }] copy] ;
     
     [self.tableView reloadData];
 }
@@ -141,6 +138,38 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.localImageArr.count;
 }
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.localImageArr.count > 0) {
+        LocalImageModel *model = _localImageArr[indexPath.row];
+        if (model.collection.assetCollectionType == 2) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        LocalImageModel *collection = self.localImageArr[indexPath.row];
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            [PHAssetCollectionChangeRequest deleteAssetCollections:@[collection.collection]];
+        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+            if (!success) {
+                [GCDQueue executeInMainQueue:^{
+                   [self showErrorWithTitle:@"相册删除失败"];
+                }];
+            }
+        }];
+    }
+}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 120;

@@ -80,7 +80,6 @@
 -(void)setLocalImage:(LocalImageModel *)localImage{
     self.name.text = localImage.title;
     self.count.text = [NSString stringWithFormat:@"%ld",(long)localImage.count];
-    NSLog(@"localImage-----%@",localImage.image);
     //album
     self.firstImagV.image = localImage.image == nil ? [UIImage imageNamed:@"album"] : localImage.image;
     _localImage = localImage;
