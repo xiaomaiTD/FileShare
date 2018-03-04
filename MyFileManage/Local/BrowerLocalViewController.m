@@ -72,8 +72,9 @@
     }];
     UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField *field = alertCon.textFields.firstObject;
-        NSLog(@"field------%@",field.text);
-
+        if (field.text.length == 0) {
+            return ;
+        }
         [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
                [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:field.text];
         } completionHandler:^(BOOL success, NSError * _Nullable error) {
@@ -149,27 +150,80 @@
     return YES;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return @"删除";
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    //添加一个删除按钮
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        [self deleteAlbumWithIndexPath:indexPath];
+    }];
+    
+    //添加一个编辑按钮
+    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"修改" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        [self editAlbumWithIndexPath:indexPath];
+    }];
+    editAction.backgroundColor = [UIColor greenColor];
+    
+    return @[deleteAction, editAction];
+    
+/**
+ 删除相册
+ @return void
+ */
+}
+-(void)deleteAlbumWithIndexPath:(NSIndexPath *)indexPath{
+    
+    LocalImageModel *collection = self.localImageArr[indexPath.row];
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHAssetCollectionChangeRequest deleteAssetCollections:@[collection.collection]];
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (!success) {
+            [GCDQueue executeInMainQueue:^{
+                [self showErrorWithTitle:@"相册删除失败"];
+            }];
+        }
+    }];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+/**
+ 编辑相册
+ @return void
+ */
+
+-(void)editAlbumWithIndexPath:(NSIndexPath *)indexPath{
+    
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"重新命名" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertCon addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入相册名字";
+    }];
+    UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *field = alertCon.textFields.firstObject;
+        if (field.text.length == 0) {
+            return ;
+        }
         LocalImageModel *collection = self.localImageArr[indexPath.row];
         [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-            [PHAssetCollectionChangeRequest deleteAssetCollections:@[collection.collection]];
+            PHAssetCollectionChangeRequest *request =  [PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection.collection];
+            request.title = field.text;
+            
         } completionHandler:^(BOOL success, NSError * _Nullable error) {
             if (!success) {
                 [GCDQueue executeInMainQueue:^{
-                   [self showErrorWithTitle:@"相册删除失败"];
+                    [self showErrorWithTitle:@"命名成功"];
                 }];
             }
         }];
-    }
-}
 
+    }];
+    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertCon addAction:textAc];
+    [alertCon addAction:cancelAc];
+    [self presentViewController:alertCon animated:YES completion:nil];
+
+}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 120;
