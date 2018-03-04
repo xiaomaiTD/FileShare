@@ -133,14 +133,12 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 -(void)addFolderText:(UIButton *)sender{
     
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"选择创建类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
     UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"文本" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self AddFolderOrTextWithType:1];
     }];
     UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"文件夹" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self AddFolderOrTextWithType:0];
     }];
-    
     UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }];
@@ -148,7 +146,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [alertCon addAction:textAc];
     [alertCon addAction:folderAc];
     [alertCon addAction:cancelAc];
-    
     [self presentViewController:alertCon animated:YES completion:nil];
 }
 

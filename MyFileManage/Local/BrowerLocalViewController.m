@@ -7,27 +7,23 @@
 //
 
 #import <Photos/Photos.h>
-#import "BrowerLocalViewController.h"
 #import "BrowerLocalListViewController.h"
-#import "localCell.h"
+#import "UIViewController+Extension.h"
+#import "BrowerLocalViewController.h"
 #import "LocalImageModel.h"
+#import "localCell.h"
+
 
 @interface BrowerLocalViewController ()<UITableViewDelegate,UITableViewDataSource,PHPhotoLibraryChangeObserver>
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSource;
-@property(nonatomic,strong)NSMutableArray *localImageArr;
+@property(nonatomic,copy)NSArray *localImageArr;
 
 @end
 
 @implementation BrowerLocalViewController
 
--(NSMutableArray *)localImageArr{
-    if (_localImageArr == nil) {
-        _localImageArr = [[NSMutableArray alloc] initWithCapacity:0];
-    }
-    return _localImageArr;
-}
 -(NSMutableArray *)dataSource{
     if (_dataSource == nil) {
         _dataSource = [[NSMutableArray alloc] init];
@@ -51,10 +47,56 @@
     }];
     [self getAllUserCollection];
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+    [self configueNavItem];
+}
+
+-(void)configueNavItem{
+    UIButton *addfile = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [addfile setTintColor:[UIColor orangeColor]];
+    addfile.frame = CGRectMake(0, 0, 25, 25);
+    @weakify(self);
+    [addfile addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        [self addAlbum];
+    }];
+    [self addRigthItemWithCustomView:addfile];
+}
+
+/**
+ 添加相册
+ */
+-(void)addAlbum{
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"创建相册" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertCon addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入相册名字";
+    }];
+    UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *field = alertCon.textFields.firstObject;
+        NSLog(@"field------%@",field.text);
+
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+               [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:field.text];
+        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+            if (!success) {
+                [self showErrorWithTitle:@"相册创建失败"];
+            }
+        }];
+        
+    }];
+    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertCon addAction:textAc];
+    [alertCon addAction:cancelAc];
+    [self presentViewController:alertCon animated:YES completion:nil];
 }
 
 -(void)getAllUserCollection{
     
+    if (self.dataSource.count > 0) {
+        [self.dataSource removeAllObjects];
+    }
     //PHAsset资源 PHCollection 资源的集合
     // PHAssetCollection
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
@@ -71,8 +113,12 @@
     self.localImageArr = [[[self.dataSource firstleap_map:^LocalImageModel *(PHAssetCollection *collection) {
         return [[LocalImageModel alloc] initWithCollection:collection];
     }] firstleap_filter:^BOOL(LocalImageModel *model) {
-        return model.count != 0;
+        //type == 1
+        return model.collection.assetCollectionType == 1 || model.count != 0;
     }] copy] ;
+//    self.localImageArr = [[self.dataSource firstleap_map:^LocalImageModel *(id collection) {
+//        return [[LocalImageModel alloc] initWithCollection:collection];
+//    }] copy] ;
     
     [self.tableView reloadData];
 }
@@ -102,7 +148,9 @@
 -(void)photoLibraryDidChange:(PHChange *)changeInstance{
     
     if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
-        [self getAllUserCollection];
+        [GCDQueue executeInMainQueue:^{
+           [self getAllUserCollection];
+        }];
     }
 }
 @end

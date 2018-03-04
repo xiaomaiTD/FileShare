@@ -111,8 +111,7 @@
     NSString *fileName = [[disposition.params objectForKey:@"filename"] lastPathComponent];
     if (fileName==nil || [fileName isEqualToString:@""])
         return;
-    
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
     NSString *uploadFilePath = [[[FolderFileManager shareInstance] getDownloadFolderPath] stringByAppendingPathComponent:fileName];
     [[FolderFileManager shareInstance] createFileWithPath:uploadFilePath];
     //Ready to write the file, if the file already exists Overwrite

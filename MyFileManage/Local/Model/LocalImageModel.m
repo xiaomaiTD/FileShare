@@ -11,7 +11,7 @@
 
 @implementation LocalImageModel
 
--(instancetype)initWithCollection:(PHAssetCollection *)collection{
+-(instancetype)initWithCollection:(id )collection{
     if (self = [super init]) {
         PHAssetCollection *assec = collection;
         PHFetchOptions *options = [[PHFetchOptions alloc] init];
@@ -22,7 +22,7 @@
             self.image = image;
         }];
         self.collection = collection;
-        self.title = collection.localizedTitle;
+        self.title = assec.localizedTitle;
         self.result = result;
         self.count = result.count;
     }

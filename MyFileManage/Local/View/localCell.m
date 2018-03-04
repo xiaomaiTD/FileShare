@@ -27,11 +27,9 @@
     self.firstImagV.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:self.firstImagV];
     [self.firstImagV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(10);
         make.left.mas_equalTo(10);
-        make.bottom.mas_equalTo(-10);
-        make.size.with.mas_equalTo(100);
-        
+        make.centerY.equalTo(self);
+        make.size.width.and.height.mas_equalTo(80);
     }];
     
     self.name = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -41,7 +39,7 @@
     [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.firstImagV.mas_right).mas_offset(20);
         make.top.equalTo(self.firstImagV.mas_top).offset(20);
-        make.size.mas_equalTo(CGSizeMake(100, 20));
+        make.height.mas_equalTo(20);
     }];
     
     self.count = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -82,7 +80,9 @@
 -(void)setLocalImage:(LocalImageModel *)localImage{
     self.name.text = localImage.title;
     self.count.text = [NSString stringWithFormat:@"%ld",(long)localImage.count];
-    self.firstImagV.image = localImage.image;
+    NSLog(@"localImage-----%@",localImage.image);
+    //album
+    self.firstImagV.image = localImage.image == nil ? [UIImage imageNamed:@"album"] : localImage.image;
     _localImage = localImage;
 }
 

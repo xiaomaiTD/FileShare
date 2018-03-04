@@ -11,7 +11,7 @@
 
 @interface LocalImageModel : NSObject<NSCopying>
 
--(instancetype)initWithCollection:(PHAssetCollection *)collection;
+-(instancetype)initWithCollection:(id )collection;
 
 /**
  相册的第一张图片
