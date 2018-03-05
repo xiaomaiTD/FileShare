@@ -16,15 +16,23 @@
     if (self) {
         
         self.sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.sendBtn setTitle:@"发送" forState:UIControlStateNormal];
+        [self.sendBtn setImage:[UIImage imageNamed:@"发送"] forState:UIControlStateNormal];
         [self.sendBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
         [self addSubview:self.sendBtn];
         [self.sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.and.bottom.bottom.mas_equalTo(0);
+            make.top.and.bottom.mas_equalTo(0);
+            make.left.mas_equalTo(30);
         }];
         
-        
-        
+        self.deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.deleteBtn setImage:[UIImage imageNamed:@"删除"] forState:UIControlStateNormal];
+        [self.deleteBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+        [self addSubview:self.deleteBtn];
+        [self.deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.and.bottom.mas_equalTo(0);
+            make.right.equalTo(self).offset(-30);
+        }];
+                
     }
     return self;
 }

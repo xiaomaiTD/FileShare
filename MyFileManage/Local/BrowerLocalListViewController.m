@@ -12,6 +12,7 @@
 #import "localImageAndVideoCell.h"
 #import "LocalImageAndVideoModel.h"
 #import "UIViewController+Extension.h"
+#import "LocalBottomView.h"
 
 
 @interface BrowerLocalListViewController ()
@@ -20,6 +21,7 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)UIButton *selectedBtn;
+@property(nonatomic,strong)LocalBottomView *bottomView;
 
 @end
 
@@ -36,6 +38,15 @@
     [super viewDidLoad];
     [self setUI];
     [self requestAllSource];
+    
+    _bottomView = [[LocalBottomView alloc] initWithFrame:CGRectZero];
+    _bottomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self.view addSubview:_bottomView];
+    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.mas_equalTo(0);
+        make.height.mas_equalTo(60);
+        make.bottom.equalTo(self.view);
+    }];
 }
 
 
