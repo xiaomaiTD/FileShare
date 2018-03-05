@@ -20,11 +20,10 @@
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-20, -60) forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setHidesBackButton:YES];
     self.interactivePopGestureRecognizer.enabled = NO;
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    
     [backBtn addTarget:self action:@selector(backClick:) forControlEvents:UIControlEventTouchUpInside];
     CGFloat kScreenW = [UIScreen mainScreen].bounds.size.width;
     CGFloat btnW = kScreenW > 375.0 ? 50:40;
