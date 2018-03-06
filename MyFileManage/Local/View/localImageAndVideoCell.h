@@ -12,5 +12,4 @@
 @interface localImageAndVideoCell : UICollectionViewCell
 
 @property(nonatomic,strong)LocalImageAndVideoModel *model;
-
 @end

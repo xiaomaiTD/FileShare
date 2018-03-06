@@ -22,6 +22,7 @@
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)UIButton *selectedBtn;
 @property(nonatomic,strong)LocalBottomView *bottomView;
+@property(nonatomic,assign)BOOL selected;
 
 @end
 
@@ -36,6 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.selected = NO;
     [self setUI];
     [self requestAllSource];
     
@@ -45,7 +47,7 @@
     [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
         make.height.mas_equalTo(60);
-        make.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(60);
     }];
 }
 
@@ -80,10 +82,15 @@
         @strongify(self);
         sender.selected = !sender.isSelected;
         if (sender.isSelected == YES) {
+            self.selected = YES;
+            [self popBottomView];
             [self.selectedBtn setImage:[UIImage new] forState:UIControlStateNormal];
             [self.selectedBtn setTitle:@"全选" forState:UIControlStateNormal];
             [self.selectedBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
         }else{
+            self.selected = NO;
+            [self hiddenBottomView];
+            [self cancleAllModel];
             [self.selectedBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
             [self.selectedBtn setTitle:@"" forState:UIControlStateNormal];
         }
@@ -96,6 +103,7 @@
     [selectedBtn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
         if ([sender.currentTitle isEqualToString:@"全选"]) {
+            [self selectedAllModel];
             return ;
         }
         [self.navigationController popViewControllerAnimated:YES];
@@ -107,6 +115,44 @@
     
 }
 
+-(void)selectedAllModel{
+    
+    self.dataSourceArray = [self.dataSourceArray firstleap_map:^LocalImageAndVideoModel *(LocalImageAndVideoModel *model) {
+        model.selected = YES;
+        return model;
+    }].mutableCopy;
+    [self.collectionView reloadData];
+}
+-(void)cancleAllModel{
+    self.dataSourceArray = [self.dataSourceArray firstleap_map:^LocalImageAndVideoModel *(LocalImageAndVideoModel *model) {
+        model.selected = NO;
+        return model;
+    }].mutableCopy;
+    [self.collectionView reloadData];
+
+}
+
+-(void)popBottomView{
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.left.mas_equalTo(0);
+            make.height.mas_equalTo(60);
+            make.bottom.equalTo(self.view).offset(0);
+        }];
+        [self.bottomView.superview layoutIfNeeded];
+    }];
+}
+
+-(void)hiddenBottomView{
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.left.mas_equalTo(0);
+            make.height.mas_equalTo(60);
+            make.bottom.equalTo(self.view).offset(60);
+        }];
+        [self.bottomView.superview layoutIfNeeded];
+    }];
+}
 
 /**
  获取所有资源
@@ -134,9 +180,12 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (self.dataSourceArray.count > 0) {
-
         LocalImageAndVideoModel *model = self.dataSourceArray[indexPath.row];
-        
+        if (self.selected) {
+            model.selected = !model.selected;
+            [collectionView reloadData];
+            return;
+        }
         if (model.type == PHASSETTYPE_LivePhoto || model.type == PHASSETTYPE_Image) {
             openImageViewController *vc = [[openImageViewController alloc] init];
             vc.localModel = model;

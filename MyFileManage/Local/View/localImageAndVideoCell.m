@@ -7,6 +7,7 @@
 //
 
 #import "localImageAndVideoCell.h"
+#import "maskLocalView.h"
 #import <PhotosUI/PHLivePhotoView.h>
 
 @interface localImageAndVideoCell()
@@ -15,6 +16,7 @@
 @property(nonatomic,strong)UIImageView *videoImagV;
 @property(nonatomic,strong)UILabel *videoLength;
 @property(nonatomic,strong)UIImageView *livePhotoImagV;
+@property(nonatomic,strong)maskLocalView *maskView;
 
 @end
 
@@ -53,6 +55,10 @@
         self.videoLength.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.videoLength];
         
+        self.maskView = [[maskLocalView alloc] initWithFrame:CGRectZero];
+        self.maskView.hidden = YES;
+        [self addSubview:self.maskView];
+      
         [self.videoImagV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_offset(0);
             make.left.mas_offset(0);
@@ -66,6 +72,10 @@
             make.left.equalTo(self.videoImagV.mas_right).mas_offset(0);
             make.height.mas_equalTo(20);
         }];
+        
+        [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
     }
     return self;
 }
@@ -78,6 +88,7 @@
     _model = model;
     self.imageV.image = model.PHImage;
     self.videoLength.text = model.videoLength;
+    self.maskView.hidden = !model.selected;
     
     switch (model.type) {
         case PHASSETTYPE_Video:
@@ -104,7 +115,7 @@
     if (PHASSETTYPE_LivePhoto) {
         self.livePhotoImagV.image = [PHLivePhotoView livePhotoBadgeImageWithOptions:PHLivePhotoBadgeOptionsOverContent];
     }
-    
+
 }
 
 @end

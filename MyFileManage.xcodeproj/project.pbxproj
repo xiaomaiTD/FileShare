@@ -140,6 +140,7 @@
 		005A705E200A1FE100400500 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A705D200A1FE100400500 /* BaseViewController.m */; };
 		005A7061200B367B00400500 /* VideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A7060200B367B00400500 /* VideoPlayView.m */; };
 		005B64BF204D946A0008AD53 /* LocalBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B64BE204D946A0008AD53 /* LocalBottomView.m */; };
+		005B64C9204EDC2E0008AD53 /* maskLocalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B64C8204EDC2E0008AD53 /* maskLocalView.m */; };
 		005BD4DA20260E3400340B74 /* SettingRecycelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005BD4D920260E3400340B74 /* SettingRecycelCell.m */; };
 		006C4D072018CB2700172419 /* localImageAndVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D062018CB2700172419 /* localImageAndVideoCell.m */; };
 		006C4D0A2018D46200172419 /* LocalImageAndVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D092018D46200172419 /* LocalImageAndVideoModel.m */; };
@@ -509,6 +510,8 @@
 		005A7060200B367B00400500 /* VideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayView.m; sourceTree = "<group>"; };
 		005B64BD204D946A0008AD53 /* LocalBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalBottomView.h; sourceTree = "<group>"; };
 		005B64BE204D946A0008AD53 /* LocalBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalBottomView.m; sourceTree = "<group>"; };
+		005B64C7204EDC2E0008AD53 /* maskLocalView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = maskLocalView.h; sourceTree = "<group>"; };
+		005B64C8204EDC2E0008AD53 /* maskLocalView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = maskLocalView.m; sourceTree = "<group>"; };
 		005BD4D820260E3400340B74 /* SettingRecycelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingRecycelCell.h; sourceTree = "<group>"; };
 		005BD4D920260E3400340B74 /* SettingRecycelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingRecycelCell.m; sourceTree = "<group>"; };
 		006C4D052018CB2700172419 /* localImageAndVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = localImageAndVideoCell.h; sourceTree = "<group>"; };
@@ -1099,6 +1102,8 @@
 				006C4D062018CB2700172419 /* localImageAndVideoCell.m */,
 				005B64BD204D946A0008AD53 /* LocalBottomView.h */,
 				005B64BE204D946A0008AD53 /* LocalBottomView.m */,
+				005B64C7204EDC2E0008AD53 /* maskLocalView.h */,
+				005B64C8204EDC2E0008AD53 /* maskLocalView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2241,6 +2246,7 @@
 				0005F149200F36440004751A /* PDFDocumentBrightnessViewController.m in Sources */,
 				00B3A9D5200E04550009DC52 /* NAKPlaybackIndicatorContentView.m in Sources */,
 				00B3A927200E02790009DC52 /* HTTPMessage.m in Sources */,
+				005B64C9204EDC2E0008AD53 /* maskLocalView.m in Sources */,
 				00B3A9E3200E04550009DC52 /* NSString+Additions.m in Sources */,
 				00B3A819200DA0F90009DC52 /* VideoCoverView.m in Sources */,
 				0005F16A200F36440004751A /* PDFDocumentOutlineItemCell.m in Sources */,
