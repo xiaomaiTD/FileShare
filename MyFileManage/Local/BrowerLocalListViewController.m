@@ -62,21 +62,45 @@
     }];
 }
 
+-(void)judgeSelectAssertsCanDelete{
+    
+    NSArray *selectedArray = [[self.dataSourceArray firstleap_filter:^BOOL(LocalImageAndVideoModel *model) {
+        return model.selected;
+    }] firstleap_map:^PHAsset *(LocalImageAndVideoModel *model) {
+        return model.phasset;
+    }];
+    BOOL canDelete = false;
+    for (PHAsset *asset in selectedArray) {
+        canDelete = [asset canPerformEditOperation:PHAssetEditOperationDelete];
+        _bottomView.deleteBtn.enabled = canDelete;
+        if (!canDelete) {
+            break;
+        }
+    }
+
+}
+
 -(void)deleteSelectedAssert{
     
+    NSArray *selectedArray = [self.dataSourceArray firstleap_filter:^BOOL(LocalImageAndVideoModel *model) {
+        return model.selected;
+    }];
     void(^completion)(BOOL,NSError *) = ^(BOOL success,NSError *eror){
-        if (success) {
-            [self showSuccess];
-            [self.collectionView reloadData];
-        }else{
-            [self showErrorWithTitle:eror.localizedDescription];
-        }
+        [GCDQueue executeInMainQueue:^{
+            if (success) {
+                [self showSuccess];
+                [self.dataSourceArray removeObjectsInArray:selectedArray];
+                [self.collectionView reloadData];
+            }else{
+                [self showErrorWithTitle:eror.localizedDescription];
+            }
+        }];
     };
     [PHPhotoLibrary.sharedPhotoLibrary performChanges:^{
-        NSArray *selectedArray = [self.dataSourceArray firstleap_map:^PHAsset *(LocalImageAndVideoModel *model) {
+        NSArray *selectedAssetArray = [selectedArray firstleap_map:^PHAsset *(LocalImageAndVideoModel *model) {
             return model.phasset;
-        }].copy;
-        [PHAssetChangeRequest deleteAssets:selectedArray];
+        }];
+        [PHAssetChangeRequest deleteAssets:selectedAssetArray];
     } completionHandler:completion];
     
 }
@@ -217,6 +241,7 @@
         if (self.selected) {
             model.selected = !model.selected;
             [collectionView reloadData];
+            [self judgeSelectAssertsCanDelete];
             return;
         }
         if (model.type == PHASSETTYPE_LivePhoto || model.type == PHASSETTYPE_Image) {
