@@ -53,7 +53,10 @@
         if (self.localModel.type == PHASSETTYPE_LivePhoto) {
             [self addLivePhotoView];
         }else{
-            [self addStaticPhoto];
+            
+            PHAssetResource *resource = [PHAssetResource assetResourcesForAsset:self.localModel.phasset].firstObject;
+            BOOL isGif = [resource.originalFilename hasSuffix:@"GIF"];
+            [self addStaticPhotoWithGif:isGif];
         }
     }else{
         if ([_model.fileType.uppercaseString isEqualToString:@"GIF"]) {
@@ -78,10 +81,24 @@
 /**
  添加静态图片
  */
--(void)addStaticPhoto{
+-(void)addStaticPhotoWithGif:(BOOL)gif{
     
     self.localImgV = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
+    
+    if (gif) {
+        PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+        [options setSynchronous:NO];
+        [PHImageManager.defaultManager requestImageDataForAsset:self.localModel.phasset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+    
+            [GCDQueue executeInMainQueue:^{
+                UIImage *image = [UIImage sd_animatedGIFWithData:imageData];
+                self.localImgV.image = image;
+            }];
+            
+        }];
+        return;
+    }
     CGFloat scale = [UIScreen mainScreen].scale;
     CGSize targertSize = CGSizeMake(self.view.width * scale, self.view.height*scale);
     void(^completeBlock)(UIImage *) = ^(UIImage *image){

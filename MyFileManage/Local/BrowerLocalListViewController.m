@@ -53,7 +53,6 @@
         @strongify(self);
         [self sendPhotoToOther];
     }];
-    
     [self.view addSubview:_bottomView];
     [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
@@ -77,7 +76,6 @@
             break;
         }
     }
-
 }
 
 -(void)deleteSelectedAssert{
@@ -102,13 +100,11 @@
         }];
         [PHAssetChangeRequest deleteAssets:selectedAssetArray];
     } completionHandler:completion];
-    
 }
 
 -(void)sendPhotoToOther{
     
 }
-
 
 -(void)setUI{
     
