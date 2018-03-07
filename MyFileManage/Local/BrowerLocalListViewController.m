@@ -43,12 +43,46 @@
     
     _bottomView = [[LocalBottomView alloc] initWithFrame:CGRectZero];
     _bottomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    @weakify(self);
+    [_bottomView.deleteBtn addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        [self deleteSelectedAssert];
+    }];
+    [_bottomView.sendBtn addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        [self sendPhotoToOther];
+    }];
+    
     [self.view addSubview:_bottomView];
     [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
         make.height.mas_equalTo(60);
         make.bottom.equalTo(self.view).offset(60);
     }];
+}
+
+-(void)deleteSelectedAssert{
+    
+    void(^completion)(BOOL,NSError *) = ^(BOOL success,NSError *eror){
+        if (success) {
+            [self showSuccess];
+            [self.collectionView reloadData];
+        }else{
+            [self showErrorWithTitle:eror.localizedDescription];
+        }
+    };
+    [PHPhotoLibrary.sharedPhotoLibrary performChanges:^{
+        NSArray *selectedArray = [self.dataSourceArray firstleap_map:^PHAsset *(LocalImageAndVideoModel *model) {
+            return model.phasset;
+        }].copy;
+        [PHAssetChangeRequest deleteAssets:selectedArray];
+    } completionHandler:completion];
+    
+}
+
+-(void)sendPhotoToOther{
+    
 }
 
 
@@ -129,7 +163,6 @@
         return model;
     }].mutableCopy;
     [self.collectionView reloadData];
-
 }
 
 -(void)popBottomView{
