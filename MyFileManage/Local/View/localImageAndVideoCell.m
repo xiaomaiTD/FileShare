@@ -90,6 +90,9 @@
     self.videoLength.text = model.videoLength;
     self.maskView.hidden = !model.selected;
     
+    self.livePhotoImagV.hidden = NO;
+    self.videoImagV.hidden = NO;
+    self.videoLength.hidden = NO;
     switch (model.type) {
         case PHASSETTYPE_Video:
         {
