@@ -36,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.navigationBar.y = -88;
     _navISHidden = YES;
     self.title = _model.fileName;
