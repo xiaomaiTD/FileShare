@@ -8,6 +8,7 @@
 
 #import "BrowerLocalListViewController.h"
 #import "PlayLocalVideoViewController.h"
+#import "senderViewController.h"
 #import "openImageViewController.h"
 #import "localImageAndVideoCell.h"
 #import "LocalImageAndVideoModel.h"
@@ -103,7 +104,9 @@
 }
 
 -(void)sendPhotoToOther{
-    
+    senderViewController *vc = [[senderViewController alloc] init];
+    vc.sendImageFromAlbum = YES;
+    APPNavPushViewController(vc);
 }
 
 -(void)setUI{

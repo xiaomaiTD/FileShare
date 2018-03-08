@@ -37,16 +37,19 @@
     [super viewDidLoad];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationController.navigationBar.y = -88;
-    _navISHidden = YES;
+    self.navigationController.navigationBar.y = self.sendImagFromAlbum ?self.navigationController.navigationBar.y:-88 ;
+    _navISHidden = self.sendImagFromAlbum;
     self.title = _model.fileName;
     self.view.backgroundColor = [UIColor blackColor];
   
     UIButton * rightItem = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightItem.selected = self.sendImagFromAlbum;
     rightItem.frame = CGRectMake(0, 0, 40, 40);
     [rightItem setTitle:@"编辑" forState:UIControlStateNormal];
-    rightItem.titleLabel.font = [UIFont systemFontOfSize:13];
+    [rightItem setTitle:@"发送" forState:UIControlStateNormal];
+    rightItem.titleLabel.font = [UIFont systemFontOfSize:15];
     [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
     [rightItem addTarget:self action:@selector(presentImageEdit) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItem];
     
@@ -54,7 +57,6 @@
         if (self.localModel.type == PHASSETTYPE_LivePhoto) {
             [self addLivePhotoView];
         }else{
-            
             PHAssetResource *resource = [PHAssetResource assetResourcesForAsset:self.localModel.phasset].firstObject;
             BOOL isGif = [resource.originalFilename hasSuffix:@"GIF"];
             [self addStaticPhotoWithGif:isGif];
@@ -139,8 +141,6 @@
         
     };
     [[ImageManager shareInstance] SynRequestLivePhotoWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:progressBlock];
-    
-    
 }
 
 -(void)addGest{
@@ -154,13 +154,11 @@
         [self.view addGestureRecognizer:longGes];
     }
 }
-
 /**
  播放livePhoto
  */
 -(void)playLivePhot:(UIGestureRecognizer *)gest{
     if (gest.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"playLivePhot");
         [self.livePhotoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
     }
 }

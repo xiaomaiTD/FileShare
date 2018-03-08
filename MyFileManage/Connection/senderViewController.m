@@ -8,6 +8,7 @@
 
 #import "senderViewController.h"
 #import "sendFileViewController.h"
+#import "openImageViewController.h"
 #import "UdpServerManager.h"
 #import "ConnectionItem.h"
 #import "fileModel.h"
@@ -23,7 +24,7 @@
 @property(nonatomic,assign)NSInteger selectedIndex;
 
 @property(nonatomic,strong)UIActivityIndicatorView *indicator;
-@property(nonatomic,strong)NSURLSessionUploadTask *task;
+@property(nonatomic,strong)dispatch_queue_t myQeue;
 
 @end
 
@@ -37,6 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.myQeue = dispatch_queue_create("wangchao.MyFileManage", DISPATCH_QUEUE_SERIAL);
     _selectedIndex = 0;
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -77,10 +79,20 @@
         [self showError];
         return;
     }
-    sendFileViewController *vc = [[sendFileViewController alloc] init];
-    vc.delegate = self;
-    APPNavPushViewController(vc);
+    if (self.sendImageFromAlbum) {
+//        []
+        }else{
+        sendFileViewController *vc = [[sendFileViewController alloc] init];
+        vc.delegate = self;
+        APPNavPushViewController(vc);
+    }
 }
+
+
+-(void)sendImageWithImage:(UIImage *)image{
+    
+}
+
 #pragma mark ------sendFileViewControllerDelegate
 
 /**

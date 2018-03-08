@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "LocalImageAndVideoModel.h"
 
 @interface senderViewController : BaseViewController
+
+@property(nonatomic,assign)BOOL sendImageFromAlbum;//从相册里面发送图片标识符
+@property(nonatomic,strong)NSArray *imageArray;// 选中的图片数组
 
 @end
