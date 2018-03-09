@@ -140,7 +140,6 @@
             make.bottom.equalTo(lastView.mas_bottom);
         }
     }];
-
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -229,8 +228,6 @@
             showCurrentFileSize = [[NSString alloc] initWithFormat:@"%lliKB", currentDataLength / KBUnit];
         else if (currentDataLength<=KBUnit)
             showCurrentFileSize = [[NSString alloc] initWithFormat:@"%lliB", currentDataLength];
-        NSLog(@"showCurrentFileSize--------%@",showCurrentFileSize);
-        NSLog(@"progress-------%f",progress);
         NSString *filename = notification.userInfo[@"filename"];
         for (receiveFileView *receive in self.viewArray) {
             if ([filename isEqualToString:receive.fileName]) {
