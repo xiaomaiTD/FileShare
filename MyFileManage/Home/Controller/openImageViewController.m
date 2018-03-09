@@ -46,7 +46,7 @@
     rightItem.selected = self.sendImagFromAlbum;
     rightItem.frame = CGRectMake(0, 0, 40, 40);
     [rightItem setTitle:@"编辑" forState:UIControlStateNormal];
-    [rightItem setTitle:@"发送" forState:UIControlStateNormal];
+    [rightItem setTitle:@"发送" forState:UIControlStateSelected];
     rightItem.titleLabel.font = [UIFont systemFontOfSize:15];
     [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
@@ -93,12 +93,10 @@
         PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
         [options setSynchronous:NO];
         [PHImageManager.defaultManager requestImageDataForAsset:self.localModel.phasset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-    
             [GCDQueue executeInMainQueue:^{
                 UIImage *image = [UIImage sd_animatedGIFWithData:imageData];
                 self.localImgV.image = image;
             }];
-            
         }];
         return;
     }

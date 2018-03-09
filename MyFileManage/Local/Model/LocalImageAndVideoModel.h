@@ -19,11 +19,17 @@ typedef enum : NSUInteger {
 
 @property(nonatomic,strong)PHAsset *phasset;
 @property(nonatomic,strong)UIImage *PHImage;
+@property(nonatomic,strong)UIImage *PHLargeImage;
+@property(nonatomic,strong)NSString *PHImageName;
 @property(nonatomic,copy) NSString *videoLength;
 @property(nonatomic,assign)PHAssetType type;
 @property(nonatomic,assign)BOOL selected;
 
 -(instancetype)initWithAsset:(PHAsset *)asset;
 
+/**
+ 获取大图
+ */
+-(LocalImageAndVideoModel *)requestLargeImage;
 
 @end

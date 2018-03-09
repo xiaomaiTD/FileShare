@@ -9,6 +9,7 @@
 #import "senderViewController.h"
 #import "sendFileViewController.h"
 #import "openImageViewController.h"
+#import "LocalImageAndVideoModel.h"
 #import "UdpServerManager.h"
 #import "ConnectionItem.h"
 #import "fileModel.h"
@@ -25,6 +26,7 @@
 
 @property(nonatomic,strong)UIActivityIndicatorView *indicator;
 @property(nonatomic,strong)dispatch_queue_t myQeue;
+@property(nonatomic,strong)dispatch_semaphore_t mySem;
 
 @end
 
@@ -80,7 +82,7 @@
         return;
     }
     if (self.sendImageFromAlbum) {
-//        []
+        [self sendImageToOther];
         }else{
         sendFileViewController *vc = [[sendFileViewController alloc] init];
         vc.delegate = self;
@@ -88,8 +90,52 @@
     }
 }
 
+-(void)sendImageToOther{
+    
+    dispatch_async(self.myQeue, ^{
+        
+        for (int i = 0; i<self.imageArray.count; i++) {
+            
+            LocalImageAndVideoModel *localModel = self.imageArray[i];
+            self.mySem = dispatch_semaphore_create(0);
+            [GCDQueue executeInMainQueue:^{
+               [self sendImage:localModel andIndex:i];
+            }];
+            dispatch_semaphore_wait(self.mySem, DISPATCH_TIME_FOREVER);
+        }
+        
+    });
+    
+}
 
--(void)sendImageWithImage:(UIImage *)image{
+-(void)sendImage:(LocalImageAndVideoModel *)model andIndex:(int)index{
+    
+    AFHTTPSessionManager *mana = [AFHTTPSessionManager manager];
+    mana.responseSerializer = [AFHTTPResponseSerializer serializer];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeDeterminateHorizontalBar;
+    hud.label.text = [NSString stringWithFormat:@"%d",index];
+    
+    ConnectionItem *item = self.listData[_selectedIndex];
+    
+    [mana POST:item.GetRemoteAddress parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSData *data = UIImagePNGRepresentation(model.PHLargeImage);
+        [formData appendPartWithFileData:data name:@"uploadnewfile" fileName:model.PHImageName mimeType:@"image/png"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        [GCDQueue executeInMainQueue:^{
+            [MBProgressHUD HUDForView:self.view].progress = uploadProgress.fractionCompleted;
+            hud.label.text = uploadProgress.localizedDescription;
+        }];
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        dispatch_semaphore_signal(self.mySem);
+        [self hidenMessage];
+        [self showSuccess];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.mySem);
+        [self hidenMessage];
+        [self showError];
+    }];
+
     
 }
 

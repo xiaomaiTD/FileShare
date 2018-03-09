@@ -55,6 +55,7 @@ static ImageManager *manager = nil;
     [self.options setSynchronous:YES];
     [self.cacheImageManager requestImageForAsset:asset targetSize:tagertSize contentMode:PHImageContentModeAspectFit options:self.options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         block(result);
+        NSLog(@"info------%@",info);
     }];
 
 }
@@ -69,7 +70,9 @@ static ImageManager *manager = nil;
  */
 -(void)SynRequestImageWithAssert:(PHAsset *)asset andTargetSize:(CGSize)targetSize andCompelete:(ImageManagerBlock)block andRequestProgress:(requestProgress)progressblock{
     
-    self.options.progressHandler = [progressblock copy];
+    if (progressblock) {
+     self.options.progressHandler = [progressblock copy];
+    }
     [self.options setSynchronous:NO];
     [self.options setNetworkAccessAllowed:YES];
     self.options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;

@@ -104,9 +104,22 @@
 }
 
 -(void)sendPhotoToOther{
-    senderViewController *vc = [[senderViewController alloc] init];
-    vc.sendImageFromAlbum = YES;
-    APPNavPushViewController(vc);
+    [self showMessageWithTitle:@"请稍后.."];
+    [GCDQueue executeInGlobalQueue:^{
+        NSArray *imageArray = [[self.dataSourceArray firstleap_filter:^BOOL(LocalImageAndVideoModel *model) {
+            return model.selected;
+        }] firstleap_map:^LocalImageAndVideoModel *(LocalImageAndVideoModel *model) {
+            return [model requestLargeImage];
+        }];
+        [GCDQueue executeInMainQueue:^{
+            [self hidenMessage];
+            senderViewController *vc = [[senderViewController alloc] init];
+            vc.sendImageFromAlbum = YES;
+            vc.imageArray = imageArray;
+            APPNavPushViewController(vc);
+        }];
+    }];
+    
 }
 
 -(void)setUI{

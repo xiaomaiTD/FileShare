@@ -8,6 +8,7 @@
 
 #import "LocalImageAndVideoModel.h"
 #import "ImageManager.h"
+#import "ImageManager.h"
 
 @implementation LocalImageAndVideoModel
 
@@ -16,9 +17,10 @@
         [[ImageManager shareInstance] SynRequestImageWithAssert:asset andtTargertSize:CGSizeMake(200, 200) andCompelete:^(UIImage *image) {
             self.PHImage = image;
         }];
+        PHAssetResource *resource = [PHAssetResource assetResourcesForAsset:asset].firstObject;
+        self.PHImageName = resource.originalFilename;
         self.phasset = asset;
         self.selected = NO;
-
         if (self.phasset.mediaType == PHAssetMediaTypeVideo ) {
             self.type = PHASSETTYPE_Video;
             int mySeconds = (int)self.phasset.duration;
@@ -38,6 +40,16 @@
             }
         }
     }
+    return self;
+}
+
+-(LocalImageAndVideoModel *)requestLargeImage{
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CGSize targertSize = CGSizeMake(kScreenWidth * scale, kScreenHeight * scale);
+    
+    [[ImageManager shareInstance] SynRequestImageWithAssert:self.phasset andTargetSize:targertSize andCompelete:^(UIImage *image) {
+        self.PHLargeImage = image;
+    } andRequestProgress:nil];
     return self;
 }
 
