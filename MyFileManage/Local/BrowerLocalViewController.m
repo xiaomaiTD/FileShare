@@ -188,7 +188,8 @@
  */
 
 -(void)editAlbumWithIndexPath:(NSIndexPath *)indexPath{
-    
+  
+
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"重新命名" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alertCon addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.placeholder = @"请输入相册名字";
