@@ -83,9 +83,8 @@ static FolderFileManager *manage = nil;
     }else{
         NSString *filename = [[path lastPathComponent] stringByDeletingPathExtension];
         filename = [NSString stringWithFormat:@"%@.%@",[self replaceLineWithFileName:filename],path.pathExtension];
-        
         NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
-       return [self createFileWithPath:newPath];
+        return [self createFileWithPath:newPath];
     }
 }
 

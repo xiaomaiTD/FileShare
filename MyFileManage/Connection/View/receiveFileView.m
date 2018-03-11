@@ -14,6 +14,7 @@
     if (self = [super initWithFrame:frame]) {
         self.fileNameLable = [[UILabel alloc] initWithFrame:CGRectZero];
         self.fileNameLable.text = @"test";
+        self.fileNameLable.numberOfLines = 0;
         self.fileNameLable.font = [UIFont systemFontOfSize:15];
         self.fileNameLable.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.fileNameLable];
@@ -32,7 +33,7 @@
             make.centerY.equalTo(self.mas_centerY);
             make.right.equalTo(self).mas_equalTo(-10);
         }];
-        
+
         self.doneImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rightArrow"]];
         [self addSubview:self.doneImageV];
         self.doneImageV.hidden = YES;
@@ -63,7 +64,21 @@
     self.progressView.progress = value;
     if (value == 1.0) {
         self.progressView.hidden = YES;
-        self.doneImageV.hidden = NO;
+        self.doneImageV.hidden = YES;
+        
+        [self.fileNameLable mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).mas_offset(15);
+            make.left.equalTo(self).mas_offset(20);
+//            make.right.equalTo(self.doneImageV.mas_left).mas_equalTo(-10);
+            make.bottom.equalTo(self).mas_offset(-15);
+        }];
+        
+//        [self.doneImageV mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.right.mas_equalTo(-8);
+//            make.left.equalTo(self.fileNameLable.mas_right).mas_offset(10);
+//            make.centerY.equalTo(self);
+//        }];
+
     }
 }
 
