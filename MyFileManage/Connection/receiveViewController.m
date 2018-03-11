@@ -120,7 +120,7 @@
         [self.viewArray addObject:subv];
         [subv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.equalTo(self.containerView);
-            make.height.mas_equalTo(@(60));
+//            make.height.mas_equalTo(@(60));
             if ( lastView )
             {
                 make.top.mas_equalTo(lastView.mas_bottom);

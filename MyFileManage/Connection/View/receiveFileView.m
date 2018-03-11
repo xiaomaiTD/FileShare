@@ -15,13 +15,13 @@
         self.fileNameLable = [[UILabel alloc] initWithFrame:CGRectZero];
         self.fileNameLable.text = @"test";
         self.fileNameLable.font = [UIFont systemFontOfSize:15];
+        self.fileNameLable.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.fileNameLable];
         [self.fileNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).mas_offset(15);
             make.left.equalTo(self).mas_offset(20);
             make.bottom.equalTo(self).mas_offset(-15);
-            make.centerY.equalTo(self);
-            // make.size.width.mas_equalTo(30);
+            make.width.mas_offset(100);
         }];
         
         self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
