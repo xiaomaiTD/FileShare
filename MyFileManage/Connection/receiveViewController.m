@@ -193,6 +193,8 @@
 
 - (void) uploadWithEnd:(NSNotification *) notification
 {
+    currentDataLength = 0;
+    progress = 0;
     NSString *filename = notification.userInfo[@"filename"];
     for (receiveFileView *receive in self.viewArray) {
         if ([filename isEqualToString:receive.fileName]) {
@@ -230,13 +232,14 @@
             showCurrentFileSize = [[NSString alloc] initWithFormat:@"%lliB", currentDataLength];
         NSString *filename = notification.userInfo[@"filename"];
         for (receiveFileView *receive in self.viewArray) {
-            if ([filename isEqualToString:receive.fileName]) {
-                [GCDQueue executeInMainQueue:^{
+            [GCDQueue executeInMainQueue:^{
+                if ([filename isEqualToString:receive.fileName]) {
                     [receive updateProgressViewWithValue:progress];
-                }];
-            }
+                }else{
+                    [receive updateProgressViewWithValue:1.0];
+                }
+            }];
         }
-        
     });
     showCurrentFileSize = nil;
     

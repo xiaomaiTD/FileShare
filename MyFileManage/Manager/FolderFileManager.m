@@ -72,18 +72,20 @@ static FolderFileManager *manage = nil;
     }
 }
 
--(void)createFileWithPath:(NSString *)path{
+-(NSString *)createFileWithPath:(NSString *)path{
     
     NSFileManager *manag = [NSFileManager defaultManager];
     BOOL isDir = NO;
+    
     if (![manag fileExistsAtPath:path isDirectory:&isDir]) {
         [manag createFileAtPath:path contents:nil attributes:nil];
+        return path;
     }else{
         NSString *filename = [[path lastPathComponent] stringByDeletingPathExtension];
         filename = [NSString stringWithFormat:@"%@.%@",[self replaceLineWithFileName:filename],path.pathExtension];
         
         NSString *newPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
-        [self createFileWithPath:newPath];
+       return [self createFileWithPath:newPath];
     }
 }
 

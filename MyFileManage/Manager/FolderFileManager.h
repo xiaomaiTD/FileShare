@@ -46,7 +46,7 @@
  @param path 文本路径
  */
 -(void)createTextWithPath:(NSString *)path;
--(void)createFileWithPath:(NSString *)path;
+-(NSString *)createFileWithPath:(NSString *)path;
 
 /**
  获得指定路径下的所有model

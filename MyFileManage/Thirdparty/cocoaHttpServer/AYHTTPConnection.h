@@ -15,6 +15,7 @@
     MultipartFormDataParser *parser;    //
     NSFileHandle *storeFile;                  //Storing uploaded files
     UInt64 uploadFileSize;                     //The total size of the uploaded file
+    NSString *filePath;
 }
 
 @end

@@ -113,12 +113,12 @@
         return;
 
     NSString *uploadFilePath = [[[FolderFileManager shareInstance] getDownloadFolderPath] stringByAppendingPathComponent:fileName];
-    [[FolderFileManager shareInstance] createFileWithPath:uploadFilePath];
+    filePath = [[FolderFileManager shareInstance] createFileWithPath:uploadFilePath];
+    NSLog(@"filePath------%@",filePath);
     //Ready to write the file, if the file already exists Overwrite
-    NSLog(@"uploadFilePath------%@",uploadFilePath);
     isUploading = YES;
-    storeFile = [NSFileHandle fileHandleForWritingAtPath:uploadFilePath];
-    NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithLongLong:uploadFileSize], @"totalfilesize",fileName,@"filename", nil];
+    storeFile = [NSFileHandle fileHandleForWritingAtPath:filePath];
+    NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithLongLong:uploadFileSize], @"totalfilesize",filePath.lastPathComponent,@"filename", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADSTART object:nil userInfo:value];
 }
 
@@ -126,12 +126,9 @@
 {
     if (storeFile)
     {
-        MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
-        NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
-
         [storeFile writeData:data];
         CGFloat progress = (CGFloat)(data.length) / (CGFloat)uploadFileSize;
-        NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:progress], @"progressvalue",[NSNumber numberWithInt:data.length], @"cureentvaluelength",filename,@"filename", nil];
+        NSDictionary *value = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:progress], @"progressvalue",[NSNumber numberWithInt:data.length], @"cureentvaluelength",filePath.lastPathComponent,@"filename", nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADING object:nil userInfo:value];
     }
 }
@@ -141,9 +138,8 @@
     isUploading = NO;
     [storeFile closeFile];
     storeFile = nil;
-    MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
-    NSString *filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
-    [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADEND object:nil userInfo:@{@"filename":filename}];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:UPLOADEND object:nil userInfo:@{@"filename":filePath.lastPathComponent}];
 }
 
 - (void) processPreambleData:(NSData *)data
