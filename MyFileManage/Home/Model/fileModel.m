@@ -34,12 +34,12 @@
 }
 
 -(id)copyWithZone:(NSZone *)zone{
-
     fileModel *model = [[fileModel alloc] init];
     model.fileName = self.fileName;
     model.fileType = self.fileType;
     model.fullPath = self.fullPath;
     model.isFolder = self.isFolder;
+    model.selected = self.selected;
     return model;
 }
 

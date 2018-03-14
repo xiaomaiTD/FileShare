@@ -113,7 +113,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     }];
     // 是否显示隐藏文件夹
     [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showHiddenFolder" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
-//        BOOL isShow = change[@"new"];
         BOOL show = [change[@"new"] intValue];
         [[DataBaseTool shareInstance] setShowHiddenFolderHidden:show];
         [self fileFinishAndReloadTable];
@@ -126,8 +125,38 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     UIButton *addfile = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [addfile setTintColor:[UIColor orangeColor]];
     addfile.frame = CGRectMake(0, 0, 25, 25);
-    [addfile addTarget:self action:@selector(addFolderText:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addfile];
+    @weakify(self);
+    [addfile addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        [self addFolderText:sender];
+    }];
+    UIBarButtonItem *itemOne = [[UIBarButtonItem alloc] initWithCustomView:addfile];
+    
+    UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
+    editBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [editBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    editBtn.frame = CGRectMake(0, 0, 40, 40);
+    [editBtn addTargetWithBlock:^(UIButton *sender) {
+        NSLog(@"editBtn");
+        [self goDownTabbar];
+    }];
+    UIBarButtonItem *itemTwo = [[UIBarButtonItem alloc] initWithCustomView:editBtn];
+    
+    self.navigationItem.rightBarButtonItems = @[itemOne,itemTwo];
+}
+
+-(void)goDownTabbar{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.tabBarController.tabBar.y = self.tabBarController.tabBar.y >= kScreenHeight ?(kScreenHeight - 49):kScreenHeight;
+    }];
+    
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    [self.view layoutIfNeeded];
 }
 
 -(void)addFolderText:(UIButton *)sender{

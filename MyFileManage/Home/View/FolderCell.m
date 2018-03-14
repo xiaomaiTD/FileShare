@@ -23,6 +23,13 @@
             make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
         
+        self.maskView = [[maskLocalView alloc] initWithFrame:CGRectZero];
+        self.maskView.hidden = YES;
+        [self addSubview:self.maskView];
+        [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+        }];
+        
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
         longPress.minimumPressDuration = 1;
         [self addGestureRecognizer:longPress];
