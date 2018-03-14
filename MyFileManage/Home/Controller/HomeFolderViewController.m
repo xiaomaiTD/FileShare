@@ -415,7 +415,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         [self.dataSourceArray addObjectsFromArray:allFiles];
         [self.collectionView reloadData];
     });
-
 }
 
 @end

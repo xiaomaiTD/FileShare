@@ -72,7 +72,9 @@
             if (isPhonePlus()) {
                 fileImage = [UIImage imageWithData:imageData scale:3];
             }
-            self.localImgV = [[UIImageView alloc] initWithImage:fileImage];
+          self.localImgV = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+          self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
+          self.localImgV.image = fileImage;
         }
     }
     self.localImgV.center = CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0);
