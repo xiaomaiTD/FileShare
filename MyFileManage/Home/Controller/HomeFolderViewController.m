@@ -48,6 +48,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)FBKVOController *KVOController;
+@property(nonatomic,assign)BOOL selected;
 
 @end
 
@@ -137,8 +138,10 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     editBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [editBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
     editBtn.frame = CGRectMake(0, 0, 40, 40);
+    
     [editBtn addTargetWithBlock:^(UIButton *sender) {
-        NSLog(@"editBtn");
+        @strongify(self);
+        self.selected = !self.selected;
         [self goDownTabbar];
     }];
     UIBarButtonItem *itemTwo = [[UIBarButtonItem alloc] initWithCustomView:editBtn];
@@ -149,14 +152,14 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 -(void)goDownTabbar{
     
     [UIView animateWithDuration:0.25 animations:^{
-        self.tabBarController.tabBar.y = self.tabBarController.tabBar.y >= kScreenHeight ?(kScreenHeight - 49):kScreenHeight;
+        self.tabBarController.tabBar.y = self.selected ?kScreenHeight:(kScreenHeight-49);
+        
+    } completion:^(BOOL finished) {
+        [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view).mas_offset(self.selected ? 49 : 0);
+        }];
+        [self.view layoutIfNeeded];
     }];
-    
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    
-    [self.view layoutIfNeeded];
 }
 
 -(void)addFolderText:(UIButton *)sender{
