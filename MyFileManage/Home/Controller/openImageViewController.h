@@ -14,6 +14,5 @@
 
 @property(nonatomic,strong)fileModel *model;
 @property(nonatomic,strong)LocalImageAndVideoModel *localModel;
-@property(nonatomic,assign)BOOL sendImagFromAlbum;
 
 @end

@@ -13,12 +13,14 @@
 #import <iOSPhotoEditor/iOSPhotoEditor-Swift.h>
 #import <SDWebImage/UIImage+GIF.h>
 #import <PhotosUI/PhotosUI.h>
+#import "senderViewController.h"
 
 @interface openImageViewController ()<UIScrollViewDelegate,PhotoEditorDelegate>
 
 @property(nonatomic,strong)UIScrollView *bgScrollView;
 @property(nonatomic,strong)UIImageView *localImgV;
 @property(nonatomic,strong)PHLivePhotoView *livePhotoView;
+@property(nonatomic,strong)UIButton *rightBtn;
 
 @property(nonatomic,assign)BOOL navISHidden;
 
@@ -37,13 +39,14 @@
     [super viewDidLoad];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationController.navigationBar.y = self.sendImagFromAlbum ?self.navigationController.navigationBar.y:-88 ;
-    _navISHidden = self.sendImagFromAlbum;
+    self.navigationController.navigationBar.y = -88;
+    self.navISHidden = YES;
+
     self.title = _model.fileName;
     self.view.backgroundColor = [UIColor blackColor];
   
     UIButton * rightItem = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightItem.selected = self.sendImagFromAlbum;
+    self.rightBtn = rightItem;
     rightItem.frame = CGRectMake(0, 0, 40, 40);
     [rightItem setTitle:@"编辑" forState:UIControlStateNormal];
     [rightItem setTitle:@"发送" forState:UIControlStateSelected];
@@ -56,6 +59,7 @@
     if (self.localModel) {
         if (self.localModel.type == PHASSETTYPE_LivePhoto) {
             [self addLivePhotoView];
+            
         }else{
             PHAssetResource *resource = [PHAssetResource assetResourcesForAsset:self.localModel.phasset].firstObject;
             BOOL isGif = [resource.originalFilename hasSuffix:@"GIF"];
@@ -63,6 +67,7 @@
         }
     }else{
         if ([_model.fileType.uppercaseString isEqualToString:@"GIF"]) {
+    
             NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
             UIImage *image = [UIImage sd_animatedGIFWithData:imageData];
             self.localImgV = [[UIImageView alloc] initWithImage:image];
@@ -148,6 +153,12 @@
     singleTap.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:singleTap];
     
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapped:)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:doubleTap];
+    [singleTap requireGestureRecognizerToFail:doubleTap];
+    
+    
     if (self.localModel && self.localModel.type == PHASSETTYPE_LivePhoto) {
         UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(playLivePhot:)];
         longGes.minimumPressDuration = 1;
@@ -178,11 +189,27 @@
         [imageArray addObject:img];
     }
     photoEdit.stickers = [imageArray copy];
-    
     [self presentViewController:photoEdit animated:YES completion:nil];
 }
 
-#pragma mark ---- 弹出编辑视图，待开发
+- (void)doubleTapped:(UITapGestureRecognizer *)recognizer
+{
+    if (self.bgScrollView.zoomScale == 1.0) {
+//        const CGFloat zoom = 2.0;
+//        CGPoint point = [recognizer locationInView:self.view];
+//        CGFloat width = CGRectGetWidth(self.view.frame) / zoom;
+//        CGFloat height = width * (CGRectGetHeight(self.view.frame) / CGRectGetWidth(self.view.frame));
+//        CGFloat x = MAX(1.0, point.x - width / 2.0);
+//        CGFloat y = MAX(1.0, point.y - height / 2.0);
+//        [self.bgScrollView zoomToRect:CGRectMake(x, y, width, height)
+//                           animated:YES];
+        [self.bgScrollView setZoomScale:2.0 animated:YES];
+    } else {
+        [self.bgScrollView setZoomScale:1.0 animated:YES];
+    }
+}
+
+
 -(void)singleTapClick:(UITapGestureRecognizer *)gestureRecognizer{
     CGFloat NavNeedOffset = _navISHidden ? 20 : -88;
     [UIView animateWithDuration:0.25 animations:^{
