@@ -99,78 +99,49 @@
 -(CGFloat)maxY{
     
     return CGRectGetMaxY(self.frame);
-    
+
 }
 
 -(void)setTitle:(NSString *)title{
     
     if ([self isKindOfClass:[UILabel class]]) {
-        
         UILabel *lable = (UILabel *)self;
-        
-        
         lable.text = title;
     }
     
     if ([self isKindOfClass:[UIButton class]]) {
-        
         UIButton *button = (UIButton *)self;
-        
         [button setTitle:title forState:UIControlStateNormal];
-        // button.titleLabel.font = [UIFont systemFontOfSize:Defont];
     }
     
 }
 -(void)setTitleColor:(UIColor *)color{
     if ([self isKindOfClass:[UILabel class]]) {
-        
         UILabel *lable = (UILabel *)self;
-        
-        
         lable.textColor = color;
-        
     }
     
     if ([self isKindOfClass:[UIButton class]]) {
-        
         UIButton *button = (UIButton *)self;
-        
         [button setTitleColor:color forState:UIControlStateNormal];
-        
-        // button.titleLabel.font = [UIFont systemFontOfSize:Defont];
     }
-    
-    
-    
 }
 
 -(void)setDefont:(CGFloat)Defont{
     
     if ([self isKindOfClass:[UILabel class]]) {
-        
         UILabel *lable = (UILabel *)self;
-        
         lable.font = [UIFont systemFontOfSize:Defont];
-        
     }
     
     if ([self isKindOfClass:[UIButton class]]) {
-        
         UIButton *button = (UIButton *)self;
-        
         button.titleLabel.font = [UIFont systemFontOfSize:Defont];
     }
-    
     if ([self isKindOfClass:[UITextField class]]) {
-        
-        
         UITextField *textField = (UITextField *)self;
-        
         textField.font = [UIFont systemFontOfSize:Defont];
-        
-        
     }
-    
 }
 
 - (BOOL)valiMobile:(NSString *)mobile
@@ -213,22 +184,17 @@
     CGRect rect = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]} context:nil];
     
     return rect.size;
-    
 }
 
 -(CGSize)getSizeWithText:(NSString *)text font:(CGFloat)font width:(CGFloat)width isBold:(BOOL)bold{
     
     UIFont *fontB = bold ? [UIFont boldSystemFontOfSize:font]:[UIFont systemFontOfSize:font];
-    
     CGRect rect = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: fontB} context:nil];
-    
     return rect.size;
 }
 
 -(CGSize)getSizeWithText:(NSString *)text font:(CGFloat)font width:(CGFloat)width
 {
-    
-    
     CGRect rect = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:font]} context:nil];
     
     return rect.size;
@@ -239,22 +205,12 @@
     CGRect rect = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]} context:nil];
     
     return rect.size;
-    
-    
-    
 }
 
 -(CGSize)getWidthWithText:(NSString *)text font:(CGFloat)font height:(CGFloat)height{
-    
-    
+
     CGRect rect = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:font]} context:nil];
     
     return rect.size;
-    
-    
 }
-
-
-
-
 @end

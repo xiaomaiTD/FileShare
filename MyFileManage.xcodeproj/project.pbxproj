@@ -246,6 +246,7 @@
 		00BB14E32010AB6700F0E4A1 /* FolderFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB14E22010AB6700F0E4A1 /* FolderFileManager.m */; };
 		00D8AA832046EC4F00FA4AF9 /* receiveFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D8AA822046EC4F00FA4AF9 /* receiveFileView.m */; };
 		00DE8F2C205AB00600FE16B2 /* SelectedFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE8F2B205AB00600FE16B2 /* SelectedFolderCell.m */; };
+		00DE8F2F205ABFD200FE16B2 /* HomeToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE8F2E205ABFD200FE16B2 /* HomeToolBarView.m */; };
 		00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13A2011CF0000BE57BB /* GCDGroup.m */; };
 		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
 		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
@@ -722,6 +723,8 @@
 		00D8AA822046EC4F00FA4AF9 /* receiveFileView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = receiveFileView.m; sourceTree = "<group>"; };
 		00DE8F2A205AB00600FE16B2 /* SelectedFolderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedFolderCell.h; sourceTree = "<group>"; };
 		00DE8F2B205AB00600FE16B2 /* SelectedFolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedFolderCell.m; sourceTree = "<group>"; };
+		00DE8F2D205ABFD200FE16B2 /* HomeToolBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeToolBarView.h; sourceTree = "<group>"; };
+		00DE8F2E205ABFD200FE16B2 /* HomeToolBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeToolBarView.m; sourceTree = "<group>"; };
 		00FEF1382011CF0000BE57BB /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		00FEF1392011CF0000BE57BB /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		00FEF13A2011CF0000BE57BB /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -1038,6 +1041,8 @@
 				00DE8F2B205AB00600FE16B2 /* SelectedFolderCell.m */,
 				0006BF38202ADC9A00C82FF9 /* MoveFolderCell.h */,
 				0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */,
+				00DE8F2D205ABFD200FE16B2 /* HomeToolBarView.h */,
+				00DE8F2E205ABFD200FE16B2 /* HomeToolBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2188,6 +2193,7 @@
 				00B3A97A200E02790009DC52 /* LSYViewPagerVC.m in Sources */,
 				005BD4DA20260E3400340B74 /* SettingRecycelCell.m in Sources */,
 				0005F171200F36440004751A /* NSArray+GreatReaderAdditions.m in Sources */,
+				00DE8F2F205ABFD200FE16B2 /* HomeToolBarView.m in Sources */,
 				0005F19F200F36440004751A /* PDFDocumentBackForwardList.m in Sources */,
 				0014501020255F2400EB2D63 /* RecyleFileViewController.m in Sources */,
 				377E96F51ED55FA70080E86D /* BaseNavgaitionController.m in Sources */,

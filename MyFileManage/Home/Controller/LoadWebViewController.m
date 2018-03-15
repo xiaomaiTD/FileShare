@@ -19,9 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     _webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
-    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:self.model.fullPath]];
     [_webView loadRequest:request];
     _webView.navigationDelegate = self;

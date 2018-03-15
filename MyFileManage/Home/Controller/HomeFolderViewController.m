@@ -10,7 +10,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <KVOController/KVOController.h>
 #import "NSFileManager+GreatReaderAdditions.h"
-
+#import "UIViewController+Extension.h"
 #import "HomeFolderViewController.h"
 //Video
 #import "playVideoViewController.h"
@@ -38,6 +38,7 @@
 #import "DataBaseTool.h"
 
 #import "SelectedFolderCell.h"
+#import "HomeToolBarView.h"
 #import "FolderCell.h"
 #import "GCD.h"
 
@@ -50,10 +51,21 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)FBKVOController *KVOController;
 @property(nonatomic,assign)BOOL selected;
+@property(nonatomic,strong)UIButton *leftItem;
+@property(nonatomic,strong)HomeToolBarView *editTarView;
 
 @end
 
 @implementation HomeFolderViewController
+
+-(HomeToolBarView *)editTarView{
+    if (_editTarView) {
+        return _editTarView;
+    }
+    _editTarView = [[HomeToolBarView alloc] init];
+    _editTarView.backgroundColor = [UIColor redColor];
+    return _editTarView;
+}
 
 -(NSMutableArray *)dataSourceArray{
     
@@ -77,8 +89,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         NSArray *tempArray = [[ResourceFileManager shareInstance] getAllUploadAllFileModels];
         self.dataSourceArray = [tempArray mutableCopy];
     }
-    [self configueNavItem];
-    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     flowLayout.minimumLineSpacing = 10;
@@ -101,6 +111,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
     // 监听 
     [self addKVO];
+    [self configueNavItem];
+    [self setBasicUI];
 }
 
 -(void)addKVO{
@@ -121,6 +133,17 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         [self fileFinishAndReloadTable];
         
     }];
+}
+
+-(void)setBasicUI{
+    
+    [self.view addSubview:self.editTarView];
+    [self.editTarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.mas_offset(0);
+        make.top.mas_equalTo(kScreenHeight);
+        make.size.with.mas_equalTo(49);
+    }];
+    
 }
 
 -(void)configueNavItem{
@@ -148,12 +171,40 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         self.selected = !self.selected;
         sender.selected = !sender.isSelected;
         [self goDownUpTabbar];
+        [self goUpEditHomeBarView];
         [self.collectionView reloadData];
         [self resertAllModel];
+        self.leftItem.hidden = !self.selected;
     }];
     UIBarButtonItem *itemTwo = [[UIBarButtonItem alloc] initWithCustomView:editBtn];
-    
     self.navigationItem.rightBarButtonItems = @[itemOne,itemTwo];
+    
+    self.leftItem = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.leftItem.bounds = CGRectMake(0, 0, 40, 40);
+    [self.leftItem setDefont:15];
+    [self.leftItem setTitle:@"全选" forState:UIControlStateNormal];
+    [self.leftItem setTitle:@"反选" forState:UIControlStateSelected];
+    [self.leftItem addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        sender.selected = !sender.isSelected;
+        if (sender.isSelected) {
+            [self selectedAllModel];
+        }else{
+            [self resertAllModel];
+        }
+    }];
+    [self.leftItem setTitleColor:MAINCOLOR];
+    self.leftItem.hidden = YES;
+    [self addLeftItemWithCustomView:self.leftItem];
+    
+}
+
+-(void)selectedAllModel{
+    self.dataSourceArray = [self.dataSourceArray firstleap_map:^fileModel *(fileModel *model) {
+        model.selected = YES;
+        return model;
+    }].mutableCopy;
+    [self.collectionView reloadData];
 }
 
 -(void)resertAllModel{
@@ -162,7 +213,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         model.selected = NO;
         return model;
     }].mutableCopy;
-    
     [self.collectionView reloadData];
 }
 
@@ -178,6 +228,17 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         [self.view layoutIfNeeded];
     }];
 }
+
+-(void)goUpEditHomeBarView{
+    
+    [UIView animateWithDuration:0.15 animations:^{
+        [self.editTarView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.selected ? (kScreenHeight - 49) : kScreenHeight);
+        }];
+        [self.view layoutIfNeeded];
+    }];
+}
+
 
 -(void)addFolderText:(UIButton *)sender{
     
