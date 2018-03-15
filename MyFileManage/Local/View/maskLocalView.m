@@ -16,7 +16,6 @@
   self = [super initWithFrame:frame];
   if (self) {
     self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
-    
     UIImageView *imagV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selected"]];
     [self addSubview:imagV];
     [imagV mas_makeConstraints:^(MASConstraintMaker *make) {

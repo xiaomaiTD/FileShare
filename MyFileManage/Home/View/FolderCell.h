@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "fileModel.h"
-#import "maskLocalView.h"
+
 
 @protocol FolderCellDelegate<NSObject>
 
@@ -20,6 +20,5 @@
 @property(nonatomic,assign)id<FolderCellDelegate>delegate;
 @property(nonatomic,strong)fileModel *model;
 @property(nonatomic,strong)UITextView *textView;
-@property(nonatomic,strong)maskLocalView *maskView;
 
 @end

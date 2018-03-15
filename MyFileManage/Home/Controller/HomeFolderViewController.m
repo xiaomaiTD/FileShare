@@ -37,6 +37,7 @@
 #import "GloablVarManager.h"
 #import "DataBaseTool.h"
 
+#import "SelectedFolderCell.h"
 #import "FolderCell.h"
 #import "GCD.h"
 
@@ -89,7 +90,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.scrollEnabled = YES;
-    [self.collectionView registerClass:[FolderCell class] forCellWithReuseIdentifier:@"cell"];
+    [self.collectionView registerClass:[FolderCell class] forCellWithReuseIdentifier:@"FolderCell"];
+    [self.collectionView registerClass:[SelectedFolderCell class] forCellWithReuseIdentifier:@"SelectedFolderCell"];
     [self.view addSubview:self.collectionView];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -134,7 +136,9 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     UIBarButtonItem *itemOne = [[UIBarButtonItem alloc] initWithCustomView:addfile];
     
     UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+  
     [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
+    [editBtn setTitle:@"完成" forState:UIControlStateSelected];
     editBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [editBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
     editBtn.frame = CGRectMake(0, 0, 40, 40);
@@ -142,16 +146,29 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [editBtn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
         self.selected = !self.selected;
-        [self goDownTabbar];
+        sender.selected = !sender.isSelected;
+        [self goDownUpTabbar];
+        [self.collectionView reloadData];
+        [self resertAllModel];
     }];
     UIBarButtonItem *itemTwo = [[UIBarButtonItem alloc] initWithCustomView:editBtn];
     
     self.navigationItem.rightBarButtonItems = @[itemOne,itemTwo];
 }
 
--(void)goDownTabbar{
+-(void)resertAllModel{
     
-    [UIView animateWithDuration:0.25 animations:^{
+    self.dataSourceArray = [self.dataSourceArray firstleap_map:^fileModel *(fileModel *model) {
+        model.selected = NO;
+        return model;
+    }].mutableCopy;
+    
+    [self.collectionView reloadData];
+}
+
+-(void)goDownUpTabbar{
+    
+    [UIView animateWithDuration:0.15 animations:^{
         self.tabBarController.tabBar.y = self.selected ?kScreenHeight:(kScreenHeight-49);
         
     } completion:^(BOOL finished) {
@@ -228,15 +245,29 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 #pragma mark  设置CollectionCell的内容
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identify = @"cell";
-    FolderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    if (self.dataSourceArray.count >0) {
-        cell.model = [self.dataSourceArray objectAtIndex:indexPath.row];
+    if (self.selected) {
+        
+        static NSString *identify = @"SelectedFolderCell";
+        SelectedFolderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
+        if (self.dataSourceArray.count >0) {
+            cell.model = [self.dataSourceArray objectAtIndex:indexPath.row];
+        }
+        cell.textView.editable = NO;
+        cell.textView.userInteractionEnabled = NO;
+        return cell;
+
+    }else{
+        static NSString *identify = @"FolderCell";
+        FolderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
+        if (self.dataSourceArray.count >0) {
+            cell.model = [self.dataSourceArray objectAtIndex:indexPath.row];
+        }
+        cell.delegate = self;
+        cell.textView.editable = NO;
+        cell.textView.userInteractionEnabled = NO;
+        return cell;
     }
-    cell.delegate = self;
-    cell.textView.editable = NO;
-    cell.textView.userInteractionEnabled = NO;
-    return cell;
+
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -246,6 +277,12 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.selected && self.dataSourceArray.count > 0) {
+        fileModel *model = _dataSourceArray[indexPath.row];
+        model.selected = !model.selected;
+        [self.collectionView reloadData];
+        return;
+    }
     if (_dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
         NSLog(@"fullPath-------%@",model.fullPath);
@@ -278,7 +315,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
             APPNavPushViewController(webView);
         }
         if ([SupportTXTArray containsObject:[model.fileType uppercaseString]]) {
-//            [self presentTXTViewControllerWithModel:model];
             [self openTXTWithModel:model];
         }
         if ([SupportZIPARRAY containsObject:[model.fileType uppercaseString]]) {
