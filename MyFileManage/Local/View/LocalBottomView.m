@@ -25,7 +25,7 @@
         }];
         
         self.deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.deleteBtn setImage:[UIImage imageNamed:@"删除"] forState:UIControlStateNormal];
+        [self.deleteBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
         [self.deleteBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
         [self addSubview:self.deleteBtn];
         [self.deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
