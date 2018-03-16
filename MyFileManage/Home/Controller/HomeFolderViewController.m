@@ -63,7 +63,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         return _editTarView;
     }
     _editTarView = [[HomeToolBarView alloc] init];
-    _editTarView.backgroundColor = [UIColor redColor];
     return _editTarView;
 }
 

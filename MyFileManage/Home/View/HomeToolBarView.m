@@ -12,14 +12,16 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        
+        self.backgroundColor = [UIColor groupTableViewBackgroundColor];
         UILabel *lineLable = [[UILabel alloc] initWithFrame:CGRectZero];
         lineLable.backgroundColor = [UIColor lightGrayColor];
+        lineLable.alpha = 0.5;
         [self addSubview:lineLable];
         [lineLable mas_makeConstraints:^(MASConstraintMaker *make) {
-            
+            make.top.mas_offset(0);
+            make.left.and.right.mas_offset(0);
+            make.size.height.mas_offset(1);
         }];
-        
         
         NSInteger offset = 10;
         UIButton *tempBtn = nil;
@@ -30,14 +32,14 @@
             if (i == 0) {
                 [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.left.mas_offset(offset);
-                    make.centerY.equalTo(self);
-                    make.height.equalTo(self).mas_offset(-1);
+                    make.top.equalTo(lineLable.mas_bottom).mas_offset(1);
+                    make.bottom.equalTo(self);
                 }];
             }else if (i == 4){
                 [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.right.mas_offset(-offset);
-                    make.centerY.equalTo(self);
-                    make.height.equalTo(self).mas_offset(-1);
+                    make.top.equalTo(lineLable.mas_bottom).mas_offset(1);
+                    make.bottom.equalTo(self);
                     make.left.equalTo(tempBtn.mas_right).mas_offset(offset);
                     make.width.equalTo(tempBtn);
                 }];
@@ -45,8 +47,8 @@
             }else{
                 [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.left.equalTo(tempBtn.mas_right).mas_offset(offset);
-                    make.centerY.equalTo(self);
-                    make.height.equalTo(self).mas_offset(-1);
+                    make.top.equalTo(lineLable.mas_bottom).mas_offset(1);
+                    make.bottom.equalTo(self);
                     make.width.equalTo(tempBtn);
                 }];
             }
