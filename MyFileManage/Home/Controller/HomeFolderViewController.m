@@ -119,7 +119,9 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     FBKVOController *KVOController = [FBKVOController controllerWithObserver:self];
     self.KVOController = KVOController;
     // 显示文件后缀
+    @weakify(self);
     [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showFolderType" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+        @strongify(self);
         BOOL show = [change[@"new"] intValue];
         [[DataBaseTool shareInstance] setShowFileTypeHidden:show];
         [self fileFinishAndReloadTable];
@@ -128,6 +130,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     // 是否显示隐藏文件夹
     [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showHiddenFolder" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
         BOOL show = [change[@"new"] intValue];
+        @strongify(self);
         [[DataBaseTool shareInstance] setShowHiddenFolderHidden:show];
         [self fileFinishAndReloadTable];
         
@@ -135,7 +138,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 }
 
 -(void)setBasicUI{
-    
     [self.view addSubview:self.editTarView];
     [self.editTarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.mas_offset(0);
@@ -143,6 +145,27 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         make.size.with.mas_equalTo(49);
     }];
     
+    @weakify(self);
+    [self.editTarView.moveBtn addTargetWithBlock:^(UIButton *sender) {
+        
+    }];
+    
+    [self.editTarView.fuZhiBtn addTargetWithBlock:^(UIButton *sender) {
+        
+    }];
+    
+    [self.editTarView.shareBtn addTargetWithBlock:^(UIButton *sender) {
+        
+    }];
+    
+    [self.editTarView.sender addTargetWithBlock:^(UIButton *sender) {
+        
+    }];
+    
+    [self.editTarView.deleteBtn addTargetWithBlock:^(UIButton *sender) {
+        
+    }];
+
 }
 
 -(void)configueNavItem{
@@ -171,29 +194,56 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         sender.selected = !sender.isSelected;
         [self goDownUpTabbar];
         [self goUpEditHomeBarView];
-        [self.collectionView reloadData];
         [self resertAllModel];
-        self.leftItem.hidden = !self.selected;
+        [self.collectionView reloadData];
+        if (self.isPushSelf) {
+            if (sender.isSelected) {
+                [self.leftItem setTitle:@"全选" forState:UIControlStateNormal];
+                [self.leftItem setDefont:15];
+                [self.leftItem setImage:[UIImage new] forState:UIControlStateNormal];
+            }else{
+                [self.leftItem setTitle:@"" forState:UIControlStateNormal];
+                [self.leftItem setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+            }
+        }else{
+            self.leftItem.hidden = !self.selected;
+        }
     }];
     UIBarButtonItem *itemTwo = [[UIBarButtonItem alloc] initWithCustomView:editBtn];
     self.navigationItem.rightBarButtonItems = @[itemOne,itemTwo];
     
+    
     self.leftItem = [UIButton buttonWithType:UIButtonTypeCustom];
     self.leftItem.bounds = CGRectMake(0, 0, 40, 40);
-    [self.leftItem setDefont:15];
-    [self.leftItem setTitle:@"全选" forState:UIControlStateNormal];
-    [self.leftItem setTitle:@"反选" forState:UIControlStateSelected];
+    if (self.isPushSelf) {
+        [self.leftItem setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    }else{
+        [self.leftItem setDefont:15];
+        [self.leftItem setTitle:@"全选" forState:UIControlStateNormal];
+        [self.leftItem setTitle:@"反选" forState:UIControlStateSelected];
+    }
     [self.leftItem addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
-        sender.selected = !sender.isSelected;
-        if (sender.isSelected) {
-            [self selectedAllModel];
+        if (self.isPushSelf) {
+            if ([sender.currentTitle isEqualToString:@"全选"]) {
+                [self selectedAllModel];
+                [self.editTarView setHomeBarIsHidden:YES];
+            }else{
+             [self.navigationController popViewControllerAnimated:YES];
+            }
         }else{
-            [self resertAllModel];
+            sender.selected = !sender.isSelected;
+            if (sender.isSelected) {
+                [self selectedAllModel];
+                [self.editTarView setHomeBarIsHidden:YES];
+            }else{
+                [self resertAllModel];
+                [self.editTarView setHomeBarIsHidden:NO];
+            }
         }
     }];
     [self.leftItem setTitleColor:MAINCOLOR];
-    self.leftItem.hidden = YES;
+    self.leftItem.hidden = self.isPushSelf ? NO:YES;
     [self addLeftItemWithCustomView:self.leftItem];
     
 }
@@ -204,7 +254,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         return model;
     }].mutableCopy;
     [self.collectionView reloadData];
-    [self.editTarView setHomeBarIsHidden:NO];
 }
 
 -(void)resertAllModel{
@@ -213,7 +262,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         return model;
     }].mutableCopy;
     [self.collectionView reloadData];
-    [self.editTarView setHomeBarIsHidden:YES];
 }
 
 -(void)goDownUpTabbar{
@@ -232,7 +280,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 -(void)goUpEditHomeBarView{
     
     [UIView animateWithDuration:0.15 animations:^{
-        [self.editTarView setHomeBarIsHidden:NO];
+        [self.editTarView setHomeBarIsHidden:!self.selected];
         [self.editTarView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.selected ? (kScreenHeight - 49) : kScreenHeight);
         }];
@@ -342,8 +390,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     if (self.selected && self.dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
         model.selected = !model.selected;
-        [self.editTarView setHomeBarIsHidden:YES];
         [self.collectionView reloadData];
+        [self.editTarView setHomeBarIsHidden:YES];
         return;
     }
     if (_dataSourceArray.count > 0) {

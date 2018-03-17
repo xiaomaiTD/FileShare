@@ -33,7 +33,7 @@
     if (self = [super initWithFrame:frame]) {
         [self setUI];
         
-        NSArray *imageArray = @[@"move",@"copy",@"delete",@"share",@"sender"];
+        NSArray *imageArray = @[@"move",@"copy",@"share",@"sender",@"delete"];
         for (int i = 0; i<self.btnArray.count; i++) {
             UIButton *btn = self.btnArray[i];
             NSString *imageName = imageArray[i];
@@ -46,13 +46,12 @@
                     _fuZhiBtn = btn;
                     break;
                 case 2:
-                    _deleteBtn = btn;
-                    break;
-                case 3:
                     _shareBtn = btn;
                     break;
-                case 4:
+                case 3:
                     _sender = btn;
+                case 4:
+                    _deleteBtn = btn;
                     break;
                 default:
                     break;
@@ -109,7 +108,6 @@
     
     [self addSubview:self.maskView];
     self.maskView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
-    self.maskView.alpha = 0.5;
     self.maskView.hidden = YES;
     [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
