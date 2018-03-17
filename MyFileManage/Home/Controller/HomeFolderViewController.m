@@ -204,15 +204,16 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         return model;
     }].mutableCopy;
     [self.collectionView reloadData];
+    [self.editTarView setHomeBarIsHidden:NO];
 }
 
 -(void)resertAllModel{
-    
     self.dataSourceArray = [self.dataSourceArray firstleap_map:^fileModel *(fileModel *model) {
         model.selected = NO;
         return model;
     }].mutableCopy;
     [self.collectionView reloadData];
+    [self.editTarView setHomeBarIsHidden:YES];
 }
 
 -(void)goDownUpTabbar{
@@ -231,6 +232,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 -(void)goUpEditHomeBarView{
     
     [UIView animateWithDuration:0.15 animations:^{
+        [self.editTarView setHomeBarIsHidden:NO];
         [self.editTarView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.selected ? (kScreenHeight - 49) : kScreenHeight);
         }];
@@ -340,6 +342,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     if (self.selected && self.dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
         model.selected = !model.selected;
+        [self.editTarView setHomeBarIsHidden:YES];
         [self.collectionView reloadData];
         return;
     }
