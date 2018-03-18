@@ -31,6 +31,7 @@
 #import "LoadWebViewController.h"
 
 #import "MoveFolderViewController.h"
+#import "senderViewController.h"
 
 #import "ResourceFileManager.h"
 #import "FolderFileManager.h"
@@ -164,14 +165,41 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 //
 //    }];
 //
-//    [self.editTarView.sender addTargetWithBlock:^(UIButton *sender) {
-//
-//    }];
-//
+    [self.editTarView.sender addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        senderViewController *svc = [[senderViewController alloc] init];
+        svc.type = sendFileFromHome;
+        svc.fileModelArray = [self selectedModelsArrayWithFolder];
+        APPNavPushViewController(svc);
+    }];
+
     [self.editTarView.deleteBtn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
+        [self deleteSelectedModelArray];
+    }];
+
+}
+
+-(void)deleteSelectedModelArray{
+    
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"是否删除该文件？" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSArray *selectedArray = [self selectedModelsArray];
+        for (fileModel *model in selectedArray) {
+            [[FolderFileManager shareInstance] moveToRecyleFolderFromPath:model.fullPath];
+        }
+        [self fileFinishAndReloadTable];
+    }];
+    [alertCon addAction:folderAc];
+    
+    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }];
+    [alertCon addAction:cancelAc];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
 
 }
 
@@ -286,6 +314,32 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     }].mutableCopy;
     return array;
 }
+
+//选择所以fileModel，包括文件夹里面的model;
+-(NSMutableArray *)selectedModelsArrayWithFolder{
+    
+    NSArray *array = [self selectedModelsArray].copy;
+
+    NSMutableArray *allFileModels = [[NSMutableArray alloc] initWithCapacity:0];
+
+    [self getAllSubFolderModels:allFileModels andSelectedModel:array];
+    
+    return allFileModels;
+}
+
+-(void)getAllSubFolderModels:(NSMutableArray *)allArray andSelectedModel:(NSArray *)selectedArray{
+    
+    for (fileModel *model in selectedArray) {
+        
+        if (model.isFolder) {
+            NSArray *subsArray = [[FolderFileManager shareInstance] getAllFileModelInDic:model.fullPath];
+            [self getAllSubFolderModels:allArray andSelectedModel:subsArray];
+        }else{
+            [allArray addObject:model];
+        }
+    }
+}
+
 
 -(void)selectedAllModel{
     self.dataSourceArray = [self.dataSourceArray firstleap_map:^fileModel *(fileModel *model) {

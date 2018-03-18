@@ -114,7 +114,7 @@
         [GCDQueue executeInMainQueue:^{
             [self hidenMessage];
             senderViewController *vc = [[senderViewController alloc] init];
-            vc.sendImageFromAlbum = YES;
+            vc.type = sendImageFromAlbum;
             vc.imageArray = imageArray;
             APPNavPushViewController(vc);
         }];

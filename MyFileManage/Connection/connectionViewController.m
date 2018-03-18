@@ -62,6 +62,7 @@
 -(void)senderClick:(UIButton *)sender{
     
     senderViewController *vc = [[senderViewController alloc] init];
+    vc.type = sendFileFromLocal;
     APPNavPushViewController(vc);
 }
 

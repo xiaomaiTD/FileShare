@@ -81,21 +81,29 @@
         [self showError];
         return;
     }
-    if (self.sendImageFromAlbum) {
-        [self sendImageToOther];
-        }else{
-        sendFileViewController *vc = [[sendFileViewController alloc] init];
-        vc.delegate = self;
-        APPNavPushViewController(vc);
+    switch (self.type) {
+        case sendImageFromAlbum:
+            [self sendImageToOther];
+            break;
+        case sendFileFromLocal:
+        {
+            sendFileViewController *vc = [[sendFileViewController alloc] init];
+            vc.delegate = self;
+            APPNavPushViewController(vc);
+        }
+            break;
+        case sendFileFromHome:
+            [self sendFileToAnother];
+            break;
+        default:
+            break;
     }
+    
 }
 
 -(void)sendImageToOther{
-    
     dispatch_async(self.myQeue, ^{
-        
         for (int i = 0; i<self.imageArray.count; i++) {
-            
             LocalImageAndVideoModel *localModel = self.imageArray[i];
             self.mySem = dispatch_semaphore_create(0);
             [GCDQueue executeInMainQueue:^{
@@ -103,9 +111,7 @@
             }];
             dispatch_semaphore_wait(self.mySem, DISPATCH_TIME_FOREVER);
         }
-        
     });
-    
 }
 
 -(void)sendImage:(LocalImageAndVideoModel *)model andIndex:(int)index{
@@ -139,31 +145,52 @@
     
 }
 
-#pragma mark ------sendFileViewControllerDelegate
+-(void)sendFileToAnother{
+    
+    dispatch_async(self.myQeue, ^{
+        for (int i = 0; i<self.fileModelArray.count; i++) {
+            fileModel *localModel = self.fileModelArray[i];
+            self.mySem = dispatch_semaphore_create(0);
+            [GCDQueue executeInMainQueue:^{
+                [self senderFileSelectedModel:localModel andIndex:i];
+            }];
+            dispatch_semaphore_wait(self.mySem, DISPATCH_TIME_FOREVER);
+        }
+    });
 
-/**
- 发送文件
+}
 
- @param model 文件model
- */
--(void)senderFileSelectedModel:(fileModel *)model{
+- (void)senderFileSelectedModel:(fileModel *)model andIndex:(NSInteger)index{
     
     ConnectionItem *item = _listData[_selectedIndex];
-    NSLog(@"port=====%hu",item.port);
-    
     AFHTTPSessionManager *mana = [AFHTTPSessionManager manager];
     mana.responseSerializer = [AFHTTPResponseSerializer serializer];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeDeterminateHorizontalBar;
-    hud.label.text = @"%0...";
-
+    
+    NSString *progress;
+    if (self.type == sendFileFromHome) {
+        NSString *fuHao = @"%0";
+        progress = [NSString stringWithFormat:@"%ld(%@...)",index,fuHao];
+    }else{
+        progress = @"%0...";
+    }
+    
+    hud.label.text = progress;
+    
     [mana POST:item.GetRemoteAddress parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSData *data = [NSData dataWithContentsOfFile:model.fullPath];
         [formData appendPartWithFileData:data name:@"uploadnewfile" fileName:model.name mimeType:@"image/png"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         [GCDQueue executeInMainQueue:^{
             [MBProgressHUD HUDForView:self.view].progress = uploadProgress.fractionCompleted;
-            hud.label.text = uploadProgress.localizedDescription;
+            NSString *progress;
+            if (self.type == sendFileFromHome) {
+                progress = [NSString stringWithFormat:@"%ld(%@...)",index,uploadProgress.localizedDescription];
+            }else{
+                progress = @"%0...";
+            }
+            hud.label.text = progress;
         }];
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self hidenMessage];
@@ -172,6 +199,19 @@
         [self hidenMessage];
         [self showError];
     }];
+
+    
+}
+
+#pragma mark ------sendFileViewControllerDelegate
+
+/**
+ 发送文件
+
+ @param model 文件model
+ */
+-(void)senderFileSelectedModel:(fileModel *)model{
+    [self senderFileSelectedModel:model andIndex:0];
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

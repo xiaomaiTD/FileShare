@@ -13,7 +13,7 @@
 #import <iOSPhotoEditor/iOSPhotoEditor-Swift.h>
 #import <SDWebImage/UIImage+GIF.h>
 #import <PhotosUI/PhotosUI.h>
-#import "senderViewController.h"
+
 
 @interface openImageViewController ()<UIScrollViewDelegate,PhotoEditorDelegate>
 

@@ -10,9 +10,17 @@
 #import "BaseViewController.h"
 #import "LocalImageAndVideoModel.h"
 
+typedef enum : NSUInteger {
+    sendImageFromAlbum = 0,//从相册发送
+    sendFileFromHome,//从home页发送
+    sendFileFromLocal//从快传页发送
+} SendViewType;
+
+
 @interface senderViewController : BaseViewController
 
-@property(nonatomic,assign)BOOL sendImageFromAlbum;//从相册里面发送图片标识符
 @property(nonatomic,strong)NSArray *imageArray;// 选中的图片数组
+@property(nonatomic,strong)NSArray *fileModelArray;// 选中的文件数组
+@property(nonatomic,assign)SendViewType type;
 
 @end
