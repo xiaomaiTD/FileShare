@@ -8,6 +8,7 @@
 
 #import "FolderFileManager.h"
 #import "ResourceFileManager.h"
+#import "GloablVarManager.h"
 #import "NSFileManager+GreatReaderAdditions.h"
 
 static FolderFileManager *manage = nil;
@@ -107,19 +108,29 @@ static FolderFileManager *manage = nil;
  */
 -(void)createDownloadFolder{
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self getDownloadFolderPath]]) {
-        [self createDirWithPath:[self getDownloadFolderPath]];
+        if (![GloablVarManager shareManager].isHaveDownloadFolder) {
+            [self createDirWithPath:[self getDownloadFolderPath]];
+            [GloablVarManager shareManager].isHaveDownloadFolder = YES;
+        }
     }
 }
 
 -(void)createIsBeHiddenFolder{
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self getBeHiddenFolderPath]]) {
-         [self createDirWithPath:[self getBeHiddenFolderPath]];
+        if (![GloablVarManager shareManager].isHaveHiddenFolder) {
+            [self createDirWithPath:[self getBeHiddenFolderPath]];
+            [GloablVarManager shareManager].isHaveHiddenFolder = YES;
+        }
+        
     }
 }
 
 -(void)createRecycleFolder{
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self getCycleFolderPath]]) {
-        [self createDirWithPath:[self getCycleFolderPath]];
+        if (![GloablVarManager shareManager].isHaveRecyleFolder) {
+            [self createDirWithPath:[self getCycleFolderPath]];
+            [GloablVarManager shareManager].isHaveRecyleFolder = YES;
+        }
     }
 }
 

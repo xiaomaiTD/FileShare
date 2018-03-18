@@ -29,6 +29,9 @@
     [self setUpNav];
     _selectedIndex = 0;
     
+    self.dataArray = self.notSelectedFolderArray;
+    _selectedModel = self.dataArray.firstObject;
+    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.tableView registerClass:[MoveFolderCell class] forCellReuseIdentifier:@"MoveFolderCell"];
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -38,11 +41,6 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
-
-    self.dataArray = [[[ResourceFileManager shareInstance] getAllUploadAllFileModels] firstleap_filter:^BOOL(fileModel * model) {
-        return model.isFolder;
-    }];
-    _selectedModel = self.dataArray.firstObject;
     [self.tableView reloadData];
 }
 
@@ -86,8 +84,9 @@
     [rightBtn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
         NSString *des = self.selectedModel.fullPath;
-        NSString *from = self.model.fullPath;
-        [[FolderFileManager shareInstance] moveFileFromPath:from toDestionPath:des];
+        for (fileModel *model in self.selectedModelArray) {
+         [[FolderFileManager shareInstance] moveFileFromPath:model.fullPath toDestionPath:des];
+        }
         POSTNotificationName(FileFinish, nil);
         APPdismissViewController(self);
     }];

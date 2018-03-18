@@ -52,6 +52,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 @property(nonatomic,strong)FBKVOController *KVOController;
 @property(nonatomic,assign)BOOL selected;
 @property(nonatomic,strong)UIButton *leftItem;
+@property(nonatomic,strong)UIButton *editItem;
 @property(nonatomic,strong)HomeToolBarView *editTarView;
 
 @end
@@ -83,8 +84,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     if (self.isPushSelf) {
         self.dataSourceArray = [[[FolderFileManager shareInstance] getAllFileModelInDic:self.model.fullPath] mutableCopy];
     }else{
-        // 建立系统文件夹
-        [[FolderFileManager shareInstance] createSystemFolder];
         NSArray *tempArray = [[ResourceFileManager shareInstance] getAllUploadAllFileModels];
         self.dataSourceArray = [tempArray mutableCopy];
     }
@@ -147,24 +146,30 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     
     @weakify(self);
     [self.editTarView.moveBtn addTargetWithBlock:^(UIButton *sender) {
-        
+        @strongify(self);
+        NSMutableArray *selectedArray = [self selectedModelsArray];
+        MoveFolderViewController *moveF = [[MoveFolderViewController alloc] init];
+        moveF.notSelectedFolderArray = [self theFolderNoSelected];
+        moveF.selectedModelArray = selectedArray;
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:moveF];
+        APPPresentViewController(nav);
     }];
     
-    [self.editTarView.fuZhiBtn addTargetWithBlock:^(UIButton *sender) {
-        
-    }];
-    
-    [self.editTarView.shareBtn addTargetWithBlock:^(UIButton *sender) {
-        
-    }];
-    
-    [self.editTarView.sender addTargetWithBlock:^(UIButton *sender) {
-        
-    }];
-    
-    [self.editTarView.deleteBtn addTargetWithBlock:^(UIButton *sender) {
-        
-    }];
+//    [self.editTarView.fuZhiBtn addTargetWithBlock:^(UIButton *sender) {
+//
+//    }];
+//
+//    [self.editTarView.shareBtn addTargetWithBlock:^(UIButton *sender) {
+//
+//    }];
+//
+//    [self.editTarView.sender addTargetWithBlock:^(UIButton *sender) {
+//
+//    }];
+//
+//    [self.editTarView.deleteBtn addTargetWithBlock:^(UIButton *sender) {
+//
+//    }];
 
 }
 
@@ -181,7 +186,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     UIBarButtonItem *itemOne = [[UIBarButtonItem alloc] initWithCustomView:addfile];
     
     UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-  
+    self.editItem = editBtn;
     [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
     [editBtn setTitle:@"完成" forState:UIControlStateSelected];
     editBtn.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -190,24 +195,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     
     [editBtn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
-        self.selected = !self.selected;
-        sender.selected = !sender.isSelected;
-        [self goDownUpTabbar];
-        [self goUpEditHomeBarView];
-        [self resertAllModel];
-        [self.collectionView reloadData];
-        if (self.isPushSelf) {
-            if (sender.isSelected) {
-                [self.leftItem setTitle:@"全选" forState:UIControlStateNormal];
-                [self.leftItem setDefont:15];
-                [self.leftItem setImage:[UIImage new] forState:UIControlStateNormal];
-            }else{
-                [self.leftItem setTitle:@"" forState:UIControlStateNormal];
-                [self.leftItem setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-            }
-        }else{
-            self.leftItem.hidden = !self.selected;
-        }
+        [self editClick:sender];
     }];
     UIBarButtonItem *itemTwo = [[UIBarButtonItem alloc] initWithCustomView:editBtn];
     self.navigationItem.rightBarButtonItems = @[itemOne,itemTwo];
@@ -217,6 +205,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     self.leftItem.bounds = CGRectMake(0, 0, 40, 40);
     if (self.isPushSelf) {
         [self.leftItem setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        self.leftItem.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     }else{
         [self.leftItem setDefont:15];
         [self.leftItem setTitle:@"全选" forState:UIControlStateNormal];
@@ -246,6 +235,44 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     self.leftItem.hidden = self.isPushSelf ? NO:YES;
     [self addLeftItemWithCustomView:self.leftItem];
     
+}
+
+-(void)editClick:(UIButton *)sender{
+    self.selected = !self.selected;
+    sender.selected = !sender.isSelected;
+    [self goDownUpTabbar];
+    [self goUpEditHomeBarView];
+    [self resertAllModel];
+    [self.collectionView reloadData];
+    if (self.isPushSelf) {
+        if (sender.isSelected) {
+            [self.leftItem setTitle:@"全选" forState:UIControlStateNormal];
+            [self.leftItem setDefont:15];
+            [self.leftItem setImage:[UIImage new] forState:UIControlStateNormal];
+        }else{
+            [self.leftItem setTitle:@"" forState:UIControlStateNormal];
+            [self.leftItem setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+            self.leftItem.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        }
+    }else{
+        self.leftItem.hidden = !self.selected;
+    }
+
+}
+
+-(NSArray*)theFolderNoSelected{
+    
+    NSArray *NotBeSelectedFolderArray = [self.dataSourceArray firstleap_filter:^BOOL(fileModel * model) {
+        return model.isFolder && model.selected == NO;
+    }];
+    return NotBeSelectedFolderArray;
+}
+
+-(NSMutableArray *)selectedModelsArray{
+    NSMutableArray *array = [self.dataSourceArray firstleap_filter:^BOOL(fileModel *model) {
+        return model.selected == YES;
+    }].mutableCopy;
+    return array;
 }
 
 -(void)selectedAllModel{
@@ -462,7 +489,14 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 -(void)presentMoveFolderViewController:(fileModel *)model{
     
     MoveFolderViewController *moveF = [[MoveFolderViewController alloc] init];
-    moveF.model = model;
+    moveF.selectedModelArray = @[model];
+    NSArray *noselectedArray = [self theFolderNoSelected];
+    if (model.isFolder) {
+        noselectedArray = [noselectedArray firstleap_filter:^BOOL(fileModel *selectedModel) {
+            return ![selectedModel.name isEqualToString:model.name];
+        }];
+    }
+    moveF.notSelectedFolderArray = noselectedArray;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:moveF];
     APPPresentViewController(nav);
 }
@@ -593,6 +627,10 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         NSArray *allFiles = self.isPushSelf ? [[FolderFileManager shareInstance] getAllFileModelInDic:self.model.fullPath]:[[ResourceFileManager shareInstance] getAllUploadAllFileModels];
         [self.dataSourceArray addObjectsFromArray:allFiles];
         [self.collectionView reloadData];
+        // 如果正在编辑的状态下，恢复原始;
+        if (self.selected) {
+            [self editClick:self.editItem];
+        }
     });
 }
 

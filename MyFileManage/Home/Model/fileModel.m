@@ -15,7 +15,7 @@
 
     if (self = [super init]) {
         self.fileName = [[path lastPathComponent] stringByDeletingPathExtension];
-        
+        self.selected = NO;
         self.isSystemFolder = NO;
         NSArray *systemArray = @[DownloadFolderName,HiddenFolderName];
         if ([systemArray containsObject:self.fileName]) {

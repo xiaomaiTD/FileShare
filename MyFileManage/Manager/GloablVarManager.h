@@ -20,6 +20,13 @@
  */
 @property(nonatomic,assign)BOOL showFolderType;
 
+//已经含有系统隐藏文件夹
+@property(nonatomic,assign)BOOL isHaveHiddenFolder;
+
+@property(nonatomic,assign)BOOL isHaveRecyleFolder;
+
+@property(nonatomic,assign)BOOL isHaveDownloadFolder;
+
 +(instancetype)shareManager;
 
 @end

@@ -10,4 +10,7 @@
 
 @interface MoveFolderViewController : BaseViewController
 
+@property(nonatomic,strong)NSArray *selectedModelArray;
+@property(nonatomic,strong)NSArray *notSelectedFolderArray;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "FolderFileManager.h"
 
 
 @interface AppDelegate ()
@@ -22,6 +23,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [MainViewController new];
     [self.window makeKeyAndVisible];
+    
+    // 建立系统文件夹
+    [[FolderFileManager shareInstance] createSystemFolder];
     return YES;
 }
 
