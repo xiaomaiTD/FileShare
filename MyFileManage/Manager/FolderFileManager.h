@@ -84,5 +84,6 @@
  @param destination 到哪里
  */
 -(void)moveFileFromPath:(NSString *)resource toDestionPath:(NSString *)destination;
+-(void)copyFileFromPath:(NSString *)resource toDestionPath:(NSString *)destination;
 
 @end

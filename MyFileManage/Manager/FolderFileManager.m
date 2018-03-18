@@ -209,6 +209,40 @@ static FolderFileManager *manage = nil;
         NSLog(@"success------%d",moveSuccess);
         NSLog(@"error------%@",error);
     }
+}
+
+
+- (void)copyFileFromPath:(NSString *)resource toDestionPath:(NSString *)destination{
+    // 判读是不是文件夹
+    BOOL isDir = NO;
+    [[NSFileManager defaultManager] fileExistsAtPath:resource isDirectory:&isDir];
+    //stringByDeletingPathExtension
+    NSString *destionationFileName = [[resource lastPathComponent] stringByDeletingPathExtension];
+    NSLog(@"destionationFileName------%@",destionationFileName);
+    NSString *destinationPath = nil;
+    if (isDir) {
+        destinationPath = [destination stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",destionationFileName]];
+    }else{
+        destinationPath = [destination stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",destionationFileName,resource.pathExtension]];
+    }
+    [self copyFileFromPath:resource toDestionPath:destinationPath andDestionName:destionationFileName];
+    
+}
+
+-(void)copyFileFromPath:(NSString *)resource toDestionPath:(NSString *)destination andDestionName:(NSString *)destionName{
+    
+    BOOL haveRepeatFile = [[NSFileManager defaultManager] fileExistsAtPath:destination];
+    if (haveRepeatFile) {
+        NSString *fileName = [self replaceLineWithFileName:destionName];
+        destination = [[[destination stringByDeletingLastPathComponent] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",fileName,resource.pathExtension]] copy];
+        [self copyFileFromPath:resource toDestionPath:destination andDestionName:fileName];
+    }else{
+        NSError *error = nil;
+        BOOL copySuccess = [[NSFileManager defaultManager] copyItemAtPath:resource toPath:destination error:&error];
+        NSLog(@"success------%d",copySuccess);
+        NSLog(@"error------%@",error);
+    }
+
     
 }
 

@@ -147,17 +147,18 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     @weakify(self);
     [self.editTarView.moveBtn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
-        NSMutableArray *selectedArray = [self selectedModelsArray];
-        MoveFolderViewController *moveF = [[MoveFolderViewController alloc] init];
-        moveF.notSelectedFolderArray = [self theFolderNoSelected];
-        moveF.selectedModelArray = selectedArray;
+        
+        MoveFolderViewController *moveF = [self getFolderMoveWithCopy:NO];;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:moveF];
         APPPresentViewController(nav);
     }];
     
-//    [self.editTarView.fuZhiBtn addTargetWithBlock:^(UIButton *sender) {
-//
-//    }];
+    [self.editTarView.fuZhiBtn addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        MoveFolderViewController *moveF = [self getFolderMoveWithCopy:YES];;
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:moveF];
+        APPPresentViewController(nav);
+    }];
 //
 //    [self.editTarView.shareBtn addTargetWithBlock:^(UIButton *sender) {
 //
@@ -167,10 +168,21 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 //
 //    }];
 //
-//    [self.editTarView.deleteBtn addTargetWithBlock:^(UIButton *sender) {
-//
-//    }];
+    [self.editTarView.deleteBtn addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        
+    }];
 
+}
+
+-(MoveFolderViewController *)getFolderMoveWithCopy:(BOOL)isCopy{
+    
+    NSMutableArray *selectedArray = [self selectedModelsArray];
+    MoveFolderViewController *moveF = [[MoveFolderViewController alloc] init];
+    moveF.isCopyFile = isCopy;
+    moveF.notSelectedFolderArray = [self theFolderNoSelected];
+    moveF.selectedModelArray = selectedArray;
+    return moveF;
 }
 
 -(void)configueNavItem{
@@ -489,6 +501,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 -(void)presentMoveFolderViewController:(fileModel *)model{
     
     MoveFolderViewController *moveF = [[MoveFolderViewController alloc] init];
+    moveF.isCopyFile = NO;
     moveF.selectedModelArray = @[model];
     NSArray *noselectedArray = [self theFolderNoSelected];
     if (model.isFolder) {

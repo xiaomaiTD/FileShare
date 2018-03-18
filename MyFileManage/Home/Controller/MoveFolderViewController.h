@@ -12,5 +12,6 @@
 
 @property(nonatomic,strong)NSArray *selectedModelArray;
 @property(nonatomic,strong)NSArray *notSelectedFolderArray;
+@property(nonatomic,assign)BOOL isCopyFile;
 
 @end

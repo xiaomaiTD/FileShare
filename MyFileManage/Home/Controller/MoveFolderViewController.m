@@ -85,7 +85,11 @@
         @strongify(self);
         NSString *des = self.selectedModel.fullPath;
         for (fileModel *model in self.selectedModelArray) {
-         [[FolderFileManager shareInstance] moveFileFromPath:model.fullPath toDestionPath:des];
+            if (self.isCopyFile) {
+                [[FolderFileManager shareInstance] copyFileFromPath:model.fullPath toDestionPath:des];
+            }else{
+             [[FolderFileManager shareInstance] moveFileFromPath:model.fullPath toDestionPath:des];
+            }
         }
         POSTNotificationName(FileFinish, nil);
         APPdismissViewController(self);
