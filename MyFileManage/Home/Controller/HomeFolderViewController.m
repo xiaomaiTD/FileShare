@@ -32,6 +32,7 @@
 
 #import "MoveFolderViewController.h"
 #import "senderViewController.h"
+#import "ShareCustomView.h"
 
 #import "ResourceFileManager.h"
 #import "FolderFileManager.h"
@@ -160,11 +161,14 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:moveF];
         APPPresentViewController(nav);
     }];
-//
-//    [self.editTarView.shareBtn addTargetWithBlock:^(UIButton *sender) {
-//
-//    }];
-//
+
+    [self.editTarView.shareBtn addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        if ([self judgeHaveAllPhoto]) {
+            [self shareClick];
+        }
+    }];
+
     [self.editTarView.sender addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
         senderViewController *svc = [[senderViewController alloc] init];
@@ -180,12 +184,67 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 
 }
 
+//判断是不是选中一个，并且是图片类型
+-(BOOL)judgeHaveAllPhoto{
+    
+    NSArray *selected = [self selectedModelsArray];
+    if (selected.count > 1) {
+        [self showErrorWithTitle:@"不可分享多个对象"];
+        return NO;
+    }
+    fileModel *model = selected.firstObject;
+    if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+-(void)shareClick{
+    
+    fileModel *model = [self selectedModelsArray].firstObject;
+    
+    NSString *textToShare = @"文件分享";
+    UIImage *imageToShare = [[UIImage alloc] initWithContentsOfFile:model.fullPath];
+    NSURL *urlToShare = [NSURL URLWithString:@"https://github.com/ViterbiDevelopment"];
+    NSArray *activityItems = @[urlToShare,textToShare,imageToShare];
+    
+    //自定义Activity
+    ShareCustomView * customActivit = [[ShareCustomView alloc] initWithTitie:@"文件分享" withActivityImage:imageToShare withUrl:urlToShare withType:@"customActivity" withShareContext:activityItems];
+    NSArray *activities = @[customActivit];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:activities];
+    
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
+        //初始化回调方法
+        UIActivityViewControllerCompletionWithItemsHandler myBlock = ^(NSString *activityType,BOOL completed,NSArray *returnedItems,NSError *activityError){
+            if (completed){
+                [self showSuccessWithTitle:@"complete"];
+            }
+            else{
+                 [self showErrorWithTitle:@"cancle"];
+            }
+        };
+        activityVC.completionWithItemsHandler = myBlock;
+    }else{
+        UIActivityViewControllerCompletionHandler myBlock = ^(NSString *activityType,BOOL completed)
+        {
+            if (completed){
+                [self showSuccessWithTitle:@"complete"];
+            }else{
+                [self showErrorWithTitle:@"cancle"];
+            }
+        };
+        activityVC.completionHandler = myBlock;
+    }
+    [self presentViewController:activityVC animated:YES completion:nil];
+
+}
+
 -(void)deleteSelectedModelArray{
     
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"是否删除该文件？" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
         NSArray *selectedArray = [self selectedModelsArray];
         for (fileModel *model in selectedArray) {
             [[FolderFileManager shareInstance] moveToRecyleFolderFromPath:model.fullPath];
@@ -198,9 +257,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         
     }];
     [alertCon addAction:cancelAc];
-    
     [self presentViewController:alertCon animated:YES completion:nil];
-
 }
 
 -(MoveFolderViewController *)getFolderMoveWithCopy:(BOOL)isCopy{
