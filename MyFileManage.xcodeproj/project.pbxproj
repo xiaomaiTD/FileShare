@@ -145,6 +145,9 @@
 		006C4D072018CB2700172419 /* localImageAndVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D062018CB2700172419 /* localImageAndVideoCell.m */; };
 		006C4D0A2018D46200172419 /* LocalImageAndVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D092018D46200172419 /* LocalImageAndVideoModel.m */; };
 		007B773E205FFC9800937961 /* ShareCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007B773D205FFC9800937961 /* ShareCustomView.m */; };
+		007B77472060056300937961 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007B77462060056300937961 /* ShareViewController.m */; };
+		007B774A2060056300937961 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B77482060056300937961 /* MainInterface.storyboard */; };
+		007B774E2060056300937961 /* MyFileManageShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 007B77432060056300937961 /* MyFileManageShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		00886F3120133581006148BF /* UdpServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F2F20133581006148BF /* UdpServerManager.m */; };
 		00886F372013368B006148BF /* senderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F322013368A006148BF /* senderViewController.m */; };
 		00886F382013368B006148BF /* receiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F342013368B006148BF /* receiveViewController.m */; };
@@ -277,6 +280,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		007B774C2060056300937961 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 377E95A81ED532CD0080E86D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 007B77422060056300937961;
+			remoteInfo = MyFileManageShare;
+		};
 		377E95CA1ED532CD0080E86D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 377E95A81ED532CD0080E86D /* Project object */;
@@ -292,6 +302,20 @@
 			remoteInfo = MyFileManage;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		007B77522060056300937961 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				007B774E2060056300937961 /* MyFileManageShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00033416202D4F0F00C3328A /* website */ = {isa = PBXFileReference; lastKnownFileType = folder; name = website; path = MyFileManage/website; sourceTree = SOURCE_ROOT; };
@@ -523,6 +547,11 @@
 		006C4D092018D46200172419 /* LocalImageAndVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalImageAndVideoModel.m; sourceTree = "<group>"; };
 		007B773C205FFC9800937961 /* ShareCustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareCustomView.h; sourceTree = "<group>"; };
 		007B773D205FFC9800937961 /* ShareCustomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareCustomView.m; sourceTree = "<group>"; };
+		007B77432060056300937961 /* MyFileManageShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyFileManageShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		007B77452060056300937961 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		007B77462060056300937961 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		007B77492060056300937961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		007B774B2060056300937961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00886F2F20133581006148BF /* UdpServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UdpServerManager.m; sourceTree = "<group>"; };
 		00886F3020133581006148BF /* UdpServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdpServerManager.h; sourceTree = "<group>"; };
 		00886F322013368A006148BF /* senderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = senderViewController.m; sourceTree = "<group>"; };
@@ -792,6 +821,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		007B77402060056300937961 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		377E95AD1ED532CD0080E86D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1080,6 +1116,17 @@
 				005155EB20132B03009DA2A3 /* AsyncUdpSocket.m */,
 			);
 			path = AsyncSocket;
+			sourceTree = "<group>";
+		};
+		007B77442060056300937961 /* MyFileManageShare */ = {
+			isa = PBXGroup;
+			children = (
+				007B77452060056300937961 /* ShareViewController.h */,
+				007B77462060056300937961 /* ShareViewController.m */,
+				007B77482060056300937961 /* MainInterface.storyboard */,
+				007B774B2060056300937961 /* Info.plist */,
+			);
+			path = MyFileManageShare;
 			sourceTree = "<group>";
 		};
 		00886F332013368A006148BF /* Model */ = {
@@ -1652,6 +1699,7 @@
 				377E95B21ED532CD0080E86D /* MyFileManage */,
 				377E95CC1ED532CD0080E86D /* MyFileManageTests */,
 				377E95D71ED532CD0080E86D /* MyFileManageUITests */,
+				007B77442060056300937961 /* MyFileManageShare */,
 				377E95B11ED532CD0080E86D /* Products */,
 				37739A5A1ED91B9F001BF4F1 /* Frameworks */,
 				9FE7D7A07000F49AA295B00E /* Pods */,
@@ -1664,6 +1712,7 @@
 				377E95B01ED532CD0080E86D /* MyFileManage.app */,
 				377E95C91ED532CD0080E86D /* MyFileManageTests.xctest */,
 				377E95D41ED532CD0080E86D /* MyFileManageUITests.xctest */,
+				007B77432060056300937961 /* MyFileManageShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1820,6 +1869,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		007B77422060056300937961 /* MyFileManageShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 007B774F2060056300937961 /* Build configuration list for PBXNativeTarget "MyFileManageShare" */;
+			buildPhases = (
+				007B773F2060056300937961 /* Sources */,
+				007B77402060056300937961 /* Frameworks */,
+				007B77412060056300937961 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyFileManageShare;
+			productName = MyFileManageShare;
+			productReference = 007B77432060056300937961 /* MyFileManageShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		377E95AF1ED532CD0080E86D /* MyFileManage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 377E95DD1ED532CD0080E86D /* Build configuration list for PBXNativeTarget "MyFileManage" */;
@@ -1830,10 +1896,12 @@
 				377E95AE1ED532CD0080E86D /* Resources */,
 				0EC76E215CB98ED2AC2F9C6A /* [CP] Embed Pods Frameworks */,
 				4D7F2DFC19908C00733F52AB /* [CP] Copy Pods Resources */,
+				007B77522060056300937961 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				007B774D2060056300937961 /* PBXTargetDependency */,
 			);
 			name = MyFileManage;
 			productName = MyFileManage;
@@ -1885,6 +1953,11 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = wangchao;
 				TargetAttributes = {
+					007B77422060056300937961 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = S6W7TXYNQR;
+						ProvisioningStyle = Automatic;
+					};
 					377E95AF1ED532CD0080E86D = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = S6W7TXYNQR;
@@ -1925,11 +1998,20 @@
 				377E95AF1ED532CD0080E86D /* MyFileManage */,
 				377E95C81ED532CD0080E86D /* MyFileManageTests */,
 				377E95D31ED532CD0080E86D /* MyFileManageUITests */,
+				007B77422060056300937961 /* MyFileManageShare */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		007B77412060056300937961 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				007B774A2060056300937961 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		377E95AE1ED532CD0080E86D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2065,6 +2147,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		007B773F2060056300937961 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				007B77472060056300937961 /* ShareViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		377E95AC1ED532CD0080E86D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2299,6 +2389,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		007B774D2060056300937961 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 007B77422060056300937961 /* MyFileManageShare */;
+			targetProxy = 007B774C2060056300937961 /* PBXContainerItemProxy */;
+		};
 		377E95CB1ED532CD0080E86D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 377E95AF1ED532CD0080E86D /* MyFileManage */;
@@ -2512,6 +2607,14 @@
 			name = "CropEven@2x.png";
 			sourceTree = "<group>";
 		};
+		007B77482060056300937961 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				007B77492060056300937961 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		377E95C11ED532CD0080E86D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2523,6 +2626,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		007B77502060056300937961 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6W7TXYNQR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MyFileManageShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wangchao.MyFileManage.MyFileManageShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		007B77512060056300937961 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6W7TXYNQR;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MyFileManageShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wangchao.MyFileManage.MyFileManageShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		377E95DB1ED532CD0080E86D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2621,6 +2774,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = S6W7TXYNQR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2650,6 +2804,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = S6W7TXYNQR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2725,6 +2880,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		007B774F2060056300937961 /* Build configuration list for PBXNativeTarget "MyFileManageShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				007B77502060056300937961 /* Debug */,
+				007B77512060056300937961 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		377E95AB1ED532CD0080E86D /* Build configuration list for PBXProject "MyFileManage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
