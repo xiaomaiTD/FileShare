@@ -145,8 +145,7 @@
 		006C4D072018CB2700172419 /* localImageAndVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D062018CB2700172419 /* localImageAndVideoCell.m */; };
 		006C4D0A2018D46200172419 /* LocalImageAndVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C4D092018D46200172419 /* LocalImageAndVideoModel.m */; };
 		007B773E205FFC9800937961 /* ShareCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007B773D205FFC9800937961 /* ShareCustomView.m */; };
-		007B77472060056300937961 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007B77462060056300937961 /* ShareViewController.m */; };
-		007B774A2060056300937961 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B77482060056300937961 /* MainInterface.storyboard */; };
+		007B77472060056300937961 /* CustomShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007B77462060056300937961 /* CustomShareViewController.m */; };
 		007B774E2060056300937961 /* MyFileManageShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 007B77432060056300937961 /* MyFileManageShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		007B7784206128C200937961 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007B7783206128C100937961 /* Social.framework */; };
 		00886F3120133581006148BF /* UdpServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F2F20133581006148BF /* UdpServerManager.m */; };
@@ -549,9 +548,8 @@
 		007B773C205FFC9800937961 /* ShareCustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareCustomView.h; sourceTree = "<group>"; };
 		007B773D205FFC9800937961 /* ShareCustomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareCustomView.m; sourceTree = "<group>"; };
 		007B77432060056300937961 /* MyFileManageShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyFileManageShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		007B77452060056300937961 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
-		007B77462060056300937961 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
-		007B77492060056300937961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		007B77452060056300937961 /* CustomShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomShareViewController.h; sourceTree = "<group>"; };
+		007B77462060056300937961 /* CustomShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomShareViewController.m; sourceTree = "<group>"; };
 		007B774B2060056300937961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		007B7783206128C100937961 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		00886F2F20133581006148BF /* UdpServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UdpServerManager.m; sourceTree = "<group>"; };
@@ -1124,9 +1122,8 @@
 		007B77442060056300937961 /* MyFileManageShare */ = {
 			isa = PBXGroup;
 			children = (
-				007B77452060056300937961 /* ShareViewController.h */,
-				007B77462060056300937961 /* ShareViewController.m */,
-				007B77482060056300937961 /* MainInterface.storyboard */,
+				007B77452060056300937961 /* CustomShareViewController.h */,
+				007B77462060056300937961 /* CustomShareViewController.m */,
 				007B774B2060056300937961 /* Info.plist */,
 			);
 			path = MyFileManageShare;
@@ -2012,7 +2009,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				007B774A2060056300937961 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2155,7 +2151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				007B77472060056300937961 /* ShareViewController.m in Sources */,
+				007B77472060056300937961 /* CustomShareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2609,14 +2605,6 @@
 				0005F1E0200F433D0004751A /* en */,
 			);
 			name = "CropEven@2x.png";
-			sourceTree = "<group>";
-		};
-		007B77482060056300937961 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				007B77492060056300937961 /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		377E95C11ED532CD0080E86D /* LaunchScreen.storyboard */ = {

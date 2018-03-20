@@ -165,7 +165,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [self.editTarView.shareBtn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
         if ([self judgeHaveAllPhoto]) {
-            [self shareClick];
+//            [self shareClick];
         }
     }];
 
