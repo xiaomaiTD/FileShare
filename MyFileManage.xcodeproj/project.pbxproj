@@ -148,6 +148,7 @@
 		007B77472060056300937961 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007B77462060056300937961 /* ShareViewController.m */; };
 		007B774A2060056300937961 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B77482060056300937961 /* MainInterface.storyboard */; };
 		007B774E2060056300937961 /* MyFileManageShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 007B77432060056300937961 /* MyFileManageShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		007B7784206128C200937961 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007B7783206128C100937961 /* Social.framework */; };
 		00886F3120133581006148BF /* UdpServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F2F20133581006148BF /* UdpServerManager.m */; };
 		00886F372013368B006148BF /* senderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F322013368A006148BF /* senderViewController.m */; };
 		00886F382013368B006148BF /* receiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00886F342013368B006148BF /* receiveViewController.m */; };
@@ -552,6 +553,7 @@
 		007B77462060056300937961 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		007B77492060056300937961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		007B774B2060056300937961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		007B7783206128C100937961 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		00886F2F20133581006148BF /* UdpServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UdpServerManager.m; sourceTree = "<group>"; };
 		00886F3020133581006148BF /* UdpServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdpServerManager.h; sourceTree = "<group>"; };
 		00886F322013368A006148BF /* senderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = senderViewController.m; sourceTree = "<group>"; };
@@ -832,6 +834,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007B7784206128C200937961 /* Social.framework in Frameworks */,
 				002ECE242011869400319300 /* MobileCoreServices.framework in Frameworks */,
 				0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */,
 				0032FB332009F54E006EF52B /* libbz2.1.0.tbd in Frameworks */,
@@ -1665,6 +1668,7 @@
 		37739A5A1ED91B9F001BF4F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				007B7783206128C100937961 /* Social.framework */,
 				00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */,
 				0032FB342009F556006EF52B /* libz.1.tbd */,
 				0032FB322009F54E006EF52B /* libbz2.1.0.tbd */,

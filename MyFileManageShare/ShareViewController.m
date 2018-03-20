@@ -8,6 +8,7 @@
 
 #import "ShareViewController.h"
 
+
 @interface ShareViewController ()
 
 @end
@@ -15,15 +16,33 @@
 @implementation ShareViewController
 
 - (BOOL)isContentValid {
-    // Do validation of contentText and/or NSExtensionContext attachments here
+  
     return YES;
 }
 
+- (void)didSelectCancel{
+  
+  
+}
+
 - (void)didSelectPost {
-    // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
+
+    __block BOOL hasExistsUrl = NO;
+    [self.extensionContext.inputItems enumerateObjectsUsingBlock:^(NSExtensionItem * _Nonnull extItem, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        [extItem.attachments enumerateObjectsUsingBlock:^(NSItemProvider * _Nonnull itemProvider, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            
+            
+        }];
+        
+        if (hasExistsUrl)
+        {
+            *stop = YES;
+        }
+        
+    }];
     
-    // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
-    [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
 }
 
 - (NSArray *)configurationItems {

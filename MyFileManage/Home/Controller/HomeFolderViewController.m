@@ -204,15 +204,11 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     
     fileModel *model = [self selectedModelsArray].firstObject;
     
-    NSString *textToShare = @"文件分享";
+    NSString *textToShare = model.fileName;
     UIImage *imageToShare = [[UIImage alloc] initWithContentsOfFile:model.fullPath];
-    NSURL *urlToShare = [NSURL URLWithString:@"https://github.com/ViterbiDevelopment"];
-    NSArray *activityItems = @[urlToShare,textToShare,imageToShare];
-    
-    //自定义Activity
-    ShareCustomView * customActivit = [[ShareCustomView alloc] initWithTitie:@"文件分享" withActivityImage:imageToShare withUrl:urlToShare withType:@"customActivity" withShareContext:activityItems];
-    NSArray *activities = @[customActivit];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:activities];
+//    NSURL *urlToShare = [NSURL URLWithString:@"https://github.com/ViterbiDevelopment"];
+    NSArray *activityItems = @[textToShare,imageToShare];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     
     if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
         //初始化回调方法
