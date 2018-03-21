@@ -18,48 +18,49 @@
 
 -(void)viewDidAppear:(BOOL)animated{
   
-  UIResponder* responder = self;
-  NSString *urlString = @"wangchao.MyFileManageExtension://";
-  while ((responder = [responder nextResponder]) != nil)
-  {
-    NSLog(@"responder = %@", responder);
-    if([responder respondsToSelector:@selector(openURL:)] == YES)
-    {
-      [responder performSelector:@selector(openURL:) withObject:[NSURL URLWithString:urlString]];
-    }
-  }
-  
- 
-  
+
   [self.extensionContext.inputItems enumerateObjectsUsingBlock:^(NSExtensionItem *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
     
     [obj.attachments enumerateObjectsUsingBlock:^(NSItemProvider *  _Nonnull itemProvider, NSUInteger idx, BOOL * _Nonnull stop) {
       
-      NSLog(@"itemProvider-------%@",itemProvider);
+//      NSLog(@"itemProvider-------%@",itemProvider);
       
-      if ([itemProvider.registeredTypeIdentifiers containsObject:@"public.file-url"]) {
-        [itemProvider loadItemForTypeIdentifier:@"public.file-url" options:nil completionHandler:^(id<NSSecureCoding>  _Nullable item, NSError * _Null_unspecified error) {
+      if ([itemProvider.registeredTypeIdentifiers containsObject:@"public.url"]) {
+        [itemProvider loadItemForTypeIdentifier:@"public.url" options:nil completionHandler:^(id<NSSecureCoding>  _Nullable item, NSError * _Null_unspecified error) {
           
-         NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.wangchao.MyFileManageShareExtension"];
-          
-            NSURL *url = (NSURL *)item;
-            NSLog(@"item-------%@",url.absoluteString);
+            //group.wangchao.MyFileManageShareExtension
+            NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.wangchao.MyFileManageShareExtension"];
             
-          [userDefaults setValue:url.absoluteString forKey:@"share-pdf-url"];
-          [userDefaults setBool:YES forKey:@"has-new-pdf"];
-          
-          
+            NSURL *url = (NSURL *)item;
+//            NSLog(@"item-------%@",url.absoluteString);
+//
+            [userDefaults setValue:url.absoluteString forKey:@"share-pdf-url"];
+            [userDefaults setBool:YES forKey:@"has-new-pdf"];
+            [userDefaults synchronize];
+            
+//            NSLog(@"share-pdf-url--------%@",[userDefaults objectForKey:@"share-pdf-url"]);
+//
+//
+            UIResponder* responder = self;
+            NSString *urlString = @"wangchao.MyFileManageExtension://";
+            while ((responder = [responder nextResponder]) != nil)
+            {
+                NSLog(@"responder = %@", responder);
+                if([responder respondsToSelector:@selector(openURL:)] == YES)
+                {
+                    [responder performSelector:@selector(openURL:) withObject:[NSURL URLWithString:urlString]];
+                }
+            }
+            
+            [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
+
         }];
       }
-      
-     
       
     }];
     
   }];
-  
-   [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
-  
+    
   
 }
 

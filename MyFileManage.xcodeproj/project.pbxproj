@@ -490,6 +490,7 @@
 		0006BF64202D421A00C82FF9 /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
 		0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
 		000EA30520627EE7004420D6 /* MyFileManage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFileManage.entitlements; sourceTree = "<group>"; };
+		000EA3062062A6AD004420D6 /* MyFileManageShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFileManageShare.entitlements; sourceTree = "<group>"; };
 		001450082024860500EB2D63 /* OpenTXTEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenTXTEditViewController.h; sourceTree = "<group>"; };
 		001450092024860500EB2D63 /* OpenTXTEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenTXTEditViewController.m; sourceTree = "<group>"; };
 		0014500B2024A56700EB2D63 /* UIViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
@@ -1123,6 +1124,7 @@
 		007B77442060056300937961 /* MyFileManageShare */ = {
 			isa = PBXGroup;
 			children = (
+				000EA3062062A6AD004420D6 /* MyFileManageShare.entitlements */,
 				007B77452060056300937961 /* CustomShareViewController.h */,
 				007B77462060056300937961 /* CustomShareViewController.m */,
 				007B774B2060056300937961 /* Info.plist */,
@@ -1960,6 +1962,11 @@
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = S6W7TXYNQR;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					377E95AF1ED532CD0080E86D = {
 						CreatedOnToolsVersion = 8.3.2;

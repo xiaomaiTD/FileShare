@@ -27,18 +27,23 @@
     // 建立系统文件夹
     [[FolderFileManager shareInstance] createSystemFolder];
     
-    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.wangchao.MyFileManageShareExtension"];
- 
-    if ([userDefaults boolForKey:@"has-new-pdf"]) {
-        
-        NSURL *url = [userDefaults objectForKey:@"share-pdf-url"];
-        
-        NSLog(@"url---------%@",url);
-        
-    }
   
   
     return YES;
+}
+
+-(void)applicationDidBecomeActive:(UIApplication *)application{
+ 
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.wangchao.MyFileManageShareExtension"];
+    NSURL *url = [userDefaults objectForKey:@"share-pdf-url"];
+//    NSLog(@"url-------%@",url);
+    if ([userDefaults boolForKey:@"has-new-pdf"]) {
+//        NSURL *url = [userDefaults objectForKey:@"share-pdf-url"];
+//        NSLog(@"url---------%@",url);
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"哈哈" message:url.absoluteString delegate:nil cancelButtonTitle:@"cancle" otherButtonTitles:@"sure", nil];
+    [alert show];
+
 }
 
 @end
