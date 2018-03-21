@@ -27,7 +27,7 @@
 			<string>wangchao.MyFileManage</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>Demo</string>
+				<string>wangchao.MyFileManageExtension</string>
 			</array>
 		</dict>
 	</array>

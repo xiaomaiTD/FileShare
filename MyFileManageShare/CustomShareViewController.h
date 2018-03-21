@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Social/Social.h>
 
-@interface CustomShareViewController : SLComposeServiceViewController
+@interface CustomShareViewController : UIViewController
 
 @end

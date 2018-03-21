@@ -16,50 +16,21 @@
 @implementation CustomShareViewController
 
 
-- (void)viewDidLoad{
-    
-//    self.textView.hidden = YES;
-    
-//    NSLog(@"class-------%@",self.textView.sub)
-
-
-    for (UIView *subview in self.textView.superview.superview.superview.superview.subviews) {
-        
-        NSLog(@"class-------%@",subview.classForCoder);
-        subview.hidden = YES;
+-(void)viewDidAppear:(BOOL)animated{
+  
+  UIResponder* responder = self;
+  NSString *urlString = @"wangchao.MyFileManageExtension://";
+  while ((responder = [responder nextResponder]) != nil)
+  {
+    NSLog(@"responder = %@", responder);
+    if([responder respondsToSelector:@selector(openURL:)] == YES)
+    {
+      [responder performSelector:@selector(openURL:) withObject:[NSURL URLWithString:urlString]];
     }
-}
-
--(void)presentationAnimationDidFinish{
-    
-//    [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
-//
-//    UIResponder* responder = self;
-//    NSString *urlString = @"Demo://";
-//    while ((responder = [responder nextResponder]) != nil)
-//    {
-//        NSLog(@"responder = %@", responder);
-//        if([responder respondsToSelector:@selector(openURL:)] == YES)
-//        {
-//            [responder performSelector:@selector(openURL:) withObject:[NSURL URLWithString:urlString]];
-//        }
-//    }
-//
-    
-}
-
-- (BOOL)isContentValid {
+  }
   
-    return YES;
+  [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
 }
 
-- (void)didSelectCancel{
-  
-
-}
-
-- (NSArray *)configurationItems {
-    return nil;
-}
 
 @end
