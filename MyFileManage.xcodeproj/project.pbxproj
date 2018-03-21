@@ -489,6 +489,7 @@
 		0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveFolderCell.m; sourceTree = "<group>"; };
 		0006BF64202D421A00C82FF9 /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
 		0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
+		000EA30520627EE7004420D6 /* MyFileManage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFileManage.entitlements; sourceTree = "<group>"; };
 		001450082024860500EB2D63 /* OpenTXTEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenTXTEditViewController.h; sourceTree = "<group>"; };
 		001450092024860500EB2D63 /* OpenTXTEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenTXTEditViewController.m; sourceTree = "<group>"; };
 		0014500B2024A56700EB2D63 /* UIViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
@@ -1721,6 +1722,7 @@
 		377E95B21ED532CD0080E86D /* MyFileManage */ = {
 			isa = PBXGroup;
 			children = (
+				000EA30520627EE7004420D6 /* MyFileManage.entitlements */,
 				377E95E71ED533CD0080E86D /* AppDelegate */,
 				377E95E61ED5339F0080E86D /* Home */,
 				008F8B842012ED6B00FA08EC /* Connection */,
@@ -1964,6 +1966,11 @@
 						DevelopmentTeam = S6W7TXYNQR;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					377E95C81ED532CD0080E86D = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -2766,6 +2773,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MyFileManage/MyFileManage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = S6W7TXYNQR;
 				ENABLE_BITCODE = NO;
@@ -2796,6 +2804,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MyFileManage/MyFileManage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = S6W7TXYNQR;
 				ENABLE_BITCODE = NO;
