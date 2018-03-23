@@ -252,6 +252,7 @@
 		00DE8F2C205AB00600FE16B2 /* SelectedFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE8F2B205AB00600FE16B2 /* SelectedFolderCell.m */; };
 		00DE8F2F205ABFD200FE16B2 /* HomeToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE8F2E205ABFD200FE16B2 /* HomeToolBarView.m */; };
 		00FA8111206544D2002BFCAC /* FMDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA8110206544D2002BFCAC /* FMDBTool.m */; };
+		00FA811420654AE0002BFCAC /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA811320654AE0002BFCAC /* CollectionViewController.m */; };
 		00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13A2011CF0000BE57BB /* GCDGroup.m */; };
 		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
 		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
@@ -761,6 +762,8 @@
 		00DE8F2E205ABFD200FE16B2 /* HomeToolBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeToolBarView.m; sourceTree = "<group>"; };
 		00FA810F206544D2002BFCAC /* FMDBTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDBTool.h; sourceTree = "<group>"; };
 		00FA8110206544D2002BFCAC /* FMDBTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBTool.m; sourceTree = "<group>"; };
+		00FA811220654AE0002BFCAC /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		00FA811320654AE0002BFCAC /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		00FEF1382011CF0000BE57BB /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		00FEF1392011CF0000BE57BB /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		00FEF13A2011CF0000BE57BB /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -1846,6 +1849,8 @@
 				377E96F91ED560530080E86D /* SettingViewController.m */,
 				0014500E20255F2400EB2D63 /* RecyleFileViewController.h */,
 				0014500F20255F2400EB2D63 /* RecyleFileViewController.m */,
+				00FA811220654AE0002BFCAC /* CollectionViewController.h */,
+				00FA811320654AE0002BFCAC /* CollectionViewController.m */,
 				002C9A54202199BE0053B1A6 /* View */,
 			);
 			path = Setting;
@@ -2228,6 +2233,7 @@
 				0005F176200F36440004751A /* PDFDocumentInfo.m in Sources */,
 				00B3A986200E02790009DC52 /* CXMLNode_PrivateExtensions.m in Sources */,
 				00B3A9D4200E04550009DC52 /* Track.m in Sources */,
+				00FA811420654AE0002BFCAC /* CollectionViewController.m in Sources */,
 				00B3A96E200E02790009DC52 /* LSYReadParser.m in Sources */,
 				005155F620132C6A009DA2A3 /* Receiver.m in Sources */,
 				0005F170200F36440004751A /* PDFDocumentSearchViewController.m in Sources */,
