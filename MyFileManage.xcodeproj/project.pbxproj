@@ -261,7 +261,6 @@
 		3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */; };
 		374AB5B71ED7D088004CFD0B /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B21ED7D088004CFD0B /* DataBaseTool.m */; };
 		374AB5B81ED7D088004CFD0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B41ED7D088004CFD0B /* UIView+Extension.m */; };
-		374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB5B51ED7D088004CFD0B /* ZoomImageView.m */; };
 		376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A5F1ED91BB4001BF4F1 /* AVFoundation.framework */; };
 		37739A721ED91C0F001BF4F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A711ED91C0F001BF4F1 /* UIKit.framework */; };
 		377E95B51ED532CD0080E86D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E95B41ED532CD0080E86D /* main.m */; };
@@ -782,8 +781,6 @@
 		374AB5B21ED7D088004CFD0B /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		374AB5B31ED7D088004CFD0B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		374AB5B41ED7D088004CFD0B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		374AB5B51ED7D088004CFD0B /* ZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageView.m; sourceTree = "<group>"; };
-		374AB5B61ED7D088004CFD0B /* ZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageView.h; sourceTree = "<group>"; };
 		376F4D821EDAEEE100CE9B26 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		37739A5D1ED91BA8001BF4F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		37739A5F1ED91BB4001BF4F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1814,8 +1811,6 @@
 				374AB5B21ED7D088004CFD0B /* DataBaseTool.m */,
 				00FA810F206544D2002BFCAC /* FMDBTool.h */,
 				00FA8110206544D2002BFCAC /* FMDBTool.m */,
-				374AB5B51ED7D088004CFD0B /* ZoomImageView.m */,
-				374AB5B61ED7D088004CFD0B /* ZoomImageView.h */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -2272,7 +2267,6 @@
 				0014500A2024860500EB2D63 /* OpenTXTEditViewController.m in Sources */,
 				0005F164200F36440004751A /* PDFDocumentPageSlider.m in Sources */,
 				00B3A92C200E02790009DC52 /* HTTPAsyncFileResponse.m in Sources */,
-				374AB5B91ED7D088004CFD0B /* ZoomImageView.m in Sources */,
 				00B3A91B200E02790009DC52 /* DDASLLogger.m in Sources */,
 				00887241201861FC006148BF /* LocalImageModel.m in Sources */,
 				00B3A931200E02790009DC52 /* HTTPRedirectResponse.m in Sources */,
