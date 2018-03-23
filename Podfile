@@ -13,5 +13,6 @@ target 'MyFileManage' do
     pod 'KVOController'
     pod 'SSZipArchive'
     pod 'DMPasscode', :git => 'https://github.com/ViterbiDevelopment/DMPasscode'
+    pod 'FMDB'
 end
 

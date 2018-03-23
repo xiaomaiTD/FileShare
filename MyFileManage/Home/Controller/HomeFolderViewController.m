@@ -591,6 +591,12 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         [self presentMoveFolderViewController:model];
     }];
     [alertCon addAction:textAc];
+    
+    UIAlertAction *collection = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertCon addAction:collection];
+
   
     UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [[FolderFileManager shareInstance] moveToRecyleFolderFromPath:model.fullPath];

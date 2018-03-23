@@ -36,13 +36,10 @@
  
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.wangchao.MyFileManageShareExtension"];
     NSURL *url = [userDefaults objectForKey:@"share-pdf-url"];
-//    NSLog(@"url-------%@",url);
     if ([userDefaults boolForKey:@"has-new-pdf"]) {
-//        NSURL *url = [userDefaults objectForKey:@"share-pdf-url"];
-//        NSLog(@"url---------%@",url);
     }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"哈哈" message:url.absoluteString delegate:nil cancelButtonTitle:@"cancle" otherButtonTitles:@"sure", nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"哈哈" message:url.absoluteString delegate:nil cancelButtonTitle:@"cancle" otherButtonTitles:@"sure", nil];
+//    [alert show];
 
 }
 

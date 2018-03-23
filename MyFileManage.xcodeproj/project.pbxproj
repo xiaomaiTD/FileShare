@@ -251,6 +251,7 @@
 		00D8AA832046EC4F00FA4AF9 /* receiveFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D8AA822046EC4F00FA4AF9 /* receiveFileView.m */; };
 		00DE8F2C205AB00600FE16B2 /* SelectedFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE8F2B205AB00600FE16B2 /* SelectedFolderCell.m */; };
 		00DE8F2F205ABFD200FE16B2 /* HomeToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE8F2E205ABFD200FE16B2 /* HomeToolBarView.m */; };
+		00FA8111206544D2002BFCAC /* FMDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA8110206544D2002BFCAC /* FMDBTool.m */; };
 		00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13A2011CF0000BE57BB /* GCDGroup.m */; };
 		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
 		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
@@ -759,6 +760,8 @@
 		00DE8F2B205AB00600FE16B2 /* SelectedFolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedFolderCell.m; sourceTree = "<group>"; };
 		00DE8F2D205ABFD200FE16B2 /* HomeToolBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeToolBarView.h; sourceTree = "<group>"; };
 		00DE8F2E205ABFD200FE16B2 /* HomeToolBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeToolBarView.m; sourceTree = "<group>"; };
+		00FA810F206544D2002BFCAC /* FMDBTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDBTool.h; sourceTree = "<group>"; };
+		00FA8110206544D2002BFCAC /* FMDBTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBTool.m; sourceTree = "<group>"; };
 		00FEF1382011CF0000BE57BB /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		00FEF1392011CF0000BE57BB /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		00FEF13A2011CF0000BE57BB /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -1809,6 +1812,8 @@
 				0014500C2024A56700EB2D63 /* UIViewController+Extension.m */,
 				374AB5B11ED7D088004CFD0B /* DataBaseTool.h */,
 				374AB5B21ED7D088004CFD0B /* DataBaseTool.m */,
+				00FA810F206544D2002BFCAC /* FMDBTool.h */,
+				00FA8110206544D2002BFCAC /* FMDBTool.m */,
 				374AB5B51ED7D088004CFD0B /* ZoomImageView.m */,
 				374AB5B61ED7D088004CFD0B /* ZoomImageView.h */,
 			);
@@ -2097,6 +2102,7 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/DMPasscode/DMPasscode.framework",
 				"${BUILT_PRODUCTS_DIR}/DOUAudioStreamer/DOUAudioStreamer.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/GVUserDefaults/GVUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -2111,6 +2117,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DMPasscode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DOUAudioStreamer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GVUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -2187,6 +2194,7 @@
 				00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */,
 				00B3A96B200E02790009DC52 /* LSYMarkVC.m in Sources */,
 				002ECE232010E7B300319300 /* ResourceFileManager.m in Sources */,
+				00FA8111206544D2002BFCAC /* FMDBTool.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
 				00B3A97F200E02790009DC52 /* CXMLDocument.m in Sources */,
 				0005F150200F36440004751A /* PDFRenderingCharacter.m in Sources */,
