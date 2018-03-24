@@ -7,9 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "fileModel.h"
 
 @interface FMDBTool : NSObject
 
 +(instancetype)shareInstance;
+
+//添加收藏
+-(void)addCollectionModel:(fileModel *)model;
+
+//查找收藏数组
+-(NSArray *)selectedCollectionModel;
+
+//删除收藏
+-(void)deleteCollectionModel:(fileModel *)model;
+
 
 @end

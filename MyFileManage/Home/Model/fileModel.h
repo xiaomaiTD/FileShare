@@ -15,7 +15,8 @@
 @property(nonatomic,assign)BOOL isFolder; //是否为文件夹
 @property(nonatomic,strong)NSString *name;
 @property(nonatomic,strong)NSString *fileName; //文件名
-@property(nonatomic,strong)NSString *fullPath;//文件全路径
+@property(nonatomic,strong)NSString *fullPath;//文件全路径 绝对路径
+@property(nonatomic,strong)NSString *realtivePath;//文件全路径 绝对路径
 @property(nonatomic,strong)NSString *fileType;//文件类型。(png,txt,zip,avi etc..)
 @property(nonatomic,assign)BOOL isSystemFolder;// 是否为系统文件夹，（下载，隐藏等
 @property(nonatomic,assign)BOOL selected;//在首页是否被选择

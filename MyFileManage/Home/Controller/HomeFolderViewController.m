@@ -38,6 +38,7 @@
 #import "FolderFileManager.h"
 #import "GloablVarManager.h"
 #import "DataBaseTool.h"
+#import "FMDBTool.h"
 
 #import "SelectedFolderCell.h"
 #import "HomeToolBarView.h"
@@ -114,6 +115,11 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [self addKVO];
     [self configueNavItem];
     [self setBasicUI];
+    
+    NSArray *modelArray = [[FMDBTool shareInstance] selectedCollectionModel];
+    
+    NSLog(@"count0---------%@",modelArray);
+    
 }
 
 -(void)addKVO{
@@ -593,7 +599,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [alertCon addAction:textAc];
     
     UIAlertAction *collection = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        [[FMDBTool shareInstance] addCollectionModel:model];
     }];
     [alertCon addAction:collection];
 

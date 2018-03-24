@@ -8,7 +8,7 @@
 
 #import "fileModel.h"
 #import "DataBaseTool.h"
-
+#import "FolderFileManager.h"
 @implementation fileModel
 
 -(instancetype)initWithFilePath:(NSString *)path{
@@ -26,6 +26,10 @@
         self.name = [path lastPathComponent];
         self.fileType = [path pathExtension];
         self.fullPath = path;
+        
+        NSRange realtiveRang = [self.fullPath rangeOfString:[[FolderFileManager shareInstance] getDocumentPath]];
+        self.realtivePath = [self.fullPath substringFromIndex:realtiveRang.length + realtiveRang.location];
+        
         BOOL folder = NO;
         [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&folder];
         self.isFolder = folder;
