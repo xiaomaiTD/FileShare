@@ -6,10 +6,10 @@
 //  Copyright © 2017年 wangchao. All rights reserved.
 //
 
+#import "BaseDealFileViewController.h"
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
-#import "fileModel.h"
 
-@interface HomeFolderViewController: BaseViewController
+
+@interface HomeFolderViewController: BaseDealFileViewController
 @property(nonatomic,assign)BOOL isPushSelf;
 @end

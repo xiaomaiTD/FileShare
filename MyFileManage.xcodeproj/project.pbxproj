@@ -253,6 +253,7 @@
 		00DE8F2F205ABFD200FE16B2 /* HomeToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE8F2E205ABFD200FE16B2 /* HomeToolBarView.m */; };
 		00FA8111206544D2002BFCAC /* FMDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA8110206544D2002BFCAC /* FMDBTool.m */; };
 		00FA811420654AE0002BFCAC /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA811320654AE0002BFCAC /* CollectionViewController.m */; };
+		00FA811720663C1C002BFCAC /* BaseDealFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA811620663C1C002BFCAC /* BaseDealFileViewController.m */; };
 		00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13A2011CF0000BE57BB /* GCDGroup.m */; };
 		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
 		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
@@ -764,6 +765,8 @@
 		00FA8110206544D2002BFCAC /* FMDBTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBTool.m; sourceTree = "<group>"; };
 		00FA811220654AE0002BFCAC /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		00FA811320654AE0002BFCAC /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		00FA811520663C1C002BFCAC /* BaseDealFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDealFileViewController.h; sourceTree = "<group>"; };
+		00FA811620663C1C002BFCAC /* BaseDealFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDealFileViewController.m; sourceTree = "<group>"; };
 		00FEF1382011CF0000BE57BB /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		00FEF1392011CF0000BE57BB /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		00FEF13A2011CF0000BE57BB /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -1838,6 +1841,8 @@
 				3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */,
 				005A705C200A1FE100400500 /* BaseViewController.h */,
 				005A705D200A1FE100400500 /* BaseViewController.m */,
+				00FA811520663C1C002BFCAC /* BaseDealFileViewController.h */,
+				00FA811620663C1C002BFCAC /* BaseDealFileViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2185,6 +2190,7 @@
 				0005F1A6200F36440004751A /* GRTNavigationController.m in Sources */,
 				00B3A97B200E02790009DC52 /* NSString+HTML.m in Sources */,
 				00B3A918200E02790009DC52 /* GCDAsyncSocket.m in Sources */,
+				00FA811720663C1C002BFCAC /* BaseDealFileViewController.m in Sources */,
 				00B3A81F200DA6D00009DC52 /* NSTimer+Extension.m in Sources */,
 				005155ED20132B03009DA2A3 /* AsyncUdpSocket.m in Sources */,
 				00B3A992200E02790009DC52 /* LSYMagnifierView.m in Sources */,

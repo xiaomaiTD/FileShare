@@ -7,10 +7,12 @@
 //
 
 #import "CollectionViewController.h"
+#import "FMDBTool.h"
 
 @interface CollectionViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSArray *dataArray;
 
 @end
 
@@ -18,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.dataArray = [[FMDBTool shareInstance] selectedCollectionModel];
+    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -36,7 +41,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return _dataArray.count;
 }
 
 

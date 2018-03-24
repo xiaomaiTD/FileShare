@@ -27,7 +27,7 @@
         self.fileType = [path pathExtension];
         self.fullPath = path;
         
-        NSRange realtiveRang = [self.fullPath rangeOfString:[[FolderFileManager shareInstance] getDocumentPath]];
+        NSRange realtiveRang = [self.fullPath rangeOfString:[[FolderFileManager shareInstance] getUploadPath]];
         self.realtivePath = [self.fullPath substringFromIndex:realtiveRang.length + realtiveRang.location];
         
         BOOL folder = NO;

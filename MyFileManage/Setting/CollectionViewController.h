@@ -6,8 +6,8 @@
 //  Copyright © 2018年 wangchao. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseDealFileViewController.h"
 
-@interface CollectionViewController : BaseViewController
+@interface CollectionViewController : BaseDealFileViewController
 
 @end

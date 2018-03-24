@@ -10,6 +10,7 @@
 #import "SettingBaseTableCell.h"
 #import "SettingNotifyTableCell.h"
 #import "RecyleFileViewController.h"
+#import "CollectionViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import <DMPasscode/DMPasscode.h>
 
@@ -69,6 +70,10 @@
         [GCDQueue executeInMainQueue:^{
            [self showPasswordVC];
         }];
+    }
+    if (indexPath.section == 1) {
+        CollectionViewController *collection = [[CollectionViewController alloc] init];
+        APPNavPushViewController(collection);
     }
     if (indexPath.section == 2 && indexPath.row == 0) {
         RecyleFileViewController *vc = [[RecyleFileViewController alloc] init];

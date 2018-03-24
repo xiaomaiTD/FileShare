@@ -39,22 +39,27 @@ static FMDBTool *tool = nil;
         return;
     }
     if ([self.db open]) {
-        NSString *collection = @"CREATE TABLE 'collection' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'isFolder' integer default 0,'name' VARCHAR(255),'fileName' VARCHAR(255),'fullPath' VARCHAR(255),'fileType' VARCHAR(255),'isSystemFolder'  integer default 0) ";
+        NSString *collection = @"CREATE TABLE 'collection' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'isFolder' integer default 0,'name' VARCHAR(255),'fileName' VARCHAR(255),'fullPath' VARCHAR(255),'fileType' VARCHAR(255),'isSystemFolder'  integer default 0,'realtivePath' VARCHAR(255)) ";
         [_db executeUpdate:collection];
         [_db close];
     }
 }
 
--(void)addCollectionModel:(fileModel *)model{
+-(BOOL)addCollectionModel:(fileModel *)model{
     
     NSString *addSql = @"insert into collection(isFolder,name,fileName,fullPath,fileType,isSystemFolder,realtivePath)values(?,?,?,?,?,?,?)";
     if ([_db open]) {
+        FMResultSet *res = [_db executeQuery:@"SELECT * FROM collection where realtivePath = ?",model.realtivePath];
         
-        [_db executeUpdate:addSql,@(model.isFolder),model.name,model.fileName,model.fullPath,model.fileType,@(model.isSystemFolder),model.realtivePath];
-        
-        [_db close];
-        NSLog(@"success");
+        if (!res.next) {
+            [_db executeUpdate:addSql,@(model.isFolder),model.name,model.fileName,model.fullPath,model.fileType,@(model.isSystemFolder),model.realtivePath];
+            
+            [_db close];
+            return YES;
+        }
+        return NO;
     }
+    return NO;
 }
 
 -(NSArray *)selectedCollectionModel{
@@ -77,12 +82,14 @@ static FMDBTool *tool = nil;
     return dataArray.copy;
 }
 
--(void)deleteCollectionModel:(fileModel *)model{
+-(BOOL)deleteCollectionModel:(fileModel *)model{
     
     if ([_db open]) {
         [_db executeUpdate:@"DELETE FROM collection WHERE realtivePath = ?",model.realtivePath];
         [_db close];
+        return YES;
     }
+    return NO;
 }
 
 @end
