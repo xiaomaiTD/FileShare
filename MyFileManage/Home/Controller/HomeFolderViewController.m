@@ -553,7 +553,12 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [alertCon addAction:textAc];
     
     UIAlertAction *collection = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [[FMDBTool shareInstance] addCollectionModel:model];
+        BOOL success =  [[FMDBTool shareInstance] addCollectionModel:model];
+        if (success) {
+            [self showSuccess];
+        }else{
+            [self showError];
+        }
     }];
     [alertCon addAction:collection];
 
