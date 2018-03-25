@@ -31,6 +31,7 @@
 
 -(void)openVCWithModel:(fileModel *)model{
     
+    NSLog(@"fullPath--------%@",model.fullPath);
     if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
         openImageViewController *vc = [[openImageViewController alloc] init];
         vc.model = model;
@@ -55,6 +56,7 @@
     if ([SupportTXTArray containsObject:[model.fileType uppercaseString]]) {
         [self openTXTWithModel:model];
     }
+    [[FMDBTool shareInstance] addHistoryModel:model];
 }
 
 

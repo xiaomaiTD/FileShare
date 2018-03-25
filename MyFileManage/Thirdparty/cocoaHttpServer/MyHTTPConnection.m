@@ -10,6 +10,8 @@
 #import "HTTPDynamicFileResponse.h"
 #import "HTTPFileResponse.h"
 
+#import "FolderFileManager.h"
+
 // Log levels : off, error, warn, info, verbose
 // Other flags: trace
 static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE;
@@ -160,8 +162,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	  }
 	//NSString* uploadDirPath = [[config documentRoot] stringByAppendingPathComponent:@"upload"];
 
-    NSString *uploadDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    
+    NSString *uploadDirPath = [[FolderFileManager shareInstance] getDocumentPath];
     uploadDirPath = [NSString stringWithFormat:@"%@/MyFileManageUpload",uploadDirPath];
     
     NSLog(@"%@",uploadDirPath);

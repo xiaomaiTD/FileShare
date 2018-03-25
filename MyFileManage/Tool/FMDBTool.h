@@ -17,12 +17,14 @@ typedef void(^selectedComplete)(NSArray *data);
 
 //添加收藏
 -(BOOL)addCollectionModel:(fileModel *)model;
-
 //查找收藏数组
 -(void)selectedCollectionModel:(selectedComplete)complete;
-
 //删除收藏
 -(BOOL)deleteCollectionModel:(fileModel *)model;
 
+-(BOOL)addHistoryModel:(fileModel *)model;
+-(void)selectedAllHistoryModel:(selectedComplete )complete;
+-(BOOL)deleteHistoryModel:(fileModel *)model;
+-(void)deleteAllHistoryModel:(void(^)(BOOL success))complete;
 
 @end

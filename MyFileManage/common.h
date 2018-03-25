@@ -9,8 +9,16 @@
 #ifndef common_h
 #define common_h
 
+/*
+ NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+ NSUserDomainMask,
+ YES).firstObject;
+ return paths.firstObject;
+
+ */
+
 #define FileFinish @"FileFinish"
-#define FileUploadSavePath  [NSString stringWithFormat:@"%@/MyFileManageUpload",[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]]
+#define FileUploadSavePath  [NSString stringWithFormat:@"%@/MyFileManageUpload",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES).firstObject]
 #define SupportPictureArray @[@"PNG",@"JPG",@"GIF",@"JPEG"]
 #define SupportVideoArray @[@"MP4",@"RMVB",@"MOV",@"MKV"]
 #define SupportTXTArray @[@"TXT",@"EPUB"]
