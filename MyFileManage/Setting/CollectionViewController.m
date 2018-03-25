@@ -21,9 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.dataArray = [[FMDBTool shareInstance] selectedCollectionModel].mutableCopy;
-    
+
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -33,6 +31,11 @@
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
+    [[FMDBTool shareInstance] selectedCollectionModel:^(NSArray *data) {
+        self.dataArray = data.mutableCopy;
+        [self.tableView reloadData];
     }];
 
 }

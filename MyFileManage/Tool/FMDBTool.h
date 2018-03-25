@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "fileModel.h"
 
+typedef void(^selectedComplete)(NSArray *data);
+
 @interface FMDBTool : NSObject
 
 +(instancetype)shareInstance;
@@ -17,7 +19,7 @@
 -(BOOL)addCollectionModel:(fileModel *)model;
 
 //查找收藏数组
--(NSArray *)selectedCollectionModel;
+-(void)selectedCollectionModel:(selectedComplete)complete;
 
 //删除收藏
 -(BOOL)deleteCollectionModel:(fileModel *)model;

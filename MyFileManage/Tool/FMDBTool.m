@@ -15,6 +15,7 @@ static FMDBTool *tool = nil;
 @interface FMDBTool()
 
 @property(nonatomic,strong)FMDatabase *db;
+@property(nonatomic,strong)FMDatabaseQueue *dbQueue;
 
 @end
 
@@ -34,6 +35,7 @@ static FMDBTool *tool = nil;
     
     NSString *dataBasePath = [[[FolderFileManager shareInstance] getDocumentPath] stringByAppendingPathComponent:@"collection.sqlite"];
     self.db = [FMDatabase databaseWithPath:dataBasePath];
+    self.dbQueue = [FMDatabaseQueue databaseQueueWithPath:dataBasePath];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:dataBasePath]) {
         return;
@@ -60,6 +62,32 @@ static FMDBTool *tool = nil;
         return NO;
     }
     return NO;
+}
+
+-(void)selectedCollectionModel:(selectedComplete)complete{
+    
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        if ([db open]) {
+            NSMutableArray *dataArray = [[NSMutableArray alloc] initWithCapacity:0];
+            FMResultSet *res = [db executeQuery:@"SELECT * FROM collection"];
+            while ([res next]) {
+                fileModel *file = [[fileModel alloc] init];
+                file.isFolder = [[res stringForColumn:@"isFolder"] boolValue];
+                file.name = [res stringForColumn:@"name"];
+                file.fileName = [res stringForColumn:@"fileName"];
+                file.fullPath = [[[FolderFileManager shareInstance] getUploadPath] stringByAppendingPathComponent:[res stringForColumn:@"realtivePath"]];
+                file.fileType = [res stringForColumn:@"fileType"];
+                file.isSystemFolder = [res stringForColumn:@"isSystemFolder"];
+                file.realtivePath = [res stringForColumn:@"realtivePath"];
+                [dataArray addObject:file];
+            }
+            [db close];
+            if (complete) {
+                complete(dataArray);
+            }
+        }
+    }];
+    
 }
 
 -(NSArray *)selectedCollectionModel{
