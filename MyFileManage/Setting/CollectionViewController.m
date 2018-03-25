@@ -7,12 +7,13 @@
 //
 
 #import "CollectionViewController.h"
+#import "SettingCollectionCell.h"
 #import "FMDBTool.h"
 
 @interface CollectionViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)NSArray *dataArray;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 
 @end
 
@@ -21,12 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataArray = [[FMDBTool shareInstance] selectedCollectionModel];
+    self.dataArray = [[FMDBTool shareInstance] selectedCollectionModel].mutableCopy;
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[SettingCollectionCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:self.tableView];
     
@@ -36,13 +37,43 @@
 
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    SettingCollectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    if (self.dataArray.count > 0) {
+        fileModel *model = self.dataArray[indexPath.row];
+        cell.model = model;
+    }
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _dataArray.count;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (self.dataArray.count > 0) {
+        fileModel *model = _dataArray[indexPath.row];
+        NSLog(@"fullpath-------%@",model.fullPath);
+        [self openVCWithModel:model];
+    }
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //添加一个删除按钮
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        fileModel *model = self.dataArray[indexPath.row];
+        [[FMDBTool shareInstance] deleteCollectionModel:model];
+        [self.dataArray removeObject:model];
+        NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
+        [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+    return @[deleteAction];
+}
+
 
 
 @end
