@@ -13,7 +13,7 @@
 -(instancetype)initWithFilePath:(NSString *)path;
 
 @property(nonatomic,assign)BOOL isFolder; //是否为文件夹
-@property(nonatomic,strong)NSString *name;
+@property(nonatomic,strong)NSString *name;//文件名.文件后缀
 @property(nonatomic,strong)NSString *fileName; //文件名
 @property(nonatomic,strong)NSString *fullPath;//文件全路径 绝对路径
 @property(nonatomic,strong)NSString *realtivePath;//文件全路径 绝对路径

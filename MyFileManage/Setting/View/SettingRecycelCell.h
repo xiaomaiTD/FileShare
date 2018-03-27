@@ -10,7 +10,5 @@
 #import "fileModel.h"
 
 @interface SettingRecycelCell : SettingBaseTableCell
-
 @property(nonatomic,strong)fileModel *model;
-
 @end

@@ -19,12 +19,8 @@
 
 -(void)setModel:(fileModel *)model{
     _model = model;
-    self.textLabel.text = model.fileName;
-    if (model.isFolder) {
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }else{
-        self.accessoryType = UITableViewCellAccessoryNone;
-    }
+    self.textLabel.text = model.name;
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 @end

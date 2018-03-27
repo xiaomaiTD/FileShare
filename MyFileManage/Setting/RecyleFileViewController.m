@@ -8,13 +8,14 @@
 
 #import "RecyleFileViewController.h"
 #import "ResourceFileManager.h"
+#import "FolderFileManager.h"
 #import "SettingRecycelCell.h"
 #import "fileModel.h"
 
 @interface RecyleFileViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)NSArray<fileModel *> *dataArray;
+@property(nonatomic,strong)NSMutableArray<fileModel *> *dataArray;
 
 @end
 
@@ -22,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"我的回收站";
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -33,7 +35,7 @@
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
-    self.dataArray = [[ResourceFileManager shareInstance] getAllRecycelFolderFileModels];
+    self.dataArray = [[ResourceFileManager shareInstance] getAllRecycelFolderFileModels].mutableCopy;
     [self.tableView reloadData];
 }
 
@@ -47,7 +49,50 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _dataArray.count;
+    return self.dataArray.count;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    fileModel *model = self.dataArray[indexPath.row];
+    
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:model.name message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *deleteAc = [UIAlertAction actionWithTitle:@"删除不可回收" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        [[FolderFileManager shareInstance] deleteFileInPath:model.fullPath];
+        [self.dataArray removeObject:model];
+        
+        NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
+        [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+    }];
+    [alertCon addAction:deleteAc];
+    
+    UIAlertAction *huifu = [UIAlertAction actionWithTitle:@"恢复至主界面" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self moveToHomeModel:model];
+    
+    }];
+    [alertCon addAction:huifu];
+    
+    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertCon addAction:cancelAc];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
+}
+
+-(void)moveToHomeModel:(fileModel *)model{
+    
+    [[FolderFileManager shareInstance] moveFileFromPath:model.fullPath toDestionPath:[[FolderFileManager shareInstance] getUploadPath]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FileFinish" object:nil];
+    [self.dataArray removeObject:model];
+    NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:0];
+    [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    [self showSuccess];
+    
 }
 
 @end
