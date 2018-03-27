@@ -39,17 +39,18 @@ static FMDBTool *tool = nil;
 -(void)createHistoryDB{
     
     NSString *dataBasePath = [[[FolderFileManager shareInstance] getDocumentPath] stringByAppendingPathComponent:@"history.sqlite"];
-    self.historyDB = [FMDatabase databaseWithPath:dataBasePath];
-    self.historyQueue = [FMDatabaseQueue databaseQueueWithPath:dataBasePath];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:dataBasePath]) {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataBasePath]) {
+        self.historyDB = [FMDatabase databaseWithPath:dataBasePath];
+        self.historyQueue = [FMDatabaseQueue databaseQueueWithPath:dataBasePath];
+        if ([self.historyDB open]) {
+            NSString *collection = @"CREATE TABLE 'history' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'isFolder' integer default 0,'name' VARCHAR(255),'fileName' VARCHAR(255),'fullPath' VARCHAR(255),'fileType' VARCHAR(255),'isSystemFolder'  integer default 0,'realtivePath' VARCHAR(255)) ";
+            [self.historyDB executeUpdate:collection];
+            [self.historyDB close];
+        }
         return;
     }
-    if ([self.historyDB open]) {
-        NSString *collection = @"CREATE TABLE 'history' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'isFolder' integer default 0,'name' VARCHAR(255),'fileName' VARCHAR(255),'fullPath' VARCHAR(255),'fileType' VARCHAR(255),'isSystemFolder'  integer default 0,'realtivePath' VARCHAR(255)) ";
-        [self.historyDB executeUpdate:collection];
-        [self.historyDB close];
-    }
+    self.historyDB = [FMDatabase databaseWithPath:dataBasePath];
+    self.historyQueue = [FMDatabaseQueue databaseQueueWithPath:dataBasePath];
 }
 
 -(BOOL)addHistoryModel:(fileModel *)model{
@@ -118,17 +119,24 @@ static FMDBTool *tool = nil;
 -(void)createDataBase{
     
     NSString *dataBasePath = [[[FolderFileManager shareInstance] getDocumentPath] stringByAppendingPathComponent:@"collection.sqlite"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataBasePath]) {
+        
+        self.db = [FMDatabase databaseWithPath:dataBasePath];
+        self.dbQueue = [FMDatabaseQueue databaseQueueWithPath:dataBasePath];
+        
+        if ([self.db open]) {
+            
+            NSString *collection = @"CREATE TABLE 'collection' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'isFolder' integer default 0,'name' VARCHAR(255),'fileName' VARCHAR(255),'fullPath' VARCHAR(255),'fileType' VARCHAR(255),'isSystemFolder'  integer default 0,'realtivePath' VARCHAR(255)) ";
+            [_db executeUpdate:collection];
+            [_db close];
+        }
+
+        return;
+    }
+
     self.db = [FMDatabase databaseWithPath:dataBasePath];
     self.dbQueue = [FMDatabaseQueue databaseQueueWithPath:dataBasePath];
     
-    if ([[NSFileManager defaultManager] fileExistsAtPath:dataBasePath]) {
-        return;
-    }
-    if ([self.db open]) {
-        NSString *collection = @"CREATE TABLE 'collection' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'isFolder' integer default 0,'name' VARCHAR(255),'fileName' VARCHAR(255),'fullPath' VARCHAR(255),'fileType' VARCHAR(255),'isSystemFolder'  integer default 0,'realtivePath' VARCHAR(255)) ";
-        [_db executeUpdate:collection];
-        [_db close];
-    }
 }
 
 -(BOOL)addCollectionModel:(fileModel *)model{

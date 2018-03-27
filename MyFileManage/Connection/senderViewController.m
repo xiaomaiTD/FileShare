@@ -188,7 +188,7 @@
             if (self.type == sendFileFromHome) {
                 progress = [NSString stringWithFormat:@"%ld(%@...)",index,uploadProgress.localizedDescription];
             }else{
-                progress = @"%0...";
+                progress = uploadProgress.localizedDescription;
             }
             hud.label.text = progress;
         }];
