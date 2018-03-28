@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "HistoryViewController.h"
 #import "SettingBaseTableCell.h"
 #import "SettingNotifyTableCell.h"
 #import "RecyleFileViewController.h"
@@ -75,10 +76,17 @@
         CollectionViewController *collection = [[CollectionViewController alloc] init];
         APPNavPushViewController(collection);
     }
-    if (indexPath.section == 2 && indexPath.row == 0) {
-        RecyleFileViewController *vc = [[RecyleFileViewController alloc] init];
-        APPNavPushViewController(vc);
+    if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            RecyleFileViewController *vc = [[RecyleFileViewController alloc] init];
+            APPNavPushViewController(vc);
+        }
+        if (indexPath.row == 1) {
+            HistoryViewController *vc = [[HistoryViewController alloc] init];
+            APPNavPushViewController(vc);
+        }
     }
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -255,6 +255,8 @@
 		00FA811420654AE0002BFCAC /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA811320654AE0002BFCAC /* CollectionViewController.m */; };
 		00FA811720663C1C002BFCAC /* BaseDealFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA811620663C1C002BFCAC /* BaseDealFileViewController.m */; };
 		00FA811A2066527B002BFCAC /* SettingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA81192066527B002BFCAC /* SettingCollectionCell.m */; };
+		00FA8280206A9609002BFCAC /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA827F206A9609002BFCAC /* HistoryViewController.m */; };
+		00FA8283206B23C1002BFCAC /* SettingHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA8282206B23C1002BFCAC /* SettingHistoryCell.m */; };
 		00FEF1412011CF0000BE57BB /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13A2011CF0000BE57BB /* GCDGroup.m */; };
 		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
 		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
@@ -770,6 +772,10 @@
 		00FA811620663C1C002BFCAC /* BaseDealFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDealFileViewController.m; sourceTree = "<group>"; };
 		00FA81182066527B002BFCAC /* SettingCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingCollectionCell.h; sourceTree = "<group>"; };
 		00FA81192066527B002BFCAC /* SettingCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingCollectionCell.m; sourceTree = "<group>"; };
+		00FA827E206A9609002BFCAC /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		00FA827F206A9609002BFCAC /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		00FA8281206B23C1002BFCAC /* SettingHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingHistoryCell.h; sourceTree = "<group>"; };
+		00FA8282206B23C1002BFCAC /* SettingHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingHistoryCell.m; sourceTree = "<group>"; };
 		00FEF1382011CF0000BE57BB /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		00FEF1392011CF0000BE57BB /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		00FEF13A2011CF0000BE57BB /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -1077,6 +1083,8 @@
 				005BD4D920260E3400340B74 /* SettingRecycelCell.m */,
 				00FA81182066527B002BFCAC /* SettingCollectionCell.h */,
 				00FA81192066527B002BFCAC /* SettingCollectionCell.m */,
+				00FA8281206B23C1002BFCAC /* SettingHistoryCell.h */,
+				00FA8282206B23C1002BFCAC /* SettingHistoryCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1861,6 +1869,8 @@
 				0014500F20255F2400EB2D63 /* RecyleFileViewController.m */,
 				00FA811220654AE0002BFCAC /* CollectionViewController.h */,
 				00FA811320654AE0002BFCAC /* CollectionViewController.m */,
+				00FA827E206A9609002BFCAC /* HistoryViewController.h */,
+				00FA827F206A9609002BFCAC /* HistoryViewController.m */,
 				002C9A54202199BE0053B1A6 /* View */,
 			);
 			path = Setting;
@@ -2208,6 +2218,7 @@
 				00FA8111206544D2002BFCAC /* FMDBTool.m in Sources */,
 				377E95EA1ED533CD0080E86D /* AppDelegate.m in Sources */,
 				00B3A97F200E02790009DC52 /* CXMLDocument.m in Sources */,
+				00FA8283206B23C1002BFCAC /* SettingHistoryCell.m in Sources */,
 				0005F150200F36440004751A /* PDFRenderingCharacter.m in Sources */,
 				0005F16E200F36440004751A /* PDFDocumentOutlineContainerViewController.m in Sources */,
 				0005F179200F36440004751A /* PDFPageScanner.m in Sources */,
@@ -2289,6 +2300,7 @@
 				00B3A931200E02790009DC52 /* HTTPRedirectResponse.m in Sources */,
 				00B3A98A200E02790009DC52 /* UIImage+ImageEffects.m in Sources */,
 				371597AC1EDFB1A500B482AB /* Device.m in Sources */,
+				00FA8280206A9609002BFCAC /* HistoryViewController.m in Sources */,
 				00B3A97E200E02790009DC52 /* CXHTMLDocument.m in Sources */,
 				0005F162200F36440004751A /* PDFDocumentOutlineViewController.m in Sources */,
 				0005F19B200F36440004751A /* PDFDocumentSearch.m in Sources */,
