@@ -111,7 +111,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         BOOL show = [change[@"new"] intValue];
         [[DataBaseTool shareInstance] setShowFileTypeHidden:show];
         [self fileFinishAndReloadTable];
-        
     }];
     // 是否显示隐藏文件夹
     [self.KVOController observe:[GloablVarManager shareManager] keyPath:@"showHiddenFolder" options: NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
@@ -119,7 +118,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         @strongify(self);
         [[DataBaseTool shareInstance] setShowHiddenFolderHidden:show];
         [self fileFinishAndReloadTable];
-        
     }];
 }
 

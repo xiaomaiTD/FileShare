@@ -186,7 +186,6 @@
 /**
  编辑相册
  */
-
 -(void)editAlbumWithIndexPath:(NSIndexPath *)indexPath{
   
 
