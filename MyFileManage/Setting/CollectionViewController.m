@@ -8,6 +8,7 @@
 
 #import "CollectionViewController.h"
 #import "SettingCollectionCell.h"
+#import "FolderFileManager.h"
 #import "FMDBTool.h"
 
 @interface CollectionViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -35,7 +36,6 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
-    
     [[FMDBTool shareInstance] selectedCollectionModel:^(NSArray *data) {
         self.dataArray = data.mutableCopy;
         [self.tableView reloadData];
@@ -59,7 +59,14 @@
     
     if (self.dataArray.count > 0) {
         fileModel *model = _dataArray[indexPath.row];
-        [self openVCWithModel:model];
+        if ([[FolderFileManager shareInstance] judgePathIsExits:model.fullPath]) {
+            [self openVCWithModel:model];
+        }else{
+            [self showErrorWithTitle:@"改文件不存在"];
+            [self.dataArray removeObject:model];
+            NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
+            [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
     }
 }
 

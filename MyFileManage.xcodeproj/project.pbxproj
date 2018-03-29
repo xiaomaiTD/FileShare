@@ -169,6 +169,8 @@
 		0098A62B206CBA3D00AC0068 /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0098A625206CBA3D00AC0068 /* UIViewController+Extension.m */; };
 		0098A631206CBA8100AC0068 /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0098A62E206CBA8100AC0068 /* DataBaseTool.m */; };
 		0098A632206CBA8100AC0068 /* FMDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0098A630206CBA8100AC0068 /* FMDBTool.m */; };
+		0098A636206CBB3700AC0068 /* MBProgressHUD+Vi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0098A633206CBB3700AC0068 /* MBProgressHUD+Vi.m */; };
+		0098A637206CBB3700AC0068 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0098A635206CBB3700AC0068 /* MBProgressHUD.bundle */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
 		00B3A819200DA0F90009DC52 /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A818200DA0F90009DC52 /* VideoCoverView.m */; };
 		00B3A917200E02790009DC52 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 00B3A827200E02790009DC52 /* About.txt */; };
@@ -601,6 +603,9 @@
 		0098A62E206CBA8100AC0068 /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		0098A62F206CBA8100AC0068 /* FMDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBTool.h; sourceTree = "<group>"; };
 		0098A630206CBA8100AC0068 /* FMDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBTool.m; sourceTree = "<group>"; };
+		0098A633206CBB3700AC0068 /* MBProgressHUD+Vi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Vi.m"; sourceTree = "<group>"; };
+		0098A634206CBB3700AC0068 /* MBProgressHUD+Vi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Vi.h"; sourceTree = "<group>"; };
+		0098A635206CBB3700AC0068 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		00B3A817200DA0F90009DC52 /* VideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCoverView.h; sourceTree = "<group>"; };
 		00B3A818200DA0F90009DC52 /* VideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCoverView.m; sourceTree = "<group>"; };
@@ -1844,6 +1849,9 @@
 		377E95EE1ED5367B0080E86D /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				0098A634206CBB3700AC0068 /* MBProgressHUD+Vi.h */,
+				0098A633206CBB3700AC0068 /* MBProgressHUD+Vi.m */,
+				0098A635206CBB3700AC0068 /* MBProgressHUD.bundle */,
 				0098A62C206CBA8100AC0068 /* DB */,
 				0098A619206CBA3D00AC0068 /* Extension */,
 			);
@@ -1868,10 +1876,10 @@
 				377E96F41ED55FA70080E86D /* MainViewController.m */,
 				3722BFEF1F2364E2005D2EDB /* MenuAndNavBarView.h */,
 				3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */,
-				005A705C200A1FE100400500 /* BaseViewController.h */,
-				005A705D200A1FE100400500 /* BaseViewController.m */,
 				00FA811520663C1C002BFCAC /* BaseDealFileViewController.h */,
 				00FA811620663C1C002BFCAC /* BaseDealFileViewController.m */,
+				005A705C200A1FE100400500 /* BaseViewController.h */,
+				005A705D200A1FE100400500 /* BaseViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2076,6 +2084,7 @@
 				0005F1ED200F433D0004751A /* Folder@2x.png in Resources */,
 				0005F1EE200F433D0004751A /* RibbonOn@2x.png in Resources */,
 				0005F1F0200F433D0004751A /* RibbonOff@2x.png in Resources */,
+				0098A637206CBB3700AC0068 /* MBProgressHUD.bundle in Resources */,
 				0005F1E9200F433D0004751A /* CropOdd@2x.png in Resources */,
 				0005F1F2200F433D0004751A /* Forward@2x.png in Resources */,
 				00B3A917200E02790009DC52 /* About.txt in Resources */,
@@ -2339,6 +2348,7 @@
 				005A7061200B367B00400500 /* VideoPlayView.m in Sources */,
 				0006BF3A202ADC9A00C82FF9 /* MoveFolderCell.m in Sources */,
 				007B773E205FFC9800937961 /* ShareCustomView.m in Sources */,
+				0098A636206CBB3700AC0068 /* MBProgressHUD+Vi.m in Sources */,
 				00B3A924200E02790009DC52 /* DDRange.m in Sources */,
 				00B3A981200E02790009DC52 /* CXMLElement.m in Sources */,
 				00B3A932200E02790009DC52 /* WebSocket.m in Sources */,

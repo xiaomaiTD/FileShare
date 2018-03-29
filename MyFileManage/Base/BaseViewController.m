@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "MBProgressHUD.h"
+#import "MBProgressHUD+Vi.h"
 
 @interface BaseViewController ()
 
@@ -21,8 +21,7 @@
 }
 
 -(void)showMessageWithTitle:(NSString *)title{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.label.text = title;
+    [MBProgressHUD showMessage:title];
 }
 
 -(void)showMessage{
@@ -34,25 +33,15 @@
 
 -(void)showSuccessWithTitle:(NSString *)title{
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    // Set the text mode to show only text.
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = @"success!";
-    // Move to bottm center.
-    [hud hideAnimated:YES afterDelay:3];
+    [MBProgressHUD showSuccess:title];
 }
 
 -(void)showSuccess{
-    [self showSuccessWithTitle:@"success"];
+    [MBProgressHUD showSuccess:@"success!"];
 }
 
 -(void)showErrorWithTitle:(NSString *)title{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    // Set the text mode to show only text.
-    hud.mode = MBProgressHUDModeText;
-    // Move to bottm center.
-    hud.label.text = title;
-    [hud hideAnimated:YES afterDelay:3];
+    [MBProgressHUD showError:title];
 }
 
 -(void)showError{

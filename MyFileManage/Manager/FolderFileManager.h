@@ -19,6 +19,15 @@
 -(NSString *)getCycleFolderPath;
 -(NSString *)getDownloadFolderPath;
 
+
+/**
+ 判断路径是否存在
+
+ @param path 路径
+ @return YES／NO
+ */
+-(BOOL)judgePathIsExits:(NSString *)path;
+
 /**
  获得上传文件路径
 

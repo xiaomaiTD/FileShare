@@ -54,6 +54,11 @@ static FolderFileManager *manage = nil;
     return [[self getUploadPath] stringByAppendingPathComponent:DownloadFolderName];
 }
 
+-(BOOL)judgePathIsExits:(NSString *)path{
+    
+    return [[NSFileManager defaultManager] fileExistsAtPath:path];
+}
+
 -(void)deleteFileInPath:(NSString *)path{
     NSFileManager *manage = [NSFileManager defaultManager];
     [manage removeItemAtPath:path error:nil];
