@@ -171,6 +171,7 @@
 		0098A632206CBA8100AC0068 /* FMDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0098A630206CBA8100AC0068 /* FMDBTool.m */; };
 		0098A636206CBB3700AC0068 /* MBProgressHUD+Vi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0098A633206CBB3700AC0068 /* MBProgressHUD+Vi.m */; };
 		0098A637206CBB3700AC0068 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0098A635206CBB3700AC0068 /* MBProgressHUD.bundle */; };
+		0098A63C206D2D3A00AC0068 /* EasyAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0098A63B206D2D3A00AC0068 /* EasyAlertView.m */; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
 		00B3A819200DA0F90009DC52 /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A818200DA0F90009DC52 /* VideoCoverView.m */; };
 		00B3A917200E02790009DC52 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 00B3A827200E02790009DC52 /* About.txt */; };
@@ -606,6 +607,8 @@
 		0098A633206CBB3700AC0068 /* MBProgressHUD+Vi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Vi.m"; sourceTree = "<group>"; };
 		0098A634206CBB3700AC0068 /* MBProgressHUD+Vi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Vi.h"; sourceTree = "<group>"; };
 		0098A635206CBB3700AC0068 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		0098A63A206D2D3A00AC0068 /* EasyAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyAlertView.h; sourceTree = "<group>"; };
+		0098A63B206D2D3A00AC0068 /* EasyAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyAlertView.m; sourceTree = "<group>"; };
 		00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		00B3A817200DA0F90009DC52 /* VideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCoverView.h; sourceTree = "<group>"; };
 		00B3A818200DA0F90009DC52 /* VideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCoverView.m; sourceTree = "<group>"; };
@@ -1678,6 +1681,8 @@
 				0088723A20183CB8006148BF /* ImageManager.m */,
 				002C9A6A202208270053B1A6 /* GloablVarManager.h */,
 				002C9A6B202208270053B1A6 /* GloablVarManager.m */,
+				0098A63A206D2D3A00AC0068 /* EasyAlertView.h */,
+				0098A63B206D2D3A00AC0068 /* EasyAlertView.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2379,6 +2384,7 @@
 				0098A628206CBA3D00AC0068 /* NSTimer+Extension.m in Sources */,
 				00B3A988200E02790009DC52 /* CXMLUnsupportedNode.m in Sources */,
 				005155EC20132B03009DA2A3 /* AsyncSocket.m in Sources */,
+				0098A63C206D2D3A00AC0068 /* EasyAlertView.m in Sources */,
 				00B3A933200E02790009DC52 /* MyHTTPConnection.m in Sources */,
 				0005F1A0200F36440004751A /* LibraryUtils.m in Sources */,
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,

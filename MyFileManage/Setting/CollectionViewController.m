@@ -53,9 +53,7 @@
         UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"是否清空数据" message:nil preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
             [self clearData];
-
         }];
         UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
