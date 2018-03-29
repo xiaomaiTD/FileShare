@@ -11,11 +11,11 @@
     hud.label.text = text;
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
     // 再设置模式
+    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     hud.mode = MBProgressHUDModeCustomView;
-    
+    hud.contentColor = [UIColor whiteColor];
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;
-
     [hud hideAnimated:YES afterDelay:1];
     
 }
@@ -89,9 +89,7 @@
 
 + (void)hideHUD
 {
-  UIView *view = [[UIApplication sharedApplication].windows lastObject];
-
-    
+    UIView *view = [[UIApplication sharedApplication].windows lastObject];
     [self hideHUDForView:view];
 }
 @end

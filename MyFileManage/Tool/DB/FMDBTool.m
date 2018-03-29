@@ -85,8 +85,19 @@ static FMDBTool *tool = nil;
     [self.historyQueue inDatabase:^(FMDatabase * _Nonnull db) {
         if ([db open]) {
             [db executeUpdate:@"DELETE FROM history"];
+            [db close];
+            [GCDQueue executeInMainQueue:^{
+                if (complete) {
+                    complete(YES);
+                }
+            }];
+        }else{
+            [GCDQueue executeInMainQueue:^{
+                if (complete) {
+                    complete(NO);
+                }
+            }];
         }
-        [db close];
     }];
 }
 
@@ -180,6 +191,28 @@ static FMDBTool *tool = nil;
         }
     }];
     
+}
+
+-(void)deleteAllCollectionModel:(void (^)(BOOL))complete{
+    
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        if ([db open]) {
+            [db executeUpdate:@"DELETE FROM collection"];
+            [db close];
+            [GCDQueue executeInMainQueue:^{
+                if (complete) {
+                    complete(YES);
+                }
+            }];
+        }else{
+            [GCDQueue executeInMainQueue:^{
+                if (complete) {
+                    complete(NO);
+                }
+            }];
+        }
+        
+    }];
 }
 
 -(NSArray *)selectedCollectionModel{

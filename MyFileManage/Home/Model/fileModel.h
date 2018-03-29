@@ -21,4 +21,6 @@
 @property(nonatomic,assign)BOOL isSystemFolder;// 是否为系统文件夹，（下载，隐藏等
 @property(nonatomic,assign)BOOL selected;//在首页是否被选择
 
+@property(nonatomic,assign)BOOL isUserFull;//在其他路径是否可用
+
 @end

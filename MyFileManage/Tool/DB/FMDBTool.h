@@ -22,6 +22,9 @@ typedef void(^selectedComplete)(NSArray *data);
 //删除收藏
 -(BOOL)deleteCollectionModel:(fileModel *)model;
 
+//删除全部数组
+-(void)deleteAllCollectionModel:(void(^)(BOOL success))complete;
+
 -(BOOL)addHistoryModel:(fileModel *)model;
 -(void)selectedAllHistoryModel:(selectedComplete )complete;
 -(BOOL)deleteHistoryModel:(fileModel *)model;
