@@ -63,6 +63,29 @@ static FolderFileManager *manage = nil;
     NSFileManager *manage = [NSFileManager defaultManager];
     [manage removeItemAtPath:path error:nil];
 }
+-(BOOL)deleteContentFileInDic:(NSString *)dir{
+    
+    NSFileManager *manage = [NSFileManager defaultManager];
+    BOOL isDir = NO;
+    NSError *error = nil;
+    if ([manage fileExistsAtPath:dir isDirectory:&isDir]) {
+        if (!isDir) {
+            return NO;
+        }
+        NSArray *filesArray = [manage contentsOfDirectoryAtPath:dir error:nil];
+        NSEnumerator *e = [filesArray objectEnumerator];
+        NSString *fileName;
+        while (fileName = [e nextObject]) {
+            [manage removeItemAtPath:[dir stringByAppendingPathComponent:fileName] error:&error];
+        }
+    }
+    if (error) {
+        return NO;
+    }else{
+        return YES;
+    }
+}
+
 
 -(void)createTextWithPath:(NSString *)path{
     NSFileManager *manag = [NSFileManager defaultManager];
@@ -247,8 +270,6 @@ static FolderFileManager *manage = nil;
         NSLog(@"success------%d",copySuccess);
         NSLog(@"error------%@",error);
     }
-
-    
 }
 
 -(NSString *)replaceLineWithFileName:(NSString *)fileName{

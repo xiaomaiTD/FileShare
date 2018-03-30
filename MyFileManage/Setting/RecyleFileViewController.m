@@ -5,9 +5,10 @@
 //  Created by Viterbi on 2018/2/3.
 //  Copyright © 2018年 wangchao. All rights reserved.
 //
-
+#import "UIViewController+Extension.h"
 #import "RecyleFileViewController.h"
 #import "ResourceFileManager.h"
+#import "EasyAlertView.h"
 #import "FolderFileManager.h"
 #import "SettingRecycelCell.h"
 #import "fileModel.h"
@@ -37,6 +38,41 @@
     
     self.dataArray = [[ResourceFileManager shareInstance] getAllRecycelFolderFileModels].mutableCopy;
     [self.tableView reloadData];
+    
+    @weakify(self);
+    UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [deleteBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+    [deleteBtn addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        if (self.dataArray.count == 0) {
+            return;
+        }
+        NSArray *actionArray = @[@{@"确定":@(0)},@{@"取消":@(0)}];
+        EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewAlert andTitle:@"是否清空数据" andActionArray:actionArray andActionBloc:^(NSString *title,NSInteger index) {
+            if (index == 0) {
+                [self clearData];
+            }
+        }];
+        [alert showInViewController:self];
+        
+    }];
+    [self addRigthItemWithCustomView:deleteBtn];
+}
+
+-(void)clearData{
+    
+    BOOL hasAllDelete = NO;
+    
+    hasAllDelete = [[FolderFileManager shareInstance] deleteContentFileInDic:[[FolderFileManager shareInstance] getCycleFolderPath]];
+    if (hasAllDelete) {
+        [self showSuccessWithTitle:@"删除成功"];
+        [self.dataArray removeAllObjects];
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:0];
+        [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+    }else{
+        [self showErrorWithTitle:@"删除失败"];
+    }
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -56,31 +92,26 @@
     
     fileModel *model = self.dataArray[indexPath.row];
     
-    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:model.name message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    NSArray *actionArray = @[@{@"删除不可回收":@(2)},@{@"恢复至主界面":@(0)},@{@"取消":@(1)}];
     
-    UIAlertAction *deleteAc = [UIAlertAction actionWithTitle:@"删除不可回收" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
-        [[FolderFileManager shareInstance] deleteFileInPath:model.fullPath];
-        [self.dataArray removeObject:model];
-        
-        NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
-        [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
-        
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:model.name andActionArray:actionArray andActionBloc:^(NSString *title,NSInteger index) {
+        if ([title isEqualToString:@"删除不可回收"]) {
+            
+            [[FolderFileManager shareInstance] deleteFileInPath:model.fullPath];
+            [self.dataArray removeObject:model];
+            
+            NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
+            [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+
+            
+        }else if ([title isEqualToString:@"恢复至主界面"]){
+            [self moveToHomeModel:model];
+        }else{
+            
+        }
     }];
-    [alertCon addAction:deleteAc];
+    [alert showInViewController:self];
     
-    UIAlertAction *huifu = [UIAlertAction actionWithTitle:@"恢复至主界面" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self moveToHomeModel:model];
-    
-    }];
-    [alertCon addAction:huifu];
-    
-    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    [alertCon addAction:cancelAc];
-    
-    [self presentViewController:alertCon animated:YES completion:nil];
 }
 
 -(void)moveToHomeModel:(fileModel *)model{

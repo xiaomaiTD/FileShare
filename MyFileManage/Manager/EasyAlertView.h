@@ -13,7 +13,7 @@ typedef enum : NSUInteger {
     AlertViewAlert
 } AlertViewPopType;
 
-typedef void(^actionBlock)(NSString *title);
+typedef void(^actionBlock)(NSString *title,NSInteger index);
 
 @interface EasyAlertView : NSObject
 

@@ -43,6 +43,13 @@
 -(void )deleteFileInPath:(NSString *)path;
 
 /**
+ 删除指定文件下的内容，但不删除文件夹
+
+ @param path 路径
+ */
+-(BOOL)deleteContentFileInDic:(NSString *)dir;
+
+/**
  创建文件夹
 
  @param path 文件路径

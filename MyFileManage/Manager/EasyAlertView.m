@@ -35,15 +35,15 @@
         return;
     }
     
-    self.alertController = [UIAlertController alertControllerWithTitle:self.title message:self.title preferredStyle:(NSInteger)self.type];
+    self.alertController = [UIAlertController alertControllerWithTitle:self.title message:nil preferredStyle:(NSInteger)self.type];
 
     for (NSDictionary *dic in self.actionArray) {
-        
+        NSInteger index = [self.actionArray indexOfObject:dic];
         NSString *message = dic.allKeys.firstObject;
         NSNumber *number = dic[message];
         UIAlertAction *action = [UIAlertAction actionWithTitle:message style:[number integerValue] handler:^(UIAlertAction * _Nonnull action) {
             if (self.block) {
-                self.block(action.title);
+                self.block(action.title, index);
                 self.alertController = nil;
             }
         }];
@@ -53,8 +53,9 @@
 }
 
 -(void)showInViewController:(UIViewController *)controller{
-    
-    [controller presentViewController:self.alertController animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [controller presentViewController:self.alertController animated:YES completion:nil];
+    });
 }
 
 -(void)setType:(AlertViewPopType)type{
