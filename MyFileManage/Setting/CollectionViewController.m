@@ -10,6 +10,7 @@
 #import "MBProgressHUD+Vi.h"
 #import "SettingCollectionCell.h"
 #import "FolderFileManager.h"
+#import "EasyAlertView.h"
 #import "FMDBTool.h"
 
 @interface CollectionViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -50,18 +51,15 @@
         if (self.dataArray.count == 0) {
             return;
         }
-        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"是否清空数据" message:nil preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self clearData];
+        NSArray *actionArray = @[@{@"确定":@(0)},@{@"取消":@(0)}];
+        EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewAlert andTitle:@"是否清空数据" andActionArray:actionArray andActionBloc:^(NSString *title) {
+            if ([title isEqualToString:@"确定"]) {
+                [self clearData];
+            }
         }];
-        UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        
-        [alertCon addAction:folderAc];
-        [alertCon addAction:cancelAc];
-        [self presentViewController:alertCon animated:YES completion:nil];
+        [alert showInViewController:self];
+
     }];
     [self addRigthItemWithCustomView:deleteBtn];
 

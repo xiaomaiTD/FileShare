@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef enum : NSUInteger {
-    AlertViewAction,
+    AlertViewSheet,
     AlertViewAlert
 } AlertViewPopType;
 
@@ -17,10 +17,11 @@ typedef void(^actionBlock)(NSString *title);
 
 @interface EasyAlertView : NSObject
 
--(instancetype)initWithType:(AlertViewPopType)type andActionArray:(NSArray *)array andActionBloc:(actionBlock)block;
+-(instancetype)initWithType:(AlertViewPopType)type andTitle:(NSString *)title andActionArray:(NSArray *)array andActionBloc:(actionBlock)block;
 
 //弹出的样式
 @property(nonatomic,assign)AlertViewPopType type;
+@property(nonatomic,copy)NSString *title;
 
 /*
  typedef NS_ENUM(NSInteger, UIAlertActionStyle) {

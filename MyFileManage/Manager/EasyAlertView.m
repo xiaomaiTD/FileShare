@@ -16,25 +16,18 @@
 
 @implementation EasyAlertView
 
--(instancetype)initWithType:(AlertViewPopType)type andActionArray:(NSArray *)array andActionBloc:(actionBlock)block{
-    if (self = [super init]) {
-        self.type = type;
-        self.actionArray = array;
-        self.block = block;
-        [self configueUI];
-    }
-    return self;
-}
-
--(instancetype)init{
+-(instancetype)initWithType:(AlertViewPopType)type andTitle:(NSString *)title andActionArray:(NSArray *)array andActionBloc:(actionBlock)block{
     
     if (self = [super init]) {
-        self.type = AlertViewAlert;
+        _type = type;
+        _title = title;
+        _actionArray = array;
+        _block = [block copy];
         [self configueUI];
     }
     return self;
+    
 }
-
 
 -(void)configueUI{
     
@@ -42,9 +35,22 @@
         return;
     }
     
+    self.alertController = [UIAlertController alertControllerWithTitle:self.title message:self.title preferredStyle:(NSInteger)self.type];
+
+    for (NSDictionary *dic in self.actionArray) {
+        
+        NSString *message = dic.allKeys.firstObject;
+        NSNumber *number = dic[message];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:message style:[number integerValue] handler:^(UIAlertAction * _Nonnull action) {
+            if (self.block) {
+                self.block(action.title);
+                self.alertController = nil;
+            }
+        }];
+        
+        [self.alertController addAction:action];
+    }
 }
-
-
 
 -(void)showInViewController:(UIViewController *)controller{
     
@@ -58,4 +64,9 @@
 -(void)setBlock:(actionBlock)block{
     _block = block;
 }
+
+-(void)dealloc{
+    NSLog(@"EasyAlertView dealloc");
+}
+
 @end
