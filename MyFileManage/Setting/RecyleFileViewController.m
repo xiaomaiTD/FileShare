@@ -99,11 +99,9 @@
             
             [[FolderFileManager shareInstance] deleteFileInPath:model.fullPath];
             [self.dataArray removeObject:model];
-            
             NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
             [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
 
-            
         }else if ([title isEqualToString:@"恢复至主界面"]){
             [self moveToHomeModel:model];
         }else{
