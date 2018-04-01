@@ -8,6 +8,7 @@
 #import "UIViewController+Extension.h"
 #import "RecyleFileViewController.h"
 #import "ResourceFileManager.h"
+#import "FMDBTool.h"
 #import "EasyAlertView.h"
 #import "FolderFileManager.h"
 #import "SettingRecycelCell.h"
@@ -86,6 +87,17 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
+}
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //添加一个删除按钮
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        fileModel *model = self.dataArray[indexPath.row];
+        [[FMDBTool shareInstance] deleteHistoryModel:model];
+        [self.dataArray removeObject:model];
+        NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
+        [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+    return @[deleteAction];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

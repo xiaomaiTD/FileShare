@@ -83,6 +83,21 @@
     }
     return cell;
 }
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //添加一个删除按钮
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        fileModel *model = self.dataArray[indexPath.row];
+        [[FMDBTool shareInstance] deleteHistoryModel:model];
+        [self.dataArray removeObject:model];
+        NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
+        [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+    return @[deleteAction];
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

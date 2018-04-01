@@ -12,6 +12,7 @@
 #import "SettingNotifyTableCell.h"
 #import "RecyleFileViewController.h"
 #import "CollectionViewController.h"
+#import "MoveFolderViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import <DMPasscode/DMPasscode.h>
 
@@ -83,6 +84,13 @@
         }
         if (indexPath.row == 1) {
             HistoryViewController *vc = [[HistoryViewController alloc] init];
+            APPNavPushViewController(vc);
+        }
+    }
+    if (indexPath.section == 3) {
+        if (indexPath.row == 1) {
+            MoveFolderViewController *vc = [[MoveFolderViewController alloc] init];
+            vc.isSelectedDowload = YES;
             APPNavPushViewController(vc);
         }
     }

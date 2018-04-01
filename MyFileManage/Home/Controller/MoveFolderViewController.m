@@ -68,15 +68,17 @@
 }
 
 -(void)setUpNav{
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-    [btn setBackgroundImage:[UIImage imageNamed:@"folder_back"] forState:UIControlStateNormal];
     @weakify(self);
-    [btn addTargetWithBlock:^(UIButton *sender) {
-        @strongify(self);
-        APPdismissViewController(self);
-    }];
-    [self addLeftItemWithCustomView:btn];
-    
+    if (!self.isSelectedDowload) {
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        [btn setBackgroundImage:[UIImage imageNamed:@"folder_back"] forState:UIControlStateNormal];
+        [btn addTargetWithBlock:^(UIButton *sender) {
+            @strongify(self);
+            APPdismissViewController(self);
+        }];
+        [self addLeftItemWithCustomView:btn];
+
+    }
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBtn setTitle:@"确定" forState:UIControlStateNormal];
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
