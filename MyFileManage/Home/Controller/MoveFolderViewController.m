@@ -28,8 +28,14 @@
     [super viewDidLoad];
     [self setUpNav];
     _selectedIndex = 0;
-    
-    self.dataArray = self.notSelectedFolderArray;
+    if (self.isSelectedDowload) {
+        self.dataArray = [[[ResourceFileManager shareInstance] getAllUploadAllFileModels] firstleap_filter:^BOOL(fileModel *model) {
+            return model.isFolder == YES;
+            
+        }];
+    }else{
+        self.dataArray = self.notSelectedFolderArray;
+    }
     _selectedModel = self.dataArray.firstObject;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -58,9 +64,13 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    _selectedIndex = indexPath.row;
-    _selectedModel = self.dataArray[indexPath.row];
-    [self.tableView reloadData];
+    if (self.isSelectedDowload) {
+        
+    }else{
+        _selectedIndex = indexPath.row;
+        _selectedModel = self.dataArray[indexPath.row];
+        [self.tableView reloadData];
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

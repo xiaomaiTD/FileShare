@@ -14,7 +14,6 @@
 
 @interface ResourceFileManager : NSObject
 
-
 /**
  音乐数组
  */
@@ -41,14 +40,12 @@
  */
 - (NSArray *) getAllUploadAllFileModels;
 
-
 /**
  获取隐藏文件夹下的所有model
 
  @return array
  */
 - (NSArray *) getAllBeHiddenFolderFileModels;
-
 
 /**
  获得回收站里面的所有model
@@ -63,5 +60,6 @@
  @return 文件数组
  */
 -(NSArray *)getAllFilesName;
+
 
 @end
