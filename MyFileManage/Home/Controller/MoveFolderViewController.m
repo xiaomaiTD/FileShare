@@ -29,10 +29,7 @@
     [self setUpNav];
     _selectedIndex = 0;
     if (self.isSelectedDowload) {
-        self.dataArray = [[[ResourceFileManager shareInstance] getAllUploadAllFileModels] firstleap_filter:^BOOL(fileModel *model) {
-            return model.isFolder == YES;
-            
-        }];
+      self.dataArray = [[ResourceFileManager shareInstance] getAllHomePageFolder];
     }else{
         self.dataArray = self.notSelectedFolderArray;
     }
@@ -64,12 +61,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _selectedIndex = indexPath.row;
+    [self.tableView reloadData];
+    _selectedModel = self.dataArray[indexPath.row];
     if (self.isSelectedDowload) {
-        
-    }else{
-        _selectedIndex = indexPath.row;
-        _selectedModel = self.dataArray[indexPath.row];
-        [self.tableView reloadData];
+        [FolderFileManager shareInstance].downloadFolderPath = _selectedModel.fullPath;
     }
 }
 
@@ -78,17 +74,19 @@
 }
 
 -(void)setUpNav{
-    @weakify(self);
-    if (!self.isSelectedDowload) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-        [btn setBackgroundImage:[UIImage imageNamed:@"folder_back"] forState:UIControlStateNormal];
-        [btn addTargetWithBlock:^(UIButton *sender) {
-            @strongify(self);
-            APPdismissViewController(self);
-        }];
-        [self addLeftItemWithCustomView:btn];
-
+    
+    if (self.isSelectedDowload) {
+        return;
     }
+    @weakify(self);
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    [btn setBackgroundImage:[UIImage imageNamed:@"folder_back"] forState:UIControlStateNormal];
+    [btn addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        APPdismissViewController(self);
+    }];
+    [self addLeftItemWithCustomView:btn];
+    
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBtn setTitle:@"确定" forState:UIControlStateNormal];
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:15];

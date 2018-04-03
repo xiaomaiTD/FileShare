@@ -61,5 +61,12 @@
  */
 -(NSArray *)getAllFilesName;
 
+/**
+ 获取首页的所有文件夹
+
+ @return 数组model
+ */
+-(NSArray *)getAllHomePageFolder;
+
 
 @end

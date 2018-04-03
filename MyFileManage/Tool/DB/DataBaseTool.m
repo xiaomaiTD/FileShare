@@ -56,4 +56,13 @@ static NSUserDefaults *UserDefault;
     return [UserDefault objectForKey:key];
 }
 
+-(void)setDownloadPath:(NSString *)path{
+    [UserDefault setObject:path forKey:@"downloadPath"];
+    [UserDefault synchronize];
+}
+
+-(NSString *)getDownloadPath{
+    return [UserDefault objectForKey:@"downloadPath"];
+}
+
 @end

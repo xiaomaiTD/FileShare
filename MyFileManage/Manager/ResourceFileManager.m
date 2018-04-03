@@ -95,7 +95,6 @@ static ResourceFileManager *manager = nil;
     NSString *recyclePath = [[FolderFileManager shareInstance] getCycleFolderPath];
     return [[FolderFileManager shareInstance] getAllFileModelInDic:recyclePath];
 }
-
 /**
  获取 MyFileManageUpload 文件夹下的所有文件名字
  
@@ -112,6 +111,20 @@ static ResourceFileManager *manager = nil;
         }
     }
     return [files copy];
+}
+
+-(NSArray *)getAllHomePageFolder{
+  
+  NSMutableArray *foldeArray = [[NSMutableArray alloc] initWithCapacity:0];
+  NSArray *foldeiWithoutHome = [[self getAllUploadAllFileModels] firstleap_filter:^BOOL(fileModel *model) {
+    return model.isFolder == YES;
+  }];
+  fileModel *model = [[fileModel alloc] initWithFilePath:[[FolderFileManager shareInstance] getUploadPath]];
+  model.fileName = @"首页";
+  [foldeArray addObject:model];
+  [foldeArray addObjectsFromArray:foldeiWithoutHome];
+  
+  return foldeArray.copy;
 }
 
 @end

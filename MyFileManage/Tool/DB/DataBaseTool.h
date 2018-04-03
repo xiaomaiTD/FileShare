@@ -39,4 +39,19 @@
 -(void)setShowHiddenFolderHidden:(BOOL)hidden;
 -(BOOL)getShowHiddenFolderHidden;
 
+
+/**
+ 存储下载路径
+
+ @param path 下载路径
+ */
+-(void)setDownloadPath:(NSString *)path;
+
+/**
+ 获取下载路径
+
+ @return 下载路径
+ */
+-(NSString *)getDownloadPath;
+
 @end

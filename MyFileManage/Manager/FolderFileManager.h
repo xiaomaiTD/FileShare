@@ -13,6 +13,8 @@
 
 +(instancetype)shareInstance;
 
+@property(nonatomic,copy)NSString *downloadFolderPath;
+
 -(NSString *)getDocumentPath;
 -(NSString *)getCachePath;
 -(NSString *)getBeHiddenFolderPath;

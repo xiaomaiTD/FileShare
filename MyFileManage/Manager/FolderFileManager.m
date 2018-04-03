@@ -5,7 +5,7 @@
 //  Created by Viterbi on 2018/1/18.
 //  Copyright © 2018年 wangchao. All rights reserved.
 //
-
+#import "DataBaseTool.h"
 #import "FolderFileManager.h"
 #import "ResourceFileManager.h"
 #import "GloablVarManager.h"
@@ -26,8 +26,17 @@ static FolderFileManager *manage = nil;
 - (instancetype)init
 {
     self = [super init];
-    if (self) {}
+    if (self) {
+        self.downloadFolderPath = [[DataBaseTool shareInstance] getDownloadPath].length == 0 ? [[self getUploadPath] stringByAppendingPathComponent:DownloadFolderName] : [[DataBaseTool shareInstance] getDownloadPath];
+    }
     return self;
+}
+
+-(void)setDownloadFolderPath:(NSString *)downloadFolderPath{
+    if (![downloadFolderPath isEqualToString:_downloadFolderPath]) {
+        _downloadFolderPath = downloadFolderPath;
+        [[DataBaseTool shareInstance] setDownloadPath:_downloadFolderPath];
+    }
 }
 
 -(NSString *)getCachePath{
@@ -51,11 +60,10 @@ static FolderFileManager *manage = nil;
 }
 
 -(NSString *)getDownloadFolderPath{
-    return [[self getUploadPath] stringByAppendingPathComponent:DownloadFolderName];
+    return self.downloadFolderPath;
 }
 
 -(BOOL)judgePathIsExits:(NSString *)path{
-    
     return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
@@ -85,7 +93,6 @@ static FolderFileManager *manage = nil;
         return YES;
     }
 }
-
 
 -(void)createTextWithPath:(NSString *)path{
     NSFileManager *manag = [NSFileManager defaultManager];
@@ -149,7 +156,6 @@ static FolderFileManager *manage = nil;
             [self createDirWithPath:[self getBeHiddenFolderPath]];
             [GloablVarManager shareManager].isHaveHiddenFolder = YES;
         }
-        
     }
 }
 
