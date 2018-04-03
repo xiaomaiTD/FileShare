@@ -8,14 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "fileModel.h"
+#import "BaseViewController.h"
 #import "LocalImageAndVideoModel.h"
 
-@interface openImageViewController : UIViewController
-
-/**
- 是否从文件过来的model
- */
-@property(nonatomic,strong)fileModel *model;
+@interface openImageViewController : BaseViewController
 
 /**
  是否从相册过来的model

@@ -5,7 +5,6 @@
 //  Created by 掌上先机 on 2017/5/25.
 //  Copyright © 2017年 wangchao. All rights reserved.
 //
-
 #import "openImageViewController.h"
 #import "ImageManager.h"
 #import "GCDQueue.h"
@@ -28,11 +27,23 @@
 
 @implementation openImageViewController
 
-
 -(void)loadView{
-    _bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
-    _bgScrollView.contentSize = CGSizeMake(kScreenWidth, kScreenHeight);
+    _bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    _bgScrollView.delegate = self;
     self.view = _bgScrollView;
+}
+
+-(void)viewWillLayoutSubviews{
+    CGFloat horizontalInset = 0;
+    CGFloat verticalInset = 0;
+
+    if (self.bgScrollView.contentSize.width < CGRectGetWidth(self.bgScrollView.bounds)) {
+        horizontalInset = (CGRectGetWidth(self.bgScrollView.bounds) - self.bgScrollView.contentSize.width) * 0.5;
+    }
+    if (self.bgScrollView.contentSize.height < CGRectGetHeight(self.bgScrollView.bounds)) {
+        verticalInset = (CGRectGetHeight(self.bgScrollView.bounds) - self.bgScrollView.contentSize.height) * 0.5;
+    }
+    self.bgScrollView.contentInset = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset);
 }
 
 - (void)viewDidLoad {
@@ -42,7 +53,7 @@
     
     self.navISHidden = YES;
 
-    self.title = _model.fileName;
+    self.title = self.model.fileName;
     self.view.backgroundColor = [UIColor blackColor];
   
     UIButton * rightItem = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -59,31 +70,24 @@
     if (self.localModel) {
         if (self.localModel.type == PHASSETTYPE_LivePhoto) {
             [self addLivePhotoView];
-            
         }else{
             PHAssetResource *resource = [PHAssetResource assetResourcesForAsset:self.localModel.phasset].firstObject;
             BOOL isGif = [resource.originalFilename hasSuffix:@"GIF"];
             [self addStaticPhotoWithGif:isGif];
         }
     }else{
-        if ([_model.fileType.uppercaseString isEqualToString:@"GIF"]) {
-    
-            NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
+        if ([self.model.fileType.uppercaseString isEqualToString:@"GIF"]) {
+            NSData *imageData = [NSData dataWithContentsOfFile:self.model.fullPath];
             UIImage *image = [UIImage sd_animatedGIFWithData:imageData];
             self.localImgV = [[UIImageView alloc] initWithImage:image];
         }else{
-            NSData *imageData = [NSData dataWithContentsOfFile:_model.fullPath];
-            UIImage *fileImage = [UIImage imageWithData:imageData scale:2];
-            if (isPhonePlus()) {
-                fileImage = [UIImage imageWithData:imageData scale:3];
-            }
-          self.localImgV = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-          self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
-          self.localImgV.image = fileImage;
+            NSData *imageData = [NSData dataWithContentsOfFile:self.model.fullPath];
+            UIImage *fileImage = [UIImage imageWithData:imageData];
+            self.localImgV = [[UIImageView alloc] initWithImage:fileImage];
         }
+        [self.view addSubview:_localImgV];
+        [self centerImageView];
     }
-    self.localImgV.center = CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0);
-    [self.view addSubview:_localImgV];
     
     [self addGest];
 }
@@ -93,16 +97,16 @@
  */
 -(void)addStaticPhotoWithGif:(BOOL)gif{
     
-    self.localImgV = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
-    
     if (gif) {
         PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
         [options setSynchronous:NO];
         [PHImageManager.defaultManager requestImageDataForAsset:self.localModel.phasset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
             [GCDQueue executeInMainQueue:^{
                 UIImage *image = [UIImage sd_animatedGIFWithData:imageData];
-                self.localImgV.image = image;
+                self.localImgV = [[UIImageView alloc] initWithImage:image];
+                self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
+                [self.view addSubview:self.localImgV];
+                
             }];
         }];
         return;
@@ -112,15 +116,15 @@
     void(^completeBlock)(UIImage *) = ^(UIImage *image){
         if (image) {
             [GCDQueue executeInMainQueue:^{
-                self.localImgV.image = image;
+                self.localImgV = [[UIImageView alloc] initWithImage:image];
+                self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
+                [self.view addSubview:self.localImgV];
+                [self centerImageView];
             }];
         }
     };
-    //progressBlock 不执行，bug
-    void(^progressBlock)(double ,NSError *,BOOL *,NSDictionary *) = ^(double progress,NSError *error,BOOL *stop,NSDictionary *info){
-        //            NSLog(@"progress-----%f",progress);
-    };
-    [[ImageManager shareInstance] SynRequestImageWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:progressBlock];
+
+    [[ImageManager shareInstance] SynRequestImageWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:nil];
 }
 
 /**
@@ -146,6 +150,16 @@
         
     };
     [[ImageManager shareInstance] SynRequestLivePhotoWithAssert:self.localModel.phasset andTargetSize:targertSize andCompelete:completeBlock andRequestProgress:progressBlock];
+}
+
+-(void)centerImageView{
+    CGRect scrollViewFrame = self.view.bounds;
+    CGFloat scaleWidth = scrollViewFrame.size.width / self.localImgV.image.size.width;
+    CGFloat scaleHeight = scrollViewFrame.size.height / self.localImgV.image.size.height;
+    CGFloat minScale = MIN(scaleWidth, scaleHeight);
+    self.bgScrollView.minimumZoomScale = minScale;
+    self.bgScrollView.maximumZoomScale = MAX(minScale, self.bgScrollView.maximumZoomScale);
+    self.bgScrollView.zoomScale = self.bgScrollView.minimumZoomScale;
 }
 
 -(void)addGest{
@@ -176,7 +190,7 @@
 
 -(void)presentImageEdit{
     // gif图片不让编辑
-    if ([_model.fileType.uppercaseString isEqualToString:@"GIF"]) {
+    if ([self.model.fileType.uppercaseString isEqualToString:@"GIF"]) {
         return;
     }
     PhotoEditorViewController *photoEdit = [[PhotoEditorViewController alloc] initWithNibName:@"PhotoEditorViewController" bundle:[NSBundle bundleForClass:[PhotoEditorViewController class]]];
@@ -195,20 +209,11 @@
 - (void)doubleTapped:(UITapGestureRecognizer *)recognizer
 {
     if (self.bgScrollView.zoomScale == 1.0) {
-//        const CGFloat zoom = 2.0;
-//        CGPoint point = [recognizer locationInView:self.view];
-//        CGFloat width = CGRectGetWidth(self.view.frame) / zoom;
-//        CGFloat height = width * (CGRectGetHeight(self.view.frame) / CGRectGetWidth(self.view.frame));
-//        CGFloat x = MAX(1.0, point.x - width / 2.0);
-//        CGFloat y = MAX(1.0, point.y - height / 2.0);
-//        [self.bgScrollView zoomToRect:CGRectMake(x, y, width, height)
-//                           animated:YES];
         [self.bgScrollView setZoomScale:2.0 animated:YES];
     } else {
         [self.bgScrollView setZoomScale:1.0 animated:YES];
     }
 }
-
 
 -(void)singleTapClick:(UITapGestureRecognizer *)gestureRecognizer{
     CGFloat NavNeedOffset = _navISHidden ? 20 : -88;
@@ -217,6 +222,12 @@
     }];
     _navISHidden = !_navISHidden;
 }
+
+#pragma mark ----UIScrollviewDelegate
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return _localImgV;
+}
+
 #pragma mark ----photoEditorDelegate
 
 -(void)canceledEditing{}

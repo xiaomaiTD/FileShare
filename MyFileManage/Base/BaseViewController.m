@@ -28,7 +28,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 -(void)hidenMessage{
-    [MBProgressHUD hideHUD];
+    [MBProgressHUD hideHUDForView:self.view];
 }
 
 -(void)showSuccessWithTitle:(NSString *)title{
