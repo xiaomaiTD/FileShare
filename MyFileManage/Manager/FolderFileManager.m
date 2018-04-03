@@ -300,6 +300,14 @@ static FolderFileManager *manage = nil;
     }];
     return fileModelArray;
 }
+
+-(NSArray *)getAllPicNameInDic:(NSString *)dir{
+    NSArray *picNameArray = [[self getAllFilesName:dir] firstleap_filter:^BOOL(NSString *filename) {
+        return [SupportPictureArray containsObject:filename.pathExtension.uppercaseString];
+    }];
+    return picNameArray;
+}
+
 -(NSArray *)getAllFilesName:(NSString *)dir{
     NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dir error:nil];
     return files;

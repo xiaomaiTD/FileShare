@@ -12,7 +12,13 @@
 
 @interface openImageViewController : UIViewController
 
+/**
+ 是否从文件过来的model
+ */
 @property(nonatomic,strong)fileModel *model;
-@property(nonatomic,strong)LocalImageAndVideoModel *localModel;
 
+/**
+ 是否从相册过来的model
+ */
+@property(nonatomic,strong)LocalImageAndVideoModel *localModel;
 @end

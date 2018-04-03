@@ -74,6 +74,15 @@
  */
 -(NSArray *)getAllFileModelInDic:(NSString *)dir;
 
+
+/**
+ 获取指定文件夹下的所有图片名称
+
+ @param dir 指定路径
+ @return 名称数组
+ */
+-(NSArray *)getAllPicNameInDic:(NSString *)dir;
+
 /**
  创建隐藏文件夹
  */
