@@ -12,9 +12,9 @@
 #import "VideoCoverView.h"
 
 #import "NSTimer+Extension.h"
-#import "playVideoViewController.h"
+#import "PlayVideoViewController.h"
 
-@interface playVideoViewController ()<VLCMediaPlayerDelegate>
+@interface PlayVideoViewController ()<VLCMediaPlayerDelegate>
 
 @property(nonatomic,strong)VLCMediaPlayer *player;
 @property(nonatomic,strong)VideoPlayView *playerView;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation playVideoViewController
+@implementation PlayVideoViewController
 
 -(void)viewDidLoad{
     

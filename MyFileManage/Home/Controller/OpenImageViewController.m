@@ -5,7 +5,7 @@
 //  Created by 掌上先机 on 2017/5/25.
 //  Copyright © 2017年 wangchao. All rights reserved.
 //
-#import "openImageViewController.h"
+#import "OpenImageViewController.h"
 #import "ImageManager.h"
 #import "GCDQueue.h"
 #import <ImageIO/ImageIO.h>
@@ -14,18 +14,17 @@
 #import <PhotosUI/PhotosUI.h>
 
 
-@interface openImageViewController ()<UIScrollViewDelegate,PhotoEditorDelegate>
+@interface OpenImageViewController ()<UIScrollViewDelegate,PhotoEditorDelegate>
 
 @property(nonatomic,strong)UIScrollView *bgScrollView;
 @property(nonatomic,strong)UIImageView *localImgV;
 @property(nonatomic,strong)PHLivePhotoView *livePhotoView;
 @property(nonatomic,strong)UIButton *rightBtn;
-
 @property(nonatomic,assign)BOOL navISHidden;
 
 @end
 
-@implementation openImageViewController
+@implementation OpenImageViewController
 
 -(void)loadView{
     _bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];

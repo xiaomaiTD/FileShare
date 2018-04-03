@@ -11,7 +11,7 @@
 
 #import "fileModel.h"
 
-@interface playVideoViewController : BaseViewController
+@interface PlayVideoViewController: BaseViewController
 
 
 @end

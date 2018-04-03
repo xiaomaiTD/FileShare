@@ -257,7 +257,7 @@
             return;
         }
         if (model.type == PHASSETTYPE_LivePhoto || model.type == PHASSETTYPE_Image) {
-            openImageViewController *vc = [[openImageViewController alloc] init];
+            OpenImageViewController *vc = [[OpenImageViewController alloc] init];
             vc.localModel = model;
             APPNavPushViewController(vc);
         }
@@ -266,7 +266,6 @@
             vc.localModel = model;
             APPNavPushViewController(vc);
         }
-        
     }
 }
 

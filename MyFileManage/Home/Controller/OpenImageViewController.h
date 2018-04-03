@@ -11,7 +11,7 @@
 #import "BaseViewController.h"
 #import "LocalImageAndVideoModel.h"
 
-@interface openImageViewController : BaseViewController
+@interface OpenImageViewController : BaseViewController
 
 /**
  是否从相册过来的model

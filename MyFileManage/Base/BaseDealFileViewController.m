@@ -7,8 +7,8 @@
 //
 
 #import "BaseDealFileViewController.h"
-#import "openImageViewController.h"
-#import "playVideoViewController.h"
+#import "OpenImageViewController.h"
+#import "PlayVideoViewController.h"
 #import "LoadWebViewController.h"
 #import "OpenTXTEditViewController.h"
 #import "LSYReadPageViewController.h"
@@ -33,12 +33,12 @@
     
     NSLog(@"fullPath--------%@",model.fullPath);
     if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
-        openImageViewController *vc = [[openImageViewController alloc] init];
+        OpenImageViewController *vc = [[OpenImageViewController alloc] init];
         vc.model = model;
         APPNavPushViewController(vc);
     }
     if ([SupportVideoArray containsObject:[model.fileType uppercaseString]]) {
-        playVideoViewController *vc = [[playVideoViewController alloc] init];
+        PlayVideoViewController *vc = [[PlayVideoViewController alloc] init];
         vc.model = model;
         APPPresentViewController(vc);
     }

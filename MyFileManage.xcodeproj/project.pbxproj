@@ -117,8 +117,8 @@
 		0032FAC62008A1EE006EF52B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FAC52008A1EE006EF52B /* Foundation.framework */; };
 		0032FAC72008A667006EF52B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A671ED91BD7001BF4F1 /* libz.tbd */; };
 		0032FB172009F03A006EF52B /* HomeFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */; };
-		0032FB182009F03A006EF52B /* openImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0D2009F03A006EF52B /* openImageViewController.m */; };
-		0032FB192009F03A006EF52B /* playVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0F2009F03A006EF52B /* playVideoViewController.m */; };
+		0032FB182009F03A006EF52B /* OpenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0D2009F03A006EF52B /* OpenImageViewController.m */; };
+		0032FB192009F03A006EF52B /* PlayVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0F2009F03A006EF52B /* PlayVideoViewController.m */; };
 		0032FB1F2009F082006EF52B /* LoadWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB1E2009F082006EF52B /* LoadWebViewController.m */; };
 		0032FB252009F4CA006EF52B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB242009F4CA006EF52B /* AudioToolbox.framework */; };
 		0032FB262009F4D3006EF52B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A731ED91C17001BF4F1 /* VideoToolbox.framework */; };
@@ -515,10 +515,10 @@
 		0032FAC52008A1EE006EF52B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0032FB0A2009F03A006EF52B /* HomeFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFolderViewController.h; sourceTree = "<group>"; };
 		0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFolderViewController.m; sourceTree = "<group>"; };
-		0032FB0C2009F03A006EF52B /* openImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openImageViewController.h; sourceTree = "<group>"; };
-		0032FB0D2009F03A006EF52B /* openImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openImageViewController.m; sourceTree = "<group>"; };
-		0032FB0E2009F03A006EF52B /* playVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playVideoViewController.h; sourceTree = "<group>"; };
-		0032FB0F2009F03A006EF52B /* playVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playVideoViewController.m; sourceTree = "<group>"; };
+		0032FB0C2009F03A006EF52B /* OpenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenImageViewController.h; sourceTree = "<group>"; };
+		0032FB0D2009F03A006EF52B /* OpenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenImageViewController.m; sourceTree = "<group>"; };
+		0032FB0E2009F03A006EF52B /* PlayVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayVideoViewController.h; sourceTree = "<group>"; };
+		0032FB0F2009F03A006EF52B /* PlayVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayVideoViewController.m; sourceTree = "<group>"; };
 		0032FB1D2009F082006EF52B /* LoadWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadWebViewController.h; sourceTree = "<group>"; };
 		0032FB1E2009F082006EF52B /* LoadWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadWebViewController.m; sourceTree = "<group>"; };
 		0032FB242009F4CA006EF52B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -1127,10 +1127,10 @@
 				0006BF2D202949E000C82FF9 /* MoveFolderViewController.m */,
 				001450082024860500EB2D63 /* OpenTXTEditViewController.h */,
 				001450092024860500EB2D63 /* OpenTXTEditViewController.m */,
-				0032FB0C2009F03A006EF52B /* openImageViewController.h */,
-				0032FB0D2009F03A006EF52B /* openImageViewController.m */,
-				0032FB0E2009F03A006EF52B /* playVideoViewController.h */,
-				0032FB0F2009F03A006EF52B /* playVideoViewController.m */,
+				0032FB0C2009F03A006EF52B /* OpenImageViewController.h */,
+				0032FB0D2009F03A006EF52B /* OpenImageViewController.m */,
+				0032FB0E2009F03A006EF52B /* PlayVideoViewController.h */,
+				0032FB0F2009F03A006EF52B /* PlayVideoViewController.m */,
 				0032FB1D2009F082006EF52B /* LoadWebViewController.h */,
 				0032FB1E2009F082006EF52B /* LoadWebViewController.m */,
 			);
@@ -2406,13 +2406,13 @@
 				00B3A975200E02790009DC52 /* LSYMarkModel.m in Sources */,
 				00B3A9EF200EF76D0009DC52 /* MusicIndicator.m in Sources */,
 				0005F172200F36440004751A /* RecentDocumentListViewModel.m in Sources */,
-				0032FB182009F03A006EF52B /* openImageViewController.m in Sources */,
+				0032FB182009F03A006EF52B /* OpenImageViewController.m in Sources */,
 				0005F163200F36440004751A /* PDFDocumentOutline.m in Sources */,
 				00B3A980200E02790009DC52 /* CXMLDocument_PrivateExtensions.m in Sources */,
 				008F8B8A2012F4A300FA08EC /* pushHelp.m in Sources */,
 				00B3A92A200E02790009DC52 /* MultipartMessageHeader.m in Sources */,
 				0005F15D200F36440004751A /* PDFDocumentSearchResult.m in Sources */,
-				0032FB192009F03A006EF52B /* playVideoViewController.m in Sources */,
+				0032FB192009F03A006EF52B /* PlayVideoViewController.m in Sources */,
 				0005F166200F36440004751A /* RootFolder.m in Sources */,
 				00B3A96F200E02790009DC52 /* LSYReadUtilites.m in Sources */,
 				008871AE20163225006148BF /* BrowerLocalViewController.m in Sources */,
