@@ -105,6 +105,7 @@
 		0006BF2E202949E000C82FF9 /* MoveFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF2D202949E000C82FF9 /* MoveFolderViewController.m */; };
 		0006BF3A202ADC9A00C82FF9 /* MoveFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */; };
 		0006BF66202D421B00C82FF9 /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */; };
+		000E7FA92073954300A02F37 /* OpenImagesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E7FA82073954300A02F37 /* OpenImagesPageViewController.m */; };
 		0014500A2024860500EB2D63 /* OpenTXTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001450092024860500EB2D63 /* OpenTXTEditViewController.m */; };
 		0014501020255F2400EB2D63 /* RecyleFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0014500F20255F2400EB2D63 /* RecyleFileViewController.m */; };
 		002C9A57202199EE0053B1A6 /* SettingBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */; };
@@ -495,6 +496,8 @@
 		0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveFolderCell.m; sourceTree = "<group>"; };
 		0006BF64202D421A00C82FF9 /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
 		0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
+		000E7FA72073954300A02F37 /* OpenImagesPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenImagesPageViewController.h; sourceTree = "<group>"; };
+		000E7FA82073954300A02F37 /* OpenImagesPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenImagesPageViewController.m; sourceTree = "<group>"; };
 		000EA30520627EE7004420D6 /* MyFileManage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFileManage.entitlements; sourceTree = "<group>"; };
 		000EA3062062A6AD004420D6 /* MyFileManageShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFileManageShare.entitlements; sourceTree = "<group>"; };
 		001450082024860500EB2D63 /* OpenTXTEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenTXTEditViewController.h; sourceTree = "<group>"; };
@@ -1129,6 +1132,8 @@
 				001450092024860500EB2D63 /* OpenTXTEditViewController.m */,
 				0032FB0C2009F03A006EF52B /* OpenImageViewController.h */,
 				0032FB0D2009F03A006EF52B /* OpenImageViewController.m */,
+				000E7FA72073954300A02F37 /* OpenImagesPageViewController.h */,
+				000E7FA82073954300A02F37 /* OpenImagesPageViewController.m */,
 				0032FB0E2009F03A006EF52B /* PlayVideoViewController.h */,
 				0032FB0F2009F03A006EF52B /* PlayVideoViewController.m */,
 				0032FB1D2009F082006EF52B /* LoadWebViewController.h */,
@@ -2363,6 +2368,7 @@
 				00B3A9DC200E04550009DC52 /* MusicListEntity.m in Sources */,
 				00B3A91A200E02790009DC52 /* DDAbstractDatabaseLogger.m in Sources */,
 				00B3A92B200E02790009DC52 /* MultipartMessageHeaderField.m in Sources */,
+				000E7FA92073954300A02F37 /* OpenImagesPageViewController.m in Sources */,
 				00B3A97A200E02790009DC52 /* LSYViewPagerVC.m in Sources */,
 				005BD4DA20260E3400340B74 /* SettingRecycelCell.m in Sources */,
 				0005F171200F36440004751A /* NSArray+GreatReaderAdditions.m in Sources */,

@@ -301,12 +301,18 @@ static FolderFileManager *manage = nil;
     return fileModelArray;
 }
 
--(NSArray *)getAllPicNameInDic:(NSString *)dir{
-    NSArray *picNameArray = [[self getAllFilesName:dir] firstleap_filter:^BOOL(NSString *filename) {
-        return [SupportPictureArray containsObject:filename.pathExtension.uppercaseString];
+
+-(NSArray *)getAllPicModelInDic:(NSString *)dir{
+    
+    NSArray *filePath = [[[self getAllFilesName:dir] firstleap_filter:^BOOL(NSString *files) {
+        return [SupportPictureArray containsObject:files.pathExtension.uppercaseString];
+    }] firstleap_map:^fileModel *(NSString *files) {
+        return [[fileModel alloc] initWithFilePath:[NSString stringWithFormat:@"%@/%@",dir,files]];
     }];
-    return picNameArray;
+    
+    return filePath;
 }
+
 
 -(NSArray *)getAllFilesName:(NSString *)dir{
     NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dir error:nil];

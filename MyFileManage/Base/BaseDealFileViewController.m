@@ -8,6 +8,7 @@
 
 #import "BaseDealFileViewController.h"
 #import "OpenImageViewController.h"
+#import "OpenImagesPageViewController.h"
 #import "PlayVideoViewController.h"
 #import "LoadWebViewController.h"
 #import "OpenTXTEditViewController.h"
@@ -33,8 +34,8 @@
     
     NSLog(@"fullPath--------%@",model.fullPath);
     if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
-        OpenImageViewController *vc = [[OpenImageViewController alloc] init];
-        vc.model = model;
+        OpenImagesPageViewController *vc = [[OpenImagesPageViewController alloc] init];
+//        vc.model = model;
         APPNavPushViewController(vc);
     }
     if ([SupportVideoArray containsObject:[model.fileType uppercaseString]]) {

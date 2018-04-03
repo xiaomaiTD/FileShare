@@ -96,7 +96,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [self addKVO];
     [self configueNavItem];
     [self setBasicUI];
-    
 }
 
 -(void)addKVO{
