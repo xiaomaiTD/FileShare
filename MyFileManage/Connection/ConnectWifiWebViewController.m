@@ -12,14 +12,11 @@
 #import "HTTPServer.h"
 #import "DDLog.h"
 #import "DDTTYLogger.h"
-#import "MyHTTPConnection.h"
 #import "ConnectWifiWebViewController.h"
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface ConnectWifiWebViewController ()
 @property(nonatomic,strong)UILabel *ipLable;
-@property(nonatomic,strong)UIMenuController *menuController;
 @end
 
 @implementation ConnectWifiWebViewController
@@ -43,11 +40,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     _ipLable.userInteractionEnabled = YES;
     [self.view addSubview:_ipLable];
     
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(copyString)];
-    longPress.minimumPressDuration = 1;
-    [_ipLable addGestureRecognizer:longPress];
-    
-    [self createHttpServe];
         
     UIImageView *tipsImagV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tips"]];
     tipsImagV.frame = CGRectMake(16, _ipLable.maxY + 20, 30, 30);
@@ -59,99 +51,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     tipsLable.numberOfLines = 0;
     tipsLable.text = @"在浏览器下敲入以上ip地址，可以将文件传输到app里面。必须确定电脑和手机连接在同一个wifi下面";
     [self.view addSubview:tipsLable];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideMenu) name:UIMenuControllerDidHideMenuNotification object:nil];
+   
 
 }
 
--(void)createHttpServe{
-    [GCDQueue executeInGlobalQueue:^{
-        
-        [DDLog addLogger:[DDTTYLogger sharedInstance]];
-        httpServer = [[HTTPServer alloc] init];
-        [httpServer setType:@"_http._tcp."];
-        NSString *docRoot = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"web"];
-        NSLog(@"docRoot------%@",docRoot);
-        [httpServer setDocumentRoot:docRoot];
-        [httpServer setConnectionClass:[MyHTTPConnection class]];
-        NSError *error = nil;
-        if(![httpServer start:&error])
-        {
-            DDLogError(@"Error starting HTTP Server: %@", error);
-        }else{
-            [GCDQueue executeInMainQueue:^{
-                self.ipLable.text = [NSString stringWithFormat:@"%@:%hu",IPAddress(),httpServer.listeningPort];
-            }];
-        }
-    }];
-}
-
--(void)hideMenu{
-    if (_menuController) {
-        _menuController = nil;
-    }
-}
-
--(void)copyString{
-    if (!_menuController) {
-        _menuController = [UIMenuController sharedMenuController];
-        [_menuController setTargetRect:self.ipLable.frame inView:self.view];
-        [_menuController setMenuVisible:YES animated:YES];
-    }
-}
-
-- (BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
-
-- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
-    if (action == @selector(cut:)){
-        return NO;
-    }
-    else if(action == @selector(copy:)){
-        return YES;
-    }
-    else if(action == @selector(paste:)){
-        return NO;
-    }
-    else if(action == @selector(select:)){
-        return NO;
-    }
-    else if(action == @selector(selectAll:)){
-        return NO;
-    }
-    else
-    {
-        return [super canPerformAction:action withSender:sender];
-    }
-}
--(void)copy:(id)sender{
-    UIPasteboard* pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = self.ipLable.text;
-}
-- (NSString *)getIPAddress {
-    NSString *address = @"error";
-    struct ifaddrs *interfaces = NULL;
-    struct ifaddrs *temp_addr = NULL;
-    int success = 0;
-    // retrieve the current interfaces - returns 0 on success
-    success = getifaddrs(&interfaces);
-    if (success == 0) {
-        // Loop through linked list of interfaces
-        temp_addr = interfaces;
-        while(temp_addr != NULL) {
-            if(temp_addr->ifa_addr->sa_family == AF_INET) {
-                // Check if interface is en0 which is the wifi connection on the iPhone
-                if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {
-                    // Get NSString from C String
-                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
-                }
-            }
-            temp_addr = temp_addr->ifa_next;
-        }
-    }
-    // Free memory
-    freeifaddrs(interfaces);
-    return address;
-}
 @end

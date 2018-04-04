@@ -9,7 +9,6 @@
 #import "FolderFileManager.h"
 #import "ResourceFileManager.h"
 #import "GloablVarManager.h"
-#import "NSFileManager+GreatReaderAdditions.h"
 
 static FolderFileManager *manage = nil;
 
@@ -27,12 +26,24 @@ static FolderFileManager *manage = nil;
 {
     self = [super init];
     if (self) {
-        self.downloadFolderPath = [[DataBaseTool shareInstance] getDownloadPath].length == 0 ? [[self getUploadPath] stringByAppendingPathComponent:DownloadFolderName] : [[DataBaseTool shareInstance] getDownloadPath];
+
+    if ([DataBaseTool shareInstance].getDownloadPath.length > 0) {
+        NSString *realtivePath = [DataBaseTool shareInstance].getDownloadPath;
+        _downloadFolderPath = [[self getDocumentPath] stringByAppendingPathComponent:realtivePath];
+        }else{
+        _downloadFolderPath = [[self getUploadPath] stringByAppendingPathComponent:DownloadFolderName];
+        }
     }
     return self;
 }
 
 -(void)setDownloadFolderPath:(NSString *)downloadFolderPath{
+    
+    NSRange realtiveRang = [downloadFolderPath rangeOfString:[[FolderFileManager shareInstance] getDocumentPath]];
+    NSString * realtivePath = [downloadFolderPath substringFromIndex:realtiveRang.length + realtiveRang.location];
+    
+    [[DataBaseTool shareInstance] setDownloadPath:realtivePath];
+    
     if (![downloadFolderPath isEqualToString:_downloadFolderPath]) {
         _downloadFolderPath = downloadFolderPath;
         [[DataBaseTool shareInstance] setDownloadPath:_downloadFolderPath];
@@ -40,15 +51,25 @@ static FolderFileManager *manage = nil;
 }
 
 -(NSString *)getCachePath{
-    return [NSFileManager grt_cachePath];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,
+                                                         NSUserDomainMask,
+                                                         YES);
+    return paths.firstObject;
 }
 
 -(NSString *)getDocumentPath{
-    return [NSFileManager grt_documentsPath];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask,
+                                                         YES);
+    return paths.firstObject;
 }
 
 -(NSString *)getUploadPath{
-    return [NSFileManager grt_cacheUploadPath];
+    NSString *uploadDirPath = [self getDocumentPath];
+    uploadDirPath = [NSString stringWithFormat:@"%@/MyFileManageUpload",uploadDirPath];
+    return uploadDirPath;
 }
 
 -(NSString *)getBeHiddenFolderPath{
@@ -112,7 +133,6 @@ static FolderFileManager *manage = nil;
     
     NSFileManager *manag = [NSFileManager defaultManager];
     BOOL isDir = NO;
-    
     if (![manag fileExistsAtPath:path isDirectory:&isDir]) {
         [manag createFileAtPath:path contents:nil attributes:nil];
         return path;

@@ -32,6 +32,7 @@
 
 -(void)openVCWithModel:(fileModel *)model{
     
+    NSLog(@"fullPath------%@",model.fullPath);
     if ([SupportPictureArray containsObject:[model.fileType uppercaseString]]) {
         OpenImagesPageViewController *vc = [[OpenImagesPageViewController alloc] init];
         vc.model = model;

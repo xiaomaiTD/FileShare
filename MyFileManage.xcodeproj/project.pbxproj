@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00033417202D4F0F00C3328A /* website in Resources */ = {isa = PBXBuildFile; fileRef = 00033416202D4F0F00C3328A /* website */; };
 		00033419202D4F3200C3328A /* web in Resources */ = {isa = PBXBuildFile; fileRef = 00033418202D4F3200C3328A /* web */; };
 		0005F146200F36440004751A /* Localize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F084200F36280004751A /* Localize.m */; };
 		0005F147200F36440004751A /* PDFFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F085200F36280004751A /* PDFFont.m */; };
@@ -76,31 +75,6 @@
 		0005F1A4200F36440004751A /* PDFUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F13F200F36400004751A /* PDFUtils.m */; };
 		0005F1A5200F36440004751A /* PDFDocumentBookmarkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F144200F36430004751A /* PDFDocumentBookmarkListViewController.m */; };
 		0005F1A6200F36440004751A /* GRTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F145200F36440004751A /* GRTNavigationController.m */; };
-		0005F1B4200F42700004751A /* DocumentCollectionViewCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1A8200F42700004751A /* DocumentCollectionViewCell_iPhone.xib */; };
-		0005F1B5200F42700004751A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1AA200F42700004751A /* MainStoryboard_iPhone.storyboard */; };
-		0005F1B6200F42700004751A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1AC200F42700004751A /* MainStoryboard_iPad.storyboard */; };
-		0005F1B7200F42700004751A /* PDFDocumentOutlineItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1AE200F42700004751A /* PDFDocumentOutlineItemCell.xib */; };
-		0005F1B8200F42700004751A /* DocumentCollectionViewCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1B0200F42700004751A /* DocumentCollectionViewCell_iPad.xib */; };
-		0005F1B9200F42700004751A /* DocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1B2200F42700004751A /* DocumentTableViewCell.xib */; };
-		0005F1E1200F433D0004751A /* Crop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1BB200F433A0004751A /* Crop@2x.png */; };
-		0005F1E2200F433D0004751A /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1BD200F433A0004751A /* Back@2x.png */; };
-		0005F1E3200F433D0004751A /* Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1BF200F433A0004751A /* Setting@2x.png */; };
-		0005F1E4200F433D0004751A /* Brightness@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1C1200F433A0004751A /* Brightness@2x.png */; };
-		0005F1E5200F433D0004751A /* Check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1C3200F433A0004751A /* Check@2x.png */; };
-		0005F1E6200F433D0004751A /* Documents@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1C5200F433A0004751A /* Documents@2x.png */; };
-		0005F1E7200F433D0004751A /* CropNone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1C7200F433B0004751A /* CropNone@2x.png */; };
-		0005F1E8200F433D0004751A /* History@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1C9200F433B0004751A /* History@2x.png */; };
-		0005F1E9200F433D0004751A /* CropOdd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1CB200F433B0004751A /* CropOdd@2x.png */; };
-		0005F1EA200F433D0004751A /* Outline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1CD200F433B0004751A /* Outline@2x.png */; };
-		0005F1EB200F433D0004751A /* TabHistory@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1CF200F433B0004751A /* TabHistory@2x.png */; };
-		0005F1EC200F433D0004751A /* Find@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1D1200F433B0004751A /* Find@2x.png */; };
-		0005F1ED200F433D0004751A /* Folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1D3200F433C0004751A /* Folder@2x.png */; };
-		0005F1EE200F433D0004751A /* RibbonOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1D5200F433C0004751A /* RibbonOn@2x.png */; };
-		0005F1EF200F433D0004751A /* CropBoth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1D7200F433C0004751A /* CropBoth@2x.png */; };
-		0005F1F0200F433D0004751A /* RibbonOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1D9200F433C0004751A /* RibbonOff@2x.png */; };
-		0005F1F1200F433D0004751A /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DB200F433C0004751A /* Home@2x.png */; };
-		0005F1F2200F433D0004751A /* Forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DD200F433C0004751A /* Forward@2x.png */; };
-		0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0005F1DF200F433D0004751A /* CropEven@2x.png */; };
 		0005F1F8200FAAD90004751A /* FileFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F1F7200FAAD90004751A /* FileFolder.m */; };
 		0006BF2E202949E000C82FF9 /* MoveFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF2D202949E000C82FF9 /* MoveFolderViewController.m */; };
 		0006BF3A202ADC9A00C82FF9 /* MoveFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */; };
@@ -203,7 +177,6 @@
 		00B3A930200E02790009DC52 /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A85F200E02790009DC52 /* HTTPFileResponse.m */; };
 		00B3A931200E02790009DC52 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A861200E02790009DC52 /* HTTPRedirectResponse.m */; };
 		00B3A932200E02790009DC52 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A863200E02790009DC52 /* WebSocket.m */; };
-		00B3A933200E02790009DC52 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A865200E02790009DC52 /* MyHTTPConnection.m */; };
 		00B3A96A200E02790009DC52 /* LSYChapterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A8B6200E02790009DC52 /* LSYChapterVC.m */; };
 		00B3A96B200E02790009DC52 /* LSYMarkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A8B8200E02790009DC52 /* LSYMarkVC.m */; };
 		00B3A96C200E02790009DC52 /* LSYNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A8BA200E02790009DC52 /* LSYNoteVC.m */; };
@@ -327,7 +300,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00033416202D4F0F00C3328A /* website */ = {isa = PBXFileReference; lastKnownFileType = folder; name = website; path = MyFileManage/website; sourceTree = SOURCE_ROOT; };
 		00033418202D4F3200C3328A /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web; path = MyFileManage/web; sourceTree = SOURCE_ROOT; };
 		0005F084200F36280004751A /* Localize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Localize.m; sourceTree = "<group>"; };
 		0005F085200F36280004751A /* PDFFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFFont.m; sourceTree = "<group>"; };
@@ -463,31 +435,6 @@
 		0005F143200F36430004751A /* PDFDocumentStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDocumentStore.h; sourceTree = "<group>"; };
 		0005F144200F36430004751A /* PDFDocumentBookmarkListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDocumentBookmarkListViewController.m; sourceTree = "<group>"; };
 		0005F145200F36440004751A /* GRTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTNavigationController.m; sourceTree = "<group>"; };
-		0005F1A9200F42700004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MyFileManage/Thirdparty/PDFSource/en.lproj/DocumentCollectionViewCell_iPhone.xib; sourceTree = SOURCE_ROOT; };
-		0005F1AB200F42700004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MyFileManage/Thirdparty/PDFSource/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = SOURCE_ROOT; };
-		0005F1AD200F42700004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MyFileManage/Thirdparty/PDFSource/en.lproj/MainStoryboard_iPad.storyboard; sourceTree = SOURCE_ROOT; };
-		0005F1AF200F42700004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MyFileManage/Thirdparty/PDFSource/en.lproj/PDFDocumentOutlineItemCell.xib; sourceTree = SOURCE_ROOT; };
-		0005F1B1200F42700004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MyFileManage/Thirdparty/PDFSource/en.lproj/DocumentCollectionViewCell_iPad.xib; sourceTree = SOURCE_ROOT; };
-		0005F1B3200F42700004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MyFileManage/Thirdparty/PDFSource/en.lproj/DocumentTableViewCell.xib; sourceTree = SOURCE_ROOT; };
-		0005F1BC200F433A0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Crop@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1BE200F433A0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Back@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1C0200F433A0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Setting@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1C2200F433A0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Brightness@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1C4200F433A0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Check@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1C6200F433A0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Documents@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1C8200F433B0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/CropNone@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1CA200F433B0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/History@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1CC200F433B0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/CropOdd@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1CE200F433B0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Outline@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1D0200F433B0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/TabHistory@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1D2200F433B0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Find@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1D4200F433C0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Folder@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1D6200F433C0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/RibbonOn@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1D8200F433C0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/CropBoth@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1DA200F433C0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/RibbonOff@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1DC200F433C0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Home@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1DE200F433C0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/Forward@2x.png"; sourceTree = SOURCE_ROOT; };
-		0005F1E0200F433D0004751A /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "MyFileManage/Thirdparty/PDFSource/en.lproj/CropEven@2x.png"; sourceTree = SOURCE_ROOT; };
 		0005F1F6200FAAD90004751A /* FileFolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileFolder.h; sourceTree = "<group>"; };
 		0005F1F7200FAAD90004751A /* FileFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileFolder.m; sourceTree = "<group>"; };
 		0006BF2C202949E000C82FF9 /* MoveFolderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveFolderViewController.h; sourceTree = "<group>"; };
@@ -671,8 +618,6 @@
 		00B3A861200E02790009DC52 /* HTTPRedirectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRedirectResponse.m; sourceTree = "<group>"; };
 		00B3A862200E02790009DC52 /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
 		00B3A863200E02790009DC52 /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocket.m; sourceTree = "<group>"; };
-		00B3A864200E02790009DC52 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHTTPConnection.h; sourceTree = "<group>"; };
-		00B3A865200E02790009DC52 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHTTPConnection.m; sourceTree = "<group>"; };
 		00B3A8B5200E02790009DC52 /* LSYChapterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYChapterVC.h; sourceTree = "<group>"; };
 		00B3A8B6200E02790009DC52 /* LSYChapterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSYChapterVC.m; sourceTree = "<group>"; };
 		00B3A8B7200E02790009DC52 /* LSYMarkVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSYMarkVC.h; sourceTree = "<group>"; };
@@ -904,8 +849,6 @@
 		0005F083200F350C0004751A /* PDFSource */ = {
 			isa = PBXGroup;
 			children = (
-				0005F1BA200F431C0004751A /* Images */,
-				0005F1A7200F42610004751A /* StoryBoard */,
 				0005F0D8200F36370004751A /* DocumentCell.h */,
 				0005F0B7200F362E0004751A /* DocumentCollectionViewCell.h */,
 				0005F0BE200F36300004751A /* DocumentCollectionViewCell.m */,
@@ -1042,45 +985,6 @@
 				0005F12F200F363D0004751A /* UIColor+GreatReaderAdditions.m */,
 			);
 			path = PDFSource;
-			sourceTree = "<group>";
-		};
-		0005F1A7200F42610004751A /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				0005F1B0200F42700004751A /* DocumentCollectionViewCell_iPad.xib */,
-				0005F1A8200F42700004751A /* DocumentCollectionViewCell_iPhone.xib */,
-				0005F1B2200F42700004751A /* DocumentTableViewCell.xib */,
-				0005F1AC200F42700004751A /* MainStoryboard_iPad.storyboard */,
-				0005F1AA200F42700004751A /* MainStoryboard_iPhone.storyboard */,
-				0005F1AE200F42700004751A /* PDFDocumentOutlineItemCell.xib */,
-			);
-			path = StoryBoard;
-			sourceTree = "<group>";
-		};
-		0005F1BA200F431C0004751A /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				0005F1BD200F433A0004751A /* Back@2x.png */,
-				0005F1C1200F433A0004751A /* Brightness@2x.png */,
-				0005F1C3200F433A0004751A /* Check@2x.png */,
-				0005F1BB200F433A0004751A /* Crop@2x.png */,
-				0005F1D7200F433C0004751A /* CropBoth@2x.png */,
-				0005F1DF200F433D0004751A /* CropEven@2x.png */,
-				0005F1C7200F433B0004751A /* CropNone@2x.png */,
-				0005F1CB200F433B0004751A /* CropOdd@2x.png */,
-				0005F1C5200F433A0004751A /* Documents@2x.png */,
-				0005F1D1200F433B0004751A /* Find@2x.png */,
-				0005F1D3200F433C0004751A /* Folder@2x.png */,
-				0005F1DD200F433C0004751A /* Forward@2x.png */,
-				0005F1C9200F433B0004751A /* History@2x.png */,
-				0005F1DB200F433C0004751A /* Home@2x.png */,
-				0005F1CD200F433B0004751A /* Outline@2x.png */,
-				0005F1D9200F433C0004751A /* RibbonOff@2x.png */,
-				0005F1D5200F433C0004751A /* RibbonOn@2x.png */,
-				0005F1BF200F433A0004751A /* Setting@2x.png */,
-				0005F1CF200F433B0004751A /* TabHistory@2x.png */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		002C9A54202199BE0053B1A6 /* View */ = {
@@ -1281,12 +1185,9 @@
 			isa = PBXGroup;
 			children = (
 				00033418202D4F3200C3328A /* web */,
-				00033416202D4F0F00C3328A /* website */,
 				00B3A826200E02790009DC52 /* CocoaAsyncSocket */,
 				00B3A82A200E02790009DC52 /* CocoaLumberjack */,
 				00B3A83C200E02790009DC52 /* Core */,
-				00B3A864200E02790009DC52 /* MyHTTPConnection.h */,
-				00B3A865200E02790009DC52 /* MyHTTPConnection.m */,
 				00886F6D2015D379006148BF /* AYHTTPConnection.h */,
 				00886F6E2015D379006148BF /* AYHTTPConnection.m */,
 			);
@@ -2089,42 +1990,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0005F1B8200F42700004751A /* DocumentCollectionViewCell_iPad.xib in Resources */,
-				0005F1B6200F42700004751A /* MainStoryboard_iPad.storyboard in Resources */,
-				0005F1ED200F433D0004751A /* Folder@2x.png in Resources */,
-				0005F1EE200F433D0004751A /* RibbonOn@2x.png in Resources */,
-				0005F1F0200F433D0004751A /* RibbonOff@2x.png in Resources */,
 				0098A637206CBB3700AC0068 /* MBProgressHUD.bundle in Resources */,
-				0005F1E9200F433D0004751A /* CropOdd@2x.png in Resources */,
-				0005F1F2200F433D0004751A /* Forward@2x.png in Resources */,
 				00B3A917200E02790009DC52 /* About.txt in Resources */,
-				0005F1E4200F433D0004751A /* Brightness@2x.png in Resources */,
 				0005F157200F36440004751A /* Settings.bundle in Resources */,
 				00033419202D4F3200C3328A /* web in Resources */,
-				0005F1E3200F433D0004751A /* Setting@2x.png in Resources */,
 				00B3A921200E02790009DC52 /* README.txt in Resources */,
-				0005F1E1200F433D0004751A /* Crop@2x.png in Resources */,
-				0005F1F3200F433D0004751A /* CropEven@2x.png in Resources */,
-				0005F1E2200F433D0004751A /* Back@2x.png in Resources */,
 				377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */,
-				0005F1E6200F433D0004751A /* Documents@2x.png in Resources */,
-				0005F1B4200F42700004751A /* DocumentCollectionViewCell_iPhone.xib in Resources */,
-				0005F1E8200F433D0004751A /* History@2x.png in Resources */,
-				0005F1B7200F42700004751A /* PDFDocumentOutlineItemCell.xib in Resources */,
-				0005F1EF200F433D0004751A /* CropBoth@2x.png in Resources */,
-				0005F1EB200F433D0004751A /* TabHistory@2x.png in Resources */,
-				0005F1B5200F42700004751A /* MainStoryboard_iPhone.storyboard in Resources */,
-				0005F1E5200F433D0004751A /* Check@2x.png in Resources */,
 				00B3A990200E02790009DC52 /* bt_tjcp_no@2x.png in Resources */,
-				0005F1B9200F42700004751A /* DocumentTableViewCell.xib in Resources */,
-				0005F1EA200F433D0004751A /* Outline@2x.png in Resources */,
 				377E95C01ED532CD0080E86D /* Assets.xcassets in Resources */,
-				00033417202D4F0F00C3328A /* website in Resources */,
-				0005F1E7200F433D0004751A /* CropNone@2x.png in Resources */,
-				0005F1EC200F433D0004751A /* Find@2x.png in Resources */,
 				00B3A919200E02790009DC52 /* About.txt in Resources */,
 				00B3A9ED200EF76D0009DC52 /* Music.storyboard in Resources */,
-				0005F1F1200F433D0004751A /* Home@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2158,6 +2033,7 @@
 				"${BUILT_PRODUCTS_DIR}/DMPasscode/DMPasscode.framework",
 				"${BUILT_PRODUCTS_DIR}/DOUAudioStreamer/DOUAudioStreamer.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework",
 				"${BUILT_PRODUCTS_DIR}/GVUserDefaults/GVUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -2173,6 +2049,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DMPasscode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DOUAudioStreamer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GCDWebServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GVUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -2391,7 +2268,6 @@
 				00B3A988200E02790009DC52 /* CXMLUnsupportedNode.m in Sources */,
 				005155EC20132B03009DA2A3 /* AsyncSocket.m in Sources */,
 				0098A640206E1E6300AC0068 /* EasyAlertView.m in Sources */,
-				00B3A933200E02790009DC52 /* MyHTTPConnection.m in Sources */,
 				0005F1A0200F36440004751A /* LibraryUtils.m in Sources */,
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
 				00886F6F2015D379006148BF /* AYHTTPConnection.m in Sources */,
@@ -2491,206 +2367,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0005F1A8200F42700004751A /* DocumentCollectionViewCell_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1A9200F42700004751A /* en */,
-			);
-			name = DocumentCollectionViewCell_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		0005F1AA200F42700004751A /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1AB200F42700004751A /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		0005F1AC200F42700004751A /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1AD200F42700004751A /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		0005F1AE200F42700004751A /* PDFDocumentOutlineItemCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1AF200F42700004751A /* en */,
-			);
-			name = PDFDocumentOutlineItemCell.xib;
-			sourceTree = "<group>";
-		};
-		0005F1B0200F42700004751A /* DocumentCollectionViewCell_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1B1200F42700004751A /* en */,
-			);
-			name = DocumentCollectionViewCell_iPad.xib;
-			sourceTree = "<group>";
-		};
-		0005F1B2200F42700004751A /* DocumentTableViewCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1B3200F42700004751A /* en */,
-			);
-			name = DocumentTableViewCell.xib;
-			sourceTree = "<group>";
-		};
-		0005F1BB200F433A0004751A /* Crop@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1BC200F433A0004751A /* en */,
-			);
-			name = "Crop@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1BD200F433A0004751A /* Back@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1BE200F433A0004751A /* en */,
-			);
-			name = "Back@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1BF200F433A0004751A /* Setting@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1C0200F433A0004751A /* en */,
-			);
-			name = "Setting@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1C1200F433A0004751A /* Brightness@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1C2200F433A0004751A /* en */,
-			);
-			name = "Brightness@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1C3200F433A0004751A /* Check@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1C4200F433A0004751A /* en */,
-			);
-			name = "Check@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1C5200F433A0004751A /* Documents@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1C6200F433A0004751A /* en */,
-			);
-			name = "Documents@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1C7200F433B0004751A /* CropNone@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1C8200F433B0004751A /* en */,
-			);
-			name = "CropNone@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1C9200F433B0004751A /* History@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1CA200F433B0004751A /* en */,
-			);
-			name = "History@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1CB200F433B0004751A /* CropOdd@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1CC200F433B0004751A /* en */,
-			);
-			name = "CropOdd@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1CD200F433B0004751A /* Outline@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1CE200F433B0004751A /* en */,
-			);
-			name = "Outline@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1CF200F433B0004751A /* TabHistory@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1D0200F433B0004751A /* en */,
-			);
-			name = "TabHistory@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1D1200F433B0004751A /* Find@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1D2200F433B0004751A /* en */,
-			);
-			name = "Find@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1D3200F433C0004751A /* Folder@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1D4200F433C0004751A /* en */,
-			);
-			name = "Folder@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1D5200F433C0004751A /* RibbonOn@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1D6200F433C0004751A /* en */,
-			);
-			name = "RibbonOn@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1D7200F433C0004751A /* CropBoth@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1D8200F433C0004751A /* en */,
-			);
-			name = "CropBoth@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1D9200F433C0004751A /* RibbonOff@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1DA200F433C0004751A /* en */,
-			);
-			name = "RibbonOff@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1DB200F433C0004751A /* Home@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1DC200F433C0004751A /* en */,
-			);
-			name = "Home@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1DD200F433C0004751A /* Forward@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1DE200F433C0004751A /* en */,
-			);
-			name = "Forward@2x.png";
-			sourceTree = "<group>";
-		};
-		0005F1DF200F433D0004751A /* CropEven@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0005F1E0200F433D0004751A /* en */,
-			);
-			name = "CropEven@2x.png";
-			sourceTree = "<group>";
-		};
 		377E95C11ED532CD0080E86D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
