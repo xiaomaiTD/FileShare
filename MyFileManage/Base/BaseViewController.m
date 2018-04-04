@@ -21,7 +21,7 @@
 }
 
 -(void)showMessageWithTitle:(NSString *)title{
-    [MBProgressHUD showMessage:title];
+    [MBProgressHUD showMessage:title toView:self.view];
 }
 
 -(void)showMessage{

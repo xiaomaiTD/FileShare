@@ -322,26 +322,27 @@ willTransitionToViewControllers:(NSArray *)pendingViewControllers
 {
     _fullScreen = fullScreen;
 
-    CGFloat alpha = self.fullScreen ? 0.0 : 1.0;
-    CGRect barFrame = self.navigationController.navigationBar.frame;
-    barFrame.origin.y = 20;
-    self.navigationController.navigationBar.frame = barFrame;
-    if (!fullScreen) {
-        self.navigationController.navigationBar.hidden = NO;
-        self.navigationController.navigationBar.alpha = 0.0;
-    }
-
-    [UIView animateWithDuration:0.125
-                     animations:^{
-        self.toolbar.alpha = alpha;
-        self.navigationController.navigationBar.alpha = alpha;
-        self.navigationController.navigationBar.frame = barFrame;
-    } completion:^(BOOL finished) {
-        self.navigationController.navigationBar.hidden = fullScreen;
-    }];
-
-    self.navigationController.navigationBar.frame = CGRectZero;
-    self.navigationController.navigationBar.frame = barFrame;
+//    CGFloat alpha = self.fullScreen ? 0.0 : 1.0;
+//    CGRect barFrame = self.navigationController.navigationBar.frame;
+//    barFrame.origin.y = 20;
+//    self.navigationController.navigationBar.frame = barFrame;
+//    if (!fullScreen) {
+//        [self.navigationController setNavigationBarHidden:NO animated:NO];
+//        self.navigationController.navigationBar.alpha = 0.0;
+//    }
+//
+//    [UIView animateWithDuration:0.125
+//                     animations:^{
+////        [self setNeedsStatusBarAppearanceUpdate];
+//        self.toolbar.alpha = alpha;
+//        self.navigationController.navigationBar.alpha = alpha;
+//        self.navigationController.navigationBar.frame = barFrame;
+//    } completion:^(BOOL finished) {
+//        [self.navigationController setNavigationBarHidden:fullScreen animated:NO];
+//    }];
+//
+//    self.navigationController.navigationBar.frame = CGRectZero;
+//    self.navigationController.navigationBar.frame = barFrame;
 
     if (self.fullScreen) {
         [self.infoView hide];
@@ -361,7 +362,7 @@ willTransitionToViewControllers:(NSArray *)pendingViewControllers
 
 - (void)done:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)showOutline:(id)sender
