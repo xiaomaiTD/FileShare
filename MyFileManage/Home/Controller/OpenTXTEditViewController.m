@@ -13,6 +13,7 @@
 
 @property(nonatomic,strong)UITextView *textV;
 @property(nonatomic,strong)UIButton *editBtn;
+
 @end
 
 @implementation OpenTXTEditViewController
