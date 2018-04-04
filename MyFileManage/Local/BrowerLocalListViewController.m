@@ -8,11 +8,11 @@
 
 #import "BrowerLocalListViewController.h"
 #import "PlayLocalVideoViewController.h"
-#import "senderViewController.h"
-#import "openImageViewController.h"
-#import "localImageAndVideoCell.h"
-#import "LocalImageAndVideoModel.h"
+#import "OpenImagesPageViewController.h"
 #import "UIViewController+Extension.h"
+#import "LocalImageAndVideoModel.h"
+#import "localImageAndVideoCell.h"
+#import "senderViewController.h"
 #import "LocalBottomView.h"
 
 
@@ -182,7 +182,6 @@
     CGFloat btnW = kScreenW > 375.0 ? 50:40;
     selectedBtn.frame = CGRectMake(0, 0, btnW, 40);
     [self addLeftItemWithCustomView:selectedBtn];
-    
 }
 
 -(void)selectedAllModel{
@@ -257,7 +256,9 @@
             return;
         }
         if (model.type == PHASSETTYPE_LivePhoto || model.type == PHASSETTYPE_Image) {
-            OpenImageViewController *vc = [[OpenImageViewController alloc] init];
+            OpenImagesPageViewController *vc = [[OpenImagesPageViewController alloc] init];
+            NSLog(@"copy前地址------%p",self.dataSourceArray);
+            vc.photoModelArray = self.dataSourceArray;
             vc.localModel = model;
             APPNavPushViewController(vc);
         }

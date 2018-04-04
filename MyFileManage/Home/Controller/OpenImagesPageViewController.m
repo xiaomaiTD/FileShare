@@ -15,7 +15,6 @@
 <UIPageViewControllerDelegate,UIPageViewControllerDataSource>
 
 @property (nonatomic, strong) UIPageViewController *pageViewController;
-@property (nonatomic, strong) NSArray *picModelArray;
 
 @end
 
@@ -32,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"copy后地址------%p",self.photoModelArray);
+    
     self.navigationController.navigationBar.y = -self.navigationController.navigationBar.height;
     
     // 设置UIPageViewController的配置项
@@ -45,11 +46,15 @@
     _pageViewController.dataSource = self;
     
    __block NSInteger index = 0;
-    [self.picModelArray enumerateObjectsUsingBlock:^(fileModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj.fullPath isEqualToString:self.model.fullPath]) {
-            index = idx;
-        }
-    }];
+    if (self.photoModelArray.count > 0) {
+        index = [self.photoModelArray indexOfObject:self.localModel];
+    }else{
+        [self.picModelArray enumerateObjectsUsingBlock:^(fileModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj.fullPath isEqualToString:self.model.fullPath]) {
+                index = idx;
+            }
+        }];
+    }
 
     NSArray *viewControllers = [NSArray arrayWithObject:[self viewControllerAtIndex:index]];
     
@@ -93,16 +98,29 @@
 }
 
 -(OpenImageViewController *)viewControllerAtIndex:(NSInteger )index{
-    
-    if (self.picModelArray.count == 0 || self.picModelArray.count <= index) {
-        return nil;
+    if (self.localModel) {
+        if (self.photoModelArray.count == 0 || self.photoModelArray.count <= index){
+            return nil;
+        }
+        LocalImageAndVideoModel *model = [self.photoModelArray objectAtIndex:index];
+        OpenImageViewController *vc = [[OpenImageViewController alloc] init];
+        vc.localModel = model;
+        return vc;
+    }else{
+        if (self.picModelArray.count == 0 || self.picModelArray.count <= index) {
+            return nil;
+        }
+        fileModel *model = [self.picModelArray objectAtIndex:index];
+        OpenImageViewController *vc = [[OpenImageViewController alloc] init];
+        vc.model = model;
+        return vc;
+
     }
-    fileModel *model = [self.picModelArray objectAtIndex:index];
-    OpenImageViewController *vc = [[OpenImageViewController alloc] init];
-    vc.model = model;
-    return vc;
 }
 - (NSUInteger)indexOfViewController:(OpenImageViewController *)viewController {
+    if (self.localModel) {
+        return [self.photoModelArray indexOfObject:viewController.localModel];
+    }
     return [self.picModelArray indexOfObject:viewController.model];
 }
 
