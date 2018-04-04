@@ -31,24 +31,9 @@
     _bgScrollView.delegate = self;
     self.view = _bgScrollView;
 }
-
--(void)viewWillLayoutSubviews{
-    CGFloat horizontalInset = 0;
-    CGFloat verticalInset = 0;
-
-    if (self.bgScrollView.contentSize.width < CGRectGetWidth(self.bgScrollView.bounds)) {
-        horizontalInset = (CGRectGetWidth(self.bgScrollView.bounds) - self.bgScrollView.contentSize.width) * 0.5;
-    }
-    if (self.bgScrollView.contentSize.height < CGRectGetHeight(self.bgScrollView.bounds)) {
-        verticalInset = (CGRectGetHeight(self.bgScrollView.bounds) - self.bgScrollView.contentSize.height) * 0.5;
-    }
-    self.bgScrollView.contentInset = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset);
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationController.navigationBar.y = -88;
     
     self.navISHidden = YES;
 
@@ -84,7 +69,8 @@
             UIImage *fileImage = [UIImage imageWithData:imageData];
             self.localImgV = [[UIImageView alloc] initWithImage:fileImage];
         }
-        [self.view addSubview:_localImgV];
+        self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
+        [self.view addSubview:self.localImgV];
         [self centerImageView];
     }
     
@@ -159,6 +145,16 @@
     self.bgScrollView.minimumZoomScale = minScale;
     self.bgScrollView.maximumZoomScale = MAX(minScale, self.bgScrollView.maximumZoomScale);
     self.bgScrollView.zoomScale = self.bgScrollView.minimumZoomScale;
+    CGFloat horizontalInset = 0;
+    CGFloat verticalInset = 0;
+    
+    if (self.bgScrollView.contentSize.width < CGRectGetWidth(self.bgScrollView.bounds)) {
+        horizontalInset = (CGRectGetWidth(self.bgScrollView.bounds) - self.bgScrollView.contentSize.width) * 0.5;
+    }
+    if (self.bgScrollView.contentSize.height < CGRectGetHeight(self.bgScrollView.bounds)) {
+        verticalInset = (CGRectGetHeight(self.bgScrollView.bounds) - self.bgScrollView.contentSize.height) * 0.5;
+    }
+    self.bgScrollView.contentInset = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset);
 }
 
 -(void)addGest{
@@ -207,11 +203,24 @@
 
 - (void)doubleTapped:(UITapGestureRecognizer *)recognizer
 {
-    if (self.bgScrollView.zoomScale == 1.0) {
-        [self.bgScrollView setZoomScale:2.0 animated:YES];
-    } else {
-        [self.bgScrollView setZoomScale:1.0 animated:YES];
+    CGPoint pointInView = [recognizer locationInView:self.localImgV];
+
+    CGFloat newZoomScale = self.bgScrollView.maximumZoomScale;
+
+    if (self.bgScrollView.zoomScale >= self.bgScrollView.maximumZoomScale
+        || ABS(self.bgScrollView.zoomScale - self.bgScrollView.maximumZoomScale) <= 0.01) {
+        newZoomScale = self.bgScrollView.minimumZoomScale;
     }
+
+    CGSize scrollViewSize = self.bgScrollView.bounds.size;
+
+    CGFloat width = scrollViewSize.width / newZoomScale;
+    CGFloat height = scrollViewSize.height / newZoomScale;
+    CGFloat originX = pointInView.x - (width / 2.0);
+    CGFloat originY = pointInView.y - (height / 2.0);
+    CGRect rectToZoomTo = CGRectMake(originX, originY, width, height);
+
+    [self.bgScrollView zoomToRect:rectToZoomTo animated:YES];
 }
 
 -(void)singleTapClick:(UITapGestureRecognizer *)gestureRecognizer{

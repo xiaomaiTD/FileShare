@@ -23,7 +23,7 @@
 
 -(NSArray *)picModelArray{
     if (!_picModelArray) {
-        NSString *path = [[FolderFileManager shareInstance] getUploadPath];
+        NSString *path = [self.model.fullPath stringByDeletingLastPathComponent];
         _picModelArray = [[FolderFileManager shareInstance] getAllPicModelInDic:path];
     }
     return _picModelArray;
@@ -31,6 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.y = -self.navigationController.navigationBar.height;
     
     // 设置UIPageViewController的配置项
     NSDictionary *options = @{UIPageViewControllerOptionInterPageSpacingKey : @(0)};
@@ -42,9 +44,14 @@
     _pageViewController.delegate = self;
     _pageViewController.dataSource = self;
     
+   __block NSInteger index = 0;
+    [self.picModelArray enumerateObjectsUsingBlock:^(fileModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.fullPath isEqualToString:self.model.fullPath]) {
+            index = idx;
+        }
+    }];
 
-    
-    NSArray *viewControllers = [NSArray arrayWithObject:[self viewControllerAtIndex:0]];
+    NSArray *viewControllers = [NSArray arrayWithObject:[self viewControllerAtIndex:index]];
     
     [_pageViewController setViewControllers:viewControllers
                                   direction:UIPageViewControllerNavigationDirectionReverse
@@ -83,7 +90,6 @@
         return nil;
     }
     return [self viewControllerAtIndex:index];
-    
 }
 
 -(OpenImageViewController *)viewControllerAtIndex:(NSInteger )index{
@@ -99,7 +105,6 @@
 - (NSUInteger)indexOfViewController:(OpenImageViewController *)viewController {
     return [self.picModelArray indexOfObject:viewController.model];
 }
-
 
 
 @end
