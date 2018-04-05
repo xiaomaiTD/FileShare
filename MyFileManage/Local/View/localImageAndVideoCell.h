@@ -12,4 +12,10 @@
 @interface localImageAndVideoCell : UICollectionViewCell
 
 @property(nonatomic,strong)LocalImageAndVideoModel *model;
+
+/**
+photo 标识符
+ */
+@property(nonatomic,strong)NSString *localIdentifier;
+
 @end

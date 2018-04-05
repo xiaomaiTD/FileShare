@@ -40,7 +40,7 @@
     [super viewDidLoad];
     self.selected = NO;
     [self setUI];
-    [self requestAllSource];
+//    [self requestAllSource];
     
     _bottomView = [[LocalBottomView alloc] initWithFrame:CGRectZero];
     _bottomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -239,7 +239,7 @@
 #pragma mark  设置CollectionView每组所包含的个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.dataSourceArray.count;
+    return _fetResult.count;
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
@@ -257,7 +257,6 @@
         }
         if (model.type == PHASSETTYPE_LivePhoto || model.type == PHASSETTYPE_Image) {
             OpenImagesPageViewController *vc = [[OpenImagesPageViewController alloc] init];
-            NSLog(@"copy前地址------%p",self.dataSourceArray);
             vc.photoModelArray = self.dataSourceArray;
             vc.localModel = model;
             APPNavPushViewController(vc);
@@ -275,9 +274,25 @@
 {
     static NSString *identify = @"cell";
     localImageAndVideoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    if (_dataSourceArray.count > 0) {
-        cell.model = _dataSourceArray[indexPath.row];
+    
+    if (indexPath.row >= self.dataSourceArray.count) {
+        PHAsset *assert = [_fetResult objectAtIndex:indexPath.row];
+        [GCDQueue executeInGlobalQueue:^{
+            LocalImageAndVideoModel *model = [[LocalImageAndVideoModel alloc] initWithAsset:assert];
+            if ([model.phasset.localIdentifier isEqualToString:assert.localIdentifier]) {
+                
+                [GCDQueue executeInMainQueue:^{
+                    [self.dataSourceArray addObject:model];
+                    cell.model = model;
+                }];
+            }
+        }];
+        
+    }else{
+        LocalImageAndVideoModel *model = self.dataSourceArray[indexPath.row];
+        cell.model = model;
     }
+
     return cell;
 }
 

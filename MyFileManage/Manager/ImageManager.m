@@ -55,7 +55,6 @@ static ImageManager *manager = nil;
     [self.options setSynchronous:YES];
     [self.cacheImageManager requestImageForAsset:asset targetSize:tagertSize contentMode:PHImageContentModeAspectFit options:self.options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         block(result);
-        NSLog(@"info------%@",info);
     }];
 
 }

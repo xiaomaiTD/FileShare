@@ -62,7 +62,6 @@
                                   direction:UIPageViewControllerNavigationDirectionReverse
                                    animated:NO
                                  completion:nil];
-    
     _pageViewController.view.frame = self.view.bounds;
     
     [self addChildViewController:_pageViewController];

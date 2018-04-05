@@ -80,6 +80,34 @@
 		0006BF3A202ADC9A00C82FF9 /* MoveFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */; };
 		0006BF66202D421B00C82FF9 /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */; };
 		000E7FA92073954300A02F37 /* OpenImagesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E7FA82073954300A02F37 /* OpenImagesPageViewController.m */; };
+		000E82C32074E91E00A02F37 /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E828A2074E91D00A02F37 /* Back@2x.png */; };
+		000E82C42074E91E00A02F37 /* Brightness@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E828C2074E91D00A02F37 /* Brightness@2x.png */; };
+		000E82C52074E91E00A02F37 /* Check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E828E2074E91D00A02F37 /* Check@2x.png */; };
+		000E82C62074E91E00A02F37 /* Crop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82902074E91D00A02F37 /* Crop@2x.png */; };
+		000E82C72074E91E00A02F37 /* CropBoth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82922074E91D00A02F37 /* CropBoth@2x.png */; };
+		000E82C82074E91E00A02F37 /* CropEven@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82942074E91D00A02F37 /* CropEven@2x.png */; };
+		000E82C92074E91E00A02F37 /* CropNone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82962074E91D00A02F37 /* CropNone@2x.png */; };
+		000E82CA2074E91E00A02F37 /* CropOdd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82982074E91D00A02F37 /* CropOdd@2x.png */; };
+		000E82CB2074E91E00A02F37 /* DocumentCollectionViewCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E829A2074E91D00A02F37 /* DocumentCollectionViewCell_iPad.xib */; };
+		000E82CC2074E91E00A02F37 /* DocumentCollectionViewCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E829C2074E91D00A02F37 /* DocumentCollectionViewCell_iPhone.xib */; };
+		000E82CD2074E91E00A02F37 /* Documents@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E829E2074E91D00A02F37 /* Documents@2x.png */; };
+		000E82CE2074E91E00A02F37 /* DocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E82A02074E91D00A02F37 /* DocumentTableViewCell.xib */; };
+		000E82CF2074E91E00A02F37 /* Find@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82A22074E91D00A02F37 /* Find@2x.png */; };
+		000E82D02074E91E00A02F37 /* Folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82A42074E91D00A02F37 /* Folder@2x.png */; };
+		000E82D12074E91E00A02F37 /* Forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82A62074E91D00A02F37 /* Forward@2x.png */; };
+		000E82D22074E91E00A02F37 /* History@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82A82074E91D00A02F37 /* History@2x.png */; };
+		000E82D32074E91E00A02F37 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82AA2074E91D00A02F37 /* Home@2x.png */; };
+		000E82D42074E91E00A02F37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 000E82AC2074E91D00A02F37 /* InfoPlist.strings */; };
+		000E82D52074E91E00A02F37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 000E82AE2074E91D00A02F37 /* Localizable.strings */; };
+		000E82D62074E91E00A02F37 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 000E82B02074E91D00A02F37 /* MainStoryboard_iPad.storyboard */; };
+		000E82D72074E91E00A02F37 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 000E82B22074E91D00A02F37 /* MainStoryboard_iPhone.storyboard */; };
+		000E82D82074E91E00A02F37 /* Outline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82B42074E91D00A02F37 /* Outline@2x.png */; };
+		000E82D92074E91E00A02F37 /* PDFDocumentOutlineItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E82B62074E91D00A02F37 /* PDFDocumentOutlineItemCell.xib */; };
+		000E82DA2074E91E00A02F37 /* RibbonOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82B82074E91D00A02F37 /* RibbonOff@2x.png */; };
+		000E82DB2074E91E00A02F37 /* RibbonOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82BA2074E91D00A02F37 /* RibbonOn@2x.png */; };
+		000E82DC2074E91E00A02F37 /* Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82BC2074E91D00A02F37 /* Setting@2x.png */; };
+		000E82DD2074E91E00A02F37 /* TabHistory@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82BE2074E91D00A02F37 /* TabHistory@2x.png */; };
+		000E82DE2074E91E00A02F37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 000E82C12074E91D00A02F37 /* Localizable.strings */; };
 		0014500A2024860500EB2D63 /* OpenTXTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001450092024860500EB2D63 /* OpenTXTEditViewController.m */; };
 		0014501020255F2400EB2D63 /* RecyleFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0014500F20255F2400EB2D63 /* RecyleFileViewController.m */; };
 		002C9A57202199EE0053B1A6 /* SettingBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */; };
@@ -445,6 +473,34 @@
 		0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
 		000E7FA72073954300A02F37 /* OpenImagesPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenImagesPageViewController.h; sourceTree = "<group>"; };
 		000E7FA82073954300A02F37 /* OpenImagesPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenImagesPageViewController.m; sourceTree = "<group>"; };
+		000E828B2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Back@2x.png"; sourceTree = "<group>"; };
+		000E828D2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Brightness@2x.png"; sourceTree = "<group>"; };
+		000E828F2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Check@2x.png"; sourceTree = "<group>"; };
+		000E82912074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Crop@2x.png"; sourceTree = "<group>"; };
+		000E82932074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "CropBoth@2x.png"; sourceTree = "<group>"; };
+		000E82952074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "CropEven@2x.png"; sourceTree = "<group>"; };
+		000E82972074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "CropNone@2x.png"; sourceTree = "<group>"; };
+		000E82992074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "CropOdd@2x.png"; sourceTree = "<group>"; };
+		000E829B2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = DocumentCollectionViewCell_iPad.xib; sourceTree = "<group>"; };
+		000E829D2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = DocumentCollectionViewCell_iPhone.xib; sourceTree = "<group>"; };
+		000E829F2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Documents@2x.png"; sourceTree = "<group>"; };
+		000E82A12074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = DocumentTableViewCell.xib; sourceTree = "<group>"; };
+		000E82A32074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Find@2x.png"; sourceTree = "<group>"; };
+		000E82A52074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Folder@2x.png"; sourceTree = "<group>"; };
+		000E82A72074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Forward@2x.png"; sourceTree = "<group>"; };
+		000E82A92074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "History@2x.png"; sourceTree = "<group>"; };
+		000E82AB2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Home@2x.png"; sourceTree = "<group>"; };
+		000E82AD2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		000E82AF2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		000E82B12074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		000E82B32074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		000E82B52074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Outline@2x.png"; sourceTree = "<group>"; };
+		000E82B72074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = PDFDocumentOutlineItemCell.xib; sourceTree = "<group>"; };
+		000E82B92074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "RibbonOff@2x.png"; sourceTree = "<group>"; };
+		000E82BB2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "RibbonOn@2x.png"; sourceTree = "<group>"; };
+		000E82BD2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Setting@2x.png"; sourceTree = "<group>"; };
+		000E82BF2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "TabHistory@2x.png"; sourceTree = "<group>"; };
+		000E82C22074E91D00A02F37 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 		000EA30520627EE7004420D6 /* MyFileManage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFileManage.entitlements; sourceTree = "<group>"; };
 		000EA3062062A6AD004420D6 /* MyFileManageShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFileManageShare.entitlements; sourceTree = "<group>"; };
 		001450082024860500EB2D63 /* OpenTXTEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenTXTEditViewController.h; sourceTree = "<group>"; };
@@ -980,11 +1036,55 @@
 				0005F0E5200F36390004751A /* RecentDocumentListViewModel.m */,
 				0005F0C2200F36310004751A /* RootFolder.h */,
 				0005F0D3200F36360004751A /* RootFolder.m */,
+				000E82892074E91D00A02F37 /* en.lproj */,
+				000E82C02074E91D00A02F37 /* ja.lproj */,
 				0005F0A8200F362D0004751A /* Settings.bundle */,
 				0005F141200F36400004751A /* UIColor+GreatReaderAdditions.h */,
 				0005F12F200F363D0004751A /* UIColor+GreatReaderAdditions.m */,
 			);
 			path = PDFSource;
+			sourceTree = "<group>";
+		};
+		000E82892074E91D00A02F37 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				000E828A2074E91D00A02F37 /* Back@2x.png */,
+				000E828C2074E91D00A02F37 /* Brightness@2x.png */,
+				000E828E2074E91D00A02F37 /* Check@2x.png */,
+				000E82902074E91D00A02F37 /* Crop@2x.png */,
+				000E82922074E91D00A02F37 /* CropBoth@2x.png */,
+				000E82942074E91D00A02F37 /* CropEven@2x.png */,
+				000E82962074E91D00A02F37 /* CropNone@2x.png */,
+				000E82982074E91D00A02F37 /* CropOdd@2x.png */,
+				000E829A2074E91D00A02F37 /* DocumentCollectionViewCell_iPad.xib */,
+				000E829C2074E91D00A02F37 /* DocumentCollectionViewCell_iPhone.xib */,
+				000E829E2074E91D00A02F37 /* Documents@2x.png */,
+				000E82A02074E91D00A02F37 /* DocumentTableViewCell.xib */,
+				000E82A22074E91D00A02F37 /* Find@2x.png */,
+				000E82A42074E91D00A02F37 /* Folder@2x.png */,
+				000E82A62074E91D00A02F37 /* Forward@2x.png */,
+				000E82A82074E91D00A02F37 /* History@2x.png */,
+				000E82AA2074E91D00A02F37 /* Home@2x.png */,
+				000E82AC2074E91D00A02F37 /* InfoPlist.strings */,
+				000E82AE2074E91D00A02F37 /* Localizable.strings */,
+				000E82B02074E91D00A02F37 /* MainStoryboard_iPad.storyboard */,
+				000E82B22074E91D00A02F37 /* MainStoryboard_iPhone.storyboard */,
+				000E82B42074E91D00A02F37 /* Outline@2x.png */,
+				000E82B62074E91D00A02F37 /* PDFDocumentOutlineItemCell.xib */,
+				000E82B82074E91D00A02F37 /* RibbonOff@2x.png */,
+				000E82BA2074E91D00A02F37 /* RibbonOn@2x.png */,
+				000E82BC2074E91D00A02F37 /* Setting@2x.png */,
+				000E82BE2074E91D00A02F37 /* TabHistory@2x.png */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		000E82C02074E91D00A02F37 /* ja.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				000E82C12074E91D00A02F37 /* Localizable.strings */,
+			);
+			path = ja.lproj;
 			sourceTree = "<group>";
 		};
 		002C9A54202199BE0053B1A6 /* View */ = {
@@ -1990,16 +2090,44 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000E82C52074E91E00A02F37 /* Check@2x.png in Resources */,
+				000E82DD2074E91E00A02F37 /* TabHistory@2x.png in Resources */,
+				000E82D42074E91E00A02F37 /* InfoPlist.strings in Resources */,
 				0098A637206CBB3700AC0068 /* MBProgressHUD.bundle in Resources */,
 				00B3A917200E02790009DC52 /* About.txt in Resources */,
+				000E82C92074E91E00A02F37 /* CropNone@2x.png in Resources */,
 				0005F157200F36440004751A /* Settings.bundle in Resources */,
+				000E82DA2074E91E00A02F37 /* RibbonOff@2x.png in Resources */,
+				000E82C62074E91E00A02F37 /* Crop@2x.png in Resources */,
 				00033419202D4F3200C3328A /* web in Resources */,
+				000E82DC2074E91E00A02F37 /* Setting@2x.png in Resources */,
+				000E82D22074E91E00A02F37 /* History@2x.png in Resources */,
+				000E82D72074E91E00A02F37 /* MainStoryboard_iPhone.storyboard in Resources */,
+				000E82D32074E91E00A02F37 /* Home@2x.png in Resources */,
+				000E82D82074E91E00A02F37 /* Outline@2x.png in Resources */,
+				000E82DB2074E91E00A02F37 /* RibbonOn@2x.png in Resources */,
 				00B3A921200E02790009DC52 /* README.txt in Resources */,
+				000E82C72074E91E00A02F37 /* CropBoth@2x.png in Resources */,
 				377E95C31ED532CD0080E86D /* LaunchScreen.storyboard in Resources */,
+				000E82CC2074E91E00A02F37 /* DocumentCollectionViewCell_iPhone.xib in Resources */,
+				000E82C32074E91E00A02F37 /* Back@2x.png in Resources */,
 				00B3A990200E02790009DC52 /* bt_tjcp_no@2x.png in Resources */,
+				000E82CA2074E91E00A02F37 /* CropOdd@2x.png in Resources */,
+				000E82D12074E91E00A02F37 /* Forward@2x.png in Resources */,
 				377E95C01ED532CD0080E86D /* Assets.xcassets in Resources */,
+				000E82CB2074E91E00A02F37 /* DocumentCollectionViewCell_iPad.xib in Resources */,
+				000E82CF2074E91E00A02F37 /* Find@2x.png in Resources */,
 				00B3A919200E02790009DC52 /* About.txt in Resources */,
+				000E82D52074E91E00A02F37 /* Localizable.strings in Resources */,
+				000E82D92074E91E00A02F37 /* PDFDocumentOutlineItemCell.xib in Resources */,
+				000E82CD2074E91E00A02F37 /* Documents@2x.png in Resources */,
+				000E82D62074E91E00A02F37 /* MainStoryboard_iPad.storyboard in Resources */,
+				000E82CE2074E91E00A02F37 /* DocumentTableViewCell.xib in Resources */,
 				00B3A9ED200EF76D0009DC52 /* Music.storyboard in Resources */,
+				000E82C82074E91E00A02F37 /* CropEven@2x.png in Resources */,
+				000E82DE2074E91E00A02F37 /* Localizable.strings in Resources */,
+				000E82D02074E91E00A02F37 /* Folder@2x.png in Resources */,
+				000E82C42074E91E00A02F37 /* Brightness@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2367,6 +2495,230 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		000E828A2074E91D00A02F37 /* Back@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E828B2074E91D00A02F37 /* en */,
+			);
+			name = "Back@2x.png";
+			sourceTree = "<group>";
+		};
+		000E828C2074E91D00A02F37 /* Brightness@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E828D2074E91D00A02F37 /* en */,
+			);
+			name = "Brightness@2x.png";
+			sourceTree = "<group>";
+		};
+		000E828E2074E91D00A02F37 /* Check@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E828F2074E91D00A02F37 /* en */,
+			);
+			name = "Check@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82902074E91D00A02F37 /* Crop@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82912074E91D00A02F37 /* en */,
+			);
+			name = "Crop@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82922074E91D00A02F37 /* CropBoth@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82932074E91D00A02F37 /* en */,
+			);
+			name = "CropBoth@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82942074E91D00A02F37 /* CropEven@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82952074E91D00A02F37 /* en */,
+			);
+			name = "CropEven@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82962074E91D00A02F37 /* CropNone@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82972074E91D00A02F37 /* en */,
+			);
+			name = "CropNone@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82982074E91D00A02F37 /* CropOdd@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82992074E91D00A02F37 /* en */,
+			);
+			name = "CropOdd@2x.png";
+			sourceTree = "<group>";
+		};
+		000E829A2074E91D00A02F37 /* DocumentCollectionViewCell_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E829B2074E91D00A02F37 /* en */,
+			);
+			name = DocumentCollectionViewCell_iPad.xib;
+			sourceTree = "<group>";
+		};
+		000E829C2074E91D00A02F37 /* DocumentCollectionViewCell_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E829D2074E91D00A02F37 /* en */,
+			);
+			name = DocumentCollectionViewCell_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		000E829E2074E91D00A02F37 /* Documents@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E829F2074E91D00A02F37 /* en */,
+			);
+			name = "Documents@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82A02074E91D00A02F37 /* DocumentTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82A12074E91D00A02F37 /* en */,
+			);
+			name = DocumentTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		000E82A22074E91D00A02F37 /* Find@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82A32074E91D00A02F37 /* en */,
+			);
+			name = "Find@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82A42074E91D00A02F37 /* Folder@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82A52074E91D00A02F37 /* en */,
+			);
+			name = "Folder@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82A62074E91D00A02F37 /* Forward@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82A72074E91D00A02F37 /* en */,
+			);
+			name = "Forward@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82A82074E91D00A02F37 /* History@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82A92074E91D00A02F37 /* en */,
+			);
+			name = "History@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82AA2074E91D00A02F37 /* Home@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82AB2074E91D00A02F37 /* en */,
+			);
+			name = "Home@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82AC2074E91D00A02F37 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82AD2074E91D00A02F37 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		000E82AE2074E91D00A02F37 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82AF2074E91D00A02F37 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		000E82B02074E91D00A02F37 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82B12074E91D00A02F37 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		000E82B22074E91D00A02F37 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82B32074E91D00A02F37 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		000E82B42074E91D00A02F37 /* Outline@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82B52074E91D00A02F37 /* en */,
+			);
+			name = "Outline@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82B62074E91D00A02F37 /* PDFDocumentOutlineItemCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82B72074E91D00A02F37 /* en */,
+			);
+			name = PDFDocumentOutlineItemCell.xib;
+			sourceTree = "<group>";
+		};
+		000E82B82074E91D00A02F37 /* RibbonOff@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82B92074E91D00A02F37 /* en */,
+			);
+			name = "RibbonOff@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82BA2074E91D00A02F37 /* RibbonOn@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82BB2074E91D00A02F37 /* en */,
+			);
+			name = "RibbonOn@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82BC2074E91D00A02F37 /* Setting@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82BD2074E91D00A02F37 /* en */,
+			);
+			name = "Setting@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82BE2074E91D00A02F37 /* TabHistory@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82BF2074E91D00A02F37 /* en */,
+			);
+			name = "TabHistory@2x.png";
+			sourceTree = "<group>";
+		};
+		000E82C12074E91D00A02F37 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				000E82C22074E91D00A02F37 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		377E95C11ED532CD0080E86D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

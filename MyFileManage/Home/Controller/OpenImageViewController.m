@@ -91,7 +91,7 @@
                 self.localImgV = [[UIImageView alloc] initWithImage:image];
                 self.localImgV.contentMode = UIViewContentModeScaleAspectFit;
                 [self.view addSubview:self.localImgV];
-                
+                [self centerImageView];
             }];
         }];
         return;
