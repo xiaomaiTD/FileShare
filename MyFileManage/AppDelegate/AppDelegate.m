@@ -38,9 +38,6 @@
     NSURL *url = [userDefaults objectForKey:@"share-pdf-url"];
     if ([userDefaults boolForKey:@"has-new-pdf"]) {
     }
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"哈哈" message:url.absoluteString delegate:nil cancelButtonTitle:@"cancle" otherButtonTitles:@"sure", nil];
-//    [alert show];
-
 }
 
 @end

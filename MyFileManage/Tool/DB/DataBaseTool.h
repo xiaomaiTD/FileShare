@@ -14,6 +14,15 @@
 
 
 /**
+ 设置是否开启touchID
+
+ @param flag flag == 1代表开启。flag == 0代表关闭
+ */
+-(void)setTouchIDFlage:(int)flag;
+-(void)deleteTouchIDFlage;
+-(BOOL)haveOpenTouchID;
+
+/**
  存取ip地址
 
  @param ip ip字符串

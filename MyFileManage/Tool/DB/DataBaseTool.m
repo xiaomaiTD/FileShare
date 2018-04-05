@@ -21,6 +21,25 @@ static NSUserDefaults *UserDefault;
     });
     return tool;
 }
+
+-(void)setTouchIDFlage:(int)flag{
+    if (flag == 1) {
+        [UserDefault setBool:YES forKey:@"touchIDFlag"];
+        [UserDefault synchronize];
+    }
+}
+
+-(void)deleteTouchIDFlage{
+    
+    if ([UserDefault boolForKey:@"touchIDFlag"]) {
+        [UserDefault removeObjectForKey:@"touchIDFlag"];
+    }
+}
+
+-(BOOL)haveOpenTouchID{
+    return [UserDefault boolForKey:@"touchIDFlag"];
+}
+
 -(void)setIPAddree:(NSString *)ip{
     [self setObjet:ip forKey:@"ipAddress"];
 }

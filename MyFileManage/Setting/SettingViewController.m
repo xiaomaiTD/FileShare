@@ -18,7 +18,7 @@
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property(nonatomic,strong)NSArray *dataArray;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,strong)UITableView *tableView;
 
 @end
@@ -28,7 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"设置";
-    _dataArray = @[@[@"开启touchID"],@[@"我的收藏"],@[@"回收站",@"历史访问记录"],@[@"下载至下载目录",@"下载至自定义目录"],@[@"显示文件扩展",@"显示隐藏的文件夹"],@[@"给个好评",@"意见反馈"]];
+    
+    NSString *touchIDDes = [[DataBaseTool shareInstance] haveOpenTouchID] ? @"关闭touchID":@"开启touchID";
+    NSArray *dataArr = @[@[touchIDDes],@[@"我的收藏"],@[@"回收站",@"历史访问记录"],@[@"下载至下载目录",@"下载至自定义目录"],@[@"显示文件扩展",@"显示隐藏的文件夹"],@[@"给个好评",@"意见反馈"]];
+    
+    self.dataArray = [[NSMutableArray alloc] initWithArray:dataArr];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self setUI];
 }
@@ -101,9 +105,17 @@
 }
 
 -(void)showPasswordVC{
-    [DMPasscode showPasscodeInViewController:self completion:^(BOOL success, NSError *error) {
-        NSLog(@"success");
-    }];
+    
+    if (![DMPasscode isPasscodeSet] && ![[DataBaseTool shareInstance] haveOpenTouchID]) {
+        [DMPasscode setupPasscodeInViewController:self completion:^(BOOL success, NSError *error) {
+            if (success) {
+                [[DataBaseTool shareInstance] setTouchIDFlage:1];
+                NSArray *array = @[@"关闭touchID"];
+                [self.dataArray replaceObjectAtIndex:0 withObject:array];
+                [self.tableView reloadData];
+            }
+        }];
+    }
 }
 
 @end
