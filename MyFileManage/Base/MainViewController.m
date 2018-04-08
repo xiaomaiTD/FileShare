@@ -12,6 +12,7 @@
 #import "SettingViewController.h"
 #import "connectionViewController.h"
 #import "BrowerLocalViewController.h"
+#import "SMBViewController.h"
 
 @interface MainViewController ()
 
@@ -41,6 +42,7 @@
     
     [self addOneChlildVc:[HomeFolderViewController new] title:@"首页" imageName:@"home"];
     [self addOneChlildVc:[connectionViewController new] title:@"快传" imageName:@"wifi"];
+    [self addOneChlildVc:[SMBViewController new] title:@"网络" imageName:@"connect"];
     [self addOneChlildVc:[BrowerLocalViewController new] title:@"本地" imageName:@"local"];
     [self addOneChlildVc:[SettingViewController new] title:@"设置" imageName:@"setting"];
     

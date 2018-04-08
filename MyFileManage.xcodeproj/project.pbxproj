@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00033419202D4F3200C3328A /* web in Resources */ = {isa = PBXBuildFile; fileRef = 00033418202D4F3200C3328A /* web */; };
+		0005ED2A207A57BC006F3A47 /* SMBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005ED29207A57BC006F3A47 /* SMBViewController.m */; };
 		0005F146200F36440004751A /* Localize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F084200F36280004751A /* Localize.m */; };
 		0005F147200F36440004751A /* PDFFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F085200F36280004751A /* PDFFont.m */; };
 		0005F148200F36440004751A /* NSFileManager+GreatReaderAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F08A200F36290004751A /* NSFileManager+GreatReaderAdditions.m */; };
@@ -329,6 +330,8 @@
 
 /* Begin PBXFileReference section */
 		00033418202D4F3200C3328A /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web; path = MyFileManage/web; sourceTree = SOURCE_ROOT; };
+		0005ED28207A57BC006F3A47 /* SMBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBViewController.h; sourceTree = "<group>"; };
+		0005ED29207A57BC006F3A47 /* SMBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBViewController.m; sourceTree = "<group>"; };
 		0005F084200F36280004751A /* Localize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Localize.m; sourceTree = "<group>"; };
 		0005F085200F36280004751A /* PDFFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFFont.m; sourceTree = "<group>"; };
 		0005F086200F36290004751A /* NSString+GreatReaderAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GreatReaderAdditions.h"; sourceTree = "<group>"; };
@@ -902,6 +905,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0005ED27207A577D006F3A47 /* SMB */ = {
+			isa = PBXGroup;
+			children = (
+				0005ED28207A57BC006F3A47 /* SMBViewController.h */,
+				0005ED29207A57BC006F3A47 /* SMBViewController.m */,
+			);
+			path = SMB;
+			sourceTree = "<group>";
+		};
 		0005F083200F350C0004751A /* PDFSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1792,6 +1804,7 @@
 				377E95E61ED5339F0080E86D /* Home */,
 				008F8B842012ED6B00FA08EC /* Connection */,
 				008871AB201631FF006148BF /* Local */,
+				0005ED27207A577D006F3A47 /* SMB */,
 				377E96F71ED560260080E86D /* Setting */,
 				377E95EE1ED5367B0080E86D /* Tool */,
 				377E96F01ED55F460080E86D /* Base */,
@@ -2408,6 +2421,7 @@
 				0088723B20183CB8006148BF /* ImageManager.m in Sources */,
 				00B3A9D6200E04550009DC52 /* NAKPlaybackIndicatorView.m in Sources */,
 				00B3A91F200E02790009DC52 /* ContextFilterLogFormatter.m in Sources */,
+				0005ED2A207A57BC006F3A47 /* SMBViewController.m in Sources */,
 				006C4D0A2018D46200172419 /* LocalImageAndVideoModel.m in Sources */,
 				0032FB172009F03A006EF52B /* HomeFolderViewController.m in Sources */,
 				00B3A9EE200EF76D0009DC52 /* MusicSlider.m in Sources */,
