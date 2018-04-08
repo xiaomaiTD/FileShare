@@ -220,22 +220,20 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 
 -(void)deleteSelectedModelArray{
     
-    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"是否删除该文件？" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    NSArray *actionArray = @[@{@"删除":@(2)},@{@"取消":@(1)}];
     
-    UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        NSArray *selectedArray = [self selectedModelsArray];
-        for (fileModel *model in selectedArray) {
-            [[FolderFileManager shareInstance] moveToRecyleFolderFromPath:model.fullPath];
-        }
-        [self fileFinishAndReloadTable];
-    }];
-    [alertCon addAction:folderAc];
-    
-    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:1 andTitle:@"是否删除该文件" andActionArray:actionArray andActionBloc:^(NSString *title, NSInteger index) {
         
+        if (index == 0) {
+            NSArray *selectedArray = [self selectedModelsArray];
+            for (fileModel *model in selectedArray) {
+                [[FolderFileManager shareInstance] moveToRecyleFolderFromPath:model.fullPath];
+            }
+            [self fileFinishAndReloadTable];
+        }
     }];
-    [alertCon addAction:cancelAc];
-    [self presentViewController:alertCon animated:YES completion:nil];
+    
+    [alert showInViewController:self];
 }
 
 -(MoveFolderViewController *)getFolderMoveWithCopy:(BOOL)isCopy{
@@ -419,21 +417,19 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 
 -(void)addFolderText:(UIButton *)sender{
     
-    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"选择创建类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"文本" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self AddFolderOrTextWithType:1];
-    }];
-    UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"文件夹" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self AddFolderOrTextWithType:0];
-    }];
-    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    NSArray *actionArray = @[@{@"文本":@(0)},@{@"文件夹":@(0)},@{@"取消":@(1)}];
+    
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:@"选择创建类型" andActionArray:actionArray andActionBloc:^(NSString *title, NSInteger index) {
         
+        if (index == 0) {
+            [self AddFolderOrTextWithType:1];
+        }
+        if (index == 1) {
+            [self AddFolderOrTextWithType:0];
+        }
     }];
-
-    [alertCon addAction:textAc];
-    [alertCon addAction:folderAc];
-    [alertCon addAction:cancelAc];
-    [self presentViewController:alertCon animated:YES completion:nil];
+    
+    [alert showInViewController:self];
 }
 
 -(void)AddFolderOrTextWithType:(int)type{

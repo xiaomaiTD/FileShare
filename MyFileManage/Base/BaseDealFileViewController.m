@@ -21,6 +21,7 @@
 
 #import "FolderFileManager.h"
 #import "ResourceFileManager.h"
+#import "EasyAlertView.h"
 #import "PDFDocument.h"
 #import "FMDBTool.h"
 
@@ -63,24 +64,20 @@
 
 -(void)openTXTWithModel:(fileModel *)model{
     
-    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"选择阅读方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    UIAlertAction *openReadAc = [UIAlertAction actionWithTitle:@"小说阅读方式打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self presentNovelViewControllerWithModel:model];
-    }];
-    [alertCon addAction:openReadAc];
+    NSArray *actionArray = @[@{@"小说阅读方式打开":@(0)},@{@"文本编辑方式打开":@(0)},@{@"取消":@"1"}];
     
-    UIAlertAction *openTXTAc = [UIAlertAction actionWithTitle:@"文本编辑方式打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self presentTXTEditViewControllerWithModel:model];
-    }];
-    [alertCon addAction:openTXTAc];
-    
-    UIAlertAction *cancleAC = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:@"选择阅读方式" andActionArray:actionArray andActionBloc:^(NSString *title, NSInteger index) {
         
+        if (index == 0) {
+            [self presentNovelViewControllerWithModel:model];
+        }
+        if (index == 1) {
+            [self presentTXTEditViewControllerWithModel:model];
+        }
     }];
-    [alertCon addAction:cancleAC];
+    [alert showInViewController:self];
     
-    [self presentViewController:alertCon animated:YES completion:nil];
 }
 
 /**
