@@ -24,6 +24,7 @@
 
 #import "SelectedFolderCell.h"
 #import "HomeToolBarView.h"
+#import "EasyAlertView.h"
 #import "FolderCell.h"
 #import "GCD.h"
 
@@ -541,36 +542,65 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 
 -(void)folderCellLongPressWithModel:(fileModel *)model{
     
-    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"选择编辑方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    NSArray *actionArray;
     
-    UIAlertAction *textAc = [UIAlertAction actionWithTitle:@"移动至-》" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self presentMoveFolderViewController:model];
-    }];
-    [alertCon addAction:textAc];
+    if ([SupportVideoArray containsObject:model.fileType.uppercaseString] || [SupportPictureArray containsObject:model.fileType.uppercaseString]) {
+        actionArray = @[@{@"移动至-》":@(0)},@{@"收藏":@(0)},@{@"保存到相册":@"0"},@{@"删除":@(2)},@{@"取消":@(1)}];
+    }else{
+        actionArray = @[@{@"移动至-》":@(0)},@{@"收藏":@(0)},@{@"删除":@(2)},@{@"取消":@(1)}];
+    }
     
-    UIAlertAction *collection = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        BOOL success =  [[FMDBTool shareInstance] addCollectionModel:model];
-        if (success) {
-            [self showSuccess];
-        }else{
-            [self showError];
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:@"选择编辑方式" andActionArray:actionArray andActionBloc:^(NSString *title, NSInteger index) {
+        if ([title isEqualToString:@"移动至-》"] ) {
+            [self presentMoveFolderViewController:model];
+        }
+        if ([title isEqualToString:@"收藏"]) {
+            BOOL success =  [[FMDBTool shareInstance] addCollectionModel:model];
+            if (success) {
+                [self showSuccess];
+            }else{
+                [self showError];
+            }
+        }
+        if ([title isEqualToString:@"删除"]) {
+            [[FolderFileManager shareInstance] moveToRecyleFolderFromPath:model.fullPath];
+            [self fileFinishAndReloadTable];
+        }
+        if ([title isEqualToString:@"保存到相册"]) {
+            if (model.isVideo) {
+                if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(model.fullPath)) {
+                    //保存相册核心代码
+                    UISaveVideoAtPathToSavedPhotosAlbum(model.fullPath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+                }
+            }
+            if (model.isPhoto) {
+                UIImage *image = [[UIImage alloc] initWithContentsOfFile:model.fullPath];
+                 UIImageWriteToSavedPhotosAlbum(image, self, @selector(savedPhotoImage:didFinishSavingWithError:contextInfo:), nil);
+            }
         }
     }];
-    [alertCon addAction:collection];
+    [alert showInViewController:self];
+}
 
-  
-    UIAlertAction *folderAc = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [[FolderFileManager shareInstance] moveToRecyleFolderFromPath:model.fullPath];
-        [self fileFinishAndReloadTable];
-    }];
-    [alertCon addAction:folderAc];
-    
-    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    [alertCon addAction:cancelAc];
-    
-    [self presentViewController:alertCon animated:YES completion:nil];
+#pragma mark ------保存视频和图片到相册
+
+//保存完成后调用的方法
+- (void) savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo
+{
+    if ([error isKindOfClass:[NSNull class]]) {
+        [self showError];
+    }
+    else {
+        [self showSuccess];
+    }
+}
+
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    if (error) {
+        [self showError];
+    }else{
+        [self showSuccess];
+    }
 }
 
 -(void)presentMoveFolderViewController:(fileModel *)model{

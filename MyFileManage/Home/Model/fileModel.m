@@ -47,4 +47,12 @@
     return model;
 }
 
+-(BOOL)isVideo{
+    return [SupportVideoArray containsObject:self.fileType.uppercaseString];
+}
+
+-(BOOL)isPhoto{
+    return [SupportPictureArray containsObject:self.fileType.uppercaseString];
+}
+
 @end
