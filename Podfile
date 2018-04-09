@@ -3,7 +3,6 @@ use_frameworks!
 
 target 'MyFileManage' do
     pod 'Masonry', '~> 1.0.2'
-    pod 'iOSPhotoEditor'
     pod 'SDWebImage', '~> 4.0'
     pod 'MBProgressHUD', '~> 1.1.0'
     pod 'DOUAudioStreamer', '0.2.11'
@@ -13,6 +12,7 @@ target 'MyFileManage' do
     pod 'KVOController'
     pod 'SSZipArchive'
     pod 'DMPasscode', :git => 'https://github.com/ViterbiDevelopment/DMPasscode'
+    pod 'iOSPhotoEditor', :git => 'https://github.com/ViterbiDevelopment/photo-editor.git'
     pod 'FMDB'
     pod 'GCDWebServer/WebUploader', '~> 3.0'
 end
