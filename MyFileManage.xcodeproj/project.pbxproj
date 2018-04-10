@@ -176,6 +176,9 @@
 		0098A636206CBB3700AC0068 /* MBProgressHUD+Vi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0098A633206CBB3700AC0068 /* MBProgressHUD+Vi.m */; };
 		0098A637206CBB3700AC0068 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0098A635206CBB3700AC0068 /* MBProgressHUD.bundle */; };
 		0098A640206E1E6300AC0068 /* EasyAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0098A63F206E1E6300AC0068 /* EasyAlertView.m */; };
+		00AFD5AF207D0A9100DA904F /* SMBClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00AFD5AE207D0A9100DA904F /* SMBClient.framework */; };
+		00AFD5B0207D0ABA00DA904F /* SMBClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00AFD5AE207D0A9100DA904F /* SMBClient.framework */; };
+		00AFD5B1207D0ABA00DA904F /* SMBClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00AFD5AE207D0A9100DA904F /* SMBClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
 		00B3A819200DA0F90009DC52 /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A818200DA0F90009DC52 /* VideoCoverView.m */; };
 		00B3A917200E02790009DC52 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 00B3A827200E02790009DC52 /* About.txt */; };
@@ -324,6 +327,17 @@
 				007B774E2060056300937961 /* MyFileManageShare.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00AFD5B2207D0ABA00DA904F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				00AFD5B1207D0ABA00DA904F /* SMBClient.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -618,6 +632,7 @@
 		0098A635206CBB3700AC0068 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		0098A63E206E1E6200AC0068 /* EasyAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAlertView.h; sourceTree = "<group>"; };
 		0098A63F206E1E6300AC0068 /* EasyAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyAlertView.m; sourceTree = "<group>"; };
+		00AFD5AE207D0A9100DA904F /* SMBClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMBClient.framework; sourceTree = "<group>"; };
 		00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		00B3A817200DA0F90009DC52 /* VideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCoverView.h; sourceTree = "<group>"; };
 		00B3A818200DA0F90009DC52 /* VideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCoverView.m; sourceTree = "<group>"; };
@@ -866,12 +881,14 @@
 			files = (
 				007B7784206128C200937961 /* Social.framework in Frameworks */,
 				002ECE242011869400319300 /* MobileCoreServices.framework in Frameworks */,
+				00AFD5AF207D0A9100DA904F /* SMBClient.framework in Frameworks */,
 				0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */,
 				0032FB332009F54E006EF52B /* libbz2.1.0.tbd in Frameworks */,
 				0032FB312009F545006EF52B /* libc++.1.tbd in Frameworks */,
 				0032FB2F2009F53B006EF52B /* libiconv.2.tbd in Frameworks */,
 				0032FB2D2009F52E006EF52B /* libstdc++.6.0.9.tbd in Frameworks */,
 				0032FB2B2009F51C006EF52B /* MediaPlayer.framework in Frameworks */,
+				00AFD5B0207D0ABA00DA904F /* SMBClient.framework in Frameworks */,
 				376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */,
 				0032FB2A2009F4F7006EF52B /* CoreAudio.framework in Frameworks */,
 				0032FB282009F4E6006EF52B /* CoreVideo.framework in Frameworks */,
@@ -1743,6 +1760,7 @@
 		37739A5A1ED91B9F001BF4F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00AFD5AE207D0A9100DA904F /* SMBClient.framework */,
 				007B7783206128C100937961 /* Social.framework */,
 				00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */,
 				0032FB342009F556006EF52B /* libz.1.tbd */,
@@ -1973,8 +1991,8 @@
 				377E95AD1ED532CD0080E86D /* Frameworks */,
 				377E95AE1ED532CD0080E86D /* Resources */,
 				0EC76E215CB98ED2AC2F9C6A /* [CP] Embed Pods Frameworks */,
-				4D7F2DFC19908C00733F52AB /* [CP] Copy Pods Resources */,
 				007B77522060056300937961 /* Embed App Extensions */,
+				00AFD5B2207D0ABA00DA904F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2203,21 +2221,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4D7F2DFC19908C00733F52AB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFileManage/Pods-MyFileManage-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C31674FDB11CC82ED0F3EE2A /* [CP] Check Pods Manifest.lock */ = {

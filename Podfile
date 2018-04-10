@@ -1,6 +1,5 @@
 platform :ios, ‘9.0’
 use_frameworks!
-
 target 'MyFileManage' do
     pod 'Masonry', '~> 1.0.2'
     pod 'SDWebImage', '~> 4.0'
@@ -12,7 +11,7 @@ target 'MyFileManage' do
     pod 'KVOController'
     pod 'SSZipArchive'
     pod 'DMPasscode', :git => 'https://github.com/ViterbiDevelopment/DMPasscode'
-    pod 'iOSPhotoEditor', :git => 'https://github.com/ViterbiDevelopment/photo-editor.git'
+    pod 'iOSPhotoEditor', :git => 'https://github.com/ViterbiDevelopment/photo-editor'
     pod 'FMDB'
     pod 'GCDWebServer/WebUploader', '~> 3.0'
 end

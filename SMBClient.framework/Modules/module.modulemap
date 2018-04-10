@@ -1,0 +1,6 @@
+framework module SMBClient {
+  umbrella header "SMBClient.h"
+
+  export *
+  module * { export * }
+}
