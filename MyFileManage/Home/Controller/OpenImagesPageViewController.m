@@ -5,17 +5,20 @@
 //  Created by Viterbi on 2018/4/3.
 //  Copyright © 2018年 wangchao. All rights reserved.
 //
-
+#import <iOSPhotoEditor/iOSPhotoEditor-Swift.h>
 #import "OpenImagesPageViewController.h"
+#import "UIViewController+Extension.h"
 #import "OpenImageViewController.h"
 #import "FolderFileManager.h"
 #import "fileModel.h"
 
 @interface OpenImagesPageViewController ()
-<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
+<UIPageViewControllerDelegate,UIPageViewControllerDataSource,PhotoEditorDelegate>
 
 @property (nonatomic, strong) UIPageViewController *pageViewController;
-
+@property (nonatomic, strong) UIButton *rightBtn;
+@property (nonatomic, strong) fileModel *currentModel;//当前的model;
+@property (nonatomic, strong) LocalImageAndVideoModel *currentLocalModel;//当前的model;
 @end
 
 @implementation OpenImagesPageViewController
@@ -31,7 +34,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"copy后地址------%p",self.photoModelArray);
+    
+    UIButton * rightItem = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.rightBtn = rightItem;
+    rightItem.frame = CGRectMake(0, 0, 40, 40);
+    [rightItem setTitle:@"编辑" forState:UIControlStateNormal];
+    [rightItem setTitle:@"发送" forState:UIControlStateSelected];
+    rightItem.titleLabel.font = [UIFont systemFontOfSize:15];
+    [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
+    @weakify(self);
+    [self.rightBtn addTargetWithBlock:^(UIButton *sender) {
+        @strongify(self);
+        [self presentImageEdit];
+    }];
+    
     
     self.navigationController.navigationBar.y = -self.navigationController.navigationBar.height;
     
@@ -66,6 +83,24 @@
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
+}
+-(void)presentImageEdit{
+    // gif图片不让编辑
+    if ([self.currentModel.fileType.uppercaseString isEqualToString:@"GIF"]) {
+        return;
+    }
+    
+    PhotoEditorViewController *photoEdit = [[PhotoEditorViewController alloc] initWithNibName:@"PhotoEditorViewController" bundle:[NSBundle bundleForClass:[PhotoEditorViewController class]]];
+//    photoEdit.image = _localImgV.image;
+    photoEdit.photoEditorDelegate = self;
+    
+    NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i = 0; i<=10; i++) {
+        UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%d",i]];
+        [imageArray addObject:img];
+    }
+    photoEdit.stickers = [imageArray copy];
+    [self presentViewController:photoEdit animated:YES completion:nil];
 }
 
 #pragma mark 返回上一个ViewController对象
@@ -122,6 +157,13 @@
     }
     return [self.picModelArray indexOfObject:viewController.model];
 }
+#pragma mark ----photoEditorDelegate
+
+-(void)canceledEditing{}
+-(void)doneEditingWithImage:(UIImage *)image{
+//    _localImgV.image = image;
+}
+
 
 
 @end

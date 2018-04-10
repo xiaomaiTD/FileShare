@@ -9,17 +9,15 @@
 #import "ImageManager.h"
 #import "GCDQueue.h"
 #import <ImageIO/ImageIO.h>
-#import <iOSPhotoEditor/iOSPhotoEditor-Swift.h>
 #import <SDWebImage/UIImage+GIF.h>
 #import <PhotosUI/PhotosUI.h>
 
 
-@interface OpenImageViewController ()<UIScrollViewDelegate,PhotoEditorDelegate>
+@interface OpenImageViewController ()<UIScrollViewDelegate>
 
 @property(nonatomic,strong)UIScrollView *bgScrollView;
 @property(nonatomic,strong)UIImageView *localImgV;
 @property(nonatomic,strong)PHLivePhotoView *livePhotoView;
-@property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,assign)BOOL navISHidden;
 
 @end
@@ -39,18 +37,7 @@
 
     self.title = self.model.fileName;
     self.view.backgroundColor = [UIColor blackColor];
-  
-    UIButton * rightItem = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.rightBtn = rightItem;
-    rightItem.frame = CGRectMake(0, 0, 40, 40);
-    [rightItem setTitle:@"编辑" forState:UIControlStateNormal];
-    [rightItem setTitle:@"发送" forState:UIControlStateSelected];
-    rightItem.titleLabel.font = [UIFont systemFontOfSize:15];
-    [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
-    [rightItem addTarget:self action:@selector(presentImageEdit) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItem];
-    
+      
     if (self.localModel) {
         if (self.localModel.type == PHASSETTYPE_LivePhoto) {
             [self addLivePhotoView];
@@ -183,24 +170,6 @@
     }
 }
 
--(void)presentImageEdit{
-    // gif图片不让编辑
-    if ([self.model.fileType.uppercaseString isEqualToString:@"GIF"]) {
-        return;
-    }
-    PhotoEditorViewController *photoEdit = [[PhotoEditorViewController alloc] initWithNibName:@"PhotoEditorViewController" bundle:[NSBundle bundleForClass:[PhotoEditorViewController class]]];
-    photoEdit.image = _localImgV.image;
-    photoEdit.photoEditorDelegate = self;
-    
-    NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:0];
-    for (int i = 0; i<=10; i++) {
-        UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%d",i]];
-        [imageArray addObject:img];
-    }
-    photoEdit.stickers = [imageArray copy];
-    [self presentViewController:photoEdit animated:YES completion:nil];
-}
-
 - (void)doubleTapped:(UITapGestureRecognizer *)recognizer
 {
     CGPoint pointInView = [recognizer locationInView:self.localImgV];
@@ -234,13 +203,6 @@
 #pragma mark ----UIScrollviewDelegate
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return _localImgV;
-}
-
-#pragma mark ----photoEditorDelegate
-
--(void)canceledEditing{}
--(void)doneEditingWithImage:(UIImage *)image{
-    _localImgV.image = image;
 }
 
 @end

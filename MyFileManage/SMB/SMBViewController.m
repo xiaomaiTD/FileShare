@@ -41,6 +41,7 @@
         [self.myTable reloadData];
         NSLog(@"Device removed: %@", device);
     }];
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
