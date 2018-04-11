@@ -124,17 +124,7 @@
 		0032FB182009F03A006EF52B /* OpenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0D2009F03A006EF52B /* OpenImageViewController.m */; };
 		0032FB192009F03A006EF52B /* PlayVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB0F2009F03A006EF52B /* PlayVideoViewController.m */; };
 		0032FB1F2009F082006EF52B /* LoadWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032FB1E2009F082006EF52B /* LoadWebViewController.m */; };
-		0032FB252009F4CA006EF52B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB242009F4CA006EF52B /* AudioToolbox.framework */; };
-		0032FB262009F4D3006EF52B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A731ED91C17001BF4F1 /* VideoToolbox.framework */; };
-		0032FB272009F4DF006EF52B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A611ED91BBF001BF4F1 /* CoreMedia.framework */; };
-		0032FB282009F4E6006EF52B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A631ED91BC7001BF4F1 /* CoreVideo.framework */; };
-		0032FB2A2009F4F7006EF52B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB292009F4F7006EF52B /* CoreAudio.framework */; };
 		0032FB2B2009F51C006EF52B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A691ED91BE2001BF4F1 /* MediaPlayer.framework */; };
-		0032FB2D2009F52E006EF52B /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB2C2009F52E006EF52B /* libstdc++.6.0.9.tbd */; };
-		0032FB2F2009F53B006EF52B /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB2E2009F53A006EF52B /* libiconv.2.tbd */; };
-		0032FB312009F545006EF52B /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB302009F544006EF52B /* libc++.1.tbd */; };
-		0032FB332009F54E006EF52B /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB322009F54E006EF52B /* libbz2.1.0.tbd */; };
-		0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032FB342009F556006EF52B /* libz.1.tbd */; };
 		005155EC20132B03009DA2A3 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 005155E920132B03009DA2A3 /* AsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		005155ED20132B03009DA2A3 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 005155EB20132B03009DA2A3 /* AsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		005155F620132C6A009DA2A3 /* Receiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 005155F120132C69009DA2A3 /* Receiver.m */; };
@@ -177,7 +167,6 @@
 		00AFD5AF207D0A9100DA904F /* SMBClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00AFD5AE207D0A9100DA904F /* SMBClient.framework */; };
 		00AFD5B0207D0ABA00DA904F /* SMBClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00AFD5AE207D0A9100DA904F /* SMBClient.framework */; };
 		00AFD5B1207D0ABA00DA904F /* SMBClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00AFD5AE207D0A9100DA904F /* SMBClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */; };
 		00B3A819200DA0F90009DC52 /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A818200DA0F90009DC52 /* VideoCoverView.m */; };
 		00B3A917200E02790009DC52 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 00B3A827200E02790009DC52 /* About.txt */; };
 		00B3A918200E02790009DC52 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3A829200E02790009DC52 /* GCDAsyncSocket.m */; };
@@ -532,13 +521,6 @@
 		0032FB0F2009F03A006EF52B /* PlayVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayVideoViewController.m; sourceTree = "<group>"; };
 		0032FB1D2009F082006EF52B /* LoadWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadWebViewController.h; sourceTree = "<group>"; };
 		0032FB1E2009F082006EF52B /* LoadWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadWebViewController.m; sourceTree = "<group>"; };
-		0032FB242009F4CA006EF52B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		0032FB292009F4F7006EF52B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		0032FB2C2009F52E006EF52B /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
-		0032FB2E2009F53A006EF52B /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
-		0032FB302009F544006EF52B /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
-		0032FB322009F54E006EF52B /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
-		0032FB342009F556006EF52B /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
 		005155E820132B03009DA2A3 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
 		005155E920132B03009DA2A3 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		005155EA20132B03009DA2A3 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
@@ -617,7 +599,6 @@
 		0098A63E206E1E6200AC0068 /* EasyAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAlertView.h; sourceTree = "<group>"; };
 		0098A63F206E1E6300AC0068 /* EasyAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyAlertView.m; sourceTree = "<group>"; };
 		00AFD5AE207D0A9100DA904F /* SMBClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMBClient.framework; sourceTree = "<group>"; };
-		00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		00B3A817200DA0F90009DC52 /* VideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCoverView.h; sourceTree = "<group>"; };
 		00B3A818200DA0F90009DC52 /* VideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCoverView.m; sourceTree = "<group>"; };
 		00B3A820200DC9240009DC52 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
@@ -813,8 +794,6 @@
 		376F4D821EDAEEE100CE9B26 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		37739A5D1ED91BA8001BF4F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		37739A5F1ED91BB4001BF4F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		37739A611ED91BBF001BF4F1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		37739A631ED91BC7001BF4F1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		37739A651ED91BD1001BF4F1 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		37739A671ED91BD7001BF4F1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		37739A691ED91BE2001BF4F1 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -822,7 +801,6 @@
 		37739A6D1ED91BF7001BF4F1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		37739A6F1ED91C0A001BF4F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		37739A711ED91C0F001BF4F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		37739A731ED91C17001BF4F1 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		377E95B01ED532CD0080E86D /* MyFileManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFileManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		377E95B41ED532CD0080E86D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		377E95BF1ED532CD0080E86D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -859,20 +837,9 @@
 				007B7784206128C200937961 /* Social.framework in Frameworks */,
 				002ECE242011869400319300 /* MobileCoreServices.framework in Frameworks */,
 				00AFD5AF207D0A9100DA904F /* SMBClient.framework in Frameworks */,
-				0032FB352009F556006EF52B /* libz.1.tbd in Frameworks */,
-				0032FB332009F54E006EF52B /* libbz2.1.0.tbd in Frameworks */,
-				0032FB312009F545006EF52B /* libc++.1.tbd in Frameworks */,
-				0032FB2F2009F53B006EF52B /* libiconv.2.tbd in Frameworks */,
-				0032FB2D2009F52E006EF52B /* libstdc++.6.0.9.tbd in Frameworks */,
 				0032FB2B2009F51C006EF52B /* MediaPlayer.framework in Frameworks */,
 				00AFD5B0207D0ABA00DA904F /* SMBClient.framework in Frameworks */,
 				376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */,
-				0032FB2A2009F4F7006EF52B /* CoreAudio.framework in Frameworks */,
-				0032FB282009F4E6006EF52B /* CoreVideo.framework in Frameworks */,
-				00B3A816200D9D8F0009DC52 /* MobileVLCKit.framework in Frameworks */,
-				0032FB272009F4DF006EF52B /* CoreMedia.framework in Frameworks */,
-				0032FB262009F4D3006EF52B /* VideoToolbox.framework in Frameworks */,
-				0032FB252009F4CA006EF52B /* AudioToolbox.framework in Frameworks */,
 				0032FAC72008A667006EF52B /* libz.tbd in Frameworks */,
 				0032FAC62008A1EE006EF52B /* Foundation.framework in Frameworks */,
 				0032FAC320089FDC006EF52B /* libxml2.2.tbd in Frameworks */,
@@ -1728,18 +1695,9 @@
 			children = (
 				00AFD5AE207D0A9100DA904F /* SMBClient.framework */,
 				007B7783206128C100937961 /* Social.framework */,
-				00B3A815200D9D8E0009DC52 /* MobileVLCKit.framework */,
-				0032FB342009F556006EF52B /* libz.1.tbd */,
-				0032FB322009F54E006EF52B /* libbz2.1.0.tbd */,
-				0032FB302009F544006EF52B /* libc++.1.tbd */,
-				0032FB2E2009F53A006EF52B /* libiconv.2.tbd */,
-				0032FB2C2009F52E006EF52B /* libstdc++.6.0.9.tbd */,
-				0032FB292009F4F7006EF52B /* CoreAudio.framework */,
-				0032FB242009F4CA006EF52B /* AudioToolbox.framework */,
 				0032FAC52008A1EE006EF52B /* Foundation.framework */,
 				0032FAC220089FDC006EF52B /* libxml2.2.tbd */,
 				376F4D821EDAEEE100CE9B26 /* libstdc++.tbd */,
-				37739A731ED91C17001BF4F1 /* VideoToolbox.framework */,
 				37739A711ED91C0F001BF4F1 /* UIKit.framework */,
 				37739A6F1ED91C0A001BF4F1 /* QuartzCore.framework */,
 				37739A6D1ED91BF7001BF4F1 /* OpenGLES.framework */,
@@ -1747,8 +1705,6 @@
 				37739A691ED91BE2001BF4F1 /* MediaPlayer.framework */,
 				37739A671ED91BD7001BF4F1 /* libz.tbd */,
 				37739A651ED91BD1001BF4F1 /* libbz2.tbd */,
-				37739A631ED91BC7001BF4F1 /* CoreVideo.framework */,
-				37739A611ED91BBF001BF4F1 /* CoreMedia.framework */,
 				37739A5F1ED91BB4001BF4F1 /* AVFoundation.framework */,
 				37739A5D1ED91BA8001BF4F1 /* CoreGraphics.framework */,
 				28247406ACE15649A587F961 /* Pods_MyFileManage.framework */,

@@ -14,5 +14,6 @@ target 'MyFileManage' do
     pod 'iOSPhotoEditor', :git => 'https://github.com/ViterbiDevelopment/photo-editor'
     pod 'FMDB'
     pod 'GCDWebServer/WebUploader', '~> 3.0'
+    pod 'MobileVLCKit', '~> 3.0.2'
 end
 
