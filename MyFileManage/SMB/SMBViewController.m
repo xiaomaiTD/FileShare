@@ -25,23 +25,26 @@
     self.myTable.tableFooterView = [[UIView alloc] init];
     self.myTable.delegate = self;
     self.myTable.dataSource = self;
+    [self.myTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:self.myTable];
     
     [self discoveryDevice];
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+
+    [[SMBDiscovery sharedInstance] stopDiscovery];
+}
+
 -(void)discoveryDevice{
-  
+    self.dataSource = @[].mutableCopy;
     [[SMBDiscovery sharedInstance] startDiscoveryOfType:SMBDeviceTypeAny added:^(SMBDevice *device) {
-        NSLog(@"Device added: %@", device);
         [self.dataSource addObject:device];
         [self.myTable reloadData];
     } removed:^(SMBDevice *device) {
         [self.dataSource removeObject:device];
         [self.myTable reloadData];
-        NSLog(@"Device removed: %@", device);
     }];
-    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -55,6 +58,32 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
   return self.dataSource.count;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *host = @"192.168.1.107";
+    
+    SMBFileServer *fileServer = [[SMBFileServer alloc] initWithHost:host netbiosName:host group:nil];
+    
+    [fileServer connectAsUser:@"Viterbi" password:@"123456" completion:^(BOOL guest, NSError *error) {
+        if (error) {
+            NSLog(@"Unable to connect: %@", error);
+        } else if (guest) {
+            NSLog(@"Logged in as guest");
+        } else {
+            NSLog(@"Logged in");
+        }
+        
+        [fileServer listShares:^(NSArray<SMBShare *> * _Nullable shares, NSError * _Nullable error) {
+            
+            for (SMBShare *share in shares) {
+                NSLog(@"sharenams------%@",share.name);
+
+            }
+        }];
+    }];
+    
 }
 
 
