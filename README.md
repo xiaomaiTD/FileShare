@@ -14,7 +14,12 @@
 ![image](https://github.com/ViterbiDevelopment/FileShare/blob/master/gif/send.gif)
 ![image](https://github.com/ViterbiDevelopment/FileShare/blob/master/gif/setting.gif)
 
-## 播放多媒体格式vlcKit无法上传git，下载的项目可能通不过，需要请issues。
+## 播放多媒体格式MobileVLCKit通过pod引入，如果想pod成功，终端下请git，和curl翻墙(在使用Shadowsocks前提下)。
+## 具体指令如下:
+* git config --global https.proxy 'socks5://127.0.0.1:1080'
+* git config --global http.proxy 'socks5://127.0.0.1:1080'
+* echo socks5=\"127.0.0.1:1080\" > ~/.curlrc
+
 
 
 
