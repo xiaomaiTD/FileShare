@@ -5,7 +5,7 @@
 //  Created by Viterbi on 2018/4/8.
 //  Copyright © 2018年 wangchao. All rights reserved.
 //
-
+#import "UIViewController+Extension.h"
 #import "SMBViewController.h"
 #import <SMBClient/SMBClient.h>
 
@@ -29,6 +29,20 @@
     [self.view addSubview:self.myTable];
     
     [self discoveryDevice];
+    [self configueLeftNavItem];
+}
+
+-(void)configueLeftNavItem{
+    
+    UIButton *refreshBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"refresh"]];
+    refreshBtn.bounds = imgV.bounds;
+    [refreshBtn setImage:[UIImage imageNamed:@"refresh"] forState:UIControlStateNormal];
+    [refreshBtn addTargetWithBlock:^(UIButton *sender) {
+        
+    }];
+    [self addLeftItemWithCustomView:refreshBtn];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -77,10 +91,6 @@
         
         [fileServer listShares:^(NSArray<SMBShare *> * _Nullable shares, NSError * _Nullable error) {
             
-            for (SMBShare *share in shares) {
-                NSLog(@"sharenams------%@",share.name);
-
-            }
         }];
     }];
     
