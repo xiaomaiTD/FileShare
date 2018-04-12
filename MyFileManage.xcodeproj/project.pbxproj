@@ -109,6 +109,7 @@
 		000E82DC2074E91E00A02F37 /* Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82BC2074E91D00A02F37 /* Setting@2x.png */; };
 		000E82DD2074E91E00A02F37 /* TabHistory@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E82BE2074E91D00A02F37 /* TabHistory@2x.png */; };
 		000E82DE2074E91E00A02F37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 000E82C12074E91D00A02F37 /* Localizable.strings */; };
+		0013045B207F2F8700137EDF /* SMBBrowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0013045A207F2F8700137EDF /* SMBBrowListViewController.m */; };
 		0014500A2024860500EB2D63 /* OpenTXTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001450092024860500EB2D63 /* OpenTXTEditViewController.m */; };
 		0014501020255F2400EB2D63 /* RecyleFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0014500F20255F2400EB2D63 /* RecyleFileViewController.m */; };
 		002C9A57202199EE0053B1A6 /* SettingBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A56202199EE0053B1A6 /* SettingBaseTableCell.m */; };
@@ -497,6 +498,8 @@
 		000E82BD2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Setting@2x.png"; sourceTree = "<group>"; };
 		000E82BF2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "TabHistory@2x.png"; sourceTree = "<group>"; };
 		000E82C22074E91D00A02F37 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
+		00130459207F2F8700137EDF /* SMBBrowListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBBrowListViewController.h; sourceTree = "<group>"; };
+		0013045A207F2F8700137EDF /* SMBBrowListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBBrowListViewController.m; sourceTree = "<group>"; };
 		001450082024860500EB2D63 /* OpenTXTEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenTXTEditViewController.h; sourceTree = "<group>"; };
 		001450092024860500EB2D63 /* OpenTXTEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenTXTEditViewController.m; sourceTree = "<group>"; };
 		0014500E20255F2400EB2D63 /* RecyleFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecyleFileViewController.h; sourceTree = "<group>"; };
@@ -871,6 +874,8 @@
 			children = (
 				0005ED28207A57BC006F3A47 /* SMBViewController.h */,
 				0005ED29207A57BC006F3A47 /* SMBViewController.m */,
+				00130459207F2F8700137EDF /* SMBBrowListViewController.h */,
+				0013045A207F2F8700137EDF /* SMBBrowListViewController.m */,
 			);
 			path = SMB;
 			sourceTree = "<group>";
@@ -2229,6 +2234,7 @@
 				0005F164200F36440004751A /* PDFDocumentPageSlider.m in Sources */,
 				00B3A92C200E02790009DC52 /* HTTPAsyncFileResponse.m in Sources */,
 				00B3A91B200E02790009DC52 /* DDASLLogger.m in Sources */,
+				0013045B207F2F8700137EDF /* SMBBrowListViewController.m in Sources */,
 				00887241201861FC006148BF /* LocalImageModel.m in Sources */,
 				00B3A931200E02790009DC52 /* HTTPRedirectResponse.m in Sources */,
 				00B3A98A200E02790009DC52 /* UIImage+ImageEffects.m in Sources */,

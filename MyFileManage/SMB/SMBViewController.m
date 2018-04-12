@@ -6,6 +6,7 @@
 //  Copyright © 2018年 wangchao. All rights reserved.
 //
 #import "UIViewController+Extension.h"
+#import "SMBBrowListViewController.h"
 #import <SMBClient/SMBClient.h>
 #import "MBProgressHUD+Vi.h"
 #import "SMBViewController.h"
@@ -81,6 +82,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSArray *actionArray = @[@{@"确定":@(0)},@{@"取消":@(0)}];
     EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewAlert andTitle:@"请输入账号密码" andActionArray:actionArray andActionBlock:^(NSString *title, NSInteger index,NSArray *textFieldArray) {
         if (index == 0) {
@@ -96,10 +98,12 @@
     
     [alert addTextFieldWithBlock:^(UITextField *textField) {
         textField.placeholder = @"账号";
+        textField.text = @"Viterbi";
     }];
     [alert addTextFieldWithBlock:^(UITextField *textField) {
         textField.secureTextEntry = YES;
         textField.placeholder = @"密码";
+        textField.text = @"123456";
     }];
     
     [alert showInViewController:self];
@@ -111,18 +115,22 @@
     
     SMBFileServer *fileServer = [[SMBFileServer alloc] initWithHost:host netbiosName:host group:nil];
     [self showMessageWithTitle:@"正在登录..."];
+        
     [fileServer connectAsUser:username password:password completion:^(BOOL guest, NSError *error) {
         [self hidenMessage];
         if (error) {
             NSLog(@"Unable to connect: %@", error);
             [self showErrorWithTitle:@"登录失败"];
         } else {
-            NSLog(@"Logged in");
+            SMBBrowListViewController *vc = [[SMBBrowListViewController alloc] init];
+            vc.fileServer = fileServer;
+            APPNavPushViewController(vc);
         }
-        
     }];
+}
 
-    
+-(void)dealloc{
+    NSLog(@"dealloc");
 }
 
 
