@@ -31,9 +31,8 @@
     UIView * view = [UIApplication sharedApplication].keyWindow;
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    
-   // hud.label.text = error;
-    
+    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    hud.contentColor = [UIColor whiteColor];
     hud.label.text = error;
     // 设置图片
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", @"error.png"]]];

@@ -7,6 +7,7 @@
 //
 #import "UIViewController+Extension.h"
 #import <SMBClient/SMBClient.h>
+#import "MBProgressHUD+Vi.h"
 #import "SMBViewController.h"
 #import "EasyAlertView.h"
 
@@ -80,27 +81,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    NSString *host = @"192.168.1.107";
-//
-//    SMBFileServer *fileServer = [[SMBFileServer alloc] initWithHost:host netbiosName:host group:nil];
-//
-//    [fileServer connectAsUser:@"Viterbi" password:@"123456" completion:^(BOOL guest, NSError *error) {
-//        if (error) {
-//            NSLog(@"Unable to connect: %@", error);
-//        } else if (guest) {
-//            NSLog(@"Logged in as guest");
-//        } else {
-//            NSLog(@"Logged in");
-//        }
-//
-//        [fileServer listShares:^(NSArray<SMBShare *> * _Nullable shares, NSError * _Nullable error) {
-//
-//        }];
-//    }];
     NSArray *actionArray = @[@{@"确定":@(0)},@{@"取消":@(0)}];
     EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewAlert andTitle:@"请输入账号密码" andActionArray:actionArray andActionBlock:^(NSString *title, NSInteger index,NSArray *textFieldArray) {
-        UITextField *filed = textFieldArray.firstObject;
-        NSLog(@"filed------%@",filed.text);
+        if (index == 0) {
+            UITextField *userName = textFieldArray.firstObject;
+            UITextField *passWord = textFieldArray[1];
+            if (userName.text.length == 0 ||passWord.text.length == 0) {
+                [MBProgressHUD showTopError:@"账号名或者密码为空"];
+                return;
+            }
+            [self connectInternetWithUser:userName.text andPassword:passWord.text andIndexPath:indexPath];
+        }
     }];
     
     [alert addTextFieldWithBlock:^(UITextField *textField) {
@@ -112,7 +103,25 @@
     }];
     
     [alert showInViewController:self];
+}
+
+-(void)connectInternetWithUser:(NSString *)username andPassword:(NSString *)password andIndexPath:(NSIndexPath *)indexpath{
+    SMBDevice *device = self.dataSource[indexpath.row];
+    NSString *host = device.host;
     
+    SMBFileServer *fileServer = [[SMBFileServer alloc] initWithHost:host netbiosName:host group:nil];
+    [self showMessageWithTitle:@"正在登录..."];
+    [fileServer connectAsUser:username password:password completion:^(BOOL guest, NSError *error) {
+        [self hidenMessage];
+        if (error) {
+            NSLog(@"Unable to connect: %@", error);
+            [self showErrorWithTitle:@"登录失败"];
+        } else {
+            NSLog(@"Logged in");
+        }
+        
+    }];
+
     
 }
 
