@@ -5,12 +5,14 @@
 //  Created by Viterbi on 2018/4/8.
 //  Copyright © 2018年 wangchao. All rights reserved.
 //
+#import <MJRefresh/MJRefresh.h>
 #import "UIViewController+Extension.h"
 #import "SMBBrowListViewController.h"
 #import <SMBClient/SMBClient.h>
 #import "MBProgressHUD+Vi.h"
 #import "SMBViewController.h"
 #import "EasyAlertView.h"
+#import "GloablVarManager.h"
 
 @interface SMBViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -122,6 +124,7 @@
             NSLog(@"Unable to connect: %@", error);
             [self showErrorWithTitle:@"登录失败"];
         } else {
+            [GloablVarManager shareManager].SMBHost = host;
             SMBBrowListViewController *vc = [[SMBBrowListViewController alloc] init];
             vc.fileServer = fileServer;
             APPNavPushViewController(vc);

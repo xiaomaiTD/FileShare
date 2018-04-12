@@ -7,13 +7,17 @@
 //
 
 #import "SMBBrowListViewController.h"
+#import "PlayVideoViewController.h"
+#import <MJRefresh/MJRefresh.h>
 #import "MBProgressHUD+Vi.h"
+#import "GloablVarManager.h"
 
 @interface SMBBrowListViewController ()
 <UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
+
 @end
 
 @implementation SMBBrowListViewController
@@ -27,7 +31,7 @@
 
 -(UITableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [[UIView alloc] init];
@@ -40,7 +44,17 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:self.tableView];
-    [self requestDataSource];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    @weakify(self);
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self requestDataSource];
+    }];
+    
+    // 马上进入刷新状态
+    [self.tableView.mj_header beginRefreshing];
 }
 -(void)requestDataSource{
     
@@ -49,6 +63,7 @@
         @weakify(self);
         [self.fileServer listShares:^(NSArray<SMBShare *> * _Nullable shares, NSError * _Nullable error) {
             @strongify(self);
+            [self.tableView.mj_header endRefreshing];
             [self hidenMessage];
             self.dataSourceArray = shares.mutableCopy;
             [self.tableView reloadData];
@@ -64,6 +79,7 @@
                 return;
             }
             [self.share listFiles:^(NSArray<SMBFile *> * _Nullable files, NSError * _Nullable error) {
+                [self.tableView.mj_header endRefreshing];
                 self.dataSourceArray = files.mutableCopy;
                 [self.tableView reloadData];
             }];
@@ -73,6 +89,7 @@
         @weakify(self);
         [self.file listFiles:^(NSArray<SMBFile *> * _Nullable files, NSError * _Nullable error) {
             @strongify(self);
+            [self.tableView.mj_header endRefreshing];
             [self hidenMessage];
             self.dataSourceArray = files.mutableCopy;
             [self.tableView reloadData];
@@ -86,6 +103,7 @@
     if (self.dataSourceArray.count > 0) {
         if (self.fileServer) {
             SMBShare *share = self.dataSourceArray[indexPath.row];
+            NSLog(@"path-------%@",share.name);
             cell.textLabel.text = share.name;
         }else{
             SMBFile *file = self.dataSourceArray[indexPath.row];
@@ -97,18 +115,30 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    SMBBrowListViewController *list = [[SMBBrowListViewController alloc] init];
+    
     if (self.fileServer) {
-     list.share = self.dataSourceArray[indexPath.row];
+        SMBBrowListViewController *list = [[SMBBrowListViewController alloc] init];
+        SMBShare *share = self.dataSourceArray[indexPath.row];
+        [GloablVarManager shareManager].SMBFirstShareName = share.name;
+        list.share = share;
+        APPNavPushViewController(list);
     }else{
-        list.file = self.dataSourceArray[indexPath.row];
+        SMBFile *file = self.dataSourceArray[indexPath.row];
+        if (!file.isDirectory) {
+            NSString *path = [NSString stringWithFormat:@"%@%@",[GloablVarManager shareManager].SMBAndFirstSharePath,file.path];
+            PlayVideoViewController *vc = [[PlayVideoViewController alloc] init];
+            vc.path = @"smb://Viterbi:123456@192.168.199.181/Downloads/IMG_20180407_1_27.VolCine.avi";
+            APPPresentViewController(vc);
+            return;
+        }
+        SMBBrowListViewController *list = [[SMBBrowListViewController alloc] init];
+        list.file = file;
+        APPNavPushViewController(list);
     }
-    APPNavPushViewController(list);
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSourceArray.count;
 }
-
-
 @end

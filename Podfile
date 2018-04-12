@@ -15,5 +15,6 @@ target 'MyFileManage' do
     pod 'FMDB'
     pod 'GCDWebServer/WebUploader', '~> 3.0'
     pod 'MobileVLCKit', '~> 3.0.2'
+    pod 'MJRefresh'
 end
 

@@ -50,7 +50,11 @@
         // 随意给个数值，自己适配大小。给0的话，在高清设备下，可能显示不了。
         self.player.scaleFactor = 0.5;
     }
-    self.player.media = [VLCMedia mediaWithPath:self.model.fullPath];
+    if (self.path) {
+        self.player.media = [VLCMedia mediaWithPath:self.path];
+    }else{
+     self.player.media = [VLCMedia mediaWithPath:self.model.fullPath];
+    }
     [self.player play];
     self.coverView.player = self.player;
     

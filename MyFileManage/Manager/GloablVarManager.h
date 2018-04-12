@@ -27,6 +27,24 @@
 
 @property(nonatomic,assign)BOOL isHaveDownloadFolder;
 
+
+/**
+ SMB协议主机域名
+ */
+@property(nonatomic,strong)NSString *SMBHost;
+
+
+/**
+ SMB协议主机域名和第一个share的全路径
+ */
+@property(nonatomic,strong)NSString *SMBAndFirstSharePath;
+
+
+/**
+ SMB
+ */
+@property(nonatomic,strong)NSString *SMBFirstShareName;
+
 +(instancetype)shareManager;
 
 @end

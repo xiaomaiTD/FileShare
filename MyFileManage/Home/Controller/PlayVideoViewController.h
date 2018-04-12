@@ -13,5 +13,6 @@
 
 @interface PlayVideoViewController: BaseViewController
 
+@property(nonatomic,strong)NSString *path;
 
 @end

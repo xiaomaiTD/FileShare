@@ -28,4 +28,8 @@ static GloablVarManager *manager = nil;
     return self;
 }
 
+-(NSString *)SMBAndFirstSharePath{
+    return [NSString stringWithFormat:@"%@/%@",self.SMBHost,self.SMBFirstShareName];
+}
+
 @end
