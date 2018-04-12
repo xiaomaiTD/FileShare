@@ -16,8 +16,7 @@
 
 @implementation EasyAlertView
 
--(instancetype)initWithType:(AlertViewPopType)type andTitle:(NSString *)title andActionArray:(NSArray *)array andActionBloc:(actionBlock)block{
-    
+-(instancetype)initWithType:(AlertViewPopType)type andTitle:(NSString *)title andActionArray:(NSArray *)array andActionBlock:(actionBlock)block{
     if (self = [super init]) {
         _type = type;
         _title = title;
@@ -26,7 +25,10 @@
         [self configueUI];
     }
     return self;
-    
+}
+
+-(NSArray *)textFieldArray{
+    return self.alertController.textFields;
 }
 
 -(void)configueUI{
@@ -43,13 +45,19 @@
         NSNumber *number = dic[message];
         UIAlertAction *action = [UIAlertAction actionWithTitle:message style:[number integerValue] handler:^(UIAlertAction * _Nonnull action) {
             if (self.block) {
-                self.block(action.title, index);
+                self.block(action.title, index,self.textFieldArray);
                 self.alertController = nil;
             }
         }];
         
         [self.alertController addAction:action];
     }
+}
+
+-(void)addTextFieldWithBlock:(void (^)(UITextField *))block{
+
+    [self.alertController addTextFieldWithConfigurationHandler:block];
+    
 }
 
 -(void)showInViewController:(UIViewController *)controller{

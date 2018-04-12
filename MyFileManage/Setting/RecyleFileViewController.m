@@ -49,7 +49,7 @@
             return;
         }
         NSArray *actionArray = @[@{@"确定":@(0)},@{@"取消":@(0)}];
-        EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewAlert andTitle:@"是否清空数据" andActionArray:actionArray andActionBloc:^(NSString *title,NSInteger index) {
+        EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewAlert andTitle:@"是否清空数据" andActionArray:actionArray andActionBlock:^(NSString *title,NSInteger index,NSArray *textFieldArray) {
             if (index == 0) {
                 [self clearData];
             }
@@ -106,7 +106,7 @@
     
     NSArray *actionArray = @[@{@"删除不可回收":@(2)},@{@"恢复至主界面":@(0)},@{@"取消":@(1)}];
     
-    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:model.name andActionArray:actionArray andActionBloc:^(NSString *title,NSInteger index) {
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:model.name andActionArray:actionArray andActionBlock:^(NSString *title,NSInteger index,NSArray *textFieldArray) {
         if ([title isEqualToString:@"删除不可回收"]) {
             
             [[FolderFileManager shareInstance] deleteFileInPath:model.fullPath];

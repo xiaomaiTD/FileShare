@@ -222,7 +222,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     
     NSArray *actionArray = @[@{@"删除":@(2)},@{@"取消":@(1)}];
     
-    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:1 andTitle:@"是否删除该文件" andActionArray:actionArray andActionBloc:^(NSString *title, NSInteger index) {
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:1 andTitle:@"是否删除该文件" andActionArray:actionArray andActionBlock:^(NSString *title, NSInteger index,NSArray *textFieldArray) {
         
         if (index == 0) {
             NSArray *selectedArray = [self selectedModelsArray];
@@ -419,7 +419,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     
     NSArray *actionArray = @[@{@"文本":@(0)},@{@"文件夹":@(0)},@{@"取消":@(1)}];
     
-    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:@"选择创建类型" andActionArray:actionArray andActionBloc:^(NSString *title, NSInteger index) {
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:@"选择创建类型" andActionArray:actionArray andActionBlock:^(NSString *title, NSInteger index,NSArray *textFieldArray) {
         
         if (index == 0) {
             [self AddFolderOrTextWithType:1];
@@ -546,7 +546,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         actionArray = @[@{@"移动至-》":@(0)},@{@"收藏":@(0)},@{@"删除":@(2)},@{@"取消":@(1)}];
     }
     
-    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:@"选择编辑方式" andActionArray:actionArray andActionBloc:^(NSString *title, NSInteger index) {
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:@"选择编辑方式" andActionArray:actionArray andActionBlock:^(NSString *title, NSInteger index,NSArray *textFieldArray) {
         if ([title isEqualToString:@"移动至-》"] ) {
             [self presentMoveFolderViewController:model];
         }

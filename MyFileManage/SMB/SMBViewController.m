@@ -6,8 +6,9 @@
 //  Copyright © 2018年 wangchao. All rights reserved.
 //
 #import "UIViewController+Extension.h"
-#import "SMBViewController.h"
 #import <SMBClient/SMBClient.h>
+#import "SMBViewController.h"
+#import "EasyAlertView.h"
 
 @interface SMBViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -38,8 +39,11 @@
     UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"refresh"]];
     refreshBtn.bounds = imgV.bounds;
     [refreshBtn setImage:[UIImage imageNamed:@"refresh"] forState:UIControlStateNormal];
+    
+    @weakify(self);
     [refreshBtn addTargetWithBlock:^(UIButton *sender) {
-        
+        @strongify(self);
+        [self discoveryDevice];
     }];
     [self addLeftItemWithCustomView:refreshBtn];
     
@@ -76,23 +80,39 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *host = @"192.168.1.107";
-    
-    SMBFileServer *fileServer = [[SMBFileServer alloc] initWithHost:host netbiosName:host group:nil];
-    
-    [fileServer connectAsUser:@"Viterbi" password:@"123456" completion:^(BOOL guest, NSError *error) {
-        if (error) {
-            NSLog(@"Unable to connect: %@", error);
-        } else if (guest) {
-            NSLog(@"Logged in as guest");
-        } else {
-            NSLog(@"Logged in");
-        }
-        
-        [fileServer listShares:^(NSArray<SMBShare *> * _Nullable shares, NSError * _Nullable error) {
-            
-        }];
+//    NSString *host = @"192.168.1.107";
+//
+//    SMBFileServer *fileServer = [[SMBFileServer alloc] initWithHost:host netbiosName:host group:nil];
+//
+//    [fileServer connectAsUser:@"Viterbi" password:@"123456" completion:^(BOOL guest, NSError *error) {
+//        if (error) {
+//            NSLog(@"Unable to connect: %@", error);
+//        } else if (guest) {
+//            NSLog(@"Logged in as guest");
+//        } else {
+//            NSLog(@"Logged in");
+//        }
+//
+//        [fileServer listShares:^(NSArray<SMBShare *> * _Nullable shares, NSError * _Nullable error) {
+//
+//        }];
+//    }];
+    NSArray *actionArray = @[@{@"确定":@(0)},@{@"取消":@(0)}];
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewAlert andTitle:@"请输入账号密码" andActionArray:actionArray andActionBlock:^(NSString *title, NSInteger index,NSArray *textFieldArray) {
+        UITextField *filed = textFieldArray.firstObject;
+        NSLog(@"filed------%@",filed.text);
     }];
+    
+    [alert addTextFieldWithBlock:^(UITextField *textField) {
+        textField.placeholder = @"账号";
+    }];
+    [alert addTextFieldWithBlock:^(UITextField *textField) {
+        textField.secureTextEntry = YES;
+        textField.placeholder = @"密码";
+    }];
+    
+    [alert showInViewController:self];
+    
     
 }
 

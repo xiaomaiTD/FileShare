@@ -53,7 +53,7 @@
         }
         
         NSArray *actionArray = @[@{@"确定":@(0)},@{@"取消":@(0)}];
-        EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewAlert andTitle:@"是否清空数据" andActionArray:actionArray andActionBloc:^(NSString *title,NSInteger index) {
+        EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewAlert andTitle:@"是否清空数据" andActionArray:actionArray andActionBlock:^(NSString *title,NSInteger index,NSArray *textFiledArray) {
             if ([title isEqualToString:@"确定"]) {
                 [self clearData];
             }

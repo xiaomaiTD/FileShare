@@ -67,7 +67,7 @@
     
     NSArray *actionArray = @[@{@"小说阅读方式打开":@(0)},@{@"文本编辑方式打开":@(0)},@{@"取消":@"1"}];
     
-    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:@"选择阅读方式" andActionArray:actionArray andActionBloc:^(NSString *title, NSInteger index) {
+    EasyAlertView *alert = [[EasyAlertView alloc] initWithType:AlertViewSheet andTitle:@"选择阅读方式" andActionArray:actionArray andActionBlock:^(NSString *title, NSInteger index,NSArray *textFieldArray) {
         
         if (index == 0) {
             [self presentNovelViewControllerWithModel:model];
