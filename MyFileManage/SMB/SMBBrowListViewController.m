@@ -104,7 +104,6 @@
     if (self.dataSourceArray.count > 0) {
         if (self.fileServer) {
             SMBShare *share = self.dataSourceArray[indexPath.row];
-            NSLog(@"path-------%@",share.name);
             cell.textLabel.text = share.name;
         }else{
             SMBFile *file = self.dataSourceArray[indexPath.row];
