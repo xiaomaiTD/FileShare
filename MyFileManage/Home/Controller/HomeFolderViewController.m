@@ -262,8 +262,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     self.editItem = editBtn;
     [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
     [editBtn setTitle:@"完成" forState:UIControlStateSelected];
-    editBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [editBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    editBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    [editBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     editBtn.frame = CGRectMake(0, 0, 40, 40);
     
     [editBtn addTargetWithBlock:^(UIButton *sender) {
@@ -280,7 +280,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         [self.leftItem setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
         self.leftItem.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     }else{
-        [self.leftItem setDefont:15];
+        self.leftItem.titleLabel.font = [UIFont boldSystemFontOfSize:15];
         [self.leftItem setTitle:@"全选" forState:UIControlStateNormal];
         [self.leftItem setTitle:@"反选" forState:UIControlStateSelected];
     }
@@ -304,7 +304,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
             }
         }
     }];
-    [self.leftItem setTitleColor:MAINCOLOR];
+    [self.leftItem setTitleColor:[UIColor blackColor]];
     self.leftItem.hidden = self.isPushSelf ? NO:YES;
     [self addLeftItemWithCustomView:self.leftItem];
     

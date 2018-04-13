@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.tabBar setTintColor:[UIColor orangeColor]];
+    [self.tabBar setTintColor:MAINCOLOR];
     [self addChildViewControllers];
     
 }
