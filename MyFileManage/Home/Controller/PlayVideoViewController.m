@@ -10,7 +10,7 @@
 #import "Masonry.h"
 #import "VideoPlayView.h"
 #import "VideoCoverView.h"
-
+#import "NSString+CHChinese.h"
 #import "NSTimer+Extension.h"
 #import "PlayVideoViewController.h"
 
@@ -51,9 +51,10 @@
         self.player.scaleFactor = 0.5;
     }
     if (self.path) {
-        self.player.media = [VLCMedia mediaWithPath:self.path];
+        self.player.media = [VLCMedia mediaWithURL:[NSURL URLWithString:self.path]];
     }else{
      self.player.media = [VLCMedia mediaWithPath:self.model.fullPath];
+        
     }
     [self.player play];
     self.coverView.player = self.player;

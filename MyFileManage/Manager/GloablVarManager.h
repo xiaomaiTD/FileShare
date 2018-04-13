@@ -45,6 +45,16 @@
  */
 @property(nonatomic,strong)NSString *SMBFirstShareName;
 
+@property(nonatomic,strong)NSString *SMBUserName;
+@property(nonatomic,strong)NSString *SMBUserPassword;
+
+
+/**
+ SMB全域名
+ */
+@property(nonatomic,strong)NSString *SMBFullPath;
+@property(nonatomic,strong)NSString *SMBFilePath;
+
 +(instancetype)shareManager;
 
 @end

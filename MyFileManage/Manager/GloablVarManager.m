@@ -32,4 +32,9 @@ static GloablVarManager *manager = nil;
     return [NSString stringWithFormat:@"%@/%@",self.SMBHost,self.SMBFirstShareName];
 }
 
+-(NSString *)SMBFullPath{
+    
+    return [NSString stringWithFormat:@"%@:%@@%@%@",self.SMBUserName,self.SMBUserPassword,self.SMBAndFirstSharePath,self.SMBFilePath];
+}
+
 @end

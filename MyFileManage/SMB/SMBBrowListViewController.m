@@ -7,6 +7,7 @@
 //
 
 #import "SMBBrowListViewController.h"
+#import "NSString+CHChinese.h"
 #import "PlayVideoViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import "MBProgressHUD+Vi.h"
@@ -124,10 +125,16 @@
         APPNavPushViewController(list);
     }else{
         SMBFile *file = self.dataSourceArray[indexPath.row];
-        if (!file.isDirectory) {
-            NSString *path = [NSString stringWithFormat:@"%@%@",[GloablVarManager shareManager].SMBAndFirstSharePath,file.path];
+        if (!file.isDirectory && [SupportVideoArray containsObject:[file.path.pathExtension uppercaseString]]) {
+            [GloablVarManager shareManager].SMBFilePath = file.path;
+            NSString *path = [GloablVarManager shareManager].SMBFullPath;
+            if ([path ch_containsChinese:CHNSStringChineseTypeAll]) {
+                path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
+            path = [NSString stringWithFormat:@"smb://%@",path];
             PlayVideoViewController *vc = [[PlayVideoViewController alloc] init];
-            vc.path = @"smb://Viterbi:123456@192.168.199.181/Downloads/IMG_20180407_1_27.VolCine.avi";
+            vc.path = path;
             APPPresentViewController(vc);
             return;
         }

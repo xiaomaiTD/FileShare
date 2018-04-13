@@ -125,6 +125,8 @@
             [self showErrorWithTitle:@"登录失败"];
         } else {
             [GloablVarManager shareManager].SMBHost = host;
+            [GloablVarManager shareManager].SMBUserName = username;
+            [GloablVarManager shareManager].SMBUserPassword = password;
             SMBBrowListViewController *vc = [[SMBBrowListViewController alloc] init];
             vc.fileServer = fileServer;
             APPNavPushViewController(vc);
