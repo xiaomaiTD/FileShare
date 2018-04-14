@@ -24,6 +24,7 @@
 @property(nonatomic,strong)UIButton *selectedBtn;
 @property(nonatomic,strong)LocalBottomView *bottomView;
 @property(nonatomic,assign)BOOL selected;
+@property(nonatomic,strong)GCDQueue *myQueue;
 
 @end
 
@@ -41,7 +42,7 @@
     self.selected = NO;
     [self setUI];
 //    [self requestAllSource];
-    
+    _myQueue = [[GCDQueue alloc] initSerialWithLabel:@"wangchao.MyFileManage.serialQueue"];
     _bottomView = [[LocalBottomView alloc] initWithFrame:CGRectZero];
     _bottomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
@@ -250,12 +251,13 @@
     if (self.dataSourceArray.count > 0) {
         LocalImageAndVideoModel *model = self.dataSourceArray[indexPath.row];
         if (self.selected) {
-            model.selected = !model.selected;
+            model.selected = !model.selected ;
             [collectionView reloadData];
             [self judgeSelectAssertsCanDelete];
             return;
         }
         if (model.type == PHASSETTYPE_LivePhoto || model.type == PHASSETTYPE_Image) {
+            LocalImageAndVideoModel *model = self.dataSourceArray[indexPath.row];
             OpenImagesPageViewController *vc = [[OpenImagesPageViewController alloc] init];
             vc.photoModelArray = self.dataSourceArray;
             vc.localModel = model;
@@ -276,18 +278,17 @@
     localImageAndVideoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     
     if (indexPath.row >= self.dataSourceArray.count) {
+
         PHAsset *assert = [_fetResult objectAtIndex:indexPath.row];
-        [GCDQueue executeInGlobalQueue:^{
+        [_myQueue execute:^{
             LocalImageAndVideoModel *model = [[LocalImageAndVideoModel alloc] initWithAsset:assert];
             if ([model.phasset.localIdentifier isEqualToString:assert.localIdentifier]) {
-                
                 [GCDQueue executeInMainQueue:^{
                     [self.dataSourceArray addObject:model];
                     cell.model = model;
                 }];
             }
         }];
-        
     }else{
         LocalImageAndVideoModel *model = self.dataSourceArray[indexPath.row];
         cell.model = model;
