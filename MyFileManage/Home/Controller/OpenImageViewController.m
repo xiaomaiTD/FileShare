@@ -15,11 +15,11 @@
 
 @interface OpenImageViewController ()<UIScrollViewDelegate>
 
+@property(nonatomic,assign,readwrite)BOOL isGif;
 @property(nonatomic,strong)UIScrollView *bgScrollView;
-@property(nonatomic,strong)UIImageView *localImgV;
+@property(nonatomic,strong,readwrite)UIImageView *localImgV;
 @property(nonatomic,strong)PHLivePhotoView *livePhotoView;
 @property(nonatomic,assign)BOOL navISHidden;
-
 @end
 
 @implementation OpenImageViewController
@@ -44,14 +44,17 @@
         }else{
             PHAssetResource *resource = [PHAssetResource assetResourcesForAsset:self.localModel.phasset].firstObject;
             BOOL isGif = [resource.originalFilename hasSuffix:@"GIF"];
+            self.isGif = isGif;
             [self addStaticPhotoWithGif:isGif];
         }
     }else{
         if ([self.model.fileType.uppercaseString isEqualToString:@"GIF"]) {
+            self.isGif = YES;
             NSData *imageData = [NSData dataWithContentsOfFile:self.model.fullPath];
             UIImage *image = [UIImage sd_animatedGIFWithData:imageData];
             self.localImgV = [[UIImageView alloc] initWithImage:image];
         }else{
+            self.isGif = NO;
             NSData *imageData = [NSData dataWithContentsOfFile:self.model.fullPath];
             UIImage *fileImage = [UIImage imageWithData:imageData];
             self.localImgV = [[UIImageView alloc] initWithImage:fileImage];
@@ -198,6 +201,10 @@
         self.navigationController.navigationBar.y = NavNeedOffset;
     }];
     _navISHidden = !_navISHidden;
+}
+
+-(UIImage *)currentLocalImage{
+    return self.localImgV.image;
 }
 
 #pragma mark ----UIScrollviewDelegate

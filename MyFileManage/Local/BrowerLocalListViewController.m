@@ -259,7 +259,10 @@
         if (model.type == PHASSETTYPE_LivePhoto || model.type == PHASSETTYPE_Image) {
             LocalImageAndVideoModel *model = self.dataSourceArray[indexPath.row];
             OpenImagesPageViewController *vc = [[OpenImagesPageViewController alloc] init];
-            vc.photoModelArray = self.dataSourceArray;
+            NSArray *photoArray = [self.dataSourceArray firstleap_filter:^BOOL(LocalImageAndVideoModel *model) {
+                return model.type = PHASSETTYPE_Image;
+            }];
+            vc.photoModelArray = photoArray;
             vc.localModel = model;
             APPNavPushViewController(vc);
         }

@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UIButton *rightBtn;
 @property (nonatomic, strong) fileModel *currentModel;//当前的model;
 @property (nonatomic, strong) LocalImageAndVideoModel *currentLocalModel;//当前的model;
+@property(nonatomic,strong)OpenImageViewController *currentImagVC;
 @end
 
 @implementation OpenImagesPageViewController
@@ -40,18 +41,17 @@
     rightItem.frame = CGRectMake(0, 0, 40, 40);
     [rightItem setTitle:@"编辑" forState:UIControlStateNormal];
     [rightItem setTitle:@"发送" forState:UIControlStateSelected];
-    rightItem.titleLabel.font = [UIFont systemFontOfSize:15];
-    [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    [rightItem setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
+    rightItem.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    [rightItem setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightItem setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     @weakify(self);
     [self.rightBtn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
         [self presentImageEdit];
     }];
-    
+    [self addRigthItemWithCustomView:rightItem];
     
     self.navigationController.navigationBar.y = -self.navigationController.navigationBar.height;
-    
     // 设置UIPageViewController的配置项
     NSDictionary *options = @{UIPageViewControllerOptionInterPageSpacingKey : @(0)};
 
@@ -89,9 +89,14 @@
     if ([self.currentModel.fileType.uppercaseString isEqualToString:@"GIF"]) {
         return;
     }
-    
+    if (_currentImagVC.isGif) {
+        return;
+    }
+    if (_currentImagVC.currentLocalImage == nil) {
+        return;
+    }
     PhotoEditorViewController *photoEdit = [[PhotoEditorViewController alloc] initWithNibName:@"PhotoEditorViewController" bundle:[NSBundle bundleForClass:[PhotoEditorViewController class]]];
-//    photoEdit.image = _localImgV.image;
+    photoEdit.image = _currentImagVC.currentLocalImage;
     photoEdit.photoEditorDelegate = self;
     
     NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:0];
@@ -138,6 +143,7 @@
         }
         LocalImageAndVideoModel *model = [self.photoModelArray objectAtIndex:index];
         OpenImageViewController *vc = [[OpenImageViewController alloc] init];
+        _currentImagVC = vc;
         vc.localModel = model;
         return vc;
     }else{
@@ -146,9 +152,9 @@
         }
         fileModel *model = [self.picModelArray objectAtIndex:index];
         OpenImageViewController *vc = [[OpenImageViewController alloc] init];
+        _currentImagVC = vc;
         vc.model = model;
         return vc;
-
     }
 }
 - (NSUInteger)indexOfViewController:(OpenImageViewController *)viewController {
@@ -161,9 +167,13 @@
 
 -(void)canceledEditing{}
 -(void)doneEditingWithImage:(UIImage *)image{
-//    _localImgV.image = image;
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
 }
-
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    
+    NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
+}
 
 
 @end

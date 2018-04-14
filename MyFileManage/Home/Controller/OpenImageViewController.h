@@ -17,4 +17,7 @@
  是否从相册过来的model
  */
 @property(nonatomic,strong)LocalImageAndVideoModel *localModel;
+@property(nonatomic,assign,readonly)BOOL isGif;
+@property(nonatomic,strong,readonly)UIImage *currentLocalImage;
+
 @end
