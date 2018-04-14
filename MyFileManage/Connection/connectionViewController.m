@@ -75,6 +75,8 @@
     
     UIButton *filebtn = [UIButton buttonWithType:UIButtonTypeCustom];
     filebtn.backgroundColor = MAINCOLOR;
+    filebtn.layer.cornerRadius = 25;
+    filebtn.layer.masksToBounds = YES;
     [filebtn setTitle:title forState:UIControlStateNormal];
     [filebtn setTitleColor:[UIColor groupTableViewBackgroundColor] forState:UIControlStateNormal];
     filebtn.titleLabel.font = [UIFont systemFontOfSize:IsPhone() ? 17:20];

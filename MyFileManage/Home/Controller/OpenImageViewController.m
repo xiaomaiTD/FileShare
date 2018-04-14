@@ -157,7 +157,6 @@
     [self.view addGestureRecognizer:doubleTap];
     [singleTap requireGestureRecognizerToFail:doubleTap];
     
-    
     if (self.localModel && self.localModel.type == PHASSETTYPE_LivePhoto) {
         UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(playLivePhot:)];
         longGes.minimumPressDuration = 1;
@@ -193,6 +192,10 @@
     CGRect rectToZoomTo = CGRectMake(originX, originY, width, height);
 
     [self.bgScrollView zoomToRect:rectToZoomTo animated:YES];
+}
+
+-(void)editImageMethod{
+    
 }
 
 -(void)singleTapClick:(UITapGestureRecognizer *)gestureRecognizer{
