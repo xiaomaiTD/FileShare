@@ -13,6 +13,7 @@
 ### 效果如下
 ![image](https://github.com/ViterbiDevelopment/FileShare/blob/master/gif/send.gif)
 ![image](https://github.com/ViterbiDevelopment/FileShare/blob/master/gif/setting.gif)
+## 支付SMB协议在线观看视频
 
 ## 播放多媒体格式MobileVLCKit通过pod引入，如果想pod成功，终端下请git，和curl翻墙(在使用Shadowsocks前提下)。
 ## 具体指令如下:
