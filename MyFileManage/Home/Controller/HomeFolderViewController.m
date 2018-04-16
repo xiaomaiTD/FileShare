@@ -67,6 +67,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     if (self.isPushSelf) {
         self.dataSourceArray = [[[FolderFileManager shareInstance] getAllFileModelInDic:self.model.fullPath] mutableCopy];
     }else{
@@ -80,7 +81,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     flowLayout.itemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), floor((kScreenWidth - 40)/3.0));
     //设置CollectionView的属性
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-    self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.scrollEnabled = YES;
@@ -497,7 +498,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
             cell.model = [self.dataSourceArray objectAtIndex:indexPath.row];
         }
         cell.delegate = self;
-        cell.textView.editable = NO;
         cell.textView.userInteractionEnabled = NO;
         return cell;
     }

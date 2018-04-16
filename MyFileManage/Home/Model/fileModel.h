@@ -25,5 +25,6 @@
 
 @property(nonatomic,assign,readonly)BOOL isVideo;//是否为视频资源
 @property(nonatomic,assign,readonly)BOOL isPhoto;//是否为图片资源
+@property(nonatomic,assign,readonly)BOOL isPdf;//是否为图片资源
 
 @end

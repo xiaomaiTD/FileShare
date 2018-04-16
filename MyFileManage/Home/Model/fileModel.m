@@ -55,4 +55,8 @@
     return [SupportPictureArray containsObject:self.fileType.uppercaseString];
 }
 
+-(BOOL)isPdf{
+    return [self.fileType.uppercaseString.uppercaseString isEqualToString:@"PDF"];
+}
+
 @end

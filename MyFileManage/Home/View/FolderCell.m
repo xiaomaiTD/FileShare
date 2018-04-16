@@ -16,11 +16,26 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.textView = [[UITextView alloc] initWithFrame:CGRectZero];
-        self.textView.font = [UIFont systemFontOfSize:15];
+        self.folderImage = [[UIImageView alloc] initWithFrame:CGRectZero];
+        self.folderImage.contentMode = UIViewContentModeScaleAspectFit;
+        self.folderImage.image = [UIImage imageNamed:@"文件夹"];
+        [self addSubview:self.folderImage];
+        [self.folderImage mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_offset(0);
+            make.right.mas_offset(-20);
+            make.left.mas_offset(20);
+            make.bottom.mas_offset(-50);
+        }];
+        
+        self.textView = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.textView.font = [UIFont systemFontOfSize:14];
+        self.textView.numberOfLines = 0;
+        self.textView.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.textView];
         [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+            make.top.equalTo(self.folderImage.mas_bottom);
+            make.left.and.right.equalTo(self.folderImage);
+            make.size.height.mas_offset(50);
         }];
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
         longPress.minimumPressDuration = 1;
@@ -43,6 +58,16 @@
         _model = model;
     }
     self.textView.text = _model.fileName;
+    if (model.isVideo) {
+        self.folderImage.image = [UIImage imageNamed:@"视频文件"];
+    }else if (model.isPhoto){
+        self.folderImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:model.fullPath]];
+    }else if (model.isPdf){
+        self.folderImage.image = [UIImage imageNamed:@"PDF文件"];
+    }else{
+        self.folderImage.image = [UIImage imageNamed:@"文件夹"];
+    }
+    
 }
 
 @end

@@ -48,13 +48,13 @@
     [refreshBtn addTargetWithBlock:^(UIButton *sender) {
         @strongify(self);
         [self discoveryDevice];
+        [self rotationButtonWithAnimation:sender];
     }];
     [self addLeftItemWithCustomView:refreshBtn];
     
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
-
     [[SMBDiscovery sharedInstance] stopDiscovery];
 }
 
@@ -69,12 +69,26 @@
     }];
 }
 
+-(void)rotationButtonWithAnimation:(UIButton *)sender{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+                                   //默认是顺时针效果，若将fromValue和toValue的值互换，则为逆时针效果
+    animation.fromValue = [NSNumber numberWithFloat:0.f];
+    animation.toValue = [NSNumber numberWithFloat: M_PI *2];
+    animation.duration = 1;
+    animation.autoreverses = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.repeatCount = 2; //如果这里想设置成一直自旋转，可以设置为MAXFLOAT，否则设置具体的数值则代表执行多少次
+    [sender.layer addAnimation:animation forKey:nil];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if (self.dataSource.count > 0) {
         SMBDevice *device = self.dataSource[indexPath.row];
         cell.textLabel.text = device.host;
     }
+    cell.imageView.image = [UIImage imageNamed:@"服务器"];
+    
     return cell;
 }
 

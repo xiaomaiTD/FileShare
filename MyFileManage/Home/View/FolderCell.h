@@ -19,6 +19,7 @@
 
 @property(nonatomic,assign)id<FolderCellDelegate>delegate;
 @property(nonatomic,strong)fileModel *model;
-@property(nonatomic,strong)UITextView *textView;
+@property(nonatomic,strong)UILabel *textView;
+@property(nonatomic,strong)UIImageView *folderImage;
 
 @end

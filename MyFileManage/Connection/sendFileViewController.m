@@ -70,7 +70,6 @@
     if (self.dataSourceArray.count >0) {
         cell.model = [self.dataSourceArray objectAtIndex:indexPath.row];
     }
-    cell.textView.editable = NO;
     cell.textView.userInteractionEnabled = NO;
     return cell;
 }
