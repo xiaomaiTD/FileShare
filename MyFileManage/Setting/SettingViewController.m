@@ -19,6 +19,7 @@
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,strong)NSArray *imageArray;
 @property(nonatomic,strong)UITableView *tableView;
 
 @end
@@ -31,8 +32,9 @@
     
     NSString *touchIDDes = [[DataBaseTool shareInstance] haveOpenTouchID] ? @"关闭touchID":@"开启touchID";
     NSArray *dataArr = @[@[touchIDDes],@[@"我的收藏"],@[@"回收站",@"历史访问记录"],@[@"下载至下载目录",@"下载至自定义目录"],@[@"显示文件扩展",@"显示隐藏的文件夹"],@[@"给个好评",@"意见反馈"]];
-    
     self.dataArray = [[NSMutableArray alloc] initWithArray:dataArr];
+    self.imageArray = @[@[@"指纹"],@[@"收藏"],@[@"回收站",@"历史记录"],@[@"下载",@"自定义路径"],@[@"显示文件",@"显示"],@[@"好评",@"反馈"]];
+    
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self setUI];
 }
@@ -59,6 +61,7 @@
     }
     cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:17];
+    cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.section][indexPath.row]];
     cell.indexPath = indexPath;
     return cell;
 }

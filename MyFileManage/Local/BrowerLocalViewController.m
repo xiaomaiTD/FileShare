@@ -160,7 +160,7 @@
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"修改" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         [self editAlbumWithIndexPath:indexPath];
     }];
-    editAction.backgroundColor = [UIColor greenColor];
+    editAction.backgroundColor = MAINCOLOR;
     
     return @[deleteAction, editAction];
     

@@ -26,18 +26,7 @@
     
     // 建立系统文件夹
     [[FolderFileManager shareInstance] createSystemFolder];
-    
-  
-  
     return YES;
-}
-
--(void)applicationDidBecomeActive:(UIApplication *)application{
- 
-    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.wangchao.MyFileManageShareExtension"];
-    NSURL *url = [userDefaults objectForKey:@"share-pdf-url"];
-    if ([userDefaults boolForKey:@"has-new-pdf"]) {
-    }
 }
 
 @end
