@@ -7,6 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <MobileVLCKit/MobileVLCKit.h>
 #import "fileModel.h"
 
 
@@ -15,11 +16,12 @@
 -(void)folderCellLongPressWithModel:(fileModel *)model;
 @end
 
-@interface FolderCell : UICollectionViewCell
+@interface FolderCell : UICollectionViewCell<VLCMediaThumbnailerDelegate>
 
 @property(nonatomic,assign)id<FolderCellDelegate>delegate;
 @property(nonatomic,strong)fileModel *model;
 @property(nonatomic,strong)UILabel *textView;
 @property(nonatomic,strong)UIImageView *folderImage;
+@property(nonatomic,strong)VLCMediaThumbnailer *thumbnailer;
 
 @end

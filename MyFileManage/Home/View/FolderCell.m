@@ -62,6 +62,9 @@
     self.textView.text = _model.fileName;
     if (model.isVideo) {
         self.folderImage.image = [UIImage imageNamed:@"视频文件"];
+        VLCMedia *media = [VLCMedia mediaWithPath:model.fullPath];
+        self.thumbnailer = [VLCMediaThumbnailer thumbnailerWithMedia:media andDelegate:self];
+        [self.thumbnailer fetchThumbnail];
     }else if (model.isPhoto){
         self.folderImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:model.fullPath]];
     }else if (model.isPdf){
@@ -82,7 +85,16 @@
     }else{
         self.folderImage.image = [UIImage imageNamed:@"未知类型"];
     }
+}
+
+-(void)mediaThumbnailerDidTimeOut:(VLCMediaThumbnailer *)mediaThumbnailer{
     
+    self.folderImage.image = [UIImage imageNamed:@"视频文件"];
+    
+}
+
+-(void)mediaThumbnailer:(VLCMediaThumbnailer *)mediaThumbnailer didFinishThumbnail:(CGImageRef)thumbnail{
+    self.folderImage.image = [UIImage imageWithCGImage:thumbnail];
 }
 
 @end
