@@ -59,4 +59,23 @@
     return [self.fileType.uppercaseString.uppercaseString isEqualToString:@"PDF"];
 }
 
+-(BOOL)isTxt{
+    return [SupportTXTArray containsObject:self.fileType.uppercaseString];
+}
+
+-(BOOL)isOA{
+    return [SupportOAArray containsObject:self.fileType.uppercaseString];
+}
+
+-(BOOL)isHtml{
+    return [self.fileType.uppercaseString isEqualToString:@"HTML"];
+}
+
+-(BOOL)isMusic{
+    return [SupportMusicArray containsObject:self.fileType.uppercaseString];
+}
+
+-(BOOL)isZip{
+    return [SupportZIPARRAY containsObject:self.fileType.uppercaseString];
+}
 @end

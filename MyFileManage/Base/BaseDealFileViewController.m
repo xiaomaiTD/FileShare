@@ -50,7 +50,7 @@
     if ([model.fileType.uppercaseString isEqualToString:@"PDF"]) {
         [self presentPDFViewController:model];
     }
-    if ([SupportOAArray containsObject:[model.fileType uppercaseString]]) {
+    if ([SupportOAArray containsObject:[model.fileType uppercaseString]] || model.isHtml) {
         LoadWebViewController *webView = [[LoadWebViewController alloc] init];
         webView.model = model;
         APPNavPushViewController(webView);

@@ -64,8 +64,20 @@
         self.folderImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:model.fullPath]];
     }else if (model.isPdf){
         self.folderImage.image = [UIImage imageNamed:@"PDF文件"];
-    }else{
+    }else if (model.isTxt){
+        self.folderImage.image = [UIImage imageNamed:@"文本"];
+    }else if (model.isOA){
+        self.folderImage.image = [UIImage imageNamed:@"办公"];
+    }else if (model.isMusic){
+        self.folderImage.image = [UIImage imageNamed:@"音频"];
+    }else if (model.isHtml){
+        self.folderImage.image = [UIImage imageNamed:@"html"];
+    }else if (model.isZip){
+        self.folderImage.image = [UIImage imageNamed:@"压缩文件"];
+    }else if(model.isFolder){
         self.folderImage.image = [UIImage imageNamed:@"文件夹"];
+    }else{
+        self.folderImage.image = [UIImage imageNamed:@"未知类型"];
     }
     
 }

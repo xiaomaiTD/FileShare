@@ -26,5 +26,10 @@
 @property(nonatomic,assign,readonly)BOOL isVideo;//是否为视频资源
 @property(nonatomic,assign,readonly)BOOL isPhoto;//是否为图片资源
 @property(nonatomic,assign,readonly)BOOL isPdf;//是否为图片资源
+@property(nonatomic,assign,readonly)BOOL isTxt;//是否为文本资源
+@property(nonatomic,assign,readonly)BOOL isOA;//是否为文本资源
+@property(nonatomic,assign,readonly)BOOL isHtml;//是否为文本资源
+@property(nonatomic,assign,readonly)BOOL isMusic;//是否为音频文件
+@property(nonatomic,assign,readonly)BOOL isZip;//是否为压缩文件
 
 @end

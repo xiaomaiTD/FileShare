@@ -23,7 +23,7 @@
 #define SupportVideoArray @[@"MP4",@"RMVB",@"MOV",@"MKV",@"AVI"]
 #define SupportTXTArray @[@"TXT",@"EPUB"]
 #define SupportMusicArray @[@"MP3",@"WMA",@"WAV"]
-#define SupportOAArray @[@"HTML",@"NUMBERS",@"DOC",@"DOCX",@"XLSX",@"XLS",@"XLSM",@"PPT",@"PPTX",@"PPS",@"PPA",@"PAGES",@"KEY"]
+#define SupportOAArray @[@"NUMBERS",@"DOC",@"DOCX",@"XLSX",@"XLS",@"XLSM",@"PPT",@"PPTX",@"PPS",@"PPA",@"PAGES",@"KEY"]
 #define SupportZIPARRAY @[@"ZIP",@"RAR"]
 #define VideoSliderChange @"VideoSliderChange"
 
