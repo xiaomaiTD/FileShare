@@ -27,6 +27,7 @@ extern NSString * const PDFDocumentDeletedNotification;
 @property (nonatomic, strong, readonly) PDFDocumentBookmarkList *bookmarkList;
 @property (nonatomic, strong, readonly) PDFDocumentSearch *search;
 @property (nonatomic, strong, readonly) UIImage *thumbnailImage;
+@property (nonatomic, strong, readonly) UIImage *thumbnailSyncImage;
 @property (nonatomic, assign, readonly) CGPDFDocumentRef CGPDFDocument;
 @property (nonatomic, assign, readonly) NSUInteger currentPage;
 @property (nonatomic, assign) CGFloat brightness;

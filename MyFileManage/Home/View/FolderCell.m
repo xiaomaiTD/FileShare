@@ -7,6 +7,8 @@
 //
 
 #import "FolderCell.h"
+#import "PDFDocument.h"
+#import "ResourceFileManager.h"
 
 
 @implementation FolderCell
@@ -63,7 +65,8 @@
     }else if (model.isPhoto){
         self.folderImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:model.fullPath]];
     }else if (model.isPdf){
-        self.folderImage.image = [UIImage imageNamed:@"PDF文件"];
+        PDFDocument *document = [[ResourceFileManager shareInstance].documentStore documentAtPath:model.fullPath];
+        self.folderImage.image = document.thumbnailSyncImage ? document.thumbnailSyncImage : [UIImage imageNamed:@"PDF文件"];
     }else if (model.isTxt){
         self.folderImage.image = [UIImage imageNamed:@"文本"];
     }else if (model.isOA){

@@ -216,6 +216,11 @@ NSString * const PDFDocumentDeletedNotification = @"PDFDocumentDeletedNotificati
     return [dirPath stringByAppendingPathComponent:[path grt_md5]];
 }
 
+-(UIImage *)thumbnailSyncImage{
+    
+    return [self loadThumbnailImage] ? [self loadThumbnailImage] : [self makeThumbnailImage];
+}
+
 - (UIImage *)loadThumbnailImage
 {
     NSFileManager *fm = [NSFileManager new];
