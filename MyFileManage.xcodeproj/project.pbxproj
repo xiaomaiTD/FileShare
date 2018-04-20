@@ -261,6 +261,7 @@
 		00FEF1422011CF0000BE57BB /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13C2011CF0000BE57BB /* GCDQueue.m */; };
 		00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */; };
 		00FEF1442011CF0000BE57BB /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEF1402011CF0000BE57BB /* GCDTimer.m */; };
+		00FFFE8C208A3EF9002C084C /* SPWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FFFE8A208A3EF8002C084C /* SPWaterFlowLayout.m */; };
 		371597AC1EDFB1A500B482AB /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 371597AB1EDFB1A500B482AB /* Device.m */; };
 		3722BFF11F2364E2005D2EDB /* MenuAndNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3722BFF01F2364E2005D2EDB /* MenuAndNavBarView.m */; };
 		376F4D771EDAED5F00CE9B26 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37739A5F1ED91BB4001BF4F1 /* AVFoundation.framework */; };
@@ -789,6 +790,8 @@
 		00FEF13E2011CF0000BE57BB /* GCDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSemaphore.m; sourceTree = "<group>"; };
 		00FEF13F2011CF0000BE57BB /* GCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
 		00FEF1402011CF0000BE57BB /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
+		00FFFE8A208A3EF8002C084C /* SPWaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPWaterFlowLayout.m; sourceTree = "<group>"; };
+		00FFFE8B208A3EF9002C084C /* SPWaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPWaterFlowLayout.h; sourceTree = "<group>"; };
 		28247406ACE15649A587F961 /* Pods_MyFileManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFileManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		371597AA1EDFB1A500B482AB /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
 		371597AB1EDFB1A500B482AB /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
@@ -1108,6 +1111,8 @@
 			children = (
 				0032FB0A2009F03A006EF52B /* HomeFolderViewController.h */,
 				0032FB0B2009F03A006EF52B /* HomeFolderViewController.m */,
+				00FFFE8B208A3EF9002C084C /* SPWaterFlowLayout.h */,
+				00FFFE8A208A3EF8002C084C /* SPWaterFlowLayout.m */,
 				0006BF2C202949E000C82FF9 /* MoveFolderViewController.h */,
 				0006BF2D202949E000C82FF9 /* MoveFolderViewController.m */,
 				001450082024860500EB2D63 /* OpenTXTEditViewController.h */,
@@ -2174,6 +2179,7 @@
 				00B3A92D200E02790009DC52 /* HTTPDataResponse.m in Sources */,
 				0005F17A200F36440004751A /* PDFDocumentCropOverlayView.m in Sources */,
 				00B3A928200E02790009DC52 /* HTTPServer.m in Sources */,
+				00FFFE8C208A3EF9002C084C /* SPWaterFlowLayout.m in Sources */,
 				00886F3120133581006148BF /* UdpServerManager.m in Sources */,
 				0006BF66202D421B00C82FF9 /* ConnectWifiWebViewController.m in Sources */,
 				0005F175200F36440004751A /* Folder.m in Sources */,
