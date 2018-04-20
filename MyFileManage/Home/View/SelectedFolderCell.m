@@ -21,13 +21,6 @@
     
     if (self = [super initWithFrame:frame]) {
         
-        self.textView = [[UITextView alloc] initWithFrame:CGRectZero];
-        self.textView.font = [UIFont systemFontOfSize:15];
-        [self addSubview:self.textView];
-        [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
-        }];
-        
         self.maskView = [[UIView alloc] initWithFrame:CGRectZero];
         self.maskView.backgroundColor = [[UIColor groupTableViewBackgroundColor] colorWithAlphaComponent:0.3];
         [self addSubview:self.maskView];
@@ -49,11 +42,11 @@
     
 }
 -(void)setModel:(fileModel *)model{
-    if (_model != model) {
-        _model = model;
+    [super setModel:model];
+    if (self.model != model) {
+        self.model = model;
     }
-    self.textView.text = _model.fileName;
-    _selectedImageV.hidden = !_model.selected;
+    _selectedImageV.hidden = !self.model.selected;
 }
 
 

@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "fileModel.h"
+#import "FolderCell.h"
 
-@interface SelectedFolderCell : UICollectionViewCell
-
-@property(nonatomic,strong)UITextView *textView;
-@property(nonatomic,strong)fileModel *model;
+@interface SelectedFolderCell : FolderCell
 
 @end

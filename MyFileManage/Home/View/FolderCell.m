@@ -41,7 +41,6 @@
         [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.folderImage.mas_bottom);
             make.left.and.right.equalTo(self.folderImage);
-//            make.size.height.mas_offset(50);
             make.bottom.equalTo(self);
         }];
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];

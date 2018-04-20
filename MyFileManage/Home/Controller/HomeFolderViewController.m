@@ -87,7 +87,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     self.collectionView.dataSource = self;
     self.collectionView.scrollEnabled = YES;
     [self.collectionView registerClass:[FolderCell class] forCellWithReuseIdentifier:@"FolderCell"];
-//    [self.collectionView registerClass:[SelectedFolderCell class] forCellWithReuseIdentifier:@"SelectedFolderCell"];
+    [self.collectionView registerClass:[SelectedFolderCell class] forCellWithReuseIdentifier:@"SelectedFolderCell"];
     [self.view addSubview:self.collectionView];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -399,7 +399,7 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         
     } completion:^(BOOL finished) {
         [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.view).mas_offset(self.selected ? 49 : 0);
+            make.bottom.equalTo(self.view).mas_offset(self.selected ? -49 : 0);
         }];
         [self.view layoutIfNeeded];
     }];
@@ -488,8 +488,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         if (self.dataSourceArray.count >0) {
             cell.model = [self.dataSourceArray objectAtIndex:indexPath.row];
         }
-        cell.textView.editable = NO;
-        cell.textView.userInteractionEnabled = NO;
         return cell;
 
     }else{
@@ -515,7 +513,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     if (self.selected && self.dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
         model.selected = !model.selected;
-        [self.collectionView reloadData];
+        NSIndexPath *path =[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
         [self.editTarView setHomeBarIsHidden:YES];
         return;
     }
