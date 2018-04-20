@@ -13,6 +13,10 @@
 
 @implementation FolderCell
 
+-(UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
+    return [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -37,7 +41,8 @@
         [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.folderImage.mas_bottom);
             make.left.and.right.equalTo(self.folderImage);
-            make.size.height.mas_offset(50);
+//            make.size.height.mas_offset(50);
+            make.bottom.equalTo(self);
         }];
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
         longPress.minimumPressDuration = 1;
@@ -88,9 +93,7 @@
 }
 
 -(void)mediaThumbnailerDidTimeOut:(VLCMediaThumbnailer *)mediaThumbnailer{
-    
     self.folderImage.image = [UIImage imageNamed:@"视频文件"];
-    
 }
 
 -(void)mediaThumbnailer:(VLCMediaThumbnailer *)mediaThumbnailer didFinishThumbnail:(CGImageRef)thumbnail{

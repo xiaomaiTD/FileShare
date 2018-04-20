@@ -80,13 +80,14 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     flowLayout.minimumInteritemSpacing = 10;
     flowLayout.itemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), floor((kScreenWidth - 40)/3.0));
     //设置CollectionView的属性
+//    flowLayout.estimatedItemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), self.view.height - 20);
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.scrollEnabled = YES;
     [self.collectionView registerClass:[FolderCell class] forCellWithReuseIdentifier:@"FolderCell"];
-    [self.collectionView registerClass:[SelectedFolderCell class] forCellWithReuseIdentifier:@"SelectedFolderCell"];
+//    [self.collectionView registerClass:[SelectedFolderCell class] forCellWithReuseIdentifier:@"SelectedFolderCell"];
     [self.view addSubview:self.collectionView];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
