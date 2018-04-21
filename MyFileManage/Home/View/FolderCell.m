@@ -13,10 +13,6 @@
 
 @implementation FolderCell
 
--(UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
-    return [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -25,27 +21,25 @@
         self.folderImage = [[UIImageView alloc] initWithFrame:CGRectZero];
         self.folderImage.contentMode = UIViewContentModeScaleAspectFit;
         self.folderImage.image = [UIImage imageNamed:@"文件夹"];
-        [self addSubview:self.folderImage];
+        [self.contentView addSubview:self.folderImage];
         [self.folderImage mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_offset(0);
             make.right.mas_offset(-20);
             make.left.mas_offset(20);
-            make.bottom.mas_offset(-50);
+            make.height.mas_offset(100);
         }];
         
+
         self.textView = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.textView.font = [UIFont systemFontOfSize:14];
         self.textView.numberOfLines = 0;
         self.textView.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:self.textView];
+        [self.contentView addSubview:self.textView];
         [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.folderImage.mas_bottom);
-            make.left.and.right.equalTo(self.folderImage);
-            make.bottom.equalTo(self);
+            make.right.mas_offset(-20);
+            make.left.mas_offset(20);
+            make.bottom.equalTo(self.contentView);
         }];
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
-        longPress.minimumPressDuration = 1;
-        [self addGestureRecognizer:longPress];
         
     }
     return self;

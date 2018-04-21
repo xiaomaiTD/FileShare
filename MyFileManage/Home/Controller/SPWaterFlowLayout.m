@@ -78,7 +78,7 @@ struct SPColumnInfo
     return CGSizeMake(self.itemWidth, cellHeight);
 }
 
-- (CGFloat)systemCalculateHeightForTemplateCell:(UICollectionViewCell *)cell{
+- (CGFloat)systemCalculateHeightForTemplateCell:(FolderCell *)cell{
     CGFloat calculateHeight = 0;
     
     NSLayoutConstraint *widthForceConstant = [NSLayoutConstraint constraintWithItem:cell.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.itemWidth];
@@ -116,7 +116,7 @@ struct SPColumnInfo
 
 - (FolderCell *)templateCellWithReuseIdentifier:(NSString *)reuseIdentifier withIndex:(NSInteger)index{
     if (!self.templateCell) {
-        FolderCell *templateCell = [[FolderCell alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        FolderCell *templateCell = [[FolderCell alloc] initWithFrame:CGRectMake(0, 0, self.itemWidth, 100)];
         self.templateCell = templateCell;
     }
     return self.templateCell;

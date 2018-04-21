@@ -12,6 +12,7 @@
 #import "NSFileManager+GreatReaderAdditions.h"
 #import "UIViewController+Extension.h"
 #import "HomeFolderViewController.h"
+#import "SPWaterFlowLayout.h"
 
 #import "MoveFolderViewController.h"
 #import "senderViewController.h"
@@ -74,14 +75,20 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         NSArray *tempArray = [[ResourceFileManager shareInstance] getAllUploadAllFileModels];
         self.dataSourceArray = [tempArray mutableCopy];
     }
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    flowLayout.minimumLineSpacing = 10;
-    flowLayout.minimumInteritemSpacing = 10;
-    flowLayout.itemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), floor((kScreenWidth - 40)/3.0));
+    SPWaterFlowLayout *flowlayout = [[SPWaterFlowLayout alloc] init];
+    flowlayout.columnNumber = 3;
+    flowlayout.interitemSpacing = 10;
+    flowlayout.lineSpacing = 10;
+    flowlayout.pageSize = self.dataSourceArray.count;
+    flowlayout.datas = self.dataSourceArray.copy;
+    flowlayout.reuseIdentifier = @"FolderCell";
+//    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+//    flowLayout.minimumLineSpacing = 10;
+//    flowLayout.minimumInteritemSpacing = 10;
+//    flowLayout.itemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), floor((kScreenWidth - 40)/3.0));
     //设置CollectionView的属性
 //    flowLayout.estimatedItemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), self.view.height - 20);
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowlayout];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -91,8 +98,9 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     [self.view addSubview:self.collectionView];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(self.view);
     }];
+    
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileFinishAndReloadTable) name:FileFinish object:nil];
     // 监听 
