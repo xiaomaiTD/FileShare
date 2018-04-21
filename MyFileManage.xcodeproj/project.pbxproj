@@ -80,6 +80,7 @@
 		0006BF2E202949E000C82FF9 /* MoveFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF2D202949E000C82FF9 /* MoveFolderViewController.m */; };
 		0006BF3A202ADC9A00C82FF9 /* MoveFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */; };
 		0006BF66202D421B00C82FF9 /* ConnectWifiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */; };
+		0008EBDA208AF57D00FBAD10 /* SMBFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0008EBD9208AF57D00FBAD10 /* SMBFolderCell.m */; };
 		000E7FA92073954300A02F37 /* OpenImagesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E7FA82073954300A02F37 /* OpenImagesPageViewController.m */; };
 		000E82C32074E91E00A02F37 /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E828A2074E91D00A02F37 /* Back@2x.png */; };
 		000E82C42074E91E00A02F37 /* Brightness@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E828C2074E91D00A02F37 /* Brightness@2x.png */; };
@@ -469,6 +470,8 @@
 		0006BF39202ADC9A00C82FF9 /* MoveFolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveFolderCell.m; sourceTree = "<group>"; };
 		0006BF64202D421A00C82FF9 /* ConnectWifiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectWifiWebViewController.h; sourceTree = "<group>"; };
 		0006BF65202D421B00C82FF9 /* ConnectWifiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectWifiWebViewController.m; sourceTree = "<group>"; };
+		0008EBD8208AF57D00FBAD10 /* SMBFolderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBFolderCell.h; sourceTree = "<group>"; };
+		0008EBD9208AF57D00FBAD10 /* SMBFolderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBFolderCell.m; sourceTree = "<group>"; };
 		000E7FA72073954300A02F37 /* OpenImagesPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenImagesPageViewController.h; sourceTree = "<group>"; };
 		000E7FA82073954300A02F37 /* OpenImagesPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenImagesPageViewController.m; sourceTree = "<group>"; };
 		000E828B2074E91D00A02F37 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "Back@2x.png"; sourceTree = "<group>"; };
@@ -879,6 +882,7 @@
 				0005ED29207A57BC006F3A47 /* SMBViewController.m */,
 				00130459207F2F8700137EDF /* SMBBrowListViewController.h */,
 				0013045A207F2F8700137EDF /* SMBBrowListViewController.m */,
+				0008EBD7208AF56400FBAD10 /* View */,
 			);
 			path = SMB;
 			sourceTree = "<group>";
@@ -1024,6 +1028,15 @@
 				0005F12F200F363D0004751A /* UIColor+GreatReaderAdditions.m */,
 			);
 			path = PDFSource;
+			sourceTree = "<group>";
+		};
+		0008EBD7208AF56400FBAD10 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0008EBD8208AF57D00FBAD10 /* SMBFolderCell.h */,
+				0008EBD9208AF57D00FBAD10 /* SMBFolderCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		000E82892074E91D00A02F37 /* en.lproj */ = {
@@ -2152,6 +2165,7 @@
 				005155ED20132B03009DA2A3 /* AsyncUdpSocket.m in Sources */,
 				00B3A992200E02790009DC52 /* LSYMagnifierView.m in Sources */,
 				00B3A979200E02790009DC52 /* GTMNSString+HTML.m in Sources */,
+				0008EBDA208AF57D00FBAD10 /* SMBFolderCell.m in Sources */,
 				00B3A920200E02790009DC52 /* DispatchQueueLogFormatter.m in Sources */,
 				005155FC201334C8009DA2A3 /* SendMessageManger.m in Sources */,
 				00FEF1432011CF0000BE57BB /* GCDSemaphore.m in Sources */,

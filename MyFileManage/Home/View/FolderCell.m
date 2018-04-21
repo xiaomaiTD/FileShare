@@ -41,6 +41,9 @@
             make.bottom.equalTo(self.contentView);
         }];
         
+        UILongPressGestureRecognizer *ges = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+        [self.contentView addGestureRecognizer:ges];
+        
     }
     return self;
 }
