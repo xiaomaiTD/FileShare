@@ -12,6 +12,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import "MBProgressHUD+Vi.h"
 #import "GloablVarManager.h"
+#import "SMBFolderCell.h"
 
 @interface SMBBrowListViewController ()
 <UITableViewDelegate,UITableViewDataSource>
@@ -43,8 +44,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[SMBFolderCell class] forCellReuseIdentifier:@"SMBFolderCell"];
     [self.view addSubview:self.tableView];
+    self.tableView.estimatedRowHeight = 60;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
@@ -100,14 +103,14 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    SMBFolderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SMBFolderCell" forIndexPath:indexPath];
     if (self.dataSourceArray.count > 0) {
         if (self.fileServer) {
             SMBShare *share = self.dataSourceArray[indexPath.row];
-            cell.textLabel.text = share.name;
+            cell.share = share;
         }else{
             SMBFile *file = self.dataSourceArray[indexPath.row];
-            cell.textLabel.text = file.name;
+            cell.file = file;
         }
     }
     return cell;
@@ -124,6 +127,9 @@
         APPNavPushViewController(list);
     }else{
         SMBFile *file = self.dataSourceArray[indexPath.row];
+        if (!file.isDirectory) {
+            return;
+        }
         if (!file.isDirectory && [SupportVideoArray containsObject:[file.path.pathExtension uppercaseString]]) {
             [GloablVarManager shareManager].SMBFilePath = file.path;
             NSString *path = [GloablVarManager shareManager].SMBFullPath;

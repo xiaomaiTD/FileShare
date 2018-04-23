@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SMBClient/SMBClient.h>
 
 @interface SMBFolderCell : UITableViewCell
+
+@property(nonatomic,strong)UIImageView *icomImagV;
+@property(nonatomic,strong)UILabel *nameLable;
+@property(nonatomic,strong)SMBShare *share;
+@property(nonatomic,strong)SMBFile *file;
 
 @end
