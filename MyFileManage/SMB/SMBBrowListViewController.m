@@ -127,9 +127,6 @@
         APPNavPushViewController(list);
     }else{
         SMBFile *file = self.dataSourceArray[indexPath.row];
-        if (!file.isDirectory) {
-            return;
-        }
         if (!file.isDirectory && [SupportVideoArray containsObject:[file.path.pathExtension uppercaseString]]) {
             [GloablVarManager shareManager].SMBFilePath = file.path;
             NSString *path = [GloablVarManager shareManager].SMBFullPath;
@@ -141,6 +138,9 @@
             PlayVideoViewController *vc = [[PlayVideoViewController alloc] init];
             vc.path = path;
             APPPresentViewController(vc);
+            return;
+        }
+        if (!file.isDirectory) {
             return;
         }
         SMBBrowListViewController *list = [[SMBBrowListViewController alloc] init];

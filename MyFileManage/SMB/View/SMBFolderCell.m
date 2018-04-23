@@ -41,11 +41,34 @@
 -(void)setShare:(SMBShare *)share{
     _share = share;
     self.nameLable.text = _share.name;
+    self.icomImagV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"显示文件"]];
 }
 
 -(void)setFile:(SMBFile *)file{
     _file = file;
     self.nameLable.text = _file.name;
+//    file.path.pathExtension
+    NSString *pathExtension = file.path.pathExtension.uppercaseString;
+    NSString *imageName = @"显示文件";
+    if ([SupportOAArray containsObject:pathExtension]) {
+        imageName = @"SM_办公图标";
+    }else if ([SupportTXTArray containsObject:pathExtension]){
+        imageName = @"SM_文本";
+    }else if ([SupportZIPARRAY containsObject:pathExtension]){
+        imageName = @"SM_压缩文件";
+    }else if ([SupportVideoArray containsObject:pathExtension]){
+        imageName = @"SM_视频";
+    }else if ([SupportMusicArray containsObject:pathExtension]){
+        imageName = @"SM_音乐";
+    }else if ([pathExtension isEqualToString:@"PDF"]){
+        imageName = @"SM_PDF";
+    }else if (file.isDirectory){
+        imageName = @"显示文件";
+    }else{
+        imageName = @"SM_未知格式";
+    }
+    self.icomImagV.image = [UIImage imageNamed:imageName];
+    
 }
 
 @end
