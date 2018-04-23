@@ -15,7 +15,7 @@
 #import "SMBFolderCell.h"
 
 @interface SMBBrowListViewController ()
-<UITableViewDelegate,UITableViewDataSource>
+<UITableViewDelegate,UITableViewDataSource,SMBFolderCellDelegate>
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
@@ -104,6 +104,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SMBFolderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SMBFolderCell" forIndexPath:indexPath];
+    cell.delegate = self;
     if (self.dataSourceArray.count > 0) {
         if (self.fileServer) {
             SMBShare *share = self.dataSourceArray[indexPath.row];
@@ -114,6 +115,54 @@
         }
     }
     return cell;
+}
+#pragma mark -----SMBFolderCellDelegate
+
+-(void)downloadFileCallback:(SMBFile *)smfile{
+    NSUInteger bufferSize = 12000;
+    NSMutableData *result = [NSMutableData new];
+    [smfile open:SMBFileModeRead completion:^(NSError * _Nullable error) {
+        [smfile read:bufferSize
+            progress:^BOOL(unsigned long long bytesReadTotal, NSData *data, BOOL complete, NSError *error) {
+                
+                if (error) {
+                    NSLog(@"Unable to read from the file: %@", error);
+                } else {
+                    NSLog(@"Read %ld bytes, in total %llu bytes (%0.2f %%)",
+                          data.length, bytesReadTotal, (double)bytesReadTotal / smfile.size * 100);
+                    
+                    if (data) {
+                        [result appendData:data];
+                    }
+                }
+                
+                if (complete) {
+                    [smfile close:^(NSError *error) {
+                        NSLog(@"Finished reading file");
+                    }];
+                }
+                
+                return YES;
+            }];
+    }];
+}
+
+-(void)watchVideoCallback:(SMBFile *)smfile{
+    [self watchVideoWithFile:smfile];
+}
+
+-(void)watchVideoWithFile:(SMBFile *)file{
+    
+    [GloablVarManager shareManager].SMBFilePath = file.path;
+    NSString *path = [GloablVarManager shareManager].SMBFullPath;
+    if ([path ch_containsChinese:CHNSStringChineseTypeAll]) {
+        path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    path = [NSString stringWithFormat:@"smb://%@",path];
+    PlayVideoViewController *vc = [[PlayVideoViewController alloc] init];
+    vc.path = path;
+    APPPresentViewController(vc);
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -128,24 +177,14 @@
     }else{
         SMBFile *file = self.dataSourceArray[indexPath.row];
         if (!file.isDirectory && [SupportVideoArray containsObject:[file.path.pathExtension uppercaseString]]) {
-            [GloablVarManager shareManager].SMBFilePath = file.path;
-            NSString *path = [GloablVarManager shareManager].SMBFullPath;
-            if ([path ch_containsChinese:CHNSStringChineseTypeAll]) {
-                path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            }
-            path = [NSString stringWithFormat:@"smb://%@",path];
-            PlayVideoViewController *vc = [[PlayVideoViewController alloc] init];
-            vc.path = path;
-            APPPresentViewController(vc);
+            [self watchVideoWithFile:file];
             return;
         }
-        if (!file.isDirectory) {
-            return;
+        if (file.isDirectory) {
+            SMBBrowListViewController *list = [[SMBBrowListViewController alloc] init];
+            list.file = file;
+            APPNavPushViewController(list);
         }
-        SMBBrowListViewController *list = [[SMBBrowListViewController alloc] init];
-        list.file = file;
-        APPNavPushViewController(list);
     }
     
 }
