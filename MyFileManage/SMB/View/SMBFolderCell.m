@@ -42,12 +42,13 @@
     _share = share;
     self.nameLable.text = _share.name;
     self.icomImagV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"显示文件"]];
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 -(void)setFile:(SMBFile *)file{
     _file = file;
     self.nameLable.text = _file.name;
-//    file.path.pathExtension
+    self.accessoryType = UITableViewCellAccessoryNone;
     NSString *pathExtension = file.path.pathExtension.uppercaseString;
     NSString *imageName = @"显示文件";
     if ([SupportOAArray containsObject:pathExtension]) {
@@ -64,6 +65,9 @@
         imageName = @"SM_PDF";
     }else if (file.isDirectory){
         imageName = @"显示文件";
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }else if ([SupportPictureArray containsObject:pathExtension]){
+        imageName = @"SM_图片";
     }else{
         imageName = @"SM_未知格式";
     }
