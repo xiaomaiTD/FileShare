@@ -130,7 +130,6 @@
                 } else {
                     NSLog(@"Read %ld bytes, in total %llu bytes (%0.2f %%)",
                           data.length, bytesReadTotal, (double)bytesReadTotal / smfile.size * 100);
-                    
                     if (data) {
                         [result appendData:data];
                     }
@@ -141,7 +140,6 @@
                         NSLog(@"Finished reading file");
                     }];
                 }
-                
                 return YES;
             }];
     }];

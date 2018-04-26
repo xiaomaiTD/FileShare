@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		00033419202D4F3200C3328A /* web in Resources */ = {isa = PBXBuildFile; fileRef = 00033418202D4F3200C3328A /* web */; };
+		0005C9A52091886C00EEACF2 /* FileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005C9A42091886C00EEACF2 /* FileDownloadManager.m */; };
+		0005C9AB2092159A00EEACF2 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005C9AA2092159A00EEACF2 /* FileDownloader.m */; };
 		0005ED2A207A57BC006F3A47 /* SMBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005ED29207A57BC006F3A47 /* SMBViewController.m */; };
 		0005F146200F36440004751A /* Localize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F084200F36280004751A /* Localize.m */; };
 		0005F147200F36440004751A /* PDFFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005F085200F36280004751A /* PDFFont.m */; };
@@ -326,6 +328,10 @@
 
 /* Begin PBXFileReference section */
 		00033418202D4F3200C3328A /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web; path = MyFileManage/web; sourceTree = SOURCE_ROOT; };
+		0005C9A32091886C00EEACF2 /* FileDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileDownloadManager.h; sourceTree = "<group>"; };
+		0005C9A42091886C00EEACF2 /* FileDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileDownloadManager.m; sourceTree = "<group>"; };
+		0005C9A92092159A00EEACF2 /* FileDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
+		0005C9AA2092159A00EEACF2 /* FileDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
 		0005ED28207A57BC006F3A47 /* SMBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBViewController.h; sourceTree = "<group>"; };
 		0005ED29207A57BC006F3A47 /* SMBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBViewController.m; sourceTree = "<group>"; };
 		0005F084200F36280004751A /* Localize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Localize.m; sourceTree = "<group>"; };
@@ -1672,6 +1678,10 @@
 				0088723A20183CB8006148BF /* ImageManager.m */,
 				002C9A6A202208270053B1A6 /* GloablVarManager.h */,
 				002C9A6B202208270053B1A6 /* GloablVarManager.m */,
+				0005C9A32091886C00EEACF2 /* FileDownloadManager.h */,
+				0005C9A42091886C00EEACF2 /* FileDownloadManager.m */,
+				0005C9A92092159A00EEACF2 /* FileDownloader.h */,
+				0005C9AA2092159A00EEACF2 /* FileDownloader.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2316,9 +2326,11 @@
 				005155EC20132B03009DA2A3 /* AsyncSocket.m in Sources */,
 				0098A640206E1E6300AC0068 /* EasyAlertView.m in Sources */,
 				0005F1A0200F36440004751A /* LibraryUtils.m in Sources */,
+				0005C9AB2092159A00EEACF2 /* FileDownloader.m in Sources */,
 				377E971A1ED69BFE0080E86D /* fileModel.m in Sources */,
 				00886F6F2015D379006148BF /* AYHTTPConnection.m in Sources */,
 				0005F152200F36440004751A /* DocumentListTableViewController.m in Sources */,
+				0005C9A52091886C00EEACF2 /* FileDownloadManager.m in Sources */,
 				006C4D072018CB2700172419 /* localImageAndVideoCell.m in Sources */,
 				00B3A9DA200E04550009DC52 /* BaseEntity.m in Sources */,
 				0005F148200F36440004751A /* NSFileManager+GreatReaderAdditions.m in Sources */,
