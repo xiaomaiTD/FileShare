@@ -25,7 +25,8 @@
         
         
         self.downLoadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.downLoadBtn setImage:[UIImage imageNamed:@"SM_下载"] forState:UIControlStateNormal];
+        UIImageView *donloadImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SM_下载"]];
+        [self.downLoadBtn setImage:donloadImage.image forState:UIControlStateNormal];
         @weakify(self);
         [self.downLoadBtn addTargetWithBlock:^(UIButton *sender) {
             @strongify(self);
@@ -37,10 +38,12 @@
         [self.downLoadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_offset(-20);
             make.centerY.equalTo(self);
+            make.size.mas_equalTo(donloadImage.size);
         }];
         
+        UIImageView *watchImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SM_观看"]];
         self.watchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.watchBtn setImage:[UIImage imageNamed:@"SM_观看"] forState:UIControlStateNormal];
+        [self.watchBtn setImage:watchImage.image forState:UIControlStateNormal];
         [self.watchBtn addTargetWithBlock:^(UIButton *sender) {
             @strongify(self);
             if ([self.delegate respondsToSelector:@selector(watchVideoCallback:)]) {
@@ -51,6 +54,7 @@
         [self.watchBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.downLoadBtn.mas_left).mas_offset(-20);
             make.centerY.equalTo(self);
+            make.size.mas_equalTo(watchImage.size);
         }];
         
         self.nameLable = [[UILabel alloc] init];
