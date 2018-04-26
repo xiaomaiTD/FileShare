@@ -7,6 +7,16 @@
 //
 
 #import "FileDownloadManager.h"
+#import "FileDownloaderOperation.h"
+
+#define LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
+#define UNLOCK(lock) dispatch_semaphore_signal(lock);
+
+@interface FileDownloadManager()
+@property (strong, nonatomic, nonnull) dispatch_semaphore_t operationsLock;
+@property (strong, nonatomic, nonnull) NSOperationQueue *downloadQueue;
+@property (strong, nonatomic, nonnull) NSMutableDictionary<NSURL *, FileDownloaderOperation *> *URLOperations;
+@end
 
 @implementation FileDownloadManager
 
@@ -20,36 +30,19 @@ static FileDownloadManager *manager = nil;
     return manager;
 }
 
+-(instancetype)init{
+    if (self = [super init]) {
+        _operationsLock = dispatch_semaphore_create(1);
+        _downloadQueue = [NSOperationQueue new];
+        _downloadQueue.maxConcurrentOperationCount = 6;
+        _downloadQueue.name = @"wangchao.MyFileManage.SMBFileDownloader";
+        _URLOperations = [NSMutableDictionary new];
+    }
+    return self;
+}
 
-/*
- NSUInteger bufferSize = 12000;
- NSMutableData *result = [NSMutableData new];
- [smfile open:SMBFileModeRead completion:^(NSError * _Nullable error) {
- [smfile read:bufferSize
- progress:^BOOL(unsigned long long bytesReadTotal, NSData *data, BOOL complete, NSError *error) {
- 
- if (error) {
- NSLog(@"Unable to read from the file: %@", error);
- } else {
- NSLog(@"Read %ld bytes, in total %llu bytes (%0.2f %%)",
- data.length, bytesReadTotal, (double)bytesReadTotal / smfile.size * 100);
- if (data) {
- [result appendData:data];
- }
- }
- 
- if (complete) {
- [smfile close:^(NSError *error) {
- NSLog(@"Finished reading file");
- }];
- }
- return YES;
- }];
- }];
-
- */
-
--(void)downloadFileWithFile:(SMBFile *)file andDowloadComplete:(FileDownloadComplete)downloadComplete{
+- (void)downloadFileWithFile:(SMBFile *)file andProgress:(FileDownLoadProgress)progress andDowloadComplete:(FileDownloadComplete)downloadComplete{
+    
     
 }
 

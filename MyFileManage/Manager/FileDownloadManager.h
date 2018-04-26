@@ -16,6 +16,6 @@ typedef BOOL(^FileDownLoadProgress)(unsigned long long bytesReadTotal, NSData *d
 
 +(instancetype)shareInstance;
 
--(void)downloadFileWithFile:(SMBFile *)file andDowloadComplete:(FileDownloadComplete)downloadComplete;
+-(void)downloadFileWithFile:(SMBFile *)file andProgress:(FileDownLoadProgress)progress andDowloadComplete:(FileDownloadComplete)downloadComplete;
 
 @end
