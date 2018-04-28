@@ -7,10 +7,11 @@
 //
 
 #import "FileDownloadManager.h"
-#import "FileDownloaderOperation.h"
 
 #define LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
 #define UNLOCK(lock) dispatch_semaphore_signal(lock);
+
+static FileDownloadManager *manager = nil;
 
 @interface FileDownloadManager()
 @property (strong, nonatomic, nonnull) dispatch_semaphore_t operationsLock;
@@ -20,12 +21,10 @@
 
 @implementation FileDownloadManager
 
-static FileDownloadManager *manager = nil;
-
 +(instancetype)shareInstance{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[FileDownloadManager shareInstance] init];
+        manager = [[FileDownloadManager alloc] init];
     });
     return manager;
 }
@@ -37,19 +36,34 @@ static FileDownloadManager *manager = nil;
         _downloadQueue.maxConcurrentOperationCount = 6;
         _downloadQueue.name = @"wangchao.MyFileManage.SMBFileDownloader";
         _URLOperations = [NSMutableDictionary new];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadComplete:) name:@"SMBFileDownloadComplete" object:nil];
     }
     return self;
 }
 
+-(void)downloadComplete:(NSNotification *)notifi{
+    
+    NSDictionary *info = notifi.userInfo;
+    SMBFile *file = info[@"file"];
+    if ([self.URLOperations objectForKey:file.path]) {
+        [self.URLOperations removeObjectForKey:file.path];
+    }
+
+}
+
 - (void)downloadFileWithFile:(SMBFile *)file andProgress:(FileDownLoadProgress)progress andDowloadComplete:(FileDownloadComplete)downloadComplete{
+    
+    LOCK(self.operationsLock)
     
     if ([self.URLOperations objectForKey:file.path]) {
         return;
     }
     
+    FileDownloaderOperation *downloadOperate = [[FileDownloaderOperation alloc] initWithFile:file andProgress:progress andDownloadComplete:downloadComplete];
     
-    
-    
+    [self.URLOperations setValue:downloadOperate forKey:file.path];
+
+    UNLOCK(self.operationsLock);
 }
 
 

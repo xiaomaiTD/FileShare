@@ -6,11 +6,9 @@
 //  Copyright © 2018年 wangchao. All rights reserved.
 //
 
+#import "FileDownloaderOperation.h"
 #import <Foundation/Foundation.h>
 #import <SMBClient/SMBClient.h>
-
-typedef void(^FileDownloadComplete)(NSData *fileData);
-typedef BOOL(^FileDownLoadProgress)(unsigned long long bytesReadTotal, NSData *data, BOOL complete, NSError *error);
 
 @interface FileDownloadManager : NSObject
 
