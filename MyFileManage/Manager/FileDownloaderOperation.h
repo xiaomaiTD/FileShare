@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SMBClient/SMBClient.h>
 
-@interface FileDownloaderOperation : NSObject
+@interface FileDownloaderOperation : NSOperation
 
 -(instancetype)initWithFile:(SMBFile *)file;
 

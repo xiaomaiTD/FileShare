@@ -15,7 +15,7 @@
 @interface FileDownloadManager()
 @property (strong, nonatomic, nonnull) dispatch_semaphore_t operationsLock;
 @property (strong, nonatomic, nonnull) NSOperationQueue *downloadQueue;
-@property (strong, nonatomic, nonnull) NSMutableDictionary<NSURL *, FileDownloaderOperation *> *URLOperations;
+@property (strong, nonatomic, nonnull) NSMutableDictionary<NSString *, FileDownloaderOperation *> *URLOperations;
 @end
 
 @implementation FileDownloadManager
@@ -42,6 +42,12 @@ static FileDownloadManager *manager = nil;
 }
 
 - (void)downloadFileWithFile:(SMBFile *)file andProgress:(FileDownLoadProgress)progress andDowloadComplete:(FileDownloadComplete)downloadComplete{
+    
+    if ([self.URLOperations objectForKey:file.path]) {
+        return;
+    }
+    
+    
     
     
 }
