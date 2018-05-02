@@ -121,33 +121,41 @@
 #pragma mark -----SMBFolderCellDelegate
 
 -(void)downloadFileCallback:(SMBFile *)smfile{
-
-
+  
     NSUInteger bufferSize = 12000;
     NSMutableData *result = [NSMutableData new];
-    
-    [smfile read:bufferSize
-      progress:^BOOL(unsigned long long bytesReadTotal, NSData *data, BOOL complete, NSError *error) {
-          
-          if (error) {
-              NSLog(@"Unable to read from the file: %@", error);
-          } else {
-              NSLog(@"Read %ld bytes, in total %llu bytes (%0.2f %%)",
-                    data.length, bytesReadTotal, (double)bytesReadTotal / smfile.size * 100);
-              
-              if (data) {
-                  [result appendData:data];
-              }
-          }
-          
-          if (complete) {
-              [smfile close:^(NSError *error) {
-                  NSLog(@"Finished reading file");
-              }];
-          }
-          
-          return YES;
-      }];
+    [smfile open:SMBFileModeRead completion:^(NSError *error) {
+        if (error) {
+            NSLog(@"Unable to open the file: %@", error);
+        } else {
+            NSLog(@"File opened: %@", smfile.name);
+            [smfile read:bufferSize
+                progress:^BOOL(unsigned long long bytesReadTotal, NSData *data, BOOL complete, NSError *error) {
+                    
+                    if (error) {
+                        NSLog(@"Unable to read from the file: %@", error);
+                    } else {
+                        NSLog(@"Read %ld bytes, in total %llu bytes (%0.2f %%)",
+                              data.length, bytesReadTotal, (double)bytesReadTotal / smfile.size * 100);
+                        
+                        if (data) {
+                            [result appendData:data];
+                        }
+                    }
+                    
+                    if (complete) {
+                        [smfile close:^(NSError *error) {
+                            NSLog(@"Finished reading file");
+                        }];
+                    }
+                    
+                    return YES;
+                }];
+
+        }
+    }];
+
+
 }
 
 -(void)watchVideoCallback:(SMBFile *)smfile{

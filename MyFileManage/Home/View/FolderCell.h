@@ -23,5 +23,6 @@
 @property(nonatomic,strong)UILabel *textView;
 @property(nonatomic,strong)UIImageView *folderImage;
 @property(nonatomic,strong)VLCMediaThumbnailer *thumbnailer;
+@property(nonatomic,strong)SDImageCache *cacheManager;
 
 @end

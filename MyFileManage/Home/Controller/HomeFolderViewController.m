@@ -7,7 +7,7 @@
 //
 
 #import <SSZipArchive/SSZipArchive.h>
-#import <MBProgressHUD/MBProgressHUD.h>
+#import "MBProgressHUD+Vi.h"
 #import <KVOController/KVOController.h>
 #import "NSFileManager+GreatReaderAdditions.h"
 #import "UIViewController+Extension.h"
@@ -75,20 +75,20 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
         NSArray *tempArray = [[ResourceFileManager shareInstance] getAllUploadAllFileModels];
         self.dataSourceArray = [tempArray mutableCopy];
     }
-    SPWaterFlowLayout *flowlayout = [[SPWaterFlowLayout alloc] init];
-    flowlayout.columnNumber = 3;
-    flowlayout.interitemSpacing = 10;
-    flowlayout.lineSpacing = 10;
-    flowlayout.pageSize = self.dataSourceArray.count;
-    flowlayout.datas = self.dataSourceArray.copy;
-    flowlayout.reuseIdentifier = @"FolderCell";
-//    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-//    flowLayout.minimumLineSpacing = 10;
-//    flowLayout.minimumInteritemSpacing = 10;
-//    flowLayout.itemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), floor((kScreenWidth - 40)/3.0));
-    //设置CollectionView的属性
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+//    flowlayout.columnNumber = 3;
+//    flowlayout.interitemSpacing = 10;
+//    flowlayout.lineSpacing = 10;
+//    flowlayout.pageSize = self.dataSourceArray.count;
+//    flowlayout.datas = self.dataSourceArray.copy;
+//    flowlayout.reuseIdentifier = @"FolderCell";
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    flowLayout.minimumLineSpacing = 10;
+    flowLayout.minimumInteritemSpacing = 10;
+    flowLayout.itemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), floor((kScreenWidth - 40)/3.0));
+//    设置CollectionView的属性
 //    flowLayout.estimatedItemSize = CGSizeMake(floor((kScreenWidth - 40)/3.0), self.view.height - 20);
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowlayout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -521,7 +521,6 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
     if (self.selected && self.dataSourceArray.count > 0) {
         fileModel *model = _dataSourceArray[indexPath.row];
         model.selected = !model.selected;
-        NSIndexPath *path =[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
         [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
         [self.editTarView setHomeBarIsHidden:YES];
         return;
@@ -575,6 +574,8 @@ UICollectionViewDelegate,UICollectionViewDataSource,SSZipArchiveDelegate,FolderC
                 if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(model.fullPath)) {
                     //保存相册核心代码
                     UISaveVideoAtPathToSavedPhotosAlbum(model.fullPath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+                }else{
+                    [MBProgressHUD showError:@"视频格式不支持"];
                 }
             }
             if (model.isPhoto) {

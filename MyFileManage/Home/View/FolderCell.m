@@ -9,7 +9,7 @@
 #import "FolderCell.h"
 #import "PDFDocument.h"
 #import "ResourceFileManager.h"
-
+#import <SDWebImage/SDImageCache.h>
 
 @implementation FolderCell
 
@@ -26,11 +26,11 @@
             make.top.mas_offset(0);
             make.right.mas_offset(-20);
             make.left.mas_offset(20);
-            make.height.mas_offset(100);
+            make.height.mas_offset(isPhonePlus() ? 100:80);
         }];
         
-
         self.textView = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.textView.lineBreakMode = NSLineBreakByTruncatingMiddle;
         self.textView.numberOfLines = 0;
         self.textView.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:self.textView];
@@ -43,6 +43,7 @@
         
         UILongPressGestureRecognizer *ges = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
         [self.contentView addGestureRecognizer:ges];
+        self.cacheManager = [SDImageCache sharedImageCache];
         
     }
     return self;
@@ -63,9 +64,16 @@
     self.textView.text = _model.fileName;
     if (model.isVideo) {
         self.folderImage.image = [UIImage imageNamed:@"视频文件"];
-        VLCMedia *media = [VLCMedia mediaWithPath:model.fullPath];
-        self.thumbnailer = [VLCMediaThumbnailer thumbnailerWithMedia:media andDelegate:self];
-        [self.thumbnailer fetchThumbnail];
+        [self.cacheManager queryCacheOperationForKey:model.realtivePath options:1 done:^(UIImage * _Nullable image, NSData * _Nullable data, SDImageCacheType cacheType) {
+            if (!image) {
+                VLCMedia *media = [VLCMedia mediaWithPath:model.fullPath];
+                self.thumbnailer = [VLCMediaThumbnailer thumbnailerWithMedia:media andDelegate:self];
+                [self.thumbnailer fetchThumbnail];
+            }else{
+                self.folderImage.image = image;
+            }
+        }];
+
     }else if (model.isPhoto){
         self.folderImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:model.fullPath]];
     }else if (model.isPdf){
@@ -94,6 +102,9 @@
 
 -(void)mediaThumbnailer:(VLCMediaThumbnailer *)mediaThumbnailer didFinishThumbnail:(CGImageRef)thumbnail{
     self.folderImage.image = [UIImage imageWithCGImage:thumbnail];
+    [self.cacheManager storeImage:self.folderImage.image forKey:self.model.realtivePath completion:^{
+        NSLog(@"completion");
+    }];
 }
 
 @end
